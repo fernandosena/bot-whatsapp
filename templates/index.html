@@ -1157,16 +1157,62 @@
 
         // Exportar
         function exportExcel() {
+            const search = document.getElementById('search').value;
             const setor = document.getElementById('filter-setor').value;
             const cidade = document.getElementById('filter-cidade').value;
-            const params = new URLSearchParams({ setor, cidade });
+            const hasEmail = document.getElementById('table-filter-email').checked;
+            const hasTelefone = document.getElementById('table-filter-telefone').checked;
+            const hasWhatsapp = document.getElementById('table-filter-whatsapp').checked;
+            const hasWebsite = document.getElementById('table-filter-website').checked;
+            const hasInstagram = document.getElementById('table-filter-instagram').checked;
+            const hasFacebook = document.getElementById('table-filter-facebook').checked;
+            const hasLinkedin = document.getElementById('table-filter-linkedin').checked;
+            const hasTwitter = document.getElementById('table-filter-twitter').checked;
+
+            const params = new URLSearchParams({
+                search,
+                setor,
+                cidade,
+                has_email: hasEmail,
+                has_telefone: hasTelefone,
+                has_whatsapp: hasWhatsapp,
+                has_website: hasWebsite,
+                has_instagram: hasInstagram,
+                has_facebook: hasFacebook,
+                has_linkedin: hasLinkedin,
+                has_twitter: hasTwitter
+            });
+
             window.location.href = `/api/export/excel?${params}`;
         }
 
         function exportCSV() {
+            const search = document.getElementById('search').value;
             const setor = document.getElementById('filter-setor').value;
             const cidade = document.getElementById('filter-cidade').value;
-            const params = new URLSearchParams({ setor, cidade });
+            const hasEmail = document.getElementById('table-filter-email').checked;
+            const hasTelefone = document.getElementById('table-filter-telefone').checked;
+            const hasWhatsapp = document.getElementById('table-filter-whatsapp').checked;
+            const hasWebsite = document.getElementById('table-filter-website').checked;
+            const hasInstagram = document.getElementById('table-filter-instagram').checked;
+            const hasFacebook = document.getElementById('table-filter-facebook').checked;
+            const hasLinkedin = document.getElementById('table-filter-linkedin').checked;
+            const hasTwitter = document.getElementById('table-filter-twitter').checked;
+
+            const params = new URLSearchParams({
+                search,
+                setor,
+                cidade,
+                has_email: hasEmail,
+                has_telefone: hasTelefone,
+                has_whatsapp: hasWhatsapp,
+                has_website: hasWebsite,
+                has_instagram: hasInstagram,
+                has_facebook: hasFacebook,
+                has_linkedin: hasLinkedin,
+                has_twitter: hasTwitter
+            });
+
             window.location.href = `/api/export/csv?${params}`;
         }
 

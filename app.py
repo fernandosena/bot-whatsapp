@@ -201,18 +201,55 @@ def export_excel():
     """Exportar para Excel"""
     setor = request.args.get('setor', '')
     cidade = request.args.get('cidade', '')
+    has_email = request.args.get('has_email', '')
+    has_telefone = request.args.get('has_telefone', '')
+    has_whatsapp = request.args.get('has_whatsapp', '')
+    has_website = request.args.get('has_website', '')
+    has_instagram = request.args.get('has_instagram', '')
+    has_facebook = request.args.get('has_facebook', '')
+    has_linkedin = request.args.get('has_linkedin', '')
+    has_twitter = request.args.get('has_twitter', '')
+    search = request.args.get('search', '')
 
     # Construir query
     query = 'SELECT * FROM empresas WHERE 1=1'
     params = []
 
     if setor:
-        query += ' AND setor = ?'
-        params.append(setor)
+        query += ' AND setor LIKE ?'
+        params.append(f'%{setor}%')
 
     if cidade:
-        query += ' AND cidade = ?'
-        params.append(cidade)
+        query += ' AND cidade LIKE ?'
+        params.append(f'%{cidade}%')
+
+    if has_email == 'true':
+        query += ' AND email IS NOT NULL AND email != ""'
+
+    if has_telefone == 'true':
+        query += ' AND telefone IS NOT NULL AND telefone != ""'
+
+    if has_whatsapp == 'true':
+        query += ' AND whatsapp IS NOT NULL AND whatsapp != ""'
+
+    if has_website == 'true':
+        query += ' AND website IS NOT NULL AND website != ""'
+
+    if has_instagram == 'true':
+        query += ' AND instagram IS NOT NULL AND instagram != ""'
+
+    if has_facebook == 'true':
+        query += ' AND facebook IS NOT NULL AND facebook != ""'
+
+    if has_linkedin == 'true':
+        query += ' AND linkedin IS NOT NULL AND linkedin != ""'
+
+    if has_twitter == 'true':
+        query += ' AND twitter IS NOT NULL AND twitter != ""'
+
+    if search:
+        query += ' AND (nome LIKE ? OR endereco LIKE ?)'
+        params.extend([f'%{search}%', f'%{search}%'])
 
     query += ' ORDER BY data_criacao DESC'
 
@@ -255,18 +292,55 @@ def export_csv():
     """Exportar para CSV"""
     setor = request.args.get('setor', '')
     cidade = request.args.get('cidade', '')
+    has_email = request.args.get('has_email', '')
+    has_telefone = request.args.get('has_telefone', '')
+    has_whatsapp = request.args.get('has_whatsapp', '')
+    has_website = request.args.get('has_website', '')
+    has_instagram = request.args.get('has_instagram', '')
+    has_facebook = request.args.get('has_facebook', '')
+    has_linkedin = request.args.get('has_linkedin', '')
+    has_twitter = request.args.get('has_twitter', '')
+    search = request.args.get('search', '')
 
     # Construir query
     query = 'SELECT * FROM empresas WHERE 1=1'
     params = []
 
     if setor:
-        query += ' AND setor = ?'
-        params.append(setor)
+        query += ' AND setor LIKE ?'
+        params.append(f'%{setor}%')
 
     if cidade:
-        query += ' AND cidade = ?'
-        params.append(cidade)
+        query += ' AND cidade LIKE ?'
+        params.append(f'%{cidade}%')
+
+    if has_email == 'true':
+        query += ' AND email IS NOT NULL AND email != ""'
+
+    if has_telefone == 'true':
+        query += ' AND telefone IS NOT NULL AND telefone != ""'
+
+    if has_whatsapp == 'true':
+        query += ' AND whatsapp IS NOT NULL AND whatsapp != ""'
+
+    if has_website == 'true':
+        query += ' AND website IS NOT NULL AND website != ""'
+
+    if has_instagram == 'true':
+        query += ' AND instagram IS NOT NULL AND instagram != ""'
+
+    if has_facebook == 'true':
+        query += ' AND facebook IS NOT NULL AND facebook != ""'
+
+    if has_linkedin == 'true':
+        query += ' AND linkedin IS NOT NULL AND linkedin != ""'
+
+    if has_twitter == 'true':
+        query += ' AND twitter IS NOT NULL AND twitter != ""'
+
+    if search:
+        query += ' AND (nome LIKE ? OR endereco LIKE ?)'
+        params.extend([f'%{search}%', f'%{search}%'])
 
     query += ' ORDER BY data_criacao DESC'
 
