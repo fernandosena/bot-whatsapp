@@ -63,10 +63,35 @@ class Database:
             )
         ''')
 
+        # Tabela de checkpoints para retomar buscas
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS search_checkpoints (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                setor TEXT NOT NULL,
+                cidade TEXT NOT NULL,
+                total_encontrados INTEGER DEFAULT 0,
+                total_processados INTEGER DEFAULT 0,
+                total_salvos INTEGER DEFAULT 0,
+                ultimo_indice INTEGER DEFAULT 0,
+                status TEXT DEFAULT 'em_andamento',
+                data_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(setor, cidade)
+            )
+        ''')
+
         # Criar índices para otimizar buscas
         self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_setor ON empresas(setor)')
         self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_cidade ON empresas(cidade)')
         self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_email ON empresas(email)')
+        self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_nome ON empresas(nome)')
+        self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_nome_endereco ON empresas(nome, endereco)')
+
+        # Otimizações de performance do SQLite
+        self.cursor.execute('PRAGMA journal_mode=WAL')  # Write-Ahead Logging para melhor concorrência
+        self.cursor.execute('PRAGMA synchronous=NORMAL')  # Balanço entre segurança e velocidade
+        self.cursor.execute('PRAGMA cache_size=10000')  # Cache maior para consultas
+        self.cursor.execute('PRAGMA temp_store=MEMORY')  # Usar memória para tabelas temporárias
 
         self.conn.commit()
 
@@ -203,3 +228,87 @@ class Database:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
+
+    # ==================== MÉTODOS DE CHECKPOINT ====================
+
+    def get_checkpoint(self, setor, cidade):
+        """Obter checkpoint de uma busca"""
+        cursor = self.cursor
+        cursor.execute(
+            'SELECT * FROM search_checkpoints WHERE setor = ? AND cidade = ?',
+            (setor, cidade)
+        )
+        row = cursor.fetchone()
+        return dict(row) if row else None
+
+    def create_or_update_checkpoint(self, setor, cidade, total_encontrados=0, total_processados=0, total_salvos=0, ultimo_indice=0, status='em_andamento'):
+        """Criar ou atualizar checkpoint de uma busca"""
+        cursor = self.cursor
+
+        # Tentar atualizar primeiro
+        cursor.execute('''
+            UPDATE search_checkpoints SET
+                total_encontrados = ?,
+                total_processados = ?,
+                total_salvos = ?,
+                ultimo_indice = ?,
+                status = ?,
+                data_atualizacao = CURRENT_TIMESTAMP
+            WHERE setor = ? AND cidade = ?
+        ''', (total_encontrados, total_processados, total_salvos, ultimo_indice, status, setor, cidade))
+
+        # Se não atualizou nada, inserir novo
+        if cursor.rowcount == 0:
+            cursor.execute('''
+                INSERT INTO search_checkpoints (setor, cidade, total_encontrados, total_processados, total_salvos, ultimo_indice, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ''', (setor, cidade, total_encontrados, total_processados, total_salvos, ultimo_indice, status))
+
+        self.conn.commit()
+
+    def update_checkpoint_progress(self, setor, cidade, processados_increment=1, salvos_increment=0, ultimo_indice=None):
+        """Atualizar progresso do checkpoint"""
+        cursor = self.cursor
+
+        if ultimo_indice is not None:
+            cursor.execute('''
+                UPDATE search_checkpoints SET
+                    total_processados = total_processados + ?,
+                    total_salvos = total_salvos + ?,
+                    ultimo_indice = ?,
+                    data_atualizacao = CURRENT_TIMESTAMP
+                WHERE setor = ? AND cidade = ?
+            ''', (processados_increment, salvos_increment, ultimo_indice, setor, cidade))
+        else:
+            cursor.execute('''
+                UPDATE search_checkpoints SET
+                    total_processados = total_processados + ?,
+                    total_salvos = total_salvos + ?,
+                    data_atualizacao = CURRENT_TIMESTAMP
+                WHERE setor = ? AND cidade = ?
+            ''', (processados_increment, salvos_increment, setor, cidade))
+
+        self.conn.commit()
+
+    def mark_checkpoint_complete(self, setor, cidade):
+        """Marcar checkpoint como concluído"""
+        cursor = self.cursor
+        cursor.execute('''
+            UPDATE search_checkpoints SET
+                status = 'concluido',
+                data_atualizacao = CURRENT_TIMESTAMP
+            WHERE setor = ? AND cidade = ?
+        ''', (setor, cidade))
+        self.conn.commit()
+
+    def reset_checkpoint(self, setor, cidade):
+        """Resetar checkpoint para começar do zero"""
+        cursor = self.cursor
+        cursor.execute('DELETE FROM search_checkpoints WHERE setor = ? AND cidade = ?', (setor, cidade))
+        self.conn.commit()
+
+    def get_all_checkpoints(self):
+        """Obter todos os checkpoints"""
+        cursor = self.cursor
+        cursor.execute('SELECT * FROM search_checkpoints ORDER BY data_atualizacao DESC')
+        return [dict(row) for row in cursor.fetchall()]

@@ -361,6 +361,118 @@
             margin-bottom: 20px;
             opacity: 0.3;
         }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .pagination-info {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .pagination-buttons button {
+            min-width: 40px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .pagination-buttons span {
+            padding: 0 5px;
+            color: #999;
+        }
+
+        /* Checkpoints */
+        .checkpoint-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkpoint-info {
+            flex: 1;
+        }
+
+        .checkpoint-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .checkpoint-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .checkpoint-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkpoint-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-em_andamento {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-concluido {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-erro {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .progress-mini {
+            background: #e2e8f0;
+            border-radius: 4px;
+            height: 6px;
+            width: 150px;
+            overflow: hidden;
+        }
+
+        .progress-mini-bar {
+            background: #667eea;
+            height: 100%;
+            transition: width 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -378,16 +490,36 @@
                 <div class="value" id="total-empresas">0</div>
             </div>
             <div class="stat-card">
-                <h3>Com Email</h3>
+                <h3>📧 Com Email</h3>
                 <div class="value" id="total-email">0</div>
             </div>
             <div class="stat-card">
-                <h3>Com Telefone</h3>
+                <h3>📞 Com Telefone</h3>
                 <div class="value" id="total-telefone">0</div>
             </div>
             <div class="stat-card">
-                <h3>Com WhatsApp</h3>
+                <h3>📱 Com WhatsApp</h3>
                 <div class="value" id="total-whatsapp">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>🌐 Com Website</h3>
+                <div class="value" id="total-website">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>📸 Com Instagram</h3>
+                <div class="value" id="total-instagram">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>👥 Com Facebook</h3>
+                <div class="value" id="total-facebook">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>💼 Com LinkedIn</h3>
+                <div class="value" id="total-linkedin">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>🐦 Com Twitter</h3>
+                <div class="value" id="total-twitter">0</div>
             </div>
         </div>
 
@@ -408,13 +540,77 @@
                     <input type="number" id="max-results" value="50" min="1" max="500">
                 </div>
             </div>
-            <div style="display: flex; gap: 15px;">
+            <!-- Filtros de dados de contato -->
+            <div style="margin: 20px 0;">
+                <label style="font-weight: bold; display: block; margin-bottom: 10px;">
+                    📋 Buscar apenas empresas com:
+                </label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-whatsapp" checked>
+                        <span>📱 WhatsApp</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-telefone" checked>
+                        <span>📞 Telefone</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-email" checked>
+                        <span>📧 Email</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-website" checked>
+                        <span>🌐 Website</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-instagram" checked>
+                        <span>📸 Instagram</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-facebook" checked>
+                        <span>👥 Facebook</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-linkedin" checked>
+                        <span>💼 LinkedIn</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="filter-twitter" checked>
+                        <span>🐦 Twitter</span>
+                    </label>
+                </div>
+                <div style="margin-top: 10px; font-size: 13px; color: #666;">
+                    💡 <em>Empresas que não tiverem pelo menos um dos contatos selecionados serão ignoradas</em>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px; align-items: center;">
                 <button class="btn btn-primary" id="btn-start" onclick="startScraping()">
                     ▶️ Iniciar Busca
                 </button>
                 <button class="btn btn-danger" id="btn-stop" onclick="stopScraping()" disabled>
                     ⏹️ Parar
                 </button>
+                <label style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
+                    <input type="checkbox" id="continue-checkpoint" checked>
+                    <span>Continuar de onde parou (checkpoint)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Gerenciamento de Checkpoints -->
+        <div class="controls" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2>📌 Checkpoints Salvos</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary btn-small" onclick="loadCheckpoints()">🔄 Atualizar</button>
+                    <button class="btn btn-danger btn-small" onclick="deleteAllCheckpoints()">🗑️ Deletar Todos</button>
+                </div>
+            </div>
+            <div id="checkpoints-list">
+                <div class="empty-state">
+                    <p>Nenhum checkpoint encontrado</p>
+                </div>
             </div>
         </div>
 
@@ -470,17 +666,42 @@
                 </div>
             </div>
             <div class="filter-options">
-                <div class="checkbox-group">
-                    <input type="checkbox" id="filter-email">
-                    <label for="filter-email">Apenas com Email</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="filter-telefone">
-                    <label for="filter-telefone">Apenas com Telefone</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="filter-whatsapp">
-                    <label for="filter-whatsapp">Apenas com WhatsApp</label>
+                <label style="font-weight: bold; display: block; margin-bottom: 10px;">
+                    📋 Filtrar por tipo de contato:
+                </label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-whatsapp">
+                        <label for="table-filter-whatsapp">📱 Apenas com WhatsApp</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-telefone">
+                        <label for="table-filter-telefone">📞 Apenas com Telefone</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-email">
+                        <label for="table-filter-email">📧 Apenas com Email</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-website">
+                        <label for="table-filter-website">🌐 Apenas com Website</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-instagram">
+                        <label for="table-filter-instagram">📸 Apenas com Instagram</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-facebook">
+                        <label for="table-filter-facebook">👥 Apenas com Facebook</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-linkedin">
+                        <label for="table-filter-linkedin">💼 Apenas com LinkedIn</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="table-filter-twitter">
+                        <label for="table-filter-twitter">🐦 Apenas com Twitter</label>
+                    </div>
                 </div>
             </div>
             <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
@@ -494,7 +715,13 @@
         <!-- Tabela -->
         <div class="table-container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2>📋 Empresas Cadastradas</h2>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <h2>📋 Empresas Cadastradas</h2>
+                    <span id="table-updating-indicator" style="display: none; color: #667eea; font-size: 14px;">
+                        <span class="spinner" style="width: 14px; height: 14px; border-width: 2px;"></span>
+                        Atualizando...
+                    </span>
+                </div>
                 <div id="bulk-actions" class="bulk-actions bulk-actions-hidden">
                     <span id="selected-count" style="color: #666;">0 selecionados</span>
                     <button class="btn btn-danger btn-small" onclick="deleteSelected()">🗑️ Deletar Selecionados</button>
@@ -538,16 +765,35 @@
             document.getElementById('total-email').textContent = stats.total_email;
             document.getElementById('total-telefone').textContent = stats.total_telefone;
             document.getElementById('total-whatsapp').textContent = stats.total_whatsapp;
+            document.getElementById('total-website').textContent = stats.total_website;
+            document.getElementById('total-instagram').textContent = stats.total_instagram;
+            document.getElementById('total-facebook').textContent = stats.total_facebook;
+            document.getElementById('total-linkedin').textContent = stats.total_linkedin;
+            document.getElementById('total-twitter').textContent = stats.total_twitter;
         }
+
+        // Variáveis de paginação
+        let currentPage = 1;
+        let itemsPerPage = 10;
+        let allEmpresas = [];
 
         // Carregar empresas
         async function loadEmpresas() {
+            // Mostrar indicador de atualização
+            const indicator = document.getElementById('table-updating-indicator');
+            if (indicator) indicator.style.display = 'flex';
+
             const search = document.getElementById('search').value;
             const setor = document.getElementById('filter-setor').value;
             const cidade = document.getElementById('filter-cidade').value;
-            const hasEmail = document.getElementById('filter-email').checked;
-            const hasTelefone = document.getElementById('filter-telefone').checked;
-            const hasWhatsapp = document.getElementById('filter-whatsapp').checked;
+            const hasEmail = document.getElementById('table-filter-email').checked;
+            const hasTelefone = document.getElementById('table-filter-telefone').checked;
+            const hasWhatsapp = document.getElementById('table-filter-whatsapp').checked;
+            const hasWebsite = document.getElementById('table-filter-website').checked;
+            const hasInstagram = document.getElementById('table-filter-instagram').checked;
+            const hasFacebook = document.getElementById('table-filter-facebook').checked;
+            const hasLinkedin = document.getElementById('table-filter-linkedin').checked;
+            const hasTwitter = document.getElementById('table-filter-twitter').checked;
 
             const params = new URLSearchParams({
                 search,
@@ -555,15 +801,38 @@
                 cidade,
                 has_email: hasEmail,
                 has_telefone: hasTelefone,
-                has_whatsapp: hasWhatsapp
+                has_whatsapp: hasWhatsapp,
+                has_website: hasWebsite,
+                has_instagram: hasInstagram,
+                has_facebook: hasFacebook,
+                has_linkedin: hasLinkedin,
+                has_twitter: hasTwitter
             });
 
-            const response = await fetch(`/api/empresas?${params}`);
-            const empresas = await response.json();
+            try {
+                const response = await fetch(`/api/empresas?${params}`);
+                allEmpresas = await response.json();
 
+                // Resetar para primeira página quando filtros mudam
+                currentPage = 1;
+                renderPage();
+            } catch (error) {
+                console.error('Erro ao carregar empresas:', error);
+            } finally {
+                // Esconder indicador de atualização
+                if (indicator) {
+                    setTimeout(() => {
+                        indicator.style.display = 'none';
+                    }, 300);
+                }
+            }
+        }
+
+        // Renderizar página atual
+        function renderPage() {
             const tableContent = document.getElementById('table-content');
 
-            if (empresas.length === 0) {
+            if (allEmpresas.length === 0) {
                 tableContent.innerHTML = `
                     <div class="empty-state">
                         <h3>Nenhuma empresa encontrada</h3>
@@ -572,6 +841,11 @@
                 `;
                 return;
             }
+
+            // Calcular índices para paginação
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const empresasPage = allEmpresas.slice(startIndex, endIndex);
 
             let html = `
                 <table>
@@ -584,6 +858,7 @@
                             <th>Telefone</th>
                             <th>Email</th>
                             <th>WhatsApp</th>
+                            <th>Website</th>
                             <th>Redes Sociais</th>
                             <th>Ações</th>
                         </tr>
@@ -591,7 +866,7 @@
                     <tbody>
             `;
 
-            empresas.forEach(empresa => {
+            empresasPage.forEach(empresa => {
                 // Construir links de redes sociais
                 let socialLinks = [];
                 if (empresa.instagram) socialLinks.push(`<a href="${empresa.instagram}" target="_blank" title="Instagram">📷</a>`);
@@ -608,6 +883,7 @@
                         <td>${empresa.telefone || '-'}</td>
                         <td>${empresa.email || '-'}</td>
                         <td>${empresa.whatsapp ? `<span class="badge badge-success">Sim</span>` : '-'}</td>
+                        <td>${empresa.website ? `<a href="${empresa.website}" target="_blank" title="Visitar website">🌐 Site</a>` : '-'}</td>
                         <td>${socialLinks.length > 0 ? socialLinks.join(' ') : '-'}</td>
                         <td>
                             <button class="btn btn-danger btn-small" onclick="deleteEmpresa(${empresa.id})">Deletar</button>
@@ -617,7 +893,45 @@
             });
 
             html += '</tbody></table>';
+
+            // Adicionar controles de paginação
+            const totalPages = Math.ceil(allEmpresas.length / itemsPerPage);
+            if (totalPages > 1) {
+                html += '<div class="pagination">';
+                html += `<span class="pagination-info">Mostrando ${startIndex + 1}-${Math.min(endIndex, allEmpresas.length)} de ${allEmpresas.length} empresas</span>`;
+                html += '<div class="pagination-buttons">';
+
+                // Botão Anterior
+                if (currentPage > 1) {
+                    html += `<button class="btn btn-secondary" onclick="changePage(${currentPage - 1})">← Anterior</button>`;
+                }
+
+                // Números de página
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === currentPage) {
+                        html += `<button class="btn btn-primary">${i}</button>`;
+                    } else if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                        html += `<button class="btn btn-secondary" onclick="changePage(${i})">${i}</button>`;
+                    } else if (i === currentPage - 3 || i === currentPage + 3) {
+                        html += '<span>...</span>';
+                    }
+                }
+
+                // Botão Próximo
+                if (currentPage < totalPages) {
+                    html += `<button class="btn btn-secondary" onclick="changePage(${currentPage + 1})">Próximo →</button>`;
+                }
+
+                html += '</div></div>';
+            }
+
             tableContent.innerHTML = html;
+        }
+
+        // Mudar página
+        function changePage(page) {
+            currentPage = page;
+            renderPage();
         }
 
         // Carregar setores e cidades
@@ -650,13 +964,39 @@
             const setor = document.getElementById('setor').value;
             const cidade = document.getElementById('cidade').value;
             const maxResults = parseInt(document.getElementById('max-results').value);
+            const continueCheckpoint = document.getElementById('continue-checkpoint').checked;
+
+            // Coletar filtros de contato
+            const requiredContacts = {
+                whatsapp: document.getElementById('filter-whatsapp').checked,
+                telefone: document.getElementById('filter-telefone').checked,
+                email: document.getElementById('filter-email').checked,
+                website: document.getElementById('filter-website').checked,
+                instagram: document.getElementById('filter-instagram').checked,
+                facebook: document.getElementById('filter-facebook').checked,
+                linkedin: document.getElementById('filter-linkedin').checked,
+                twitter: document.getElementById('filter-twitter').checked
+            };
+
+            // Verificar se pelo menos um filtro está marcado
+            const hasAnyFilter = Object.values(requiredContacts).some(v => v);
+            if (!hasAnyFilter) {
+                alert('⚠️ Selecione pelo menos um tipo de contato para buscar!');
+                return;
+            }
 
             if (!setor || !cidade) {
                 alert('Preencha setor e cidade!');
                 return;
             }
 
-            socket.emit('start_scraping', { setor, cidade, max_results: maxResults });
+            socket.emit('start_scraping', {
+                setor,
+                cidade,
+                max_results: maxResults,
+                continue_from_checkpoint: continueCheckpoint,
+                required_contacts: requiredContacts
+            });
 
             document.getElementById('btn-start').disabled = true;
             document.getElementById('btn-stop').disabled = false;
@@ -673,6 +1013,10 @@
             console.log('Status:', data);
         });
 
+        // Controle de throttle para atualização da tabela
+        let lastTableUpdate = 0;
+        const tableUpdateInterval = 3000; // Atualizar tabela a cada 3 segundos
+
         socket.on('scraping_progress', (data) => {
             console.log('📊 Progresso recebido:', data);
 
@@ -688,7 +1032,19 @@
             document.getElementById('current-business').style.display = 'flex';
             document.getElementById('current-business-name').textContent = data.current_business;
 
+            // Atualizar estatísticas sempre
             loadStats();
+
+            // Atualizar tabela com throttle (a cada 3 segundos ou quando salvar uma empresa)
+            const now = Date.now();
+            const shouldUpdate = (data.status === 'saved' || data.status === 'updated') ||
+                                 (now - lastTableUpdate > tableUpdateInterval);
+
+            if (shouldUpdate) {
+                loadEmpresas();
+                lastTableUpdate = now;
+                console.log('🔄 Tabela atualizada');
+            }
         });
 
         socket.on('scraping_complete', (data) => {
@@ -700,6 +1056,7 @@
             loadStats();
             loadEmpresas();
             loadFilters();
+            loadCheckpoints(); // Atualizar checkpoints
         });
 
         socket.on('scraping_error', (data) => {
@@ -813,10 +1170,272 @@
             window.location.href = `/api/export/csv?${params}`;
         }
 
+        // ==================== FUNÇÕES DE CHECKPOINT ====================
+
+        // Carregar checkpoints
+        async function loadCheckpoints() {
+            try {
+                const response = await fetch('/api/checkpoints');
+                const checkpoints = await response.json();
+                renderCheckpoints(checkpoints);
+            } catch (error) {
+                console.error('Erro ao carregar checkpoints:', error);
+            }
+        }
+
+        // Renderizar checkpoints
+        function renderCheckpoints(checkpoints) {
+            const container = document.getElementById('checkpoints-list');
+
+            if (!checkpoints || checkpoints.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <p>Nenhum checkpoint encontrado</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div style="display: grid; gap: 15px;">';
+
+            checkpoints.forEach(cp => {
+                const statusClass = cp.status === 'concluido' ? 'success' :
+                                    cp.status === 'erro' ? 'error' : 'warning';
+                const statusText = cp.status === 'concluido' ? 'Concluído' :
+                                   cp.status === 'erro' ? 'Erro' : 'Em Andamento';
+
+                const progressPercent = cp.total_encontrados > 0
+                    ? ((cp.total_processados / cp.total_encontrados) * 100).toFixed(0)
+                    : 0;
+
+                const dataAtualizacao = new Date(cp.data_atualizacao).toLocaleString('pt-BR');
+
+                html += `
+                    <div class="checkpoint-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                            <div>
+                                <h3 style="margin: 0 0 5px 0; font-size: 16px;">${cp.setor}</h3>
+                                <p style="margin: 0; color: #666; font-size: 14px;">📍 ${cp.cidade}</p>
+                            </div>
+                            <span class="status-badge ${statusClass}">${statusText}</span>
+                        </div>
+
+                        <div class="progress-mini">
+                            <div class="progress-bar-mini" style="width: ${progressPercent}%"></div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; font-size: 13px;">
+                            <div>
+                                <span style="color: #666;">Encontrados:</span>
+                                <strong>${cp.total_encontrados}</strong>
+                            </div>
+                            <div>
+                                <span style="color: #666;">Processados:</span>
+                                <strong>${cp.total_processados}</strong>
+                            </div>
+                            <div>
+                                <span style="color: #666;">Salvos:</span>
+                                <strong>${cp.total_salvos}</strong>
+                            </div>
+                        </div>
+
+                        <div style="font-size: 12px; color: #999; margin-bottom: 10px;">
+                            ⏰ Atualizado em ${dataAtualizacao}
+                        </div>
+
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-primary btn-small" onclick="continueFromCheckpoint('${cp.setor}', '${cp.cidade}')">
+                                ▶️ Continuar
+                            </button>
+                            <button class="btn btn-secondary btn-small" onclick="resetCheckpoint('${cp.setor}', '${cp.cidade}')">
+                                🔄 Resetar
+                            </button>
+                            <button class="btn btn-danger btn-small" onclick="deleteCheckpoint('${cp.setor}', '${cp.cidade}')">
+                                🗑️ Deletar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Continuar de um checkpoint
+        async function continueFromCheckpoint(setor, cidade) {
+            // Verificar o status do checkpoint
+            try {
+                const response = await fetch(`/api/checkpoints/${encodeURIComponent(setor)}/${encodeURIComponent(cidade)}`);
+                const checkpoint = await response.json();
+
+                // Se o checkpoint está concluído, perguntar se quer resetar
+                if (checkpoint.status === 'concluido') {
+                    const reset = confirm(
+                        `⚠️ Este checkpoint já foi concluído!\n\n` +
+                        `Total processados: ${checkpoint.total_processados}\n` +
+                        `Total salvos: ${checkpoint.total_salvos}\n\n` +
+                        `Para buscar mais empresas, você tem 2 opções:\n\n` +
+                        `1️⃣ RESETAR e recomeçar do zero (clique OK)\n` +
+                        `2️⃣ Usar termos mais específicos/bairros (clique CANCELAR)\n\n` +
+                        `Deseja RESETAR e recomeçar?`
+                    );
+
+                    if (reset) {
+                        // Resetar o checkpoint
+                        const resetResponse = await fetch(`/api/checkpoints/${encodeURIComponent(setor)}/${encodeURIComponent(cidade)}/reset`, {
+                            method: 'POST'
+                        });
+                        const resetData = await resetResponse.json();
+
+                        if (resetData.success) {
+                            alert('✅ Checkpoint resetado! Você pode iniciar uma nova busca.');
+                            loadCheckpoints();
+                        } else {
+                            alert('❌ Erro ao resetar checkpoint: ' + resetData.message);
+                            return;
+                        }
+                    } else {
+                        alert('💡 Dica: Use bairros específicos ou termos mais detalhados.\n\nExemplo:\n- "lanchonete em Centro, São Paulo"\n- "lanchonete delivery em São Paulo"');
+                        return;
+                    }
+                }
+
+                // Preencher formulário
+                document.getElementById('setor').value = setor;
+                document.getElementById('cidade').value = cidade;
+                document.getElementById('continue-checkpoint').checked = true;
+
+                // Scroll para o formulário
+                document.querySelector('.controls').scrollIntoView({ behavior: 'smooth' });
+
+                // Highlight dos campos
+                const setorInput = document.getElementById('setor');
+                const cidadeInput = document.getElementById('cidade');
+
+                setorInput.style.border = '2px solid #2196F3';
+                cidadeInput.style.border = '2px solid #2196F3';
+
+                setTimeout(() => {
+                    setorInput.style.border = '';
+                    cidadeInput.style.border = '';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Erro ao verificar checkpoint:', error);
+                // Continuar mesmo com erro
+                document.getElementById('setor').value = setor;
+                document.getElementById('cidade').value = cidade;
+                document.getElementById('continue-checkpoint').checked = true;
+                document.querySelector('.controls').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Resetar checkpoint
+        async function resetCheckpoint(setor, cidade) {
+            if (!confirm(`⚠️ Resetar checkpoint de "${setor}" em "${cidade}"?\n\nIsso fará a próxima busca começar do zero.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/checkpoints/${encodeURIComponent(setor)}/${encodeURIComponent(cidade)}/reset`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    loadCheckpoints();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                alert('❌ Erro ao resetar checkpoint: ' + error.message);
+            }
+        }
+
+        // Deletar checkpoint
+        async function deleteCheckpoint(setor, cidade) {
+            if (!confirm(`🗑️ Deletar checkpoint de "${setor}" em "${cidade}"?\n\nIsso removerá permanentemente o checkpoint.\nNão é possível desfazer esta ação.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/checkpoints/${encodeURIComponent(setor)}/${encodeURIComponent(cidade)}/delete`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    loadCheckpoints();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                alert('❌ Erro ao deletar checkpoint: ' + error.message);
+            }
+        }
+
+        // Resetar todos os checkpoints
+        async function resetAllCheckpoints() {
+            if (!confirm('⚠️ ATENÇÃO: Resetar TODOS os checkpoints?\n\nTodas as buscas começarão do zero na próxima execução.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/checkpoints/reset-all', {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    loadCheckpoints();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                alert('❌ Erro ao resetar checkpoints: ' + error.message);
+            }
+        }
+
+        // Deletar todos os checkpoints
+        async function deleteAllCheckpoints() {
+            if (!confirm('🗑️ ATENÇÃO: Deletar TODOS os checkpoints?\n\nIsso removerá PERMANENTEMENTE todos os checkpoints.\nNão é possível desfazer esta ação.')) {
+                return;
+            }
+
+            if (!confirm('Tem certeza absoluta? Esta ação é irreversível!')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/checkpoints/delete-all', {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    loadCheckpoints();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                alert('❌ Erro ao deletar checkpoints: ' + error.message);
+            }
+        }
+
         // Inicializar
         loadStats();
         loadEmpresas();
         loadFilters();
+        loadCheckpoints();
 
         // Auto-refresh a cada 5 segundos
         setInterval(() => {

@@ -10,6 +10,10 @@ import time
 import re
 import requests
 from bs4 import BeautifulSoup
+import urllib3
+
+# Desabilitar warnings de SSL
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class GoogleMapsScraper:
@@ -29,12 +33,35 @@ class GoogleMapsScraper:
         if self.headless:
             chrome_options.add_argument('--headless=new')
 
+        # Otimizações de performance
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
         chrome_options.add_argument('--start-maximized')
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-software-rasterizer')
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument('--dns-prefetch-disable')
+        chrome_options.add_argument('--disable-logging')
+        chrome_options.add_argument('--log-level=3')
+        chrome_options.add_argument('--silent')
+
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-automation', 'enable-logging'])
         chrome_options.add_experimental_option('useAutomationExtension', False)
+
+        # Desabilitar imagens para performance (economiza ~70% de banda)
+        prefs = {
+            'profile.managed_default_content_settings.images': 2,
+            'profile.managed_default_content_settings.stylesheets': 2,
+            'profile.managed_default_content_settings.cookies': 1,
+            'profile.managed_default_content_settings.javascript': 1,
+            'profile.managed_default_content_settings.plugins': 2,
+            'profile.managed_default_content_settings.popups': 2,
+            'profile.managed_default_content_settings.geolocation': 2,
+            'profile.managed_default_content_settings.notifications': 2,
+            'profile.managed_default_content_settings.media_stream': 2,
+        }
+        chrome_options.add_experimental_option('prefs', prefs)
 
         # User agent
         chrome_options.add_argument(
@@ -84,16 +111,50 @@ class GoogleMapsScraper:
             self.driver = webdriver.Chrome(options=chrome_options)
             self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
-    def search_businesses(self, setor, cidade, max_results=50, db=None, progress_callback=None):
+    def search_businesses(self, setor, cidade, max_results=50, db=None, progress_callback=None, continue_from_checkpoint=True, required_contacts=None):
         """Buscar empresas no Google Maps"""
         search_query = f"{setor} em {cidade}"
         search_url = f"https://www.google.com/maps/search/{search_query.replace(' ', '+')}"
 
+        # Filtros de contato padrão (se não especificado, aceita qualquer contato)
+        if required_contacts is None:
+            required_contacts = {
+                'whatsapp': True,
+                'telefone': True,
+                'email': True,
+                'website': True,
+                'instagram': True,
+                'facebook': True,
+                'linkedin': True,
+                'twitter': True
+            }
+
         print(f"🔍 Buscando: {search_query}")
+        print(f"📋 Filtros ativos: {', '.join([k.capitalize() for k, v in required_contacts.items() if v])}")
         print(f"📍 URL: {search_url}")
 
+        # Verificar se existe checkpoint anterior
+        start_index = 0
+        checkpoint = None
+        if db and continue_from_checkpoint:
+            checkpoint = db.get_checkpoint(setor, cidade)
+            if checkpoint and checkpoint['status'] == 'em_andamento':
+                start_index = checkpoint['ultimo_indice']
+                print(f"📌 Checkpoint encontrado! Continuando do índice {start_index}")
+                print(f"   Já processados: {checkpoint['total_processados']} | Salvos: {checkpoint['total_salvos']}")
+            elif checkpoint and checkpoint['status'] == 'concluido':
+                print(f"✅ Busca já foi concluída anteriormente!")
+                print(f"   Total processados: {checkpoint['total_processados']} | Salvos: {checkpoint['total_salvos']}")
+                resposta = input("Deseja recomeçar do zero? (s/N): ").lower()
+                if resposta == 's':
+                    db.reset_checkpoint(setor, cidade)
+                    start_index = 0
+                    print("🔄 Checkpoint resetado! Começando do zero...")
+                else:
+                    return []
+
         self.driver.get(search_url)
-        time.sleep(3)
+        time.sleep(1)  # Reduzido de 3s para 1s
 
         businesses = []
         processed_count = 0
@@ -124,7 +185,63 @@ class GoogleMapsScraper:
                 except:
                     pass
 
-            print(f"📊 Encontradas {len(business_urls)} empresas para processar\n")
+            print(f"📊 Encontradas {len(business_urls)} empresas para processar")
+
+            # Criar ou atualizar checkpoint inicial
+            if db:
+                db.create_or_update_checkpoint(
+                    setor, cidade,
+                    total_encontrados=len(business_urls),
+                    total_processados=checkpoint['total_processados'] if checkpoint else 0,
+                    total_salvos=checkpoint['total_salvos'] if checkpoint else 0,
+                    ultimo_indice=start_index,
+                    status='em_andamento'
+                )
+
+            # Limitar URLs ao max_results solicitado
+            business_urls = business_urls[:max_results]
+
+            # Pular URLs já processadas (baseado no checkpoint)
+            if start_index > 0:
+                print(f"⏭️  Pulando {start_index} empresas já processadas...")
+
+                # Verificar se ainda há empresas para processar
+                if start_index >= len(business_urls):
+                    print(f"\n⚠️  AVISO: Checkpoint está no índice {start_index}, mas Google Maps retornou apenas {len(business_urls)} resultados.")
+                    print(f"📌 Esta busca já foi completada! Não há novas empresas para processar.")
+                    print(f"\n💡 Dicas para coletar mais empresas:")
+                    print(f"   1. Divida por bairros: '{setor} em [Bairro], {cidade}'")
+                    print(f"   2. Use termos mais específicos: '{setor} delivery', '{setor} artesanal', etc")
+                    print(f"   3. Tente cidades vizinhas")
+                    print(f"   4. Reset o checkpoint se quiser recomeçar a mesma busca\n")
+
+                    # Marcar checkpoint como concluído
+                    if db:
+                        db.mark_checkpoint_complete(setor, cidade)
+                        print(f"✅ Checkpoint marcado como CONCLUÍDO")
+
+                    # Retornar resumo
+                    print(f"\n{'=' * 50}")
+                    print(f"📊 Resumo da busca:")
+                    print(f"   Total processados: {checkpoint['total_processados'] if checkpoint else 0}")
+                    print(f"   💾 Salvos: {checkpoint['total_salvos'] if checkpoint else 0}")
+                    print(f"   🔄 Atualizados: {updated_count}")
+                    print(f"   ⏭️  Ignorados: {skipped_count}")
+                    print(f"{'=' * 50}\n")
+
+                    return businesses
+
+                business_urls = business_urls[start_index:]
+                processed_count = start_index
+                if checkpoint:
+                    saved_count = checkpoint['total_salvos']
+                    updated_count = checkpoint.get('total_atualizados', 0)
+
+            # Processar em chunks para evitar sobrecarga de memória
+            import os
+            chunk_size = int(os.getenv('CHUNK_SIZE', 100))
+            total_chunks = (len(business_urls) + chunk_size - 1) // chunk_size
+            print(f"📦 Processando em {total_chunks} chunks de {chunk_size} empresas\n")
 
             # Processar cada URL diretamente
             for idx, url in enumerate(business_urls):
@@ -132,24 +249,39 @@ class GoogleMapsScraper:
                     break
 
                 try:
-                    print(f"🔄 [{processed_count + 1}/{len(business_urls)}] Acessando empresa...")
+                    chunk_num = (idx // chunk_size) + 1
+                    actual_index = start_index + idx
+                    print(f"🔄 [Chunk {chunk_num}/{total_chunks}] [{actual_index + 1}/{start_index + len(business_urls)}] Acessando empresa...")
 
                     # Navegar diretamente para o URL da empresa
                     self.driver.get(url)
-                    time.sleep(2)
+                    time.sleep(0.8)  # Reduzido de 2s para 0.8s
 
                     # Extrair dados
                     business_data = self._extract_business_data(setor, cidade)
 
                     if business_data and business_data.get('nome'):
-                        # Verificar se tem pelo menos um dado de contato
-                        has_contact = (
-                            business_data.get('telefone') or
-                            business_data.get('email') or
-                            business_data.get('whatsapp')
-                        )
+                        # Verificar se tem pelo menos um dos contatos requeridos
+                        has_required_contact = False
 
-                        if has_contact:
+                        if required_contacts.get('whatsapp') and business_data.get('whatsapp'):
+                            has_required_contact = True
+                        if required_contacts.get('telefone') and business_data.get('telefone'):
+                            has_required_contact = True
+                        if required_contacts.get('email') and business_data.get('email'):
+                            has_required_contact = True
+                        if required_contacts.get('website') and business_data.get('website'):
+                            has_required_contact = True
+                        if required_contacts.get('instagram') and business_data.get('instagram'):
+                            has_required_contact = True
+                        if required_contacts.get('facebook') and business_data.get('facebook'):
+                            has_required_contact = True
+                        if required_contacts.get('linkedin') and business_data.get('linkedin'):
+                            has_required_contact = True
+                        if required_contacts.get('twitter') and business_data.get('twitter'):
+                            has_required_contact = True
+
+                        if has_required_contact:
                             businesses.append(business_data)
 
                             # Salvar ou atualizar no banco de dados
@@ -186,7 +318,27 @@ class GoogleMapsScraper:
                                 })
                         else:
                             skipped_count += 1
-                            print(f"⏭️  [{processed_count + 1}] {business_data.get('nome')} - SEM DADOS DE CONTATO")
+                            # Mostrar quais contatos a empresa tem
+                            available_contacts = []
+                            if business_data.get('whatsapp'):
+                                available_contacts.append('WhatsApp')
+                            if business_data.get('telefone'):
+                                available_contacts.append('Telefone')
+                            if business_data.get('email'):
+                                available_contacts.append('Email')
+                            if business_data.get('website'):
+                                available_contacts.append('Website')
+                            if business_data.get('instagram'):
+                                available_contacts.append('Instagram')
+                            if business_data.get('facebook'):
+                                available_contacts.append('Facebook')
+                            if business_data.get('linkedin'):
+                                available_contacts.append('LinkedIn')
+                            if business_data.get('twitter'):
+                                available_contacts.append('Twitter')
+
+                            contacts_str = ', '.join(available_contacts) if available_contacts else 'Nenhum'
+                            print(f"⏭️  [{processed_count + 1}] {business_data.get('nome')} - NÃO ATENDE FILTROS (tem: {contacts_str})")
 
                             # Callback de progresso
                             if progress_callback:
@@ -208,8 +360,17 @@ class GoogleMapsScraper:
                 # Incrementar contador de processados
                 processed_count += 1
 
-                # Pequeno delay entre empresas
-                time.sleep(0.3)
+                # Atualizar checkpoint a cada empresa processada
+                if db:
+                    db.update_checkpoint_progress(
+                        setor, cidade,
+                        processados_increment=0,  # Já incrementamos manualmente acima
+                        salvos_increment=0,  # Já incrementamos manualmente acima
+                        ultimo_indice=actual_index + 1  # Próximo índice a processar
+                    )
+
+                # Delay mínimo entre empresas (removido para máxima velocidade)
+                # time.sleep(0.1)
 
             print(f"\n{'='*50}")
             print(f"📊 Resumo da busca:")
@@ -219,10 +380,33 @@ class GoogleMapsScraper:
             print(f"   ⏭️  Ignorados: {skipped_count}")
             print(f"{'='*50}\n")
 
+            # Marcar checkpoint como concluído
+            if db and processed_count >= max_results:
+                db.mark_checkpoint_complete(setor, cidade)
+                print(f"✅ Checkpoint marcado como concluído!")
+
         except TimeoutException:
             print("⏰ Timeout ao carregar resultados")
+            # Salvar checkpoint mesmo em caso de erro
+            if db:
+                db.create_or_update_checkpoint(
+                    setor, cidade,
+                    total_processados=processed_count,
+                    total_salvos=saved_count,
+                    ultimo_indice=start_index + processed_count,
+                    status='erro'
+                )
         except Exception as e:
             print(f"❌ Erro durante a busca: {str(e)}")
+            # Salvar checkpoint mesmo em caso de erro
+            if db:
+                db.create_or_update_checkpoint(
+                    setor, cidade,
+                    total_processados=processed_count,
+                    total_salvos=saved_count,
+                    ultimo_indice=start_index + processed_count,
+                    status='erro'
+                )
 
         return businesses
 
@@ -407,38 +591,36 @@ class GoogleMapsScraper:
         return '55' + clean_phone
 
     def _extract_email_from_website(self, website_url):
-        """Extrair email do website da empresa"""
+        """Extrair email do website da empresa (otimizado)"""
         if not website_url:
             return None
 
         try:
-            # Fazer requisição ao website
-            response = requests.get(website_url, timeout=10, headers={
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            })
+            # Fazer requisição ao website com timeout reduzido
+            response = requests.get(
+                website_url,
+                timeout=3,  # Reduzido de 10s para 3s
+                headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'},
+                allow_redirects=True,
+                verify=False  # Ignora SSL para sites com certificado inválido
+            )
 
             if response.status_code == 200:
-                soup = BeautifulSoup(response.text, 'html.parser')
-                page_text = soup.get_text()
+                # Usar apenas o texto bruto sem BeautifulSoup para ser mais rápido
+                page_text = response.text[:10000]  # Apenas primeiros 10KB (otimização)
 
-                # Regex para email
-                email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-                emails = re.findall(email_pattern, page_text)
+                # Regex para email (mais eficiente)
+                email_pattern = r'\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b'
+                match = re.search(email_pattern, page_text)
 
-                if emails:
+                if match:
+                    email = match.group()
                     # Filtrar emails de exemplo
-                    valid_emails = [
-                        email for email in emails
-                        if 'example.com' not in email.lower()
-                        and 'test.com' not in email.lower()
-                        and 'sample.com' not in email.lower()
-                        and 'domain.com' not in email.lower()
-                    ]
-
-                    return valid_emails[0] if valid_emails else None
+                    if not any(x in email.lower() for x in ['example', 'test', 'sample', 'domain', 'noreply', 'no-reply']):
+                        return email
 
         except Exception:
-            # Silenciar erros ao acessar website
+            # Silenciar erros ao acessar website (timeout, SSL, etc)
             pass
 
         return None

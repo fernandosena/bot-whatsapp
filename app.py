@@ -57,6 +57,11 @@ def get_empresas():
     has_email = request.args.get('has_email', '')
     has_telefone = request.args.get('has_telefone', '')
     has_whatsapp = request.args.get('has_whatsapp', '')
+    has_website = request.args.get('has_website', '')
+    has_instagram = request.args.get('has_instagram', '')
+    has_facebook = request.args.get('has_facebook', '')
+    has_linkedin = request.args.get('has_linkedin', '')
+    has_twitter = request.args.get('has_twitter', '')
     search = request.args.get('search', '')
 
     # Construir query base
@@ -79,6 +84,21 @@ def get_empresas():
 
     if has_whatsapp == 'true':
         query += ' AND whatsapp IS NOT NULL AND whatsapp != ""'
+
+    if has_website == 'true':
+        query += ' AND website IS NOT NULL AND website != ""'
+
+    if has_instagram == 'true':
+        query += ' AND instagram IS NOT NULL AND instagram != ""'
+
+    if has_facebook == 'true':
+        query += ' AND facebook IS NOT NULL AND facebook != ""'
+
+    if has_linkedin == 'true':
+        query += ' AND linkedin IS NOT NULL AND linkedin != ""'
+
+    if has_twitter == 'true':
+        query += ' AND twitter IS NOT NULL AND twitter != ""'
 
     if search:
         query += ' AND (nome LIKE ? OR endereco LIKE ?)'
@@ -119,11 +139,41 @@ def get_stats():
     result = cursor.fetchone()
     total_whatsapp = result['total'] if result else 0
 
+    cursor = db.cursor
+    cursor.execute('SELECT COUNT(*) as total FROM empresas WHERE website IS NOT NULL AND website != ""')
+    result = cursor.fetchone()
+    total_website = result['total'] if result else 0
+
+    cursor = db.cursor
+    cursor.execute('SELECT COUNT(*) as total FROM empresas WHERE instagram IS NOT NULL AND instagram != ""')
+    result = cursor.fetchone()
+    total_instagram = result['total'] if result else 0
+
+    cursor = db.cursor
+    cursor.execute('SELECT COUNT(*) as total FROM empresas WHERE facebook IS NOT NULL AND facebook != ""')
+    result = cursor.fetchone()
+    total_facebook = result['total'] if result else 0
+
+    cursor = db.cursor
+    cursor.execute('SELECT COUNT(*) as total FROM empresas WHERE linkedin IS NOT NULL AND linkedin != ""')
+    result = cursor.fetchone()
+    total_linkedin = result['total'] if result else 0
+
+    cursor = db.cursor
+    cursor.execute('SELECT COUNT(*) as total FROM empresas WHERE twitter IS NOT NULL AND twitter != ""')
+    result = cursor.fetchone()
+    total_twitter = result['total'] if result else 0
+
     return jsonify({
         'total': total,
         'total_email': total_email,
         'total_telefone': total_telefone,
         'total_whatsapp': total_whatsapp,
+        'total_website': total_website,
+        'total_instagram': total_instagram,
+        'total_facebook': total_facebook,
+        'total_linkedin': total_linkedin,
+        'total_twitter': total_twitter,
         'by_sector': stats
     })
 
@@ -255,6 +305,8 @@ def handle_start_scraping(data):
     setor = data.get('setor', '')
     cidade = data.get('cidade', '')
     max_results = data.get('max_results', 50)
+    continue_from_checkpoint = data.get('continue_from_checkpoint', True)
+    required_contacts = data.get('required_contacts', {})
 
     if not setor or not cidade:
         emit('scraping_error', {'message': 'Setor e cidade são obrigatórios!'})
@@ -283,7 +335,9 @@ def handle_start_scraping(data):
                 cidade,
                 max_results,
                 db=db,
-                progress_callback=progress_callback
+                progress_callback=progress_callback,
+                continue_from_checkpoint=continue_from_checkpoint,
+                required_contacts=required_contacts
             )
 
             socketio.emit('scraping_complete', {
@@ -361,6 +415,73 @@ def clear_database():
         db.conn.commit()
 
         return jsonify({'success': True, 'message': 'Base de dados limpa com sucesso!'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/checkpoints')
+def get_checkpoints():
+    """Listar todos os checkpoints"""
+    try:
+        checkpoints = db.get_all_checkpoints()
+        return jsonify(checkpoints)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/checkpoints/<setor>/<cidade>', methods=['GET'])
+def get_checkpoint(setor, cidade):
+    """Obter checkpoint específico"""
+    try:
+        checkpoint = db.get_checkpoint(setor, cidade)
+        if checkpoint:
+            return jsonify(checkpoint)
+        else:
+            return jsonify({'error': 'Checkpoint não encontrado'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/checkpoints/<setor>/<cidade>/reset', methods=['POST'])
+def reset_checkpoint(setor, cidade):
+    """Resetar checkpoint específico"""
+    try:
+        db.reset_checkpoint(setor, cidade)
+        return jsonify({'success': True, 'message': 'Checkpoint resetado com sucesso!'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/checkpoints/<setor>/<cidade>/delete', methods=['DELETE'])
+def delete_checkpoint(setor, cidade):
+    """Deletar checkpoint específico"""
+    try:
+        db.reset_checkpoint(setor, cidade)  # reset_checkpoint já deleta do banco
+        return jsonify({'success': True, 'message': 'Checkpoint deletado com sucesso!'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/checkpoints/reset-all', methods=['POST'])
+def reset_all_checkpoints():
+    """Resetar todos os checkpoints"""
+    try:
+        cursor = db.cursor
+        cursor.execute('DELETE FROM search_checkpoints')
+        db.conn.commit()
+        return jsonify({'success': True, 'message': 'Todos os checkpoints foram resetados!'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/checkpoints/delete-all', methods=['DELETE'])
+def delete_all_checkpoints():
+    """Deletar todos os checkpoints"""
+    try:
+        cursor = db.cursor
+        cursor.execute('DELETE FROM search_checkpoints')
+        db.conn.commit()
+        return jsonify({'success': True, 'message': 'Todos os checkpoints foram deletados!'})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)}), 500
 
