@@ -10,3 +10,5 @@ flask-cors==4.0.0
 openpyxl==3.1.2
 pandas==2.1.4
 eventlet==0.35.1
+pywhatkit==5.4
+pyautogui==0.9.54

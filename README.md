@@ -4,6 +4,7 @@ Bot automatizado para pesquisar empresas de um setor específico em determinada 
 
 ## 📋 Funcionalidades
 
+### 🔍 Scraping de Empresas
 - ✅ Busca automatizada de empresas no Google Maps
 - 📞 Extração de dados de contato:
   - Nome da empresa
@@ -21,8 +22,17 @@ Bot automatizado para pesquisar empresas de um setor específico em determinada 
 - ✨ **Validação inteligente**: Só salva empresas com pelo menos um dado de contato (telefone, email ou WhatsApp)
 - 🔄 **Atualização automática**: Se a empresa já existe, atualiza apenas campos vazios com novos dados
 - 📊 Estatísticas de coleta
-- 📤 Exportação para CSV
+- 📤 Exportação para CSV/Excel
 - 📝 Sistema de logs
+
+### 💬 WhatsApp Bot (NOVO!)
+- 🚀 **Envio automático de mensagens** via WhatsApp Web
+- 📝 **Templates personalizáveis** com variáveis dinâmicas
+- 🎯 **Filtros avançados** para selecionar destinatários
+- 📊 **Monitoramento em tempo real** do envio
+- 📈 **Logs completos** de todas as mensagens enviadas
+- ⏱️ **Controle de taxa** com delay configurável
+- 🔒 **Seguro e confiável** - usa WhatsApp Web oficial
 
 ## 🚀 Instalação Rápida
 
@@ -100,6 +110,7 @@ Acesse em seu navegador: **http://localhost:5000**
 
 #### Funcionalidades da Interface Web:
 
+**Dashboard Principal (http://localhost:5000):**
 - 📊 **Dashboard em tempo real** com estatísticas
 - 🚀 **Controle do bot** direto pelo navegador
 - 📈 **Barra de progresso** ao vivo durante a busca
@@ -111,6 +122,14 @@ Acesse em seu navegador: **http://localhost:5000**
 - 🗂️ **Gerenciamento individual** - Deletar empresas uma por uma
 - ⏸️ **Parar/Iniciar** busca em tempo real
 - 🔄 **Atualização automática** das estatísticas
+
+**WhatsApp Bot (http://localhost:5000/whatsapp):**
+- 💬 **Envio automático** de mensagens para as empresas
+- 📝 **Gerenciamento de templates** personalizáveis
+- 🎯 **Seleção de destinatários** com filtros inteligentes
+- 📊 **Monitoramento em tempo real** do envio
+- 📈 **Logs e estatísticas** de todas as mensagens
+- ⏱️ **Controle de delay** entre envios
 
 ### Opção 2: Terminal (CLI)
 
@@ -134,10 +153,13 @@ bot/
 │   │   └── db.py                    # Módulo do banco de dados
 │   ├── scraper/
 │   │   └── google_maps_scraper.py   # Scraper com Selenium
+│   ├── whatsapp/
+│   │   └── whatsapp_bot.py          # Bot de WhatsApp
 │   ├── utils/
 │   │   └── logger.py                # Sistema de logs
 ├── templates/
-│   └── index.html                   # Interface web
+│   ├── index.html                   # Interface web principal
+│   └── whatsapp.html                # Interface do WhatsApp Bot
 ├── database/
 │   └── empresas.db                  # Banco SQLite (gerado automaticamente)
 ├── logs/
@@ -149,8 +171,64 @@ bot/
 ├── requirements.txt                 # Dependências Python
 ├── app.py                           # Aplicação web (Flask)
 ├── main.py                          # Aplicação CLI (terminal)
-└── README.md
+├── setup_whatsapp.py                # Script de setup do WhatsApp Bot
+├── README.md                        # Este arquivo
+└── WHATSAPP_BOT_GUIDE.md            # Guia completo do WhatsApp Bot
 ```
+
+## 💬 Usando o WhatsApp Bot
+
+### Setup Rápido
+
+```bash
+# Instalar dependências adicionais
+pip install pywhatkit pyautogui
+
+# Configurar templates padrão
+python setup_whatsapp.py
+
+# Corrigir acesso ao display (se necessário)
+./fix_display.sh
+
+# Iniciar servidor
+python app.py
+
+# Acessar interface
+# http://localhost:5000/whatsapp
+```
+
+### ⚠️ Requisitos Importantes
+
+O WhatsApp Bot **requer interface gráfica** para funcionar:
+
+✅ **Linux Desktop** (Ubuntu, Fedora, etc. com GUI)
+✅ **Windows** (desktop normal)
+✅ **macOS** (desktop normal)
+❌ **Servidores sem GUI** (use VNC ou execute em máquina com desktop)
+
+**Se tiver erro de display:** Execute `./fix_display.sh` ou veja `SOLUCAO_DISPLAY.md`
+
+### Funcionalidades
+
+1. **Envio de Mensagens em Massa**
+   - Selecione empresas por filtros
+   - Use templates ou crie mensagens personalizadas
+   - Controle delay entre envios
+   - Monitore progresso em tempo real
+
+2. **Templates Personalizáveis**
+   - Crie templates com variáveis dinâmicas: `{nome}`, `{cidade}`, `{setor}`
+   - Salve e reutilize mensagens
+   - Gerencie biblioteca de templates
+
+3. **Logs e Estatísticas**
+   - Visualize histórico de envios
+   - Acompanhe taxa de sucesso/falha
+   - Identifique problemas rapidamente
+
+**📖 Guia Completo:** Consulte [WHATSAPP_BOT_GUIDE.md](WHATSAPP_BOT_GUIDE.md) para instruções detalhadas
+
+---
 
 ## 🗄️ Estrutura do Banco de Dados
 
