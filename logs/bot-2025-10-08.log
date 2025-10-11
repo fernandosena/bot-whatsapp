@@ -1,0 +1,982 @@
+[2025-10-08 00:00:58,376] [WARNING]  * Debugger is active!
+[2025-10-08 00:00:58,378] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:03:52,777] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 00:03:53,704] [WARNING]  * Debugger is active!
+[2025-10-08 00:03:53,707] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:04:12,181] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 00:04:13,094] [WARNING]  * Debugger is active!
+[2025-10-08 00:04:13,097] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:04:41,840] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 00:04:42,725] [WARNING]  * Debugger is active!
+[2025-10-08 00:04:42,727] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:05:05,388] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 00:05:06,281] [WARNING]  * Debugger is active!
+[2025-10-08 00:05:06,283] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:05:22,751] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 00:05:23,703] [WARNING]  * Debugger is active!
+[2025-10-08 00:05:23,705] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:05:43,183] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 00:05:44,078] [WARNING]  * Debugger is active!
+[2025-10-08 00:05:44,080] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:07:35,812] [INFO]  * Restarting with stat
+[2025-10-08 00:07:36,577] [WARNING]  * Debugger is active!
+[2025-10-08 00:07:36,580] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:08:00,189] [INFO] ====== WebDriver manager ======
+[2025-10-08 00:08:00,273] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 00:26:12,431] [INFO] ====== WebDriver manager ======
+[2025-10-08 00:26:12,528] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 00:31:02,379] [INFO]  * Restarting with stat
+[2025-10-08 00:31:03,199] [WARNING]  * Debugger is active!
+[2025-10-08 00:31:03,202] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 00:31:32,258] [INFO] ====== WebDriver manager ======
+[2025-10-08 00:31:32,346] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 00:34:32,132] [INFO] ====== WebDriver manager ======
+[2025-10-08 00:34:32,202] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 01:03:25,225] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:03:25,413] [INFO]  * Restarting with stat
+[2025-10-08 01:03:26,115] [WARNING]  * Debugger is active!
+[2025-10-08 01:03:26,118] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:03:45,587] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:03:45,779] [INFO]  * Restarting with stat
+[2025-10-08 01:03:46,487] [WARNING]  * Debugger is active!
+[2025-10-08 01:03:46,490] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:04:08,100] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:04:08,280] [INFO]  * Restarting with stat
+[2025-10-08 01:04:08,962] [WARNING]  * Debugger is active!
+[2025-10-08 01:04:08,964] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:04:15,749] [INFO]  * Restarting with stat
+[2025-10-08 01:04:16,449] [WARNING]  * Debugger is active!
+[2025-10-08 01:04:16,451] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:05:21,819] [INFO] ====== WebDriver manager ======
+[2025-10-08 01:05:21,891] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 01:05:51,577] [INFO]  * Restarting with stat
+[2025-10-08 01:05:52,270] [WARNING]  * Debugger is active!
+[2025-10-08 01:05:52,272] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:05:54,020] [ERROR] Invalid session yDIOS0Sbe7MGPC-rAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:05:54,772] [ERROR] Invalid session jO6vLBBnjneXXOHrAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:08:06,161] [INFO]  * Restarting with stat
+[2025-10-08 01:08:06,842] [WARNING]  * Debugger is active!
+[2025-10-08 01:08:06,844] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:09:37,549] [INFO] ====== WebDriver manager ======
+[2025-10-08 01:09:37,636] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 01:33:34,475] [ERROR] Invalid session tU4BErWWYWL670rDAAAG (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:35:40,336] [INFO]  * Restarting with stat
+[2025-10-08 01:35:41,053] [WARNING]  * Debugger is active!
+[2025-10-08 01:35:41,059] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:47:23,250] [ERROR] Invalid session K353xE1RtCJPfyD8AAAK (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:49:13,796] [INFO]  * Restarting with stat
+[2025-10-08 01:49:14,516] [WARNING]  * Debugger is active!
+[2025-10-08 01:49:14,518] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:49:16,466] [ERROR] Invalid session 9oaPkS-RLM5_JClAAABj (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:49:21,251] [INFO] ====== WebDriver manager ======
+[2025-10-08 01:49:21,336] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 01:51:34,164] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:51:34,186] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:51:34,402] [INFO]  * Restarting with stat
+[2025-10-08 01:51:34,418] [INFO]  * Restarting with stat
+[2025-10-08 01:51:35,134] [WARNING]  * Debugger is active!
+[2025-10-08 01:51:35,136] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:51:35,151] [WARNING]  * Debugger is active!
+[2025-10-08 01:51:35,153] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:54:19,526] [ERROR] Invalid session ycLFElyTRxzxbZINAAAC (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:56:25,220] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:56:25,228] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:56:25,449] [INFO]  * Restarting with stat
+[2025-10-08 01:56:25,451] [INFO]  * Restarting with stat
+[2025-10-08 01:56:26,163] [WARNING]  * Debugger is active!
+[2025-10-08 01:56:26,166] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:56:26,172] [WARNING]  * Debugger is active!
+[2025-10-08 01:56:26,174] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:56:44,544] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:56:44,552] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:56:44,984] [INFO]  * Restarting with stat
+[2025-10-08 01:56:45,068] [INFO]  * Restarting with stat
+[2025-10-08 01:56:45,999] [WARNING]  * Debugger is active!
+[2025-10-08 01:56:46,001] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:56:46,017] [WARNING]  * Debugger is active!
+[2025-10-08 01:56:46,019] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:56:46,718] [ERROR] Invalid session h-BYzGBZjnB05dOQAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:56:48,717] [ERROR] Invalid session 07fcAokDhYjiU02xAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:57:05,498] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:57:05,500] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:57:05,753] [INFO]  * Restarting with stat
+[2025-10-08 01:57:05,758] [INFO]  * Restarting with stat
+[2025-10-08 01:57:06,503] [WARNING]  * Debugger is active!
+[2025-10-08 01:57:06,503] [WARNING]  * Debugger is active!
+[2025-10-08 01:57:06,513] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:57:06,522] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:57:25,994] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:57:25,994] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 01:57:26,231] [INFO]  * Restarting with stat
+[2025-10-08 01:57:26,233] [INFO]  * Restarting with stat
+[2025-10-08 01:57:27,005] [WARNING]  * Debugger is active!
+[2025-10-08 01:57:27,008] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:57:27,044] [WARNING]  * Debugger is active!
+[2025-10-08 01:57:27,046] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:57:34,605] [INFO]  * Restarting with stat
+[2025-10-08 01:57:35,321] [WARNING]  * Debugger is active!
+[2025-10-08 01:57:35,323] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:59:32,516] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:59:32,519] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:59:32,747] [INFO]  * Restarting with stat
+[2025-10-08 01:59:32,758] [INFO]  * Restarting with stat
+[2025-10-08 01:59:33,501] [WARNING]  * Debugger is active!
+[2025-10-08 01:59:33,503] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:59:33,567] [WARNING]  * Debugger is active!
+[2025-10-08 01:59:33,569] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:59:34,037] [ERROR] Invalid session WsThS5BsdWlW9GESAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:59:52,019] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:59:52,077] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 01:59:52,263] [INFO]  * Restarting with stat
+[2025-10-08 01:59:52,304] [INFO]  * Restarting with stat
+[2025-10-08 01:59:53,074] [WARNING]  * Debugger is active!
+[2025-10-08 01:59:53,077] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:59:53,093] [WARNING]  * Debugger is active!
+[2025-10-08 01:59:53,095] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 01:59:55,398] [ERROR] Invalid session SDSAxGz86woEFXjaAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 01:59:56,471] [ERROR] Invalid session 0wMOBBQuF-cUMdScAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:00:41,990] [INFO]  * Restarting with stat
+[2025-10-08 02:00:42,708] [WARNING]  * Debugger is active!
+[2025-10-08 02:00:42,711] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:01:33,140] [INFO]  * Restarting with stat
+[2025-10-08 02:01:33,893] [WARNING]  * Debugger is active!
+[2025-10-08 02:01:33,895] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:01:37,460] [ERROR] Invalid session c3QShyCx4kXTiZKCAAAC (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:07:15,745] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 02:07:15,773] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 02:07:16,221] [INFO]  * Restarting with stat
+[2025-10-08 02:07:16,259] [INFO]  * Restarting with stat
+[2025-10-08 02:07:18,136] [WARNING]  * Debugger is active!
+[2025-10-08 02:07:18,136] [WARNING]  * Debugger is active!
+[2025-10-08 02:07:18,145] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:07:18,145] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:07:19,226] [ERROR] Invalid session Ys8tmbZbH_wlUks6AAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:07:33,660] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 02:07:33,683] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 02:07:34,134] [INFO]  * Restarting with stat
+[2025-10-08 02:07:34,159] [INFO]  * Restarting with stat
+[2025-10-08 02:07:35,789] [WARNING]  * Debugger is active!
+[2025-10-08 02:07:35,791] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:07:35,793] [WARNING]  * Debugger is active!
+[2025-10-08 02:07:35,812] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:07:37,637] [ERROR] Invalid session 5ua_9L1Evpyg_dy7AAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:08:05,287] [ERROR] Invalid session kwjVZdx-bEYfDPmUAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:10:28,649] [INFO] ====== WebDriver manager ======
+[2025-10-08 02:10:28,757] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 02:12:01,829] [INFO]  * Restarting with stat
+[2025-10-08 02:12:02,537] [WARNING]  * Debugger is active!
+[2025-10-08 02:12:02,542] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-08 02:12:08,068] [INFO] ====== WebDriver manager ======
+[2025-10-08 02:12:08,211] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 02:12:22,656] [ERROR] Invalid session M-AMPbZo2LW-rc3NAAAE (further occurrences of this error will be logged with level INFO)
+[2025-10-08 02:12:37,275] [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b338f0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6/execute/sync
+[2025-10-08 02:12:37,277] [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b32840>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6/execute/sync
+[2025-10-08 02:12:37,278] [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b33b00>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6/execute/sync
+[2025-10-08 02:12:37,291] [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b323c0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6
+[2025-10-08 02:12:37,293] [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b33f50>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6
+[2025-10-08 02:12:37,295] [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73dc21b33da0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED')': /session/46e3b534b25dd7722febb33f0170b8d6
+[2025-10-08 02:12:43,898] [INFO] ====== WebDriver manager ======
+[2025-10-08 02:12:44,005] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 02:16:54,990] [INFO]  * Restarting with stat
+[2025-10-08 02:16:59,143] [WARNING]  * Debugger is active!
+[2025-10-08 02:16:59,180] [INFO]  * Debugger PIN: 388-728-012
+[2025-10-08 02:17:19,783] [INFO] ====== WebDriver manager ======
+[2025-10-08 02:17:20,153] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 11:23:33,337] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:23:33,359] [INFO]  * Restarting with stat
+[2025-10-08 11:23:34,113] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:23:34,131] [WARNING]  * Debugger is active!
+[2025-10-08 11:23:34,140] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 11:27:46,812] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 11:27:47,025] [INFO]  * Restarting with stat
+[2025-10-08 11:27:47,809] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:45:38,135] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:47:55,234] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:47:55,283] [INFO]  * Restarting with stat
+[2025-10-08 11:47:56,827] [WARNING] WhatsApp Bot não disponível: Can't connect to display ":0": b'Authorization required, but no authorization protocol specified\n'
+[2025-10-08 11:47:56,923] [WARNING]  * Debugger is active!
+[2025-10-08 11:47:56,938] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 11:56:00,788] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 11:56:00,823] [INFO]  * Restarting with stat
+[2025-10-08 11:57:13,859] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 11:57:13,909] [INFO]  * Restarting with stat
+[2025-10-08 11:57:24,873] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 11:57:24,894] [WARNING]  * Debugger is active!
+[2025-10-08 11:57:24,899] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:00:19,659] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:00:19,704] [INFO]  * Restarting with stat
+[2025-10-08 12:00:31,380] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:00:31,434] [WARNING]  * Debugger is active!
+[2025-10-08 12:00:31,438] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:02:21,267] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:02:21,324] [INFO]  * Restarting with stat
+[2025-10-08 12:02:32,285] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:02:32,320] [WARNING]  * Debugger is active!
+[2025-10-08 12:02:32,322] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:03:02,431] [ERROR] Invalid session DEl-ksGhM1jrWYSmAAAE (further occurrences of this error will be logged with level INFO)
+[2025-10-08 12:03:03,560] [ERROR] Invalid session y-fxSftJaDWIX2syAAAA (further occurrences of this error will be logged with level INFO)
+[2025-10-08 12:12:49,743] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 12:20:19,545] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:20:19,583] [INFO]  * Restarting with stat
+[2025-10-08 12:20:30,689] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:20:30,763] [WARNING]  * Debugger is active!
+[2025-10-08 12:20:30,767] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:20:47,209] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 12:20:47,210] [INFO] Iniciando navegador...
+[2025-10-08 12:20:47,210] [INFO] ====== WebDriver manager ======
+[2025-10-08 12:20:47,312] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 12:20:57,522] [ERROR] Erro ao iniciar navegador: Could not reach host. Are you offline?
+[2025-10-08 12:21:38,586] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/whatsapp/whatsapp_selenium.py', reloading
+[2025-10-08 12:21:39,133] [INFO]  * Restarting with stat
+[2025-10-08 12:21:53,269] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:21:53,328] [WARNING]  * Debugger is active!
+[2025-10-08 12:21:53,336] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:24:05,900] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:24:05,975] [INFO]  * Restarting with stat
+[2025-10-08 12:24:17,084] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 12:24:17,112] [WARNING]  * Debugger is active!
+[2025-10-08 12:24:17,114] [INFO]  * Debugger PIN: 753-683-910
+[2025-10-08 12:24:19,938] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 12:24:19,942] [INFO] Iniciando navegador...
+[2025-10-08 12:24:19,943] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 12:24:19,943] [INFO] ====== WebDriver manager ======
+[2025-10-08 12:24:20,030] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 12:24:30,244] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 12:24:30,244] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 12:24:33,024] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 12:24:33,160] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 12:24:34,477] [INFO] Aguardando carregamento...
+[2025-10-08 12:24:39,192] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 12:24:40,279] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 12:24:41,850] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 12:24:42,390] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 12:24:42,914] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 12:24:47,836] [INFO] Aguardando login via QR Code...
+[2025-10-08 12:25:13,537] [INFO] Aguardando login (timeout: 120s)...
+[2025-10-08 12:25:13,537] [INFO] Escaneie o QR Code no navegador
+[2025-10-08 12:25:13,624] [INFO] ✅ Login realizado com sucesso!
+[2025-10-08 12:25:13,659] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:09:56,095] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 17:09:56,148] [INFO]  * Restarting with stat
+[2025-10-08 17:10:07,319] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 17:10:07,346] [WARNING]  * Debugger is active!
+[2025-10-08 17:10:07,372] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 17:13:06,835] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 17:13:06,835] [INFO] Iniciando navegador...
+[2025-10-08 17:13:06,835] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 17:13:06,835] [INFO] ====== WebDriver manager ======
+[2025-10-08 17:13:06,909] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 17:13:17,122] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 17:13:17,122] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 17:13:22,227] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 17:13:22,504] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 17:13:25,237] [INFO] Aguardando carregamento...
+[2025-10-08 17:13:29,830] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:13:30,426] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:13:31,075] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:13:31,691] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:13:39,132] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:13:39,601] [INFO] Aguardando login via QR Code...
+[2025-10-08 17:13:53,690] [INFO] Aguardando login (timeout: 120s)...
+[2025-10-08 17:13:53,691] [INFO] Escaneie o QR Code no navegador
+[2025-10-08 17:13:53,839] [INFO] ✅ Login realizado com sucesso!
+[2025-10-08 17:13:54,035] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:16:26,555] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 17:16:27,265] [INFO]  * Restarting with stat
+[2025-10-08 17:16:40,896] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 17:16:40,958] [WARNING]  * Debugger is active!
+[2025-10-08 17:16:40,966] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 17:17:06,215] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 17:17:06,265] [INFO]  * Restarting with stat
+[2025-10-08 17:17:18,598] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 17:17:18,643] [WARNING]  * Debugger is active!
+[2025-10-08 17:17:18,646] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 17:17:34,462] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 17:17:34,462] [INFO] Iniciando navegador...
+[2025-10-08 17:17:34,462] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 17:17:34,463] [INFO] ====== WebDriver manager ======
+[2025-10-08 17:17:34,647] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 17:17:44,862] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 17:17:44,862] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 17:17:47,467] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 17:17:47,574] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 17:17:49,609] [INFO] Aguardando carregamento...
+[2025-10-08 17:17:52,818] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:17:54,543] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 17:17:57,895] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 17:17:59,879] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 19:35:35,967] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:35:36,037] [INFO]  * Restarting with stat
+[2025-10-08 19:35:46,995] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:35:47,041] [WARNING]  * Debugger is active!
+[2025-10-08 19:35:47,049] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:35:58,517] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 19:35:58,518] [INFO] Iniciando navegador...
+[2025-10-08 19:35:58,518] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 19:35:58,518] [INFO] ====== WebDriver manager ======
+[2025-10-08 19:35:58,593] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 19:36:08,807] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 19:36:08,807] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 19:36:11,167] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 19:36:11,348] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 19:36:12,395] [INFO] Aguardando carregamento...
+[2025-10-08 19:36:15,614] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 19:38:01,349] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 19:38:01,566] [INFO]  * Restarting with stat
+[2025-10-08 19:38:12,557] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:38:12,608] [WARNING]  * Debugger is active!
+[2025-10-08 19:38:12,610] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:38:15,706] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 19:38:15,904] [INFO]  * Restarting with stat
+[2025-10-08 19:38:44,068] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:38:44,093] [INFO]  * Restarting with stat
+[2025-10-08 19:38:55,234] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:38:55,272] [WARNING]  * Debugger is active!
+[2025-10-08 19:38:55,275] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:39:03,568] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 19:39:03,568] [INFO] Iniciando navegador...
+[2025-10-08 19:39:03,568] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 19:39:03,568] [INFO] ====== WebDriver manager ======
+[2025-10-08 19:39:03,649] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 19:39:13,861] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 19:39:13,861] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 19:39:14,929] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 19:39:15,052] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 19:39:15,890] [INFO] Aguardando carregamento...
+[2025-10-08 19:39:18,983] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 19:40:22,325] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 19:40:22,526] [INFO]  * Restarting with stat
+[2025-10-08 19:40:33,512] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:40:33,587] [WARNING]  * Debugger is active!
+[2025-10-08 19:40:33,590] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:40:57,770] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:40:57,808] [INFO]  * Restarting with stat
+[2025-10-08 19:41:08,816] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:41:08,855] [WARNING]  * Debugger is active!
+[2025-10-08 19:41:08,858] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:41:29,074] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 19:41:29,074] [INFO] Iniciando navegador...
+[2025-10-08 19:41:29,074] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 19:41:29,075] [INFO] ====== WebDriver manager ======
+[2025-10-08 19:41:29,146] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 19:41:39,360] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 19:41:39,360] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 19:41:40,378] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 19:41:40,557] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 19:41:41,506] [INFO] Aguardando carregamento...
+[2025-10-08 19:41:44,744] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 19:42:12,174] [INFO] Enviando mensagem para Lobo Lanches...
+[2025-10-08 19:42:12,183] [ERROR] Erro ao enviar mensagem para 5521976743183: Message: invalid session id
+Stacktrace:
+#0 0x5b7888a4a5ba <unknown>
+#1 0x5b78884c93ae <unknown>
+#2 0x5b788850cc89 <unknown>
+#3 0x5b7888541536 <unknown>
+#4 0x5b788853bcb6 <unknown>
+#5 0x5b788853adf2 <unknown>
+#6 0x5b7888491365 <unknown>
+#7 0x5b7888a0e388 <unknown>
+#8 0x5b7888a121ef <unknown>
+#9 0x5b78889f5819 <unknown>
+#10 0x5b7888a12d95 <unknown>
+#11 0x5b78889db07f <unknown>
+#12 0x5b788848f200 <unknown>
+#13 0x73db89a2a1ca <unknown>
+#14 0x73db89a2a28b __libc_start_main
+#15 0x5b7888452eaa _start
+
+[2025-10-08 19:42:42,197] [INFO] Enviando mensagem para Marcelo Lanches...
+[2025-10-08 19:42:42,211] [ERROR] Erro ao enviar mensagem para 5521997845514: Message: invalid session id
+Stacktrace:
+#0 0x5b7888a4a5ba <unknown>
+#1 0x5b78884c93ae <unknown>
+#2 0x5b788850cc89 <unknown>
+#3 0x5b7888541536 <unknown>
+#4 0x5b788853bcb6 <unknown>
+#5 0x5b788853adf2 <unknown>
+#6 0x5b7888491365 <unknown>
+#7 0x5b7888a0e388 <unknown>
+#8 0x5b7888a121ef <unknown>
+#9 0x5b78889f5819 <unknown>
+#10 0x5b7888a12d95 <unknown>
+#11 0x5b78889db07f <unknown>
+#12 0x5b788848f200 <unknown>
+#13 0x73db89a2a1ca <unknown>
+#14 0x73db89a2a28b __libc_start_main
+#15 0x5b7888452eaa _start
+
+[2025-10-08 19:43:19,383] [INFO] Enviando mensagem para Lobo Lanches...
+[2025-10-08 19:43:19,390] [ERROR] Erro ao enviar mensagem para 5521976743183: Message: invalid session id
+Stacktrace:
+#0 0x5b7888a4a5ba <unknown>
+#1 0x5b78884c93ae <unknown>
+#2 0x5b788850cc89 <unknown>
+#3 0x5b7888541536 <unknown>
+#4 0x5b788853bcb6 <unknown>
+#5 0x5b788853adf2 <unknown>
+#6 0x5b7888491365 <unknown>
+#7 0x5b7888a0e388 <unknown>
+#8 0x5b7888a121ef <unknown>
+#9 0x5b78889f5819 <unknown>
+#10 0x5b7888a12d95 <unknown>
+#11 0x5b78889db07f <unknown>
+#12 0x5b788848f200 <unknown>
+#13 0x73db89a2a1ca <unknown>
+#14 0x73db89a2a28b __libc_start_main
+#15 0x5b7888452eaa _start
+
+[2025-10-08 19:43:31,371] [INFO] Navegador fechado
+[2025-10-08 19:43:32,965] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 19:43:32,965] [INFO] Iniciando navegador...
+[2025-10-08 19:43:32,965] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 19:43:32,965] [INFO] ====== WebDriver manager ======
+[2025-10-08 19:43:33,038] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 19:43:43,276] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 19:43:43,276] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 19:43:44,311] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 19:43:44,458] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 19:43:47,314] [INFO] Aguardando carregamento...
+[2025-10-08 19:43:49,405] [INFO] Enviando mensagem para Marcelo Lanches...
+[2025-10-08 19:43:52,985] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 19:43:53,059] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 19:43:57,907] [INFO] ✅ Mensagem enviada para Marcelo Lanches
+[2025-10-08 19:46:21,871] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 19:46:22,113] [INFO]  * Restarting with stat
+[2025-10-08 19:46:33,191] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:46:33,248] [WARNING]  * Debugger is active!
+[2025-10-08 19:46:33,251] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:46:41,499] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 19:46:41,705] [INFO]  * Restarting with stat
+[2025-10-08 19:46:52,783] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:46:52,848] [WARNING]  * Debugger is active!
+[2025-10-08 19:46:52,851] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:47:09,285] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 19:47:09,486] [INFO]  * Restarting with stat
+[2025-10-08 19:47:20,498] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:47:20,547] [WARNING]  * Debugger is active!
+[2025-10-08 19:47:20,550] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:47:33,937] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-08 19:47:34,143] [INFO]  * Restarting with stat
+[2025-10-08 19:47:45,168] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:47:45,216] [WARNING]  * Debugger is active!
+[2025-10-08 19:47:45,218] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:56:02,154] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:56:02,186] [INFO]  * Restarting with stat
+[2025-10-08 19:56:13,298] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 19:56:13,377] [WARNING]  * Debugger is active!
+[2025-10-08 19:56:13,381] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 19:56:45,560] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 19:56:45,560] [INFO] Iniciando navegador...
+[2025-10-08 19:56:45,561] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 19:56:45,561] [INFO] ====== WebDriver manager ======
+[2025-10-08 19:56:45,630] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 19:56:55,851] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 19:56:55,851] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 19:56:56,892] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 19:56:57,036] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 19:56:57,798] [INFO] Aguardando carregamento...
+[2025-10-08 19:57:00,923] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 19:57:47,289] [INFO] Enviando mensagem para Zelia Lanches...
+[2025-10-08 19:58:11,166] [ERROR] Timeout aguardando elementos do WhatsApp: 5539664282
+[2025-10-08 19:58:41,183] [INFO] Enviando mensagem para Cantinho Do Açaí...
+[2025-10-08 19:58:44,701] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 19:58:45,456] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 19:58:49,165] [INFO] ✅ Mensagem enviada para Cantinho Do Açaí
+[2025-10-08 19:59:19,180] [INFO] Enviando mensagem para Madruga Burguer...
+[2025-10-08 19:59:27,715] [INFO] ✅ Mensagem enviada para Madruga Burguer
+[2025-10-08 19:59:57,739] [INFO] Enviando mensagem para Rancho do cocão...
+[2025-10-08 20:00:05,644] [INFO] ✅ Mensagem enviada para Rancho do cocão
+[2025-10-08 20:00:35,661] [INFO] Enviando mensagem para Lanches Do Cicero...
+[2025-10-08 20:00:36,335] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:00:43,718] [INFO] ✅ Mensagem enviada para Lanches Do Cicero
+[2025-10-08 20:01:13,735] [INFO] Enviando mensagem para Churrascaria costa...
+[2025-10-08 20:01:21,647] [INFO] ✅ Mensagem enviada para Churrascaria costa
+[2025-10-08 20:01:51,665] [INFO] Enviando mensagem para Lanchonete Gil Bala...
+[2025-10-08 20:01:59,813] [INFO] ✅ Mensagem enviada para Lanchonete Gil Bala
+[2025-10-08 20:02:29,827] [INFO] Enviando mensagem para Confraria do Sanduba...
+[2025-10-08 20:02:35,925] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:02:43,271] [INFO] ✅ Mensagem enviada para Confraria do Sanduba
+[2025-10-08 20:03:13,311] [INFO] Enviando mensagem para Sueli Lanches...
+[2025-10-08 20:03:21,835] [INFO] ✅ Mensagem enviada para Sueli Lanches
+[2025-10-08 20:03:51,850] [INFO] Enviando mensagem para Tropical Lanches...
+[2025-10-08 20:04:09,261] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:04:15,657] [ERROR] Timeout aguardando elementos do WhatsApp: 55995604850
+[2025-10-08 20:04:45,673] [INFO] Enviando mensagem para BR Restaurante e Lanchonete...
+[2025-10-08 20:04:53,602] [INFO] ✅ Mensagem enviada para BR Restaurante e Lanchonete
+[2025-10-08 20:05:23,619] [INFO] Enviando mensagem para Lanchonete do Pernambuco...
+[2025-10-08 20:05:47,512] [ERROR] Timeout aguardando elementos do WhatsApp: 5581986173595
+[2025-10-08 20:06:17,528] [INFO] Enviando mensagem para Degust Lanches...
+[2025-10-08 20:06:26,151] [INFO] ✅ Mensagem enviada para Degust Lanches
+[2025-10-08 20:06:56,167] [INFO] Enviando mensagem para Naldinho Lanches...
+[2025-10-08 20:07:00,284] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:07:04,191] [INFO] ✅ Mensagem enviada para Naldinho Lanches
+[2025-10-08 20:07:34,214] [INFO] Enviando mensagem para Wayne's Burger Star - Boa Viagem...
+[2025-10-08 20:07:42,796] [INFO] ✅ Mensagem enviada para Wayne's Burger Star - Boa Viagem
+[2025-10-08 20:08:12,812] [INFO] Enviando mensagem para Lanchonete HotLanche...
+[2025-10-08 20:08:21,177] [INFO] ✅ Mensagem enviada para Lanchonete HotLanche
+[2025-10-08 20:08:51,359] [INFO] Enviando mensagem para Top doceria e lanchonete...
+[2025-10-08 20:08:57,353] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:08:59,353] [INFO] ✅ Mensagem enviada para Top doceria e lanchonete
+[2025-10-08 20:09:29,377] [INFO] Enviando mensagem para Lanchonete Moreilandia...
+[2025-10-08 20:09:53,236] [ERROR] Timeout aguardando elementos do WhatsApp: 5587996502030
+[2025-10-08 20:10:23,251] [INFO] Enviando mensagem para Sorveteria N.S. Aparecida...
+[2025-10-08 20:10:31,265] [INFO] ✅ Mensagem enviada para Sorveteria N.S. Aparecida
+[2025-10-08 20:11:01,280] [INFO] Enviando mensagem para Delícia Center...
+[2025-10-08 20:11:05,021] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:11:09,628] [INFO] ✅ Mensagem enviada para Delícia Center
+[2025-10-08 20:11:39,652] [INFO] Enviando mensagem para Zero Grau Açaí e Sorvetes...
+[2025-10-08 20:11:45,763] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:11:49,553] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:11:55,163] [INFO] ✅ Mensagem enviada para Zero Grau Açaí e Sorvetes
+[2025-10-08 20:12:25,207] [INFO] Enviando mensagem para Fofão Burguer...
+[2025-10-08 20:12:29,841] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:12:31,799] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:12:49,435] [ERROR] Timeout aguardando elementos do WhatsApp: 558134470057
+[2025-10-08 20:13:19,461] [INFO] Enviando mensagem para Rainha do lanche...
+[2025-10-08 20:13:25,108] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:13:27,616] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:13:30,326] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:13:33,473] [INFO] ✅ Mensagem enviada para Rainha do lanche
+[2025-10-08 20:14:03,507] [INFO] Enviando mensagem para Lanchonete Lanche Livre...
+[2025-10-08 20:14:08,122] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:14:08,696] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:14:11,353] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:14:27,246] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:14:27,737] [ERROR] Timeout aguardando elementos do WhatsApp: 5581996017324
+[2025-10-08 20:14:57,752] [INFO] Enviando mensagem para Mary Lanches...
+[2025-10-08 20:15:02,554] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:15:06,923] [INFO] ✅ Mensagem enviada para Mary Lanches
+[2025-10-08 20:15:36,937] [INFO] Enviando mensagem para Lanchonete Avenida...
+[2025-10-08 20:15:41,380] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:15:44,846] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:15:48,910] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:15:51,626] [INFO] ✅ Mensagem enviada para Lanchonete Avenida
+[2025-10-08 20:16:21,652] [INFO] Enviando mensagem para Lanchonete Boa Esperança...
+[2025-10-08 20:16:26,044] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:16:45,660] [ERROR] Timeout aguardando elementos do WhatsApp: 5581996403914
+[2025-10-08 20:17:15,675] [INFO] Enviando mensagem para Recanto do sabor...
+[2025-10-08 20:17:19,314] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:17:24,239] [INFO] ✅ Mensagem enviada para Recanto do sabor
+[2025-10-08 20:17:24,259] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:17:54,263] [INFO] Enviando mensagem para Paraíso Burguer...
+[2025-10-08 20:17:58,452] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:18:00,560] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:18:03,252] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:18:03,252] [INFO] ✅ Mensagem enviada para Paraíso Burguer
+[2025-10-08 20:18:33,278] [INFO] Enviando mensagem para Sabor do Nordeste...
+[2025-10-08 20:18:39,592] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:18:42,923] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:18:47,206] [INFO] ✅ Mensagem enviada para Sabor do Nordeste
+[2025-10-08 20:19:17,233] [INFO] Enviando mensagem para Point Do Lanche Recife...
+[2025-10-08 20:19:19,340] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:19:21,983] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:19:23,797] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:19:27,355] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:19:30,322] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:19:33,445] [INFO] ✅ Mensagem enviada para Point Do Lanche Recife
+[2025-10-08 20:20:03,480] [INFO] Enviando mensagem para Bar e espetinho do Andrade...
+[2025-10-08 20:20:10,190] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:12,844] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:13,220] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:18,992] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:20,732] [INFO] ✅ Mensagem enviada para Bar e espetinho do Andrade
+[2025-10-08 20:20:50,773] [INFO] Enviando mensagem para Lanchonete do Pernambuco...
+[2025-10-08 20:20:51,838] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:55,676] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:20:57,962] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:21:00,744] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:21:02,736] [INFO] ✅ Mensagem enviada para Lanchonete do Pernambuco
+[2025-10-08 20:21:32,758] [INFO] Enviando mensagem para Laça Burguer Boa Viagem...
+[2025-10-08 20:21:33,688] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:21:37,610] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:21:39,273] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:21:42,628] [INFO] ✅ Mensagem enviada para Laça Burguer Boa Viagem
+[2025-10-08 20:22:12,677] [INFO] Enviando mensagem para CHURRASCARIA SOSSEGO...
+[2025-10-08 20:22:18,517] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:22:20,780] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:22:23,928] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:22:24,492] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:22:27,393] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:22:29,395] [INFO] ✅ Mensagem enviada para CHURRASCARIA SOSSEGO
+[2025-10-08 20:22:59,410] [INFO] Enviando mensagem para Lanchonete e Pizzaria Tavares...
+[2025-10-08 20:23:01,258] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:05,020] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:05,996] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:08,839] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:09,585] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:24,055] [ERROR] Timeout aguardando elementos do WhatsApp: 558738551245
+[2025-10-08 20:23:54,071] [INFO] Enviando mensagem para Churrascaria Sabor do Sertão...
+[2025-10-08 20:23:56,434] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:23:58,916] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:01,306] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:05,025] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:05,577] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:06,458] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:10,853] [INFO] ✅ Mensagem enviada para Churrascaria Sabor do Sertão
+[2025-10-08 20:24:40,880] [INFO] Enviando mensagem para Caraibas bar e restaurante...
+[2025-10-08 20:24:44,843] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:24:49,152] [INFO] ✅ Mensagem enviada para Caraibas bar e restaurante
+[2025-10-08 20:25:19,174] [INFO] Enviando mensagem para RM lanches...
+[2025-10-08 20:25:23,266] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:25:24,623] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:25:42,828] [ERROR] Timeout aguardando elementos do WhatsApp: 5587981681000
+[2025-10-08 20:26:12,845] [INFO] Enviando mensagem para Balneário Mangueiras - Exu/PE...
+[2025-10-08 20:26:16,947] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:26:21,454] [INFO] ✅ Mensagem enviada para Balneário Mangueiras - Exu/PE
+[2025-10-08 20:26:51,474] [INFO] Enviando mensagem para Lanchonete Do Wilson...
+[2025-10-08 20:26:56,568] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:00,312] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:03,350] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:05,367] [INFO] ✅ Mensagem enviada para Lanchonete Do Wilson
+[2025-10-08 20:27:35,393] [INFO] Enviando mensagem para LANCHES DO DIDO...
+[2025-10-08 20:27:40,646] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:42,960] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:44,552] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:27:59,170] [ERROR] Timeout aguardando elementos do WhatsApp: 5581998266324
+[2025-10-08 20:28:29,186] [INFO] Enviando mensagem para Eldes Lanches...
+[2025-10-08 20:28:31,467] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:28:34,737] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:28:36,332] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:28:38,992] [INFO] ✅ Mensagem enviada para Eldes Lanches
+[2025-10-08 20:29:09,008] [INFO] Enviando mensagem para Vila Torre original Burger...
+[2025-10-08 20:29:10,664] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:29:14,667] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:29:17,083] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:29:22,654] [INFO] ✅ Mensagem enviada para Vila Torre original Burger
+[2025-10-08 20:29:52,713] [INFO] Enviando mensagem para Sertão Massa & Petiscaria...
+[2025-10-08 20:29:58,954] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:30:01,454] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:30:07,758] [INFO] ✅ Mensagem enviada para Sertão Massa & Petiscaria
+[2025-10-08 20:30:37,783] [INFO] Enviando mensagem para Aero Burguer...
+[2025-10-08 20:30:42,017] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:30:43,487] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:30:49,205] [INFO] ✅ Mensagem enviada para Aero Burguer
+[2025-10-08 20:31:19,252] [INFO] Enviando mensagem para Açaí Na Madruga...
+[2025-10-08 20:31:25,384] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:31:31,628] [INFO] ✅ Mensagem enviada para Açaí Na Madruga
+[2025-10-08 20:32:01,653] [INFO] Enviando mensagem para Lanchonete Paraná...
+[2025-10-08 20:32:06,730] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:07,444] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:08,998] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:09,808] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:12,475] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:18,428] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:20,433] [INFO] ✅ Mensagem enviada para Lanchonete Paraná
+[2025-10-08 20:32:50,744] [INFO] Enviando mensagem para Maria Pitanga Açaiteria - Exú...
+[2025-10-08 20:32:52,609] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:55,515] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:32:57,139] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:01,061] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:01,707] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:03,434] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:06,678] [INFO] ✅ Mensagem enviada para Maria Pitanga Açaiteria - Exú
+[2025-10-08 20:33:36,715] [INFO] Enviando mensagem para LANCHONETE e CONVENIÊNCIA PARANÁ 24HRS | Ouricuri PE...
+[2025-10-08 20:33:41,426] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:44,452] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:47,565] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:33:48,111] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:34:01,179] [ERROR] Timeout aguardando elementos do WhatsApp: 5587996058901
+[2025-10-08 20:34:31,203] [INFO] Enviando mensagem para Charracaria do Tião...
+[2025-10-08 20:34:37,518] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:34:40,727] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:34:56,643] [ERROR] Timeout aguardando elementos do WhatsApp: 5587996484647
+[2025-10-08 20:35:26,663] [INFO] Enviando mensagem para Charlotte Burgs...
+[2025-10-08 20:35:27,583] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:35:31,194] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:35:50,868] [ERROR] Timeout aguardando elementos do WhatsApp: 5587999895055
+[2025-10-08 20:36:20,904] [INFO] Enviando mensagem para Norte Burguer Arruda...
+[2025-10-08 20:36:22,058] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:36:26,340] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:36:29,720] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:36:30,457] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:36:42,260] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:36:44,865] [ERROR] Timeout aguardando elementos do WhatsApp: 558130381078
+[2025-10-08 20:37:14,891] [INFO] Enviando mensagem para L&L Society e Petiscaria...
+[2025-10-08 20:37:15,897] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:37:19,606] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:37:21,257] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:37:23,963] [INFO] ✅ Mensagem enviada para L&L Society e Petiscaria
+[2025-10-08 20:37:53,988] [INFO] Enviando mensagem para Carlitos Burguers...
+[2025-10-08 20:37:54,770] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:37:58,273] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:38:15,255] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:38:17,833] [ERROR] Timeout aguardando elementos do WhatsApp: 558132285717
+[2025-10-08 20:38:47,857] [INFO] Enviando mensagem para Pastelaria Donattu's...
+[2025-10-08 20:38:48,765] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:38:53,603] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:38:57,787] [INFO] ✅ Mensagem enviada para Pastelaria Donattu's
+[2025-10-08 20:39:27,814] [INFO] Enviando mensagem para Bode Assado Do Bene...
+[2025-10-08 20:39:32,156] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:39:36,625] [INFO] ✅ Mensagem enviada para Bode Assado Do Bene
+[2025-10-08 20:40:06,650] [INFO] Enviando mensagem para Mat's Burguer...
+[2025-10-08 20:40:12,403] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:13,432] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:16,763] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:17,340] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:21,406] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:23,398] [INFO] ✅ Mensagem enviada para Mat's Burguer
+[2025-10-08 20:40:53,448] [INFO] Enviando mensagem para E de casa pizzaria e petiscaria (Antiga forno a Lenha)...
+[2025-10-08 20:40:54,462] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:40:57,757] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:41:02,051] [INFO] ✅ Mensagem enviada para E de casa pizzaria e petiscaria (Antiga forno a Lenha)
+[2025-10-08 20:41:32,076] [INFO] Enviando mensagem para Pizzaria Sales...
+[2025-10-08 20:41:36,885] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:41:39,676] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:41:42,691] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:41:44,697] [INFO] ✅ Mensagem enviada para Pizzaria Sales
+[2025-10-08 20:42:14,756] [INFO] Enviando mensagem para Quiosque sabiá Exu...
+[2025-10-08 20:42:16,335] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:42:19,130] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:42:21,176] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:42:24,882] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:42:30,735] [INFO] ✅ Mensagem enviada para Quiosque sabiá Exu
+[2025-10-08 20:43:00,837] [INFO] Enviando mensagem para Pizzaria Sâmia...
+[2025-10-08 20:43:05,006] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:08,996] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:09,477] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:14,215] [INFO] ✅ Mensagem enviada para Pizzaria Sâmia
+[2025-10-08 20:43:44,265] [INFO] Enviando mensagem para Restarante Sábia...
+[2025-10-08 20:43:46,211] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:49,541] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:50,505] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:53,652] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:54,451] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:43:58,969] [INFO] ✅ Mensagem enviada para Restarante Sábia
+[2025-10-08 20:44:29,003] [INFO] Enviando mensagem para Norte Burguer...
+[2025-10-08 20:44:30,493] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:44:33,593] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:44:34,539] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:44:39,225] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:44:53,500] [ERROR] Timeout aguardando elementos do WhatsApp: 558130403009
+[2025-10-08 20:45:23,700] [INFO] Enviando mensagem para Restaurante e Self Service Delicias do Nordeste...
+[2025-10-08 20:45:24,863] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:45:28,469] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:45:33,352] [INFO] ✅ Mensagem enviada para Restaurante e Self Service Delicias do Nordeste
+[2025-10-08 20:46:03,367] [INFO] Enviando mensagem para Pizzaria Cantarino...
+[2025-10-08 20:46:09,586] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:46:12,400] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:46:13,431] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:46:17,950] [INFO] ✅ Mensagem enviada para Pizzaria Cantarino
+[2025-10-08 20:46:47,983] [INFO] Enviando mensagem para Belle Pastel...
+[2025-10-08 20:46:49,623] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:46:53,760] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:46:57,058] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:02,146] [INFO] ✅ Mensagem enviada para Belle Pastel
+[2025-10-08 20:47:32,196] [INFO] Enviando mensagem para Central do Lanche...
+[2025-10-08 20:47:34,177] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:37,018] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:38,038] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:40,841] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:42,026] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:43,900] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:44,598] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:45,824] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:47:50,746] [INFO] ✅ Mensagem enviada para Central do Lanche
+[2025-10-08 20:48:20,781] [INFO] Enviando mensagem para Quiosque Asa Branca...
+[2025-10-08 20:48:22,801] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:26,094] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:30,647] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:34,136] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:34,862] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:35,470] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:48:41,116] [INFO] ✅ Mensagem enviada para Quiosque Asa Branca
+[2025-10-08 20:49:11,244] [INFO] Enviando mensagem para Aconchego Restaurante...
+[2025-10-08 20:49:16,010] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:49:20,214] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:49:25,379] [INFO] ✅ Mensagem enviada para Aconchego Restaurante
+[2025-10-08 20:49:55,401] [INFO] Enviando mensagem para Dogão da Rilver...
+[2025-10-08 20:50:01,142] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:50:05,768] [INFO] ✅ Mensagem enviada para Dogão da Rilver
+[2025-10-08 20:50:35,787] [INFO] Enviando mensagem para My DELLY...
+[2025-10-08 20:50:37,362] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:50:44,551] [INFO] ✅ Mensagem enviada para My DELLY
+[2025-10-08 20:51:14,567] [INFO] Enviando mensagem para churrascaria itamaragi...
+[2025-10-08 20:51:15,506] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:51:19,801] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:51:25,026] [INFO] ✅ Mensagem enviada para churrascaria itamaragi
+[2025-10-08 20:51:55,047] [INFO] Enviando mensagem para ESPETINHO E MARMITA DO CATULA E ISA...
+[2025-10-08 20:52:01,253] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:06,234] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:10,261] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:11,204] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:12,837] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:15,332] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:17,353] [INFO] ✅ Mensagem enviada para ESPETINHO E MARMITA DO CATULA E ISA
+[2025-10-08 20:52:47,378] [INFO] Enviando mensagem para Toca Do Açaí...
+[2025-10-08 20:52:50,159] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:54,338] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 20:52:56,976] [INFO] ✅ Mensagem enviada para Toca Do Açaí
+[2025-10-08 21:15:14,037] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-08 21:15:15,085] [INFO]  * Restarting with stat
+[2025-10-08 21:15:26,912] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 21:15:26,975] [WARNING]  * Debugger is active!
+[2025-10-08 21:15:26,991] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 21:18:34,913] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 21:18:34,995] [INFO]  * Restarting with stat
+[2025-10-08 21:18:46,223] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-08 21:18:46,298] [WARNING]  * Debugger is active!
+[2025-10-08 21:18:46,301] [INFO]  * Debugger PIN: 202-518-255
+[2025-10-08 21:18:52,604] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-08 21:18:52,604] [INFO] Iniciando navegador...
+[2025-10-08 21:18:52,604] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-08 21:18:52,604] [INFO] ====== WebDriver manager ======
+[2025-10-08 21:18:52,705] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 21:19:02,915] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-08 21:19:02,915] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-08 21:19:05,279] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-08 21:19:05,493] [INFO] Abrindo WhatsApp Web...
+[2025-10-08 21:19:08,241] [INFO] Aguardando carregamento...
+[2025-10-08 21:19:11,268] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-08 21:19:52,535] [INFO] Enviando mensagem para Bar e Lanches JK...
+[2025-10-08 21:19:57,111] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:19:58,948] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:20:03,103] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:20:17,435] [ERROR] Timeout ao aguardar caixa de mensagem para 551131299938. Número pode não existir.
+[2025-10-08 21:20:17,443] [INFO] Número 551131299938 bloqueado automaticamente (não existe)
+[2025-10-08 21:20:47,460] [INFO] Enviando mensagem para Lanchonete Serve Bem...
+[2025-10-08 21:20:49,494] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:20:52,801] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:20:57,060] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:21:06,115] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:21:12,494] [ERROR] Timeout ao aguardar caixa de mensagem para 551155727301. Número pode não existir.
+[2025-10-08 21:21:12,508] [INFO] Número 551155727301 bloqueado automaticamente (não existe)
+[2025-10-08 21:21:42,524] [INFO] Enviando mensagem para Lanches Unidos...
+[2025-10-08 21:22:06,523] [ERROR] Timeout ao aguardar caixa de mensagem para 551131018413. Número pode não existir.
+[2025-10-08 21:22:06,531] [INFO] Número 551131018413 bloqueado automaticamente (não existe)
+[2025-10-08 21:22:36,545] [INFO] Enviando mensagem para Bar e Lanches Humaitá...
+[2025-10-08 21:22:45,647] [INFO] ✅ Mensagem enviada para Bar e Lanches Humaitá
+[2025-10-08 21:23:15,663] [INFO] Enviando mensagem para LANCHONETE NOVA SKINA...
+[2025-10-08 21:23:39,067] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:23:39,551] [ERROR] Timeout ao aguardar caixa de mensagem para 551150411940. Número pode não existir.
+[2025-10-08 21:23:39,559] [INFO] Número 551150411940 bloqueado automaticamente (não existe)
+[2025-10-08 21:24:09,575] [INFO] Enviando mensagem para Lanches Árabe - All Sanduba...
+[2025-10-08 21:24:18,088] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:24:18,089] [INFO] ✅ Mensagem enviada para Lanches Árabe - All Sanduba
+[2025-10-08 21:24:48,105] [INFO] Enviando mensagem para Casa de Lanches Beselga...
+[2025-10-08 21:25:13,513] [ERROR] Timeout ao aguardar caixa de mensagem para 551131481568. Número pode não existir.
+[2025-10-08 21:25:13,521] [INFO] Número 551131481568 bloqueado automaticamente (não existe)
+[2025-10-08 21:25:43,537] [INFO] Enviando mensagem para Z Deli Restaurante & Delicatessen...
+[2025-10-08 21:25:52,528] [INFO] ✅ Mensagem enviada para Z Deli Restaurante & Delicatessen
+[2025-10-08 21:26:22,545] [INFO] Enviando mensagem para JAMB Bar e Restaurante...
+[2025-10-08 21:26:46,568] [ERROR] Timeout ao aguardar caixa de mensagem para 551133371515. Número pode não existir.
+[2025-10-08 21:26:46,576] [INFO] Número 551133371515 bloqueado automaticamente (não existe)
+[2025-10-08 21:27:16,593] [INFO] Enviando mensagem para LANCHES FAST FOOD...
+[2025-10-08 21:27:24,888] [INFO] ✅ Mensagem enviada para LANCHES FAST FOOD
+[2025-10-08 21:27:54,905] [INFO] Enviando mensagem para Pibus Hamburger - JK...
+[2025-10-08 21:28:03,507] [INFO] ✅ Mensagem enviada para Pibus Hamburger - JK
+[2025-10-08 21:28:33,523] [INFO] Enviando mensagem para Lanchonete e Bilhar Ideal...
+[2025-10-08 21:28:57,725] [ERROR] Timeout ao aguardar caixa de mensagem para 551133319072. Número pode não existir.
+[2025-10-08 21:28:57,732] [INFO] Número 551133319072 bloqueado automaticamente (não existe)
+[2025-10-08 21:29:27,749] [INFO] Enviando mensagem para MJ lanches...
+[2025-10-08 21:29:51,859] [ERROR] Timeout ao aguardar caixa de mensagem para 551128575523. Número pode não existir.
+[2025-10-08 21:29:51,867] [INFO] Número 551128575523 bloqueado automaticamente (não existe)
+[2025-10-08 21:30:21,883] [INFO] Enviando mensagem para Bar da Praça...
+[2025-10-08 21:30:30,695] [INFO] ✅ Mensagem enviada para Bar da Praça
+[2025-10-08 21:31:00,743] [INFO] Enviando mensagem para Lanchonete 1005...
+[2025-10-08 21:31:24,687] [ERROR] Timeout ao aguardar caixa de mensagem para 551123598662. Número pode não existir.
+[2025-10-08 21:31:24,694] [INFO] Número 551123598662 bloqueado automaticamente (não existe)
+[2025-10-08 21:31:54,711] [INFO] Enviando mensagem para Boteco Bela Lins...
+[2025-10-08 21:32:00,061] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:32:04,009] [INFO] ✅ Mensagem enviada para Boteco Bela Lins
+[2025-10-08 21:32:34,026] [INFO] Enviando mensagem para Bel Lanches...
+[2025-10-08 21:32:51,103] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:32:58,608] [ERROR] Timeout ao aguardar caixa de mensagem para 551132270724. Número pode não existir.
+[2025-10-08 21:32:58,620] [INFO] Número 551132270724 bloqueado automaticamente (não existe)
+[2025-10-08 21:33:28,637] [INFO] Enviando mensagem para Nico Hamburgueria...
+[2025-10-08 21:33:42,070] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:33:52,793] [ERROR] Timeout ao aguardar caixa de mensagem para 551120628000. Número pode não existir.
+[2025-10-08 21:33:52,804] [INFO] Número 551120628000 bloqueado automaticamente (não existe)
+[2025-10-08 21:34:22,820] [INFO] Enviando mensagem para Lanches São Paulo 450...
+[2025-10-08 21:34:27,096] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:34:46,893] [ERROR] Timeout ao aguardar caixa de mensagem para 5513996500636. Número pode não existir.
+[2025-10-08 21:34:46,901] [INFO] Número 5513996500636 bloqueado automaticamente (não existe)
+[2025-10-08 21:35:16,922] [INFO] Enviando mensagem para Boteco Pilar...
+[2025-10-08 21:35:33,068] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:35:41,106] [ERROR] Timeout ao aguardar caixa de mensagem para 551125393887. Número pode não existir.
+[2025-10-08 21:35:41,114] [INFO] Número 551125393887 bloqueado automaticamente (não existe)
+[2025-10-08 21:36:11,131] [INFO] Enviando mensagem para Eskina dos Lanches...
+[2025-10-08 21:36:35,098] [ERROR] Timeout ao aguardar caixa de mensagem para 551137335807. Número pode não existir.
+[2025-10-08 21:36:35,106] [INFO] Número 551137335807 bloqueado automaticamente (não existe)
+[2025-10-08 21:37:05,127] [INFO] Enviando mensagem para Bar e Lanches Vitória...
+[2025-10-08 21:37:09,049] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:37:29,407] [ERROR] Timeout ao aguardar caixa de mensagem para 551132845842. Número pode não existir.
+[2025-10-08 21:37:29,415] [INFO] Número 551132845842 bloqueado automaticamente (não existe)
+[2025-10-08 21:37:59,431] [INFO] Enviando mensagem para Between Buns...
+[2025-10-08 21:38:05,115] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:38:28,465] [ERROR] Timeout ao aguardar caixa de mensagem para 551145630331. Número pode não existir.
+[2025-10-08 21:38:28,473] [INFO] Número 551145630331 bloqueado automaticamente (não existe)
+[2025-10-08 21:38:58,489] [INFO] Enviando mensagem para Lanchonete Santa Cruz...
+[2025-10-08 21:39:22,734] [ERROR] Timeout ao aguardar caixa de mensagem para 551155747473. Número pode não existir.
+[2025-10-08 21:39:22,742] [INFO] Número 551155747473 bloqueado automaticamente (não existe)
+[2025-10-08 21:39:52,758] [INFO] Enviando mensagem para Tiozão do Hamburguer...
+[2025-10-08 21:39:54,102] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:40:00,174] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:40:02,204] [INFO] ✅ Mensagem enviada para Tiozão do Hamburguer
+[2025-10-08 21:40:32,222] [INFO] Enviando mensagem para Rap Burguer...
+[2025-10-08 21:40:40,974] [INFO] ✅ Mensagem enviada para Rap Burguer
+[2025-10-08 21:41:10,990] [INFO] Enviando mensagem para Lanchonete Amélia...
+[2025-10-08 21:41:27,079] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:41:35,077] [ERROR] Timeout ao aguardar caixa de mensagem para 551132589697. Número pode não existir.
+[2025-10-08 21:41:35,085] [INFO] Número 551132589697 bloqueado automaticamente (não existe)
+[2025-10-08 21:42:05,102] [INFO] Enviando mensagem para Lanches Guimarães Rosa...
+[2025-10-08 21:42:29,350] [ERROR] Timeout ao aguardar caixa de mensagem para 551132560040. Número pode não existir.
+[2025-10-08 21:42:29,358] [INFO] Número 551132560040 bloqueado automaticamente (não existe)
+[2025-10-08 21:42:59,374] [INFO] Enviando mensagem para Athenas Lanches...
+[2025-10-08 21:43:00,111] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:43:18,074] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:43:23,391] [ERROR] Timeout ao aguardar caixa de mensagem para 551132772699. Número pode não existir.
+[2025-10-08 21:43:23,399] [INFO] Número 551132772699 bloqueado automaticamente (não existe)
+[2025-10-08 21:43:53,416] [INFO] Enviando mensagem para Lanchonete Campos Elíseos...
+[2025-10-08 21:43:54,164] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:44:03,075] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:44:17,534] [ERROR] Timeout ao aguardar caixa de mensagem para 551133312437. Número pode não existir.
+[2025-10-08 21:44:17,542] [INFO] Número 551133312437 bloqueado automaticamente (não existe)
+[2025-10-08 21:44:47,584] [INFO] Enviando mensagem para Milk & Mellow Cidade Jardim...
+[2025-10-08 21:44:48,346] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:44:54,077] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:45:09,082] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:45:11,693] [ERROR] Timeout ao aguardar caixa de mensagem para 551131684516. Número pode não existir.
+[2025-10-08 21:45:11,700] [INFO] Número 551131684516 bloqueado automaticamente (não existe)
+[2025-10-08 21:45:41,722] [INFO] Enviando mensagem para Lanchonete Conceição...
+[2025-10-08 21:45:42,357] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:45:48,064] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:46:03,095] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:46:05,764] [ERROR] Timeout ao aguardar caixa de mensagem para 551132284747. Número pode não existir.
+[2025-10-08 21:46:05,772] [INFO] Número 551132284747 bloqueado automaticamente (não existe)
+[2025-10-08 21:46:35,789] [INFO] Enviando mensagem para Lanchonete Nobre Paulista...
+[2025-10-08 21:46:36,394] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:46:42,085] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:46:57,093] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:46:59,762] [ERROR] Timeout ao aguardar caixa de mensagem para 551131122425. Número pode não existir.
+[2025-10-08 21:46:59,770] [INFO] Número 551131122425 bloqueado automaticamente (não existe)
+[2025-10-08 21:47:29,785] [INFO] Enviando mensagem para Praça Cheese Lanchonete...
+[2025-10-08 21:47:30,521] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:47:53,905] [ERROR] Timeout ao aguardar caixa de mensagem para 551130326319. Número pode não existir.
+[2025-10-08 21:47:53,913] [INFO] Número 551130326319 bloqueado automaticamente (não existe)
+[2025-10-08 21:48:23,929] [INFO] Enviando mensagem para Lanchonete do Coração (Vermelhinho)...
+[2025-10-08 21:48:24,815] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:48:30,085] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:48:32,767] [INFO] ✅ Mensagem enviada para Lanchonete do Coração (Vermelhinho)
+[2025-10-08 21:49:02,788] [INFO] Enviando mensagem para Tic's Lanches...
+[2025-10-08 21:49:03,824] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:49:27,111] [ERROR] Timeout ao aguardar caixa de mensagem para 551132414056. Número pode não existir.
+[2025-10-08 21:49:27,119] [INFO] Número 551132414056 bloqueado automaticamente (não existe)
+[2025-10-08 21:49:57,136] [INFO] Enviando mensagem para Box St. Burger Bar...
+[2025-10-08 21:50:21,326] [ERROR] Timeout ao aguardar caixa de mensagem para 551124959603. Número pode não existir.
+[2025-10-08 21:50:21,334] [INFO] Número 551124959603 bloqueado automaticamente (não existe)
+[2025-10-08 21:50:51,350] [INFO] Enviando mensagem para Barakiah...
+[2025-10-08 21:51:06,130] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:51:15,748] [ERROR] Timeout ao aguardar caixa de mensagem para 551122919237. Número pode não existir.
+[2025-10-08 21:51:15,756] [INFO] Número 551122919237 bloqueado automaticamente (não existe)
+[2025-10-08 21:51:45,772] [INFO] Enviando mensagem para Lanchonete Acácio...
+[2025-10-08 21:51:54,080] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:52:09,095] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:52:10,133] [ERROR] Timeout ao aguardar caixa de mensagem para 551122951563. Número pode não existir.
+[2025-10-08 21:52:10,141] [INFO] Número 551122951563 bloqueado automaticamente (não existe)
+[2025-10-08 21:52:40,158] [INFO] Enviando mensagem para Lanchonete e Restaurante cometa ltda-me...
+[2025-10-08 21:53:04,265] [ERROR] Timeout ao aguardar caixa de mensagem para 551155994267. Número pode não existir.
+[2025-10-08 21:53:04,273] [INFO] Número 551155994267 bloqueado automaticamente (não existe)
+[2025-10-08 21:53:34,290] [INFO] Enviando mensagem para A Chapa Hamburgers - Jardins...
+[2025-10-08 21:53:39,066] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-08 21:53:58,103] [ERROR] Timeout ao aguardar caixa de mensagem para 551130813000. Número pode não existir.
+[2025-10-08 21:53:58,111] [INFO] Número 551130813000 bloqueado automaticamente (não existe)

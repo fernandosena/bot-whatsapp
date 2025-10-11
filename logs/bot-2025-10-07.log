@@ -1,0 +1,386 @@
+[2025-10-07 21:47:33,783] [INFO] Bot iniciado
+[2025-10-07 21:48:14,342] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 21:48:14,348] [INFO] ====== WebDriver manager ======
+[2025-10-07 21:48:14,505] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:48:14,792] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:48:14,924] [INFO] There is no [linux64] chromedriver "141.0.7390.65" for browser google-chrome "141.0.7390" in cache
+[2025-10-07 21:48:14,924] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:48:15,288] [INFO] WebDriver version 141.0.7390.65 selected
+[2025-10-07 21:48:15,294] [INFO] Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.65/linux64/chromedriver-linux64.zip
+[2025-10-07 21:48:15,295] [INFO] About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.65/linux64/chromedriver-linux64.zip
+[2025-10-07 21:48:15,534] [INFO] Driver downloading response is 200
+[2025-10-07 21:48:16,850] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:48:17,136] [INFO] Driver has been saved in cache [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65]
+[2025-10-07 21:48:17,138] [ERROR] Erro na busca: [Errno 8] Exec format error: '/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver'
+[2025-10-07 21:49:48,378] [WARNING] Bot interrompido pelo usuário
+[2025-10-07 21:51:27,598] [INFO] Bot iniciado
+[2025-10-07 21:51:49,609] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 21:51:49,610] [INFO] ====== WebDriver manager ======
+[2025-10-07 21:51:49,675] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:51:49,827] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:51:49,964] [INFO] There is no [linux64] chromedriver "141.0.7390.65" for browser google-chrome "141.0.7390" in cache
+[2025-10-07 21:51:49,964] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:51:50,295] [INFO] WebDriver version 141.0.7390.65 selected
+[2025-10-07 21:51:50,301] [INFO] Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.65/linux64/chromedriver-linux64.zip
+[2025-10-07 21:51:50,302] [INFO] About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.65/linux64/chromedriver-linux64.zip
+[2025-10-07 21:51:50,545] [INFO] Driver downloading response is 200
+[2025-10-07 21:51:51,923] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:51:52,154] [INFO] Driver has been saved in cache [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65]
+[2025-10-07 21:51:53,642] [ERROR] Erro na busca: Message: session not created
+from unknown error: no chrome binary at /usr/bin/google-chrome
+Stacktrace:
+#0 0x5d74196d895a <unknown>
+#1 0x5d7419179536 <unknown>
+#2 0x5d74191b0ea3 <unknown>
+#3 0x5d74191afcdf <unknown>
+#4 0x5d74191fefa9 <unknown>
+#5 0x5d74191fe6b6 <unknown>
+#6 0x5d74191f04f3 <unknown>
+#7 0x5d74191bc9c8 <unknown>
+#8 0x5d74191bd661 <unknown>
+#9 0x5d741969d8df <unknown>
+#10 0x5d74196a1a28 <unknown>
+#11 0x5d741968499c <unknown>
+#12 0x5d74196a21ee <unknown>
+#13 0x5d741966c52e <unknown>
+#14 0x5d74196c5be8 <unknown>
+#15 0x5d74196c5dff <unknown>
+#16 0x5d74196d744c <unknown>
+#17 0x775487875ac3 <unknown>
+
+[2025-10-07 21:52:20,937] [INFO] Bot encerrado
+[2025-10-07 21:53:38,789] [INFO] Bot iniciado
+[2025-10-07 21:53:55,352] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 21:53:55,352] [INFO] ====== WebDriver manager ======
+[2025-10-07 21:53:55,423] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:53:55,609] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:53:55,744] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 21:54:49,997] [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(104, 'Connection reset by peer')': /session/5be76661a7c7ab8ab28b6405e9e2bb30
+[2025-10-07 21:54:49,998] [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x76c2573c50d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/5be76661a7c7ab8ab28b6405e9e2bb30
+[2025-10-07 21:54:49,999] [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x76c2573c70b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/5be76661a7c7ab8ab28b6405e9e2bb30
+[2025-10-07 21:54:50,038] [WARNING] Bot interrompido pelo usuário
+[2025-10-07 21:55:07,196] [INFO] Bot iniciado
+[2025-10-07 21:55:11,236] [WARNING] Bot interrompido pelo usuário
+[2025-10-07 21:56:27,648] [INFO] Bot iniciado
+[2025-10-07 21:56:47,378] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 21:56:47,378] [INFO] ====== WebDriver manager ======
+[2025-10-07 21:56:47,449] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:56:47,591] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:56:47,690] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 21:57:26,356] [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(104, 'Connection reset by peer')': /session/2652bb65489fc750e5ca5684a4703731
+[2025-10-07 21:57:26,364] [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78af58b1ce60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2652bb65489fc750e5ca5684a4703731
+[2025-10-07 21:57:26,365] [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78af58b1cfe0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/2652bb65489fc750e5ca5684a4703731
+[2025-10-07 21:57:26,565] [WARNING] Bot interrompido pelo usuário
+[2025-10-07 21:57:32,159] [INFO] Bot iniciado
+[2025-10-07 21:57:46,666] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 21:57:46,666] [INFO] ====== WebDriver manager ======
+[2025-10-07 21:57:46,799] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:57:46,928] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 21:57:47,050] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 21:58:47,169] [INFO] ✅ Busca concluída: 8 empresas encontradas, 8 salvas
+[2025-10-07 22:03:45,698] [INFO] Bot iniciado
+[2025-10-07 22:04:01,658] [INFO] Iniciando busca: lanchonetes em pernambuco
+[2025-10-07 22:04:01,658] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:04:01,724] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:04:01,818] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:04:01,945] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:04:45,834] [INFO] ✅ Busca concluída: 7 empresas com dados de contato encontradas
+[2025-10-07 22:05:30,562] [WARNING] Bot interrompido pelo usuário
+[2025-10-07 22:25:26,179] [INFO]  * Restarting with stat
+[2025-10-07 22:25:26,796] [WARNING]  * Debugger is active!
+[2025-10-07 22:25:26,811] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:25:58,803] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:25:58,889] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:25:58,996] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:25:59,108] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:29:03,501] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 22:29:03,695] [INFO]  * Restarting with stat
+[2025-10-07 22:29:04,410] [WARNING]  * Debugger is active!
+[2025-10-07 22:29:04,412] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:29:19,716] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 22:29:19,902] [INFO]  * Restarting with stat
+[2025-10-07 22:29:20,556] [WARNING]  * Debugger is active!
+[2025-10-07 22:29:20,559] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:34:57,707] [INFO]  * Restarting with stat
+[2025-10-07 22:34:58,310] [WARNING]  * Debugger is active!
+[2025-10-07 22:34:58,313] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:35:57,781] [INFO]  * Restarting with stat
+[2025-10-07 22:35:58,391] [WARNING]  * Debugger is active!
+[2025-10-07 22:35:58,393] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:40:35,876] [INFO]  * Restarting with stat
+[2025-10-07 22:40:36,479] [WARNING]  * Debugger is active!
+[2025-10-07 22:40:36,481] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:45:48,558] [INFO]  * Restarting with stat
+[2025-10-07 22:45:49,189] [WARNING]  * Debugger is active!
+[2025-10-07 22:45:49,191] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:46:29,132] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:46:29,219] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:46:29,331] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:46:29,436] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:49:34,849] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:49:35,056] [INFO]  * Restarting with stat
+[2025-10-07 22:49:35,700] [WARNING]  * Debugger is active!
+[2025-10-07 22:49:35,702] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:49:56,097] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:49:56,282] [INFO]  * Restarting with stat
+[2025-10-07 22:49:56,932] [WARNING]  * Debugger is active!
+[2025-10-07 22:49:56,934] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:50:27,712] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 22:50:27,900] [INFO]  * Restarting with stat
+[2025-10-07 22:50:28,520] [WARNING]  * Debugger is active!
+[2025-10-07 22:50:28,522] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:51:41,770] [INFO]  * Restarting with stat
+[2025-10-07 22:51:42,503] [WARNING]  * Debugger is active!
+[2025-10-07 22:51:42,505] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:51:58,195] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:51:58,280] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:51:58,564] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:51:58,700] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:52:31,509] [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ac720633830>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/91d04f99fdd948e65448d781ecacdabf
+[2025-10-07 22:52:31,510] [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ac720633a10>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/91d04f99fdd948e65448d781ecacdabf
+[2025-10-07 22:52:31,510] [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ac720633b60>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/91d04f99fdd948e65448d781ecacdabf
+[2025-10-07 22:52:55,412] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:52:55,500] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:52:55,606] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:52:55,713] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:53:36,315] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 22:53:36,498] [INFO]  * Restarting with stat
+[2025-10-07 22:53:37,121] [WARNING]  * Debugger is active!
+[2025-10-07 22:53:37,123] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:53:56,528] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:53:56,708] [INFO]  * Restarting with stat
+[2025-10-07 22:53:57,339] [WARNING]  * Debugger is active!
+[2025-10-07 22:53:57,342] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:54:13,656] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:54:13,840] [INFO]  * Restarting with stat
+[2025-10-07 22:54:14,490] [WARNING]  * Debugger is active!
+[2025-10-07 22:54:14,492] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:54:26,719] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:54:26,879] [INFO]  * Restarting with stat
+[2025-10-07 22:54:27,514] [WARNING]  * Debugger is active!
+[2025-10-07 22:54:27,517] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:54:36,667] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:54:36,834] [INFO]  * Restarting with stat
+[2025-10-07 22:54:37,476] [WARNING]  * Debugger is active!
+[2025-10-07 22:54:37,478] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:54:47,664] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:54:47,837] [INFO]  * Restarting with stat
+[2025-10-07 22:54:48,487] [WARNING]  * Debugger is active!
+[2025-10-07 22:54:48,489] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:55:00,703] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 22:55:00,919] [INFO]  * Restarting with stat
+[2025-10-07 22:55:01,538] [WARNING]  * Debugger is active!
+[2025-10-07 22:55:01,540] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:55:57,958] [INFO]  * Restarting with stat
+[2025-10-07 22:55:58,561] [WARNING]  * Debugger is active!
+[2025-10-07 22:55:58,563] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:56:18,651] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:56:18,733] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:56:18,837] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:56:18,935] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 22:57:41,836] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:57:42,011] [INFO]  * Restarting with stat
+[2025-10-07 22:57:42,640] [WARNING]  * Debugger is active!
+[2025-10-07 22:57:42,642] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:57:54,867] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 22:57:55,024] [INFO]  * Restarting with stat
+[2025-10-07 22:57:55,664] [WARNING]  * Debugger is active!
+[2025-10-07 22:57:55,666] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:58:58,216] [INFO]  * Restarting with stat
+[2025-10-07 22:58:58,862] [WARNING]  * Debugger is active!
+[2025-10-07 22:58:58,864] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 22:59:24,527] [INFO] ====== WebDriver manager ======
+[2025-10-07 22:59:24,614] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:59:24,709] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 22:59:24,801] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:02:23,809] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:02:23,995] [INFO]  * Restarting with stat
+[2025-10-07 23:02:24,645] [WARNING]  * Debugger is active!
+[2025-10-07 23:02:24,647] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:05:14,100] [INFO]  * Restarting with stat
+[2025-10-07 23:05:14,748] [WARNING]  * Debugger is active!
+[2025-10-07 23:05:14,751] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:05:44,047] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:05:44,133] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:05:44,241] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:05:44,456] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:07:51,965] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:07:52,156] [INFO]  * Restarting with stat
+[2025-10-07 23:07:52,849] [WARNING]  * Debugger is active!
+[2025-10-07 23:07:52,852] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:08:11,317] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:08:11,519] [INFO]  * Restarting with stat
+[2025-10-07 23:08:12,163] [WARNING]  * Debugger is active!
+[2025-10-07 23:08:12,165] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:09:26,088] [INFO]  * Restarting with stat
+[2025-10-07 23:09:26,711] [WARNING]  * Debugger is active!
+[2025-10-07 23:09:26,714] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:09:56,569] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:09:56,652] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:09:56,755] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:09:56,860] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:13:15,816] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:13:15,907] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:13:16,007] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:13:16,109] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:13:54,129] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 23:13:54,299] [INFO]  * Restarting with stat
+[2025-10-07 23:13:54,997] [WARNING]  * Debugger is active!
+[2025-10-07 23:13:55,000] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:14:10,282] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 23:14:10,446] [INFO]  * Restarting with stat
+[2025-10-07 23:14:11,143] [WARNING]  * Debugger is active!
+[2025-10-07 23:14:11,145] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:14:27,489] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 23:14:27,673] [INFO]  * Restarting with stat
+[2025-10-07 23:14:28,307] [WARNING]  * Debugger is active!
+[2025-10-07 23:14:28,309] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:14:48,771] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:14:48,942] [INFO]  * Restarting with stat
+[2025-10-07 23:14:49,601] [WARNING]  * Debugger is active!
+[2025-10-07 23:14:49,603] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:15:09,121] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:15:09,313] [INFO]  * Restarting with stat
+[2025-10-07 23:15:09,959] [WARNING]  * Debugger is active!
+[2025-10-07 23:15:09,961] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:15:33,551] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:15:33,738] [INFO]  * Restarting with stat
+[2025-10-07 23:15:34,415] [WARNING]  * Debugger is active!
+[2025-10-07 23:15:34,417] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:15:57,984] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:15:58,161] [INFO]  * Restarting with stat
+[2025-10-07 23:15:58,791] [WARNING]  * Debugger is active!
+[2025-10-07 23:15:58,793] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:16:18,218] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 23:16:18,393] [INFO]  * Restarting with stat
+[2025-10-07 23:16:19,035] [WARNING]  * Debugger is active!
+[2025-10-07 23:16:19,037] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:17:02,141] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 23:17:02,315] [INFO]  * Restarting with stat
+[2025-10-07 23:17:02,970] [WARNING]  * Debugger is active!
+[2025-10-07 23:17:02,972] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:19:53,144] [INFO]  * Restarting with stat
+[2025-10-07 23:19:53,825] [WARNING]  * Debugger is active!
+[2025-10-07 23:19:53,827] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:20:18,013] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:20:18,096] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:20:18,217] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:20:18,327] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:21:03,417] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 23:21:03,597] [INFO]  * Restarting with stat
+[2025-10-07 23:21:04,247] [WARNING]  * Debugger is active!
+[2025-10-07 23:21:04,249] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:21:55,543] [INFO]  * Restarting with stat
+[2025-10-07 23:21:56,143] [WARNING]  * Debugger is active!
+[2025-10-07 23:21:56,145] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:22:19,036] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:22:19,120] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:22:19,217] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:22:19,314] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:23:37,790] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:23:37,873] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:23:37,979] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:23:38,070] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:26:24,802] [INFO]  * Restarting with stat
+[2025-10-07 23:26:25,451] [WARNING]  * Debugger is active!
+[2025-10-07 23:26:25,456] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:27:10,391] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:27:10,477] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:27:10,589] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:27:10,951] [INFO] Driver [/home/fernando-sena/.wdm/drivers/chromedriver/linux64/141.0.7390.65/chromedriver-linux64/THIRD_PARTY_NOTICES.chromedriver] found in cache
+[2025-10-07 23:29:43,907] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:29:44,238] [INFO]  * Restarting with stat
+[2025-10-07 23:29:45,471] [WARNING]  * Debugger is active!
+[2025-10-07 23:29:45,480] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:30:05,857] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 23:30:06,212] [INFO]  * Restarting with stat
+[2025-10-07 23:30:07,677] [WARNING]  * Debugger is active!
+[2025-10-07 23:30:07,680] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:30:19,993] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-07 23:30:20,328] [INFO]  * Restarting with stat
+[2025-10-07 23:30:22,142] [WARNING]  * Debugger is active!
+[2025-10-07 23:30:22,151] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:30:39,613] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:30:39,958] [INFO]  * Restarting with stat
+[2025-10-07 23:30:41,523] [WARNING]  * Debugger is active!
+[2025-10-07 23:30:41,526] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:41:22,213] [INFO]  * Restarting with stat
+[2025-10-07 23:41:22,905] [WARNING]  * Debugger is active!
+[2025-10-07 23:41:22,907] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:42:01,456] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:42:01,539] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:43:33,062] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:43:33,250] [INFO]  * Restarting with stat
+[2025-10-07 23:43:33,940] [WARNING]  * Debugger is active!
+[2025-10-07 23:43:33,942] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:43:52,418] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:43:52,629] [INFO]  * Restarting with stat
+[2025-10-07 23:43:53,359] [WARNING]  * Debugger is active!
+[2025-10-07 23:43:53,361] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:44:07,767] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:44:07,965] [INFO]  * Restarting with stat
+[2025-10-07 23:44:08,654] [WARNING]  * Debugger is active!
+[2025-10-07 23:44:08,656] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:44:24,056] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:44:24,235] [INFO]  * Restarting with stat
+[2025-10-07 23:44:24,928] [WARNING]  * Debugger is active!
+[2025-10-07 23:44:24,929] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:45:10,155] [INFO]  * Restarting with stat
+[2025-10-07 23:45:10,936] [WARNING]  * Debugger is active!
+[2025-10-07 23:45:10,938] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:45:27,095] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:45:27,176] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:47:06,137] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:47:06,325] [INFO]  * Restarting with stat
+[2025-10-07 23:47:07,037] [WARNING]  * Debugger is active!
+[2025-10-07 23:47:07,039] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:47:19,338] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:47:19,518] [INFO]  * Restarting with stat
+[2025-10-07 23:47:20,204] [WARNING]  * Debugger is active!
+[2025-10-07 23:47:20,206] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:48:15,679] [INFO]  * Restarting with stat
+[2025-10-07 23:48:16,414] [WARNING]  * Debugger is active!
+[2025-10-07 23:48:16,416] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:48:36,669] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:48:36,748] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-07 23:52:10,837] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:52:11,023] [INFO]  * Restarting with stat
+[2025-10-07 23:52:11,776] [WARNING]  * Debugger is active!
+[2025-10-07 23:52:11,780] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:52:44,617] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:52:44,795] [INFO]  * Restarting with stat
+[2025-10-07 23:52:45,551] [WARNING]  * Debugger is active!
+[2025-10-07 23:52:45,553] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:52:55,767] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:52:55,960] [INFO]  * Restarting with stat
+[2025-10-07 23:52:56,712] [WARNING]  * Debugger is active!
+[2025-10-07 23:52:56,714] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:53:06,992] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:53:07,164] [INFO]  * Restarting with stat
+[2025-10-07 23:53:07,853] [WARNING]  * Debugger is active!
+[2025-10-07 23:53:07,855] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:53:37,612] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:53:37,776] [INFO]  * Restarting with stat
+[2025-10-07 23:53:38,508] [WARNING]  * Debugger is active!
+[2025-10-07 23:53:38,510] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:53:53,920] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-07 23:53:54,107] [INFO]  * Restarting with stat
+[2025-10-07 23:53:54,883] [WARNING]  * Debugger is active!
+[2025-10-07 23:53:54,885] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:54:19,616] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-07 23:54:19,792] [INFO]  * Restarting with stat
+[2025-10-07 23:54:20,546] [WARNING]  * Debugger is active!
+[2025-10-07 23:54:20,548] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:55:09,616] [INFO]  * Restarting with stat
+[2025-10-07 23:55:10,437] [WARNING]  * Debugger is active!
+[2025-10-07 23:55:10,439] [INFO]  * Debugger PIN: 424-182-983
+[2025-10-07 23:55:35,215] [INFO] ====== WebDriver manager ======
+[2025-10-07 23:55:35,309] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-08 00:00:57,421] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/scraper/google_maps_scraper.py', reloading
+[2025-10-08 00:00:57,626] [INFO]  * Restarting with stat
+[2025-10-08 00:03:52,986] [INFO]  * Restarting with stat
+[2025-10-08 00:04:12,375] [INFO]  * Restarting with stat
+[2025-10-08 00:04:42,005] [INFO]  * Restarting with stat
+[2025-10-08 00:05:05,572] [INFO]  * Restarting with stat
+[2025-10-08 00:05:22,941] [INFO]  * Restarting with stat
+[2025-10-08 00:05:43,370] [INFO]  * Restarting with stat

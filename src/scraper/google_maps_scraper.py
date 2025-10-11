@@ -483,25 +483,41 @@ class GoogleMapsScraper:
         previous_height = 0
         scroll_attempts = 0
         max_scroll_attempts = 20
+        no_new_results_count = 0
 
         while scroll_attempts < max_scroll_attempts:
+            # Contar resultados antes do scroll
+            result_count_before = len(self.driver.find_elements(By.CSS_SELECTOR, 'div[role="feed"] a[href*="/maps/place/"]'))
+
             # Scroll até o final
             self.driver.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight', results_panel)
             time.sleep(2)
 
             # Verificar se carregou mais resultados
             current_height = self.driver.execute_script('return arguments[0].scrollHeight', results_panel)
+            result_count_after = len(self.driver.find_elements(By.CSS_SELECTOR, 'div[role="feed"] a[href*="/maps/place/"]'))
 
-            if current_height == previous_height:
+            # Detectar se Google Maps atingiu o limite
+            if current_height == previous_height and result_count_before == result_count_after:
                 scroll_attempts += 1
+                no_new_results_count += 1
+
+                # Se não carregou nada novo por 3 tentativas, provavelmente atingiu o limite do Google
+                if no_new_results_count >= 3:
+                    print(f"\n⚠️  Google Maps atingiu o limite de resultados ({result_count_after} empresas)")
+                    print(f"💡 Dica: Para encontrar mais empresas:")
+                    print(f"   • Divida por bairros/regiões")
+                    print(f"   • Use termos de busca mais específicos")
+                    print(f"   • Tente variações do setor\n")
+                    break
             else:
                 scroll_attempts = 0
+                no_new_results_count = 0
 
             previous_height = current_height
 
             # Verificar quantidade de resultados
-            result_count = len(self.driver.find_elements(By.CSS_SELECTOR, 'div[role="feed"] a[href*="/maps/place/"]'))
-            if result_count >= max_results:
+            if result_count_after >= max_results:
                 break
 
     def _extract_business_data(self, setor, cidade):
@@ -905,3 +921,175 @@ class GoogleMapsScraper:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
+
+    def search_with_variations(self, setor, cidade, max_results_per_variation=50, db=None, progress_callback=None, required_contacts=None):
+        """
+        Buscar empresas usando múltiplas variações de termos
+
+        Args:
+            setor: Setor principal (ex: "Padaria")
+            cidade: Cidade
+            max_results_per_variation: Máximo de resultados por variação
+            db: Instância do banco de dados
+            progress_callback: Callback para progresso
+            required_contacts: Filtros de contato
+
+        Returns:
+            Lista consolidada de empresas (sem duplicatas)
+        """
+        variations = self._generate_search_variations(setor)
+        all_businesses = []
+        seen_names = set()
+
+        print(f"\n🔄 Iniciando busca com {len(variations)} variações de '{setor}'")
+        print(f"📋 Variações: {', '.join(variations)}\n")
+
+        for idx, variation in enumerate(variations, 1):
+            print(f"\n{'='*60}")
+            print(f"🔍 Variação {idx}/{len(variations)}: '{variation}'")
+            print(f"{'='*60}\n")
+
+            try:
+                businesses = self.search_businesses(
+                    setor=variation,
+                    cidade=cidade,
+                    max_results=max_results_per_variation,
+                    db=db,
+                    progress_callback=progress_callback,
+                    continue_from_checkpoint=True,
+                    required_contacts=required_contacts
+                )
+
+                # Filtrar duplicatas por nome
+                new_businesses = 0
+                for business in businesses:
+                    if business['nome'] not in seen_names:
+                        seen_names.add(business['nome'])
+                        all_businesses.append(business)
+                        new_businesses += 1
+
+                print(f"✅ Variação concluída: {len(businesses)} encontradas, {new_businesses} novas")
+
+            except Exception as e:
+                print(f"❌ Erro na variação '{variation}': {str(e)}")
+                continue
+
+        print(f"\n{'='*60}")
+        print(f"✅ Busca com variações concluída!")
+        print(f"📊 Total de empresas únicas: {len(all_businesses)}")
+        print(f"{'='*60}\n")
+
+        return all_businesses
+
+    def search_by_neighborhoods(self, setor, cidade, neighborhoods, max_results_per_neighborhood=50, db=None, progress_callback=None, required_contacts=None):
+        """
+        Buscar empresas dividindo por bairros/regiões
+
+        Args:
+            setor: Setor (ex: "Padaria")
+            cidade: Cidade
+            neighborhoods: Lista de bairros/regiões (ex: ["Copacabana", "Ipanema", "Leblon"])
+            max_results_per_neighborhood: Máximo de resultados por bairro
+            db: Instância do banco de dados
+            progress_callback: Callback para progresso
+            required_contacts: Filtros de contato
+
+        Returns:
+            Lista consolidada de empresas (sem duplicatas)
+        """
+        all_businesses = []
+        seen_names = set()
+
+        print(f"\n🗺️  Iniciando busca por {len(neighborhoods)} bairros/regiões")
+        print(f"📋 Bairros: {', '.join(neighborhoods)}\n")
+
+        for idx, neighborhood in enumerate(neighborhoods, 1):
+            print(f"\n{'='*60}")
+            print(f"📍 Bairro {idx}/{len(neighborhoods)}: {neighborhood}, {cidade}")
+            print(f"{'='*60}\n")
+
+            try:
+                # Buscar com localização específica
+                search_query = f"{setor} em {neighborhood}, {cidade}"
+
+                businesses = self.search_businesses(
+                    setor=search_query,
+                    cidade="",  # Já incluído no setor
+                    max_results=max_results_per_neighborhood,
+                    db=db,
+                    progress_callback=progress_callback,
+                    continue_from_checkpoint=True,
+                    required_contacts=required_contacts
+                )
+
+                # Filtrar duplicatas por nome
+                new_businesses = 0
+                for business in businesses:
+                    if business['nome'] not in seen_names:
+                        seen_names.add(business['nome'])
+                        all_businesses.append(business)
+                        new_businesses += 1
+
+                print(f"✅ Bairro concluído: {len(businesses)} encontradas, {new_businesses} novas")
+
+            except Exception as e:
+                print(f"❌ Erro no bairro '{neighborhood}': {str(e)}")
+                continue
+
+        print(f"\n{'='*60}")
+        print(f"✅ Busca por bairros concluída!")
+        print(f"📊 Total de empresas únicas: {len(all_businesses)}")
+        print(f"{'='*60}\n")
+
+        return all_businesses
+
+    def _generate_search_variations(self, setor):
+        """
+        Gerar variações de termos de busca para um setor
+
+        Args:
+            setor: Setor original (ex: "Padaria")
+
+        Returns:
+            Lista de variações
+        """
+        variations = [setor]  # Incluir o termo original
+
+        # Dicionário de variações por setor comum
+        sector_variations = {
+            'padaria': ['padaria artesanal', 'pães e doces', 'confeitaria', 'padaria delivery'],
+            'restaurante': ['restaurante delivery', 'comida caseira', 'marmitaria', 'food truck'],
+            'farmácia': ['drogaria', 'farmácia de manipulação', 'farmácia 24h'],
+            'mercado': ['supermercado', 'mercearia', 'minimercado', 'empório'],
+            'pet shop': ['clínica veterinária', 'banho e tosa', 'produtos para pets'],
+            'academia': ['crossfit', 'estúdio de pilates', 'box de luta', 'personal trainer'],
+            'salão de beleza': ['barbearia', 'cabeleireiro', 'estética', 'manicure'],
+            'lanchonete': ['hamburgueria', 'pizzaria', 'lanches delivery', 'fast food'],
+            'advocacia': ['escritório de advocacia', 'advogado', 'consultoria jurídica'],
+            'contabilidade': ['contador', 'escritório contábil', 'consultoria fiscal'],
+        }
+
+        # Buscar variações no dicionário (case insensitive)
+        setor_lower = setor.lower()
+        for key, vars in sector_variations.items():
+            if key in setor_lower:
+                variations.extend(vars)
+                break
+
+        # Se não encontrou variações específicas, adicionar modificadores genéricos
+        if len(variations) == 1:
+            variations.extend([
+                f"{setor} delivery",
+                f"{setor} artesanal",
+                f"{setor} profissional"
+            ])
+
+        # Remover duplicatas mantendo ordem
+        seen = set()
+        unique_variations = []
+        for v in variations:
+            if v.lower() not in seen:
+                seen.add(v.lower())
+                unique_variations.append(v)
+
+        return unique_variations

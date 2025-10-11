@@ -60,6 +60,12 @@ def whatsapp():
     return render_template('whatsapp.html')
 
 
+@app.route('/filtro-mensagens')
+def filtro_mensagens():
+    """Página de filtro de mensagens enviadas"""
+    return render_template('filtro_mensagens.html')
+
+
 @app.route('/api/empresas')
 def get_empresas():
     """Listar empresas com filtros"""
@@ -1162,6 +1168,227 @@ def check_blocked_number(telefone):
         is_blocked = db.is_number_blocked(telefone_normalizado)
         return jsonify({'blocked': is_blocked})
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+# ==================== ENDPOINTS FILTRO DE MENSAGENS ====================
+
+@app.route('/api/empresas/com-status-envio')
+def get_empresas_com_status_envio():
+    """Listar empresas com status de envio de mensagens"""
+    try:
+        # Filtros da query
+        setor = request.args.get('setor', '')
+        cidade = request.args.get('cidade', '')
+        campanha_id = request.args.get('campanha_id', type=int)
+        status_envio = request.args.get('status_envio', '')  # 'enviado', 'nao_enviado', 'bloqueado'
+        has_whatsapp = request.args.get('has_whatsapp', 'true')  # Sempre filtrar com whatsapp
+        search = request.args.get('search', '')
+
+        # Query base
+        query = '''
+            SELECT
+                e.*,
+                CASE
+                    WHEN wb.telefone IS NOT NULL THEN 'bloqueado'
+                    WHEN wl.id IS NOT NULL THEN 'enviado'
+                    ELSE 'nao_enviado'
+                END as status_envio,
+                wl.data_envio,
+                wl.status as status_msg,
+                wl.erro,
+                wb.motivo as motivo_bloqueio
+            FROM empresas e
+            LEFT JOIN whatsapp_blocked wb ON wb.telefone = REPLACE(REPLACE(REPLACE(e.whatsapp, ' ', ''), '-', ''), '(', '')
+            LEFT JOIN whatsapp_logs wl ON wl.empresa_id = e.id
+        '''
+
+        params = []
+        conditions = ['1=1']
+
+        # Filtrar por campanha específica
+        if campanha_id:
+            query += ' AND wl.campanha_id = ?'
+            params.append(campanha_id)
+
+        # Sempre filtrar empresas com WhatsApp
+        if has_whatsapp == 'true':
+            conditions.append('e.whatsapp IS NOT NULL AND e.whatsapp != ""')
+
+        if setor:
+            conditions.append('e.setor LIKE ?')
+            params.append(f'%{setor}%')
+
+        if cidade:
+            conditions.append('e.cidade LIKE ?')
+            params.append(f'%{cidade}%')
+
+        if search:
+            conditions.append('(e.nome LIKE ? OR e.endereco LIKE ?)')
+            params.extend([f'%{search}%', f'%{search}%'])
+
+        # Adicionar condições WHERE
+        if conditions:
+            query += ' WHERE ' + ' AND '.join(conditions)
+
+        query += ' ORDER BY e.data_criacao DESC'
+
+        cursor = db.cursor
+        cursor.execute(query, params)
+        empresas_raw = [dict(row) for row in cursor.fetchall()]
+
+        # Processar e agrupar empresas (remover duplicatas)
+        empresas_dict = {}
+        for emp in empresas_raw:
+            empresa_id = emp['id']
+
+            if empresa_id not in empresas_dict:
+                empresas_dict[empresa_id] = emp
+            else:
+                # Se já existe, atualizar apenas se tem informação de envio mais recente
+                if emp['data_envio'] and (not empresas_dict[empresa_id]['data_envio'] or
+                                          emp['data_envio'] > empresas_dict[empresa_id]['data_envio']):
+                    empresas_dict[empresa_id] = emp
+
+        empresas = list(empresas_dict.values())
+
+        # Filtrar por status de envio (após agrupar)
+        if status_envio:
+            empresas = [e for e in empresas if e['status_envio'] == status_envio]
+
+        # Estatísticas
+        total = len(empresas)
+        enviados = len([e for e in empresas if e['status_envio'] == 'enviado'])
+        nao_enviados = len([e for e in empresas if e['status_envio'] == 'nao_enviado'])
+        bloqueados = len([e for e in empresas if e['status_envio'] == 'bloqueado'])
+
+        return jsonify({
+            'empresas': empresas,
+            'stats': {
+                'total': total,
+                'enviados': enviados,
+                'nao_enviados': nao_enviados,
+                'bloqueados': bloqueados
+            }
+        })
+
+    except Exception as e:
+        print(f"❌ Erro em get_empresas_com_status_envio: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/export/mensagens-excel')
+def export_mensagens_excel():
+    """Exportar empresas com status de envio para Excel"""
+    try:
+        # Obter mesmos filtros
+        setor = request.args.get('setor', '')
+        cidade = request.args.get('cidade', '')
+        campanha_id = request.args.get('campanha_id', type=int)
+        status_envio = request.args.get('status_envio', '')
+        search = request.args.get('search', '')
+
+        # Reutilizar a lógica da API
+        # (Código similar ao endpoint acima, mas retorna Excel)
+        query = '''
+            SELECT
+                e.*,
+                CASE
+                    WHEN wb.telefone IS NOT NULL THEN 'Bloqueado'
+                    WHEN wl.id IS NOT NULL THEN 'Enviado'
+                    ELSE 'Não Enviado'
+                END as status_envio,
+                wl.data_envio,
+                wl.status as status_msg,
+                wl.erro,
+                wb.motivo as motivo_bloqueio
+            FROM empresas e
+            LEFT JOIN whatsapp_blocked wb ON wb.telefone = REPLACE(REPLACE(REPLACE(e.whatsapp, ' ', ''), '-', ''), '(', '')
+            LEFT JOIN whatsapp_logs wl ON wl.empresa_id = e.id
+            WHERE e.whatsapp IS NOT NULL AND e.whatsapp != ""
+        '''
+
+        params = []
+
+        if campanha_id:
+            query += ' AND wl.campanha_id = ?'
+            params.append(campanha_id)
+
+        if setor:
+            query += ' AND e.setor LIKE ?'
+            params.append(f'%{setor}%')
+
+        if cidade:
+            query += ' AND e.cidade LIKE ?'
+            params.append(f'%{cidade}%')
+
+        if search:
+            query += ' AND (e.nome LIKE ? OR e.endereco LIKE ?)'
+            params.extend([f'%{search}%', f'%{search}%'])
+
+        query += ' ORDER BY e.data_criacao DESC'
+
+        cursor = db.cursor
+        cursor.execute(query, params)
+        empresas_raw = [dict(row) for row in cursor.fetchall()]
+
+        # Agrupar duplicatas
+        empresas_dict = {}
+        for emp in empresas_raw:
+            empresa_id = emp['id']
+            if empresa_id not in empresas_dict:
+                empresas_dict[empresa_id] = emp
+            else:
+                if emp['data_envio'] and (not empresas_dict[empresa_id]['data_envio'] or
+                                          emp['data_envio'] > empresas_dict[empresa_id]['data_envio']):
+                    empresas_dict[empresa_id] = emp
+
+        empresas = list(empresas_dict.values())
+
+        # Filtrar por status
+        if status_envio:
+            if status_envio == 'enviado':
+                empresas = [e for e in empresas if e['status_envio'] == 'Enviado']
+            elif status_envio == 'nao_enviado':
+                empresas = [e for e in empresas if e['status_envio'] == 'Não Enviado']
+            elif status_envio == 'bloqueado':
+                empresas = [e for e in empresas if e['status_envio'] == 'Bloqueado']
+
+        # Criar DataFrame
+        df = pd.DataFrame(empresas)
+
+        # Reordenar colunas
+        columns_order = [
+            'id', 'nome', 'status_envio', 'setor', 'cidade', 'endereco',
+            'whatsapp', 'telefone', 'email', 'website', 'instagram', 'facebook',
+            'data_envio', 'status_msg', 'erro', 'motivo_bloqueio',
+            'rating', 'total_reviews', 'data_criacao'
+        ]
+
+        df = df[[col for col in columns_order if col in df.columns]]
+
+        # Criar arquivo Excel
+        output = io.BytesIO()
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            df.to_excel(writer, index=False, sheet_name='Status Mensagens')
+
+        output.seek(0)
+
+        filename = f"status_mensagens_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+
+        return send_file(
+            output,
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            as_attachment=True,
+            download_name=filename
+        )
+
+    except Exception as e:
+        print(f"❌ Erro ao exportar: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
 
