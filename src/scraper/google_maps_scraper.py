@@ -33,11 +33,10 @@ class GoogleMapsScraper:
         if self.headless:
             chrome_options.add_argument('--headless=new')
 
-        # Otimizações de performance
+        # Otimizações de performance e correção para ambiente Linux
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-        chrome_options.add_argument('--start-maximized')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-software-rasterizer')
         chrome_options.add_argument('--disable-extensions')
@@ -45,6 +44,30 @@ class GoogleMapsScraper:
         chrome_options.add_argument('--disable-logging')
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--silent')
+        # Argumentos essenciais para rodar em ambiente headless Linux
+        chrome_options.add_argument('--disable-setuid-sandbox')
+        chrome_options.add_argument('--remote-debugging-port=9222')
+        chrome_options.add_argument('--window-size=1920,1080')
+        chrome_options.add_argument('--disable-background-networking')
+        chrome_options.add_argument('--disable-background-timer-throttling')
+        chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+        chrome_options.add_argument('--disable-breakpad')
+        chrome_options.add_argument('--disable-client-side-phishing-detection')
+        chrome_options.add_argument('--disable-component-extensions-with-background-pages')
+        chrome_options.add_argument('--disable-default-apps')
+        chrome_options.add_argument('--disable-features=TranslateUI')
+        chrome_options.add_argument('--disable-hang-monitor')
+        chrome_options.add_argument('--disable-ipc-flooding-protection')
+        chrome_options.add_argument('--disable-popup-blocking')
+        chrome_options.add_argument('--disable-prompt-on-repost')
+        chrome_options.add_argument('--disable-renderer-backgrounding')
+        chrome_options.add_argument('--disable-sync')
+        chrome_options.add_argument('--metrics-recording-only')
+        chrome_options.add_argument('--no-first-run')
+        chrome_options.add_argument('--safebrowsing-disable-auto-update')
+        chrome_options.add_argument('--enable-automation')
+        chrome_options.add_argument('--password-store=basic')
+        chrome_options.add_argument('--use-mock-keychain')
 
         chrome_options.add_experimental_option('excludeSwitches', ['enable-automation', 'enable-logging'])
         chrome_options.add_experimental_option('useAutomationExtension', False)
@@ -90,26 +113,71 @@ class GoogleMapsScraper:
 
         # Instalar e configurar o ChromeDriver corretamente
         try:
+            print("🔧 Instalando/verificando ChromeDriver...")
             driver_path = ChromeDriverManager().install()
 
-            # Se o caminho aponta para o diretório, encontrar o executável correto
-            if os.path.isdir(driver_path):
-                # Procurar pelo arquivo chromedriver no diretório
-                for root, dirs, files in os.walk(driver_path):
-                    for file in files:
-                        if file == 'chromedriver':
-                            driver_path = os.path.join(root, file)
-                            break
+            # Se o caminho aponta para o diretório ou arquivo errado, encontrar o executável correto
+            if os.path.isdir(driver_path) or not os.path.basename(driver_path) == 'chromedriver':
+                # Obter o diretório base
+                base_dir = os.path.dirname(driver_path) if os.path.isfile(driver_path) else driver_path
 
-            service = Service(driver_path)
-            self.driver = webdriver.Chrome(service=service, options=chrome_options)
-            self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+                # Procurar especificamente pelo arquivo 'chromedriver' (sem extensão)
+                chromedriver_path = os.path.join(base_dir, 'chromedriver')
+                if os.path.isfile(chromedriver_path) and os.access(chromedriver_path, os.X_OK):
+                    driver_path = chromedriver_path
+                else:
+                    # Se não encontrar no mesmo diretório, procurar recursivamente
+                    found = False
+                    for root, dirs, files in os.walk(base_dir):
+                        if 'chromedriver' in files:
+                            test_path = os.path.join(root, 'chromedriver')
+                            if os.access(test_path, os.X_OK):
+                                driver_path = test_path
+                                found = True
+                                break
+                    if not found:
+                        raise Exception(f"Executável 'chromedriver' não encontrado em {base_dir}")
+
+            if os.path.isfile(driver_path) and os.access(driver_path, os.X_OK):
+                print(f"✅ ChromeDriver encontrado em: {driver_path}")
+
+                service = Service(driver_path)
+                print("🚀 Iniciando Chrome...")
+                self.driver = webdriver.Chrome(service=service, options=chrome_options)
+                self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+                print("✅ Chrome iniciado com sucesso!")
+            else:
+                raise Exception(f"ChromeDriver não encontrado ou não é executável: {driver_path}")
+
         except Exception as e:
             print(f"❌ Erro ao configurar ChromeDriver: {str(e)}")
             print("💡 Tentando usar chromedriver do sistema...")
-            # Tentar usar chromedriver do sistema
-            self.driver = webdriver.Chrome(options=chrome_options)
-            self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+            try:
+                # Tentar vários caminhos possíveis do sistema
+                system_paths = [
+                    '/usr/local/bin/chromedriver',
+                    '/usr/bin/chromedriver',
+                    shutil.which('chromedriver')
+                ]
+
+                driver_found = None
+                for path in system_paths:
+                    if path and os.path.isfile(path) and os.access(path, os.X_OK):
+                        driver_found = path
+                        break
+
+                if driver_found:
+                    service = Service(driver_found)
+                    print(f"🚀 Iniciando Chrome com driver do sistema ({driver_found})...")
+                    self.driver = webdriver.Chrome(service=service, options=chrome_options)
+                    self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+                    print("✅ Chrome iniciado com sucesso!")
+                else:
+                    raise Exception("ChromeDriver não encontrado no sistema")
+
+            except Exception as e2:
+                print(f"❌ Erro ao usar ChromeDriver do sistema: {str(e2)}")
+                raise Exception(f"Falha ao inicializar ChromeDriver. Verifique se o Chrome/Chromium está instalado corretamente.\nErro 1: {str(e)}\nErro 2: {str(e2)}")
 
     def search_businesses(self, setor, cidade, max_results=50, db=None, progress_callback=None, continue_from_checkpoint=True, required_contacts=None):
         """Buscar empresas no Google Maps"""

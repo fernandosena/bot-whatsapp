@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18dfa60b-5494-45a1-a890-1af2b63ac08e" name="Changes" comment="fix: resolvido alguns bugs de evio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scraper/google_maps_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scraper/google_maps_scraper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,8 @@
       <workItem from="1759900586144" duration="700000" />
       <workItem from="1759932367902" duration="6285000" />
       <workItem from="1759953429901" duration="5972000" />
-      <workItem from="1760009613007" duration="298000" />
+      <workItem from="1760009613007" duration="391000" />
+      <workItem from="1760042768684" duration="3418000" />
     </task>
     <task id="LOCAL-00001" summary="feat: sistema funcional">
       <option name="closed" value="true" />
@@ -98,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760009774357</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix: resolvido alguns bugs de evio">
+      <option name="closed" value="true" />
+      <created>1760009929570</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760009929570</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
