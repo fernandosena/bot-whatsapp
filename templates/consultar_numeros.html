@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Números - WhatsApp Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: #f7f7f7;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .input-section {
+            margin-bottom: 25px;
+        }
+
+        .input-section label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .input-section textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #f7f7f7, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .stat-box .label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .stat-box .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-box.success .value {
+            color: #48bb78;
+        }
+
+        .stat-box.danger .value {
+            color: #f56565;
+        }
+
+        .stat-box.warning .value {
+            color: #ed8936;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .filter-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .results-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .results-table tr:hover {
+            background: #f7fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-danger {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .badge-warning {
+            background: #feebc8;
+            color: #7c2d12;
+        }
+
+        .badge-info {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empresa-details {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .alert-info {
+            background: #bee3f8;
+            color: #2c5282;
+            border-left: 4px solid #3182ce;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔍 Consultar Números</h1>
+            <p>Cole uma lista de números do WhatsApp para verificar status e informações</p>
+            <div class="nav">
+                <a href="/">🏠 Dashboard</a>
+                <a href="/whatsapp">💬 WhatsApp Bot</a>
+                <a href="/gerenciar-numeros">📱 Gerenciar Números</a>
+                <a href="/filtro-mensagens">📊 Filtro Mensagens</a>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="card">
+            <h2>📋 Cole a Lista de Números</h2>
+            <div class="alert alert-info">
+                💡 <strong>Dica:</strong> Cole os números um por linha. Pode ser no formato com ou sem formatação (ex: 5511999999999 ou 55 11 99999-9999)
+            </div>
+            <div class="input-section">
+                <label for="numeros-input">Números do WhatsApp (um por linha):</label>
+                <textarea id="numeros-input" placeholder="Cole os números aqui, um por linha:
+5511962846820
+5511976076586
+5511944904343
+551132088819
+..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="consultarNumeros()">
+                    🔍 Consultar Números
+                </button>
+                <button class="btn btn-secondary" onclick="limparConsulta()">
+                    🗑️ Limpar
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="card results-section" id="results-section">
+            <h2>📊 Resultados da Consulta</h2>
+
+            <!-- Statistics -->
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-box">
+                    <div class="label">Total Consultados</div>
+                    <div class="value" id="stat-total">0</div>
+                </div>
+                <div class="stat-box success">
+                    <div class="label">Encontrados</div>
+                    <div class="value" id="stat-encontrados">0</div>
+                </div>
+                <div class="stat-box danger">
+                    <div class="label">Não Encontrados</div>
+                    <div class="value" id="stat-nao-encontrados">0</div>
+                </div>
+                <div class="stat-box warning">
+                    <div class="label">Enviados</div>
+                    <div class="value" id="stat-enviados">0</div>
+                </div>
+                <div class="stat-box danger">
+                    <div class="label">Bloqueados</div>
+                    <div class="value" id="stat-bloqueados">0</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="todos" onclick="filtrarResultados('todos')">
+                    📋 Todos (<span id="count-todos">0</span>)
+                </div>
+                <div class="filter-tab" data-filter="encontrados" onclick="filtrarResultados('encontrados')">
+                    ✅ Encontrados (<span id="count-encontrados">0</span>)
+                </div>
+                <div class="filter-tab" data-filter="nao_encontrados" onclick="filtrarResultados('nao_encontrados')">
+                    ❌ Não Encontrados (<span id="count-nao-encontrados">0</span>)
+                </div>
+                <div class="filter-tab" data-filter="enviados" onclick="filtrarResultados('enviados')">
+                    📤 Enviados (<span id="count-enviados">0</span>)
+                </div>
+                <div class="filter-tab" data-filter="bloqueados" onclick="filtrarResultados('bloqueados')">
+                    🚫 Bloqueados (<span id="count-bloqueados">0</span>)
+                </div>
+                <div class="filter-tab" data-filter="nao_enviados" onclick="filtrarResultados('nao_enviados')">
+                    ⏳ Não Enviados (<span id="count-nao-enviados">0</span>)
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary btn-small" onclick="exportarResultados('excel')">
+                    📥 Exportar Excel
+                </button>
+                <button class="btn btn-secondary btn-small" onclick="exportarResultados('csv')">
+                    📥 Exportar CSV
+                </button>
+                <button class="btn btn-secondary btn-small" onclick="copiarNumeros()">
+                    📋 Copiar Números Filtrados
+                </button>
+            </div>
+
+            <!-- Results Table -->
+            <div id="table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Status</th>
+                            <th>Empresa</th>
+                            <th>Informações</th>
+                            <th style="width: 180px;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-tbody">
+                        <!-- Results will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let resultadosCompletos = [];
+        let filtroAtual = 'todos';
+
+        async function consultarNumeros() {
+            const input = document.getElementById('numeros-input').value.trim();
+
+            if (!input) {
+                alert('⚠️ Por favor, cole os números do WhatsApp!');
+                return;
+            }
+
+            // Extrair números da entrada (um por linha)
+            const numeros = input.split('\n')
+                .map(n => n.trim())
+                .filter(n => n.length > 0)
+                .map(n => n.replace(/\D/g, '')); // Remove tudo que não é número
+
+            if (numeros.length === 0) {
+                alert('⚠️ Nenhum número válido encontrado!');
+                return;
+            }
+
+            // Mostrar loading
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.classList.add('active');
+            document.getElementById('results-tbody').innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px;">
+                        <div class="loading"></div>
+                        <div style="margin-top: 15px;">Consultando ${numeros.length} números...</div>
+                    </td>
+                </tr>
+            `;
+
+            try {
+                // Fazer requisição ao backend
+                const response = await fetch('/api/consultar-numeros', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ numeros: numeros })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    resultadosCompletos = data.resultados;
+                    atualizarEstatisticas(data.stats);
+                    renderizarResultados();
+                } else {
+                    alert('❌ Erro ao consultar números: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('❌ Erro ao consultar números. Verifique a conexão.');
+            }
+        }
+
+        function atualizarEstatisticas(stats) {
+            document.getElementById('stat-total').textContent = stats.total;
+            document.getElementById('stat-encontrados').textContent = stats.encontrados;
+            document.getElementById('stat-nao-encontrados').textContent = stats.nao_encontrados;
+            document.getElementById('stat-enviados').textContent = stats.enviados;
+            document.getElementById('stat-bloqueados').textContent = stats.bloqueados;
+
+            // Atualizar contadores dos filtros
+            document.getElementById('count-todos').textContent = stats.total;
+            document.getElementById('count-encontrados').textContent = stats.encontrados;
+            document.getElementById('count-nao-encontrados').textContent = stats.nao_encontrados;
+            document.getElementById('count-enviados').textContent = stats.enviados;
+            document.getElementById('count-bloqueados').textContent = stats.bloqueados;
+            document.getElementById('count-nao-enviados').textContent = stats.nao_enviados;
+        }
+
+        function renderizarResultados() {
+            const tbody = document.getElementById('results-tbody');
+
+            // Filtrar resultados
+            let resultadosFiltrados = resultadosCompletos;
+
+            if (filtroAtual === 'encontrados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.encontrado);
+            } else if (filtroAtual === 'nao_encontrados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => !r.encontrado);
+            } else if (filtroAtual === 'enviados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.status_envio === 'enviado');
+            } else if (filtroAtual === 'bloqueados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.status_envio === 'bloqueado');
+            } else if (filtroAtual === 'nao_enviados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.encontrado && r.status_envio === 'nao_enviado');
+            }
+
+            if (resultadosFiltrados.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5">
+                            <div class="empty-state">
+                                <p>Nenhum resultado encontrado para este filtro</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            let html = '';
+            resultadosFiltrados.forEach(resultado => {
+                let statusBadge = '';
+                let statusText = '';
+
+                if (!resultado.encontrado) {
+                    statusBadge = '<span class="badge badge-danger">❌ Não Encontrado</span>';
+                    statusText = 'Número não cadastrado no sistema';
+                } else {
+                    if (resultado.status_envio === 'bloqueado') {
+                        statusBadge = '<span class="badge badge-danger">🚫 Bloqueado</span>';
+                        statusText = resultado.motivo_bloqueio || 'Número bloqueado';
+                    } else if (resultado.status_envio === 'enviado') {
+                        statusBadge = '<span class="badge badge-warning">📤 Enviado</span>';
+                        const dataEnvio = resultado.data_envio ? new Date(resultado.data_envio).toLocaleString('pt-BR') : '';
+                        statusText = `Última mensagem: ${dataEnvio}`;
+                    } else {
+                        statusBadge = '<span class="badge badge-success">✅ Disponível</span>';
+                        statusText = 'Pronto para receber mensagens';
+                    }
+                }
+
+                const empresaInfo = resultado.encontrado
+                    ? `<strong>${resultado.nome}</strong>`
+                    : '<span style="color: #999;">-</span>';
+
+                const detalhes = resultado.encontrado
+                    ? `
+                        <div class="empresa-details">
+                            ${resultado.setor ? `<div>📂 ${resultado.setor}</div>` : ''}
+                            ${resultado.cidade ? `<div>📍 ${resultado.cidade}</div>` : ''}
+                            ${resultado.email ? `<div>📧 ${resultado.email}</div>` : ''}
+                        </div>
+                    `
+                    : '<span style="color: #999;">-</span>';
+
+                // Adicionar botões de ação (somente para números encontrados)
+                let acoesHtml = '<span style="color: #999;">-</span>';
+
+                if (resultado.encontrado) {
+                    acoesHtml = '<div style="display: flex; gap: 5px; flex-wrap: wrap;">';
+
+                    // Botão "Marcar como Enviado" (somente se não foi enviado)
+                    if (resultado.status_envio === 'nao_enviado') {
+                        acoesHtml += `
+                            <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px; background: #25D366;"
+                                    onclick="marcarComoEnviado('${resultado.numero}', '${resultado.nome.replace(/'/g, "\\'")}', ${resultado.empresa_id})">
+                                ✅ Marcar Enviado
+                            </button>
+                        `;
+                    }
+
+                    // Botão "Bloquear" (se não estiver bloqueado)
+                    if (resultado.status_envio !== 'bloqueado') {
+                        acoesHtml += `
+                            <button class="btn btn-danger" style="padding: 6px 12px; font-size: 12px;"
+                                    onclick="bloquearNumero('${resultado.numero}', '${resultado.nome.replace(/'/g, "\\'")}')">
+                                🚫 Bloquear
+                            </button>
+                        `;
+                    }
+
+                    // Botão "Desbloquear" (se estiver bloqueado)
+                    if (resultado.status_envio === 'bloqueado') {
+                        acoesHtml += `
+                            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;"
+                                    onclick="desbloquearNumero('${resultado.numero}', '${resultado.nome.replace(/'/g, "\\'")}')">
+                                ✓ Desbloquear
+                            </button>
+                        `;
+                    }
+
+                    acoesHtml += '</div>';
+                }
+
+                html += `
+                    <tr>
+                        <td><strong>${resultado.numero_formatado}</strong></td>
+                        <td>
+                            ${statusBadge}
+                            <div style="font-size: 12px; color: #666; margin-top: 4px;">
+                                ${statusText}
+                            </div>
+                        </td>
+                        <td>${empresaInfo}</td>
+                        <td>${detalhes}</td>
+                        <td>${acoesHtml}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        function filtrarResultados(filtro) {
+            filtroAtual = filtro;
+
+            // Atualizar tabs ativas
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-filter="${filtro}"]`).classList.add('active');
+
+            // Re-renderizar
+            renderizarResultados();
+        }
+
+        function limparConsulta() {
+            document.getElementById('numeros-input').value = '';
+            document.getElementById('results-section').classList.remove('active');
+            resultadosCompletos = [];
+            filtroAtual = 'todos';
+        }
+
+        function copiarNumeros() {
+            // Filtrar resultados
+            let resultadosFiltrados = resultadosCompletos;
+
+            if (filtroAtual === 'encontrados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.encontrado);
+            } else if (filtroAtual === 'nao_encontrados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => !r.encontrado);
+            } else if (filtroAtual === 'enviados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.status_envio === 'enviado');
+            } else if (filtroAtual === 'bloqueados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.status_envio === 'bloqueado');
+            } else if (filtroAtual === 'nao_enviados') {
+                resultadosFiltrados = resultadosCompletos.filter(r => r.encontrado && r.status_envio === 'nao_enviado');
+            }
+
+            const numeros = resultadosFiltrados.map(r => r.numero).join('\n');
+
+            navigator.clipboard.writeText(numeros).then(() => {
+                alert(`✅ ${resultadosFiltrados.length} números copiados para a área de transferência!`);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+                alert('❌ Erro ao copiar números');
+            });
+        }
+
+        function exportarResultados(formato) {
+            alert(`📥 Exportação em ${formato.toUpperCase()} será implementada em breve!`);
+        }
+
+        // ==================== FUNÇÕES DE AÇÃO ====================
+
+        async function marcarComoEnviado(telefone, empresaNome, empresaId) {
+            if (!confirm(`Marcar "${empresaNome}" como já tendo recebido mensagem?\n\nEste número será marcado como enviado no sistema.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/whatsapp/mark-as-sent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        empresa_id: empresaId,
+                        telefone: telefone,
+                        empresa_nome: empresaNome
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('✅ ' + result.message);
+                    // Re-consultar os números para atualizar status
+                    consultarNumeros();
+                } else {
+                    alert('❌ Erro: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Erro ao marcar como enviado:', error);
+                alert('❌ Erro ao marcar como enviado: ' + error.message);
+            }
+        }
+
+        async function bloquearNumero(telefone, empresaNome) {
+            const motivo = prompt(
+                `Bloquear número de "${empresaNome}"?\n\nDigite o motivo do bloqueio (opcional):`,
+                'Bloqueado via consulta de números'
+            );
+
+            // Se o usuário cancelou (null) ou deixou vazio e confirmou, não fazer nada
+            if (motivo === null) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/whatsapp/blocked', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        telefone: telefone,
+                        motivo: motivo || 'Bloqueado via consulta de números'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('✅ Número bloqueado com sucesso!');
+                    // Re-consultar os números para atualizar status
+                    consultarNumeros();
+                } else {
+                    alert('❌ Erro: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Erro ao bloquear número:', error);
+                alert('❌ Erro ao bloquear número: ' + error.message);
+            }
+        }
+
+        async function desbloquearNumero(telefone, empresaNome) {
+            if (!confirm(`Desbloquear número de "${empresaNome}"?\n\nEste número poderá receber mensagens novamente.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/whatsapp/blocked/${telefone}`, {
+                    method: 'DELETE'
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('✅ Número desbloqueado com sucesso!');
+                    // Re-consultar os números para atualizar status
+                    consultarNumeros();
+                } else {
+                    alert('❌ Erro: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Erro ao desbloquear número:', error);
+                alert('❌ Erro ao desbloquear número: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

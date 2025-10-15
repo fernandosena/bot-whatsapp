@@ -66,6 +66,12 @@ def filtro_mensagens():
     return render_template('filtro_mensagens.html')
 
 
+@app.route('/gerenciar-numeros')
+def gerenciar_numeros():
+    """Página de gerenciamento de números"""
+    return render_template('gerenciar_numeros.html')
+
+
 @app.route('/api/empresas')
 def get_empresas():
     """Listar empresas com filtros"""
@@ -128,6 +134,105 @@ def get_empresas():
     empresas = [dict(row) for row in cursor.fetchall()]
 
     return jsonify(empresas)
+
+
+@app.route('/api/empresas-com-status')
+def get_empresas_com_status():
+    """Listar empresas com status de envio e filtros avançados"""
+    try:
+        # Filtros
+        setor = request.args.get('setor', '')
+        cidade = request.args.get('cidade', '')
+        has_whatsapp = request.args.get('has_whatsapp', 'true')
+        search = request.args.get('search', '')
+        search_numero = request.args.get('search_numero', '')
+        status_envio = request.args.get('status_envio', '')
+
+        # Query base com LEFT JOINs para verificar status
+        query = '''
+            SELECT DISTINCT
+                e.*,
+                CASE
+                    WHEN wb.telefone IS NOT NULL THEN 'bloqueado'
+                    WHEN wl.id IS NOT NULL THEN 'enviado'
+                    ELSE 'nao_enviado'
+                END as status_envio,
+                wl.data_envio,
+                wl.status as status_msg,
+                wl.erro,
+                wb.motivo as motivo_bloqueio
+            FROM empresas e
+            LEFT JOIN whatsapp_blocked wb ON wb.telefone = REPLACE(REPLACE(REPLACE(REPLACE(e.whatsapp, ' ', ''), '-', ''), '(', ''), ')', '')
+            LEFT JOIN (
+                SELECT empresa_id, MAX(id) as max_id
+                FROM whatsapp_logs
+                GROUP BY empresa_id
+            ) latest_log ON latest_log.empresa_id = e.id
+            LEFT JOIN whatsapp_logs wl ON wl.id = latest_log.max_id
+            WHERE 1=1
+        '''
+
+        params = []
+
+        # Filtrar por WhatsApp
+        if has_whatsapp == 'true':
+            query += ' AND e.whatsapp IS NOT NULL AND e.whatsapp != ""'
+
+        # Filtrar por setor
+        if setor:
+            query += ' AND e.setor LIKE ?'
+            params.append(f'%{setor}%')
+
+        # Filtrar por cidade
+        if cidade:
+            query += ' AND e.cidade LIKE ?'
+            params.append(f'%{cidade}%')
+
+        # Buscar por nome ou endereço
+        if search:
+            query += ' AND (e.nome LIKE ? OR e.endereco LIKE ?)'
+            params.extend([f'%{search}%', f'%{search}%'])
+
+        # Buscar por número
+        if search_numero:
+            # Remover caracteres especiais para busca
+            numero_limpo = ''.join(filter(str.isdigit, search_numero))
+            query += ' AND REPLACE(REPLACE(REPLACE(REPLACE(e.whatsapp, " ", ""), "-", ""), "(", ""), ")", "") LIKE ?'
+            params.append(f'%{numero_limpo}%')
+
+        query += ' ORDER BY e.data_criacao DESC'
+
+        cursor = db.cursor
+        cursor.execute(query, params)
+        empresas_raw = [dict(row) for row in cursor.fetchall()]
+
+        # Filtrar por status de envio (após query principal)
+        if status_envio:
+            empresas = [e for e in empresas_raw if e['status_envio'] == status_envio]
+        else:
+            empresas = empresas_raw
+
+        # Estatísticas
+        total = len(empresas)
+        enviados = len([e for e in empresas if e['status_envio'] == 'enviado'])
+        nao_enviados = len([e for e in empresas if e['status_envio'] == 'nao_enviado'])
+        bloqueados = len([e for e in empresas if e['status_envio'] == 'bloqueado'])
+
+        return jsonify({
+            'empresas': empresas,
+            'stats': {
+                'total': total,
+                'enviados': enviados,
+                'nao_enviados': nao_enviados,
+                'bloqueados': bloqueados
+            }
+        })
+
+    except Exception as e:
+        print(f"❌ Erro em get_empresas_com_status: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/api/stats')
@@ -723,6 +828,8 @@ def handle_send_whatsapp(data):
     delay = data.get('delay', 30)
     campanha_nome = data.get('campanha_nome', f'Campanha {datetime.now().strftime("%Y-%m-%d %H:%M")}')
     continuar_campanha_id = data.get('continuar_campanha_id')  # Para retomar campanha
+    block_resend = data.get('block_resend', True)  # Bloquear reenvio global (padrão: True)
+    check_history = data.get('check_history', False)  # Verificar histórico de conversa
 
     # DEBUG: Imprimir dados recebidos
     print(f"\n🔍 DEBUG - Dados recebidos:")
@@ -730,6 +837,8 @@ def handle_send_whatsapp(data):
     print(f"  - mensagem: {mensagem[:50]}..." if len(mensagem) > 50 else f"  - mensagem: {mensagem}")
     print(f"  - delay: {delay}")
     print(f"  - campanha_nome: {campanha_nome}")
+    print(f"  - block_resend: {block_resend}")
+    print(f"  - check_history: {check_history}")
 
     if not empresas_ids or not mensagem:
         emit('whatsapp_error', {'message': 'IDs das empresas e mensagem são obrigatórios!'})
@@ -754,7 +863,10 @@ def handle_send_whatsapp(data):
             # Buscar empresas
             empresas = []
             empresas_bloqueadas = []
+            empresas_ja_enviadas = []
             print(f"\n🔍 DEBUG - Buscando empresas no banco:")
+            print(f"   Block Resend Ativo: {block_resend}")
+
             for empresa_id in empresas_ids:
                 empresa = db.get_empresa_by_id(empresa_id)
                 print(f"  - ID {empresa_id}: {empresa['nome'] if empresa else 'NÃO ENCONTRADA'} | WhatsApp: {empresa.get('whatsapp') if empresa else 'N/A'}")
@@ -767,6 +879,10 @@ def handle_send_whatsapp(data):
                     if db.is_number_blocked(telefone_normalizado):
                         empresas_bloqueadas.append(empresa['nome'])
                         print(f"    🚫 Número bloqueado/ignorado")
+                    # Verificar se já recebeu mensagem em qualquer campanha (se block_resend estiver ativo)
+                    elif block_resend and db.check_empresa_already_sent_global(empresa['id']):
+                        empresas_ja_enviadas.append(empresa['nome'])
+                        print(f"    ⏭️ Já recebeu mensagem anteriormente (pulando)")
                     else:
                         empresas.append(empresa)
                         print(f"    ✅ Adicionada à lista")
@@ -778,6 +894,8 @@ def handle_send_whatsapp(data):
             print(f"\n📊 Total de empresas válidas: {len(empresas)}")
             if empresas_bloqueadas:
                 print(f"🚫 Empresas bloqueadas ignoradas ({len(empresas_bloqueadas)}): {', '.join(empresas_bloqueadas)}")
+            if empresas_ja_enviadas:
+                print(f"⏭️ Empresas já enviadas ignoradas ({len(empresas_ja_enviadas)}): {', '.join(empresas_ja_enviadas[:10])}{'...' if len(empresas_ja_enviadas) > 10 else ''}")
 
             if not empresas:
                 socketio.emit('whatsapp_error', {'message': 'Nenhuma empresa com WhatsApp encontrada'})
@@ -828,30 +946,39 @@ def handle_send_whatsapp(data):
             def progress_callback(progress_data):
                 socketio.emit('whatsapp_progress', progress_data)
 
-                # Registrar no log
-                empresa_id = progress_data.get('empresa_id')
-                empresa_nome = progress_data.get('empresa', '')
-                telefone = progress_data.get('phone', '')
+                # Registrar no log (apenas se não for ja_enviado, pois já foi registrado no bloco principal)
+                if progress_data.get('status') != 'ja_enviado':
+                    empresa_id = progress_data.get('empresa_id')
+                    empresa_nome = progress_data.get('empresa', '')
+                    telefone = progress_data.get('phone', '')
 
-                # Determinar status
-                if progress_data.get('status') == 'nao_existe':
-                    status = 'nao_existe'
-                elif progress_data.get('success'):
-                    status = 'sucesso'
+                    # Determinar status
+                    if progress_data.get('status') == 'nao_existe':
+                        status = 'nao_existe'
+                    elif progress_data.get('success'):
+                        status = 'sucesso'
+                    else:
+                        status = 'erro'
+
+                    erro = progress_data.get('error')
+
+                    db.log_whatsapp_send(campanha_id, empresa_id, empresa_nome, telefone, mensagem, status, erro)
+
+                    # Atualizar checkpoint da campanha
+                    db.update_campaign_progress(
+                        campanha_id,
+                        enviados_increment=1 if status == 'sucesso' else 0,
+                        falhas_increment=1 if status in ['erro', 'nao_existe'] else 0,
+                        ultimo_indice=progress_data.get('current', 0)
+                    )
                 else:
-                    status = 'erro'
-
-                erro = progress_data.get('error')
-
-                db.log_whatsapp_send(campanha_id, empresa_id, empresa_nome, telefone, mensagem, status, erro)
-
-                # Atualizar checkpoint da campanha
-                db.update_campaign_progress(
-                    campanha_id,
-                    enviados_increment=1 if status == 'sucesso' else 0,
-                    falhas_increment=1 if status in ['erro', 'nao_existe'] else 0,
-                    ultimo_indice=progress_data.get('current', 0)
-                )
+                    # Para ja_enviado, apenas atualizar checkpoint (log já foi feito)
+                    db.update_campaign_progress(
+                        campanha_id,
+                        enviados_increment=1,
+                        falhas_increment=0,
+                        ultimo_indice=progress_data.get('current', 0)
+                    )
 
                 socketio.sleep(0)
 
@@ -883,7 +1010,8 @@ def handle_send_whatsapp(data):
                     result = whatsapp_selenium_instance.send_message(
                         empresa['whatsapp'],
                         mensagem_personalizada,
-                        empresa['nome']
+                        empresa['nome'],
+                        check_history=check_history
                     )
 
                     # Verificar se número não existe e bloquear automaticamente
@@ -891,8 +1019,25 @@ def handle_send_whatsapp(data):
                         telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
                         db.block_number(telefone_normalizado, 'Número não existe no WhatsApp (bloqueado automaticamente)')
                         logger.info(f'Número {empresa["whatsapp"]} bloqueado automaticamente (não existe)')
+                        failed_count += 1
 
-                    if result['success']:
+                    # Se histórico foi encontrado, marcar como enviado
+                    elif result.get('status') == 'ja_enviado':
+                        telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+                        # Registrar no log como sucesso (já enviado anteriormente)
+                        db.log_whatsapp_send(
+                            campanha_id=campanha_id,
+                            empresa_id=empresa['id'],
+                            empresa_nome=empresa['nome'],
+                            telefone=telefone_normalizado,
+                            mensagem='[Histórico de conversa detectado - não enviado]',
+                            status='sucesso',
+                            erro=None
+                        )
+                        logger.info(f'Histórico detectado para {empresa["nome"]} - marcado como enviado')
+                        success_count += 1
+
+                    elif result['success']:
                         success_count += 1
                     else:
                         failed_count += 1
@@ -1169,6 +1314,305 @@ def check_blocked_number(telefone):
         return jsonify({'blocked': is_blocked})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/whatsapp/mark-as-sent', methods=['POST'])
+def mark_as_sent():
+    """Marcar manualmente que uma mensagem foi enviada para uma empresa"""
+    try:
+        data = request.get_json()
+        empresa_id = data.get('empresa_id')
+        telefone = data.get('telefone')
+        empresa_nome = data.get('empresa_nome', '')
+
+        if not empresa_id or not telefone:
+            return jsonify({'success': False, 'message': 'ID da empresa e telefone são obrigatórios'}), 400
+
+        # Buscar ou criar campanha genérica para envios manuais
+        campanha = db.get_or_create_manual_campaign()
+
+        # Normalizar telefone
+        telefone_normalizado = ''.join(filter(str.isdigit, telefone))
+
+        # Verificar se já foi marcado
+        if db.check_empresa_already_sent(empresa_id, campanha['id']):
+            return jsonify({'success': False, 'message': 'Esta empresa já está marcada como enviada'}), 400
+
+        # Registrar log como sucesso manual
+        db.log_whatsapp_send(
+            campanha_id=campanha['id'],
+            empresa_id=empresa_id,
+            empresa_nome=empresa_nome,
+            telefone=telefone_normalizado,
+            mensagem='[Marcado manualmente como enviado]',
+            status='sucesso',
+            erro=None
+        )
+
+        # Atualizar estatísticas da campanha
+        db.update_campaign_progress(campanha['id'], enviados_increment=1, falhas_increment=0)
+
+        return jsonify({
+            'success': True,
+            'message': f'Empresa "{empresa_nome}" marcada como enviada com sucesso!'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao marcar como enviado: {e}')
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/whatsapp/mark-as-sent-batch', methods=['POST'])
+def mark_as_sent_batch():
+    """Marcar múltiplas empresas como enviadas"""
+    try:
+        data = request.get_json()
+        empresa_ids = data.get('empresa_ids', [])
+
+        if not empresa_ids:
+            return jsonify({'success': False, 'message': 'Nenhuma empresa selecionada'}), 400
+
+        # Buscar ou criar campanha genérica
+        campanha = db.get_or_create_manual_campaign()
+
+        success_count = 0
+        skip_count = 0
+
+        for empresa_id in empresa_ids:
+            empresa = db.get_empresa_by_id(empresa_id)
+            if not empresa or not empresa.get('whatsapp'):
+                continue
+
+            # Verificar se já foi marcado
+            if db.check_empresa_already_sent(empresa_id, campanha['id']):
+                skip_count += 1
+                continue
+
+            telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+
+            # Registrar log
+            db.log_whatsapp_send(
+                campanha_id=campanha['id'],
+                empresa_id=empresa_id,
+                empresa_nome=empresa['nome'],
+                telefone=telefone_normalizado,
+                mensagem='[Marcado em massa como enviado]',
+                status='sucesso',
+                erro=None
+            )
+
+            success_count += 1
+
+        # Atualizar estatísticas da campanha
+        db.update_campaign_progress(campanha['id'], enviados_increment=success_count, falhas_increment=0)
+
+        message = f'{success_count} número(s) marcado(s) como enviado!'
+        if skip_count > 0:
+            message += f' ({skip_count} já estavam marcados)'
+
+        return jsonify({'success': True, 'message': message})
+
+    except Exception as e:
+        logger.error(f'Erro ao marcar em massa: {e}')
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/whatsapp/blocked-batch', methods=['POST'])
+def block_batch():
+    """Bloquear múltiplos números"""
+    try:
+        data = request.get_json()
+        empresa_ids = data.get('empresa_ids', [])
+        motivo = data.get('motivo', 'Bloqueado em massa')
+
+        if not empresa_ids:
+            return jsonify({'success': False, 'message': 'Nenhuma empresa selecionada'}), 400
+
+        success_count = 0
+        skip_count = 0
+
+        for empresa_id in empresa_ids:
+            empresa = db.get_empresa_by_id(empresa_id)
+            if not empresa or not empresa.get('whatsapp'):
+                continue
+
+            telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+
+            # Tentar bloquear
+            if db.block_number(telefone_normalizado, motivo):
+                success_count += 1
+            else:
+                skip_count += 1
+
+        message = f'{success_count} número(s) bloqueado(s)!'
+        if skip_count > 0:
+            message += f' ({skip_count} já estavam bloqueados)'
+
+        return jsonify({'success': True, 'message': message})
+
+    except Exception as e:
+        logger.error(f'Erro ao bloquear em massa: {e}')
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/api/whatsapp/unblocked-batch', methods=['POST'])
+def unblock_batch():
+    """Desbloquear múltiplos números"""
+    try:
+        data = request.get_json()
+        empresa_ids = data.get('empresa_ids', [])
+
+        if not empresa_ids:
+            return jsonify({'success': False, 'message': 'Nenhuma empresa selecionada'}), 400
+
+        success_count = 0
+
+        for empresa_id in empresa_ids:
+            empresa = db.get_empresa_by_id(empresa_id)
+            if not empresa or not empresa.get('whatsapp'):
+                continue
+
+            telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+
+            if db.unblock_number(telefone_normalizado):
+                success_count += 1
+
+        return jsonify({
+            'success': True,
+            'message': f'{success_count} número(s) desbloqueado(s)!'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao desbloquear em massa: {e}')
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+# ==================== ENDPOINT CONSULTAR NÚMEROS ====================
+
+@app.route('/consultar-numeros')
+def consultar_numeros_page():
+    """Página de consulta de números"""
+    return render_template('consultar_numeros.html')
+
+
+@app.route('/api/consultar-numeros', methods=['POST'])
+def consultar_numeros():
+    """Consultar múltiplos números e retornar informações"""
+    try:
+        data = request.get_json()
+        numeros = data.get('numeros', [])
+
+        if not numeros:
+            return jsonify({'success': False, 'message': 'Nenhum número fornecido'}), 400
+
+        resultados = []
+        stats = {
+            'total': len(numeros),
+            'encontrados': 0,
+            'nao_encontrados': 0,
+            'enviados': 0,
+            'bloqueados': 0,
+            'nao_enviados': 0
+        }
+
+        for numero in numeros:
+            # Normalizar número
+            numero_normalizado = ''.join(filter(str.isdigit, numero))
+
+            # Formatar número para exibição (55 11 99999-9999)
+            if len(numero_normalizado) >= 13:
+                numero_formatado = f"{numero_normalizado[:2]} {numero_normalizado[2:4]} {numero_normalizado[4:9]}-{numero_normalizado[9:]}"
+            elif len(numero_normalizado) >= 11:
+                numero_formatado = f"{numero_normalizado[:2]} {numero_normalizado[2:6]}-{numero_normalizado[6:]}"
+            else:
+                numero_formatado = numero_normalizado
+
+            # Buscar empresa pelo número
+            cursor = db.cursor
+            cursor.execute('''
+                SELECT * FROM empresas
+                WHERE REPLACE(REPLACE(REPLACE(REPLACE(whatsapp, ' ', ''), '-', ''), '(', ''), ')', '') = ?
+                LIMIT 1
+            ''', (numero_normalizado,))
+
+            empresa = cursor.fetchone()
+
+            if empresa:
+                empresa = dict(empresa)
+                stats['encontrados'] += 1
+
+                # Verificar se está bloqueado
+                is_blocked = db.is_number_blocked(numero_normalizado)
+
+                # Verificar se já recebeu mensagem
+                cursor.execute('''
+                    SELECT data_envio, status, erro
+                    FROM whatsapp_logs
+                    WHERE empresa_id = ? AND status = 'sucesso'
+                    ORDER BY data_envio DESC
+                    LIMIT 1
+                ''', (empresa['id'],))
+
+                log = cursor.fetchone()
+                enviado = log is not None
+
+                # Buscar motivo do bloqueio se bloqueado
+                motivo_bloqueio = None
+                if is_blocked:
+                    cursor.execute('SELECT motivo FROM whatsapp_blocked WHERE telefone = ?', (numero_normalizado,))
+                    bloqueio = cursor.fetchone()
+                    motivo_bloqueio = bloqueio['motivo'] if bloqueio else 'Bloqueado'
+
+                # Determinar status
+                if is_blocked:
+                    status_envio = 'bloqueado'
+                    stats['bloqueados'] += 1
+                elif enviado:
+                    status_envio = 'enviado'
+                    stats['enviados'] += 1
+                else:
+                    status_envio = 'nao_enviado'
+                    stats['nao_enviados'] += 1
+
+                resultados.append({
+                    'numero': numero_normalizado,
+                    'numero_formatado': numero_formatado,
+                    'encontrado': True,
+                    'empresa_id': empresa['id'],
+                    'nome': empresa['nome'],
+                    'setor': empresa.get('setor'),
+                    'cidade': empresa.get('cidade'),
+                    'email': empresa.get('email'),
+                    'status_envio': status_envio,
+                    'data_envio': dict(log)['data_envio'] if log else None,
+                    'motivo_bloqueio': motivo_bloqueio
+                })
+            else:
+                stats['nao_encontrados'] += 1
+                resultados.append({
+                    'numero': numero_normalizado,
+                    'numero_formatado': numero_formatado,
+                    'encontrado': False,
+                    'nome': None,
+                    'setor': None,
+                    'cidade': None,
+                    'email': None,
+                    'status_envio': None,
+                    'data_envio': None,
+                    'motivo_bloqueio': None
+                })
+
+        return jsonify({
+            'success': True,
+            'resultados': resultados,
+            'stats': stats
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao consultar números: {e}')
+        import traceback
+        traceback.print_exc()
+        return jsonify({'success': False, 'message': str(e)}), 500
 
 
 # ==================== ENDPOINTS FILTRO DE MENSAGENS ====================

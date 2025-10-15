@@ -238,7 +238,41 @@ class WhatsAppSelenium:
             logger.error(f'Erro ao buscar contato: {e}')
             return False
 
-    def send_message(self, phone, message, empresa_nome=''):
+    def check_chat_history(self):
+        """
+        Verificar se já existe histórico de conversa no chat aberto
+
+        Returns:
+            bool: True se existe histórico, False caso contrário
+        """
+        try:
+            # Procurar por mensagens no histórico do chat
+            # Usar XPath para encontrar mensagens na área de conversa
+            messages = self.driver.find_elements(By.XPATH, '//div[@role="row"]//div[contains(@class, "message-")]')
+
+            # Se encontrou pelo menos uma mensagem, tem histórico
+            if len(messages) > 0:
+                logger.info(f'Histórico encontrado: {len(messages)} mensagens')
+                return True
+
+            # Alternativa: procurar pela div de mensagens
+            try:
+                chat_panel = self.driver.find_element(By.XPATH, '//div[@id="main"]//div[@data-tab="6"]')
+                # Se encontrou o painel e tem conteúdo
+                if chat_panel and chat_panel.text.strip():
+                    logger.info('Histórico de conversa encontrado')
+                    return True
+            except:
+                pass
+
+            logger.info('Nenhum histórico de conversa encontrado')
+            return False
+
+        except Exception as e:
+            logger.warning(f'Erro ao verificar histórico: {e}')
+            return False
+
+    def send_message(self, phone, message, empresa_nome='', check_history=False):
         """
         Enviar mensagem para um número
 
@@ -246,6 +280,7 @@ class WhatsAppSelenium:
             phone (str): Número de telefone (formato: +5511999999999)
             message (str): Mensagem a enviar
             empresa_nome (str): Nome da empresa (para log)
+            check_history (bool): Se True, verifica histórico antes de enviar
 
         Returns:
             dict: Resultado do envio
@@ -269,6 +304,21 @@ class WhatsAppSelenium:
             url = f'https://web.whatsapp.com/send?phone={clean_phone}'
             self.driver.get(url)
             time.sleep(3)
+
+            # Se check_history está ativo, verificar histórico
+            if check_history:
+                has_history = self.check_chat_history()
+                if has_history:
+                    logger.info(f'Conversa já iniciada com {empresa_nome or phone}. Pulando envio.')
+                    return {
+                        'success': False,
+                        'phone': phone,
+                        'empresa': empresa_nome,
+                        'error': 'Conversa já iniciada anteriormente',
+                        'status': 'ja_enviado',
+                        'has_history': True,
+                        'timestamp': datetime.now().isoformat()
+                    }
 
             # Verificar se o número existe (procurar por mensagem de erro)
             try:

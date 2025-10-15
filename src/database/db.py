@@ -533,6 +533,46 @@ class Database:
         ''', (campanha_id,))
         self.conn.commit()
 
+    def get_or_create_manual_campaign(self):
+        """Buscar ou criar campanha genérica para envios manuais"""
+        cursor = self._get_cursor()
+
+        # Tentar buscar campanha manual existente
+        cursor.execute('''
+            SELECT * FROM whatsapp_campaigns
+            WHERE nome = '[Envios Manuais]'
+            LIMIT 1
+        ''')
+        row = cursor.fetchone()
+
+        if row:
+            return dict(row)
+
+        # Se não existe, criar
+        cursor.execute('''
+            INSERT INTO whatsapp_campaigns (
+                nome,
+                mensagem,
+                total_empresas,
+                status,
+                delay,
+                filtros
+            ) VALUES (?, ?, ?, ?, ?, ?)
+        ''', (
+            '[Envios Manuais]',
+            'Campanha genérica para registro de envios manuais',
+            0,
+            'em_andamento',
+            0,
+            None
+        ))
+        self.conn.commit()
+
+        # Retornar a campanha recém criada
+        campanha_id = cursor.lastrowid
+        cursor.execute('SELECT * FROM whatsapp_campaigns WHERE id = ?', (campanha_id,))
+        return dict(cursor.fetchone())
+
     def check_empresa_already_sent(self, empresa_id, campanha_id):
         """Verificar se empresa já recebeu mensagem nesta campanha"""
         cursor = self.cursor
@@ -540,6 +580,16 @@ class Database:
             SELECT COUNT(*) as count FROM whatsapp_logs
             WHERE empresa_id = ? AND campanha_id = ? AND status = 'sucesso'
         ''', (empresa_id, campanha_id))
+        result = cursor.fetchone()
+        return result['count'] > 0 if result else False
+
+    def check_empresa_already_sent_global(self, empresa_id):
+        """Verificar se empresa já recebeu mensagem em QUALQUER campanha"""
+        cursor = self._get_cursor()
+        cursor.execute('''
+            SELECT COUNT(*) as count FROM whatsapp_logs
+            WHERE empresa_id = ? AND status = 'sucesso'
+        ''', (empresa_id,))
         result = cursor.fetchone()
         return result['count'] > 0 if result else False
 

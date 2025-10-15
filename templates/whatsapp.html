@@ -428,7 +428,10 @@
         <div class="header">
             <h1>💬 WhatsApp Bot - Disparador de Mensagens</h1>
             <div class="nav">
-                <a href="/">🏠 Voltar ao Dashboard</a>
+                <a href="/">🏠 Dashboard</a>
+                <a href="/gerenciar-numeros">📱 Gerenciar Números</a>
+                <a href="/consultar-numeros">🔍 Consultar Números</a>
+                <a href="/filtro-mensagens">📊 Filtro Mensagens</a>
             </div>
         </div>
 
@@ -463,11 +466,18 @@
                     <label>Filtrar Empresas</label>
                     <div class="filters">
                         <input type="text" id="searchEmpresas" placeholder="Buscar empresa...">
+                        <input type="text" id="searchNumero" placeholder="Buscar por número...">
                         <select id="filterSetor">
                             <option value="">Todos os setores</option>
                         </select>
                         <select id="filterCidade">
                             <option value="">Todas as cidades</option>
+                        </select>
+                        <select id="filterStatusEnvio">
+                            <option value="">Todos os status</option>
+                            <option value="nao_enviado">Não Enviados</option>
+                            <option value="enviado">Enviados</option>
+                            <option value="bloqueado">Bloqueados</option>
                         </select>
                         <div class="checkbox-group">
                             <input type="checkbox" id="filterWhatsapp" checked>
@@ -477,10 +487,34 @@
                     <button class="btn btn-secondary" onclick="loadEmpresas()">🔍 Buscar</button>
                 </div>
 
+                <div id="empresasStats" style="display: none; margin-bottom: 20px;">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="label">Total</div>
+                            <div class="value" id="statsTotal">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Não Enviados</div>
+                            <div class="value" id="statsNaoEnviados" style="color: #f39c12;">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Enviados</div>
+                            <div class="value" id="statsEnviados" style="color: #25D366;">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Bloqueados</div>
+                            <div class="value" id="statsBloqueados" style="color: #e74c3c;">0</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label>
                         Empresas Encontradas
-                        <button class="btn btn-secondary" style="float: right; padding: 5px 10px;" onclick="selectAll()">Selecionar Todos</button>
+                        <div style="float: right; display: flex; gap: 5px;">
+                            <button class="btn btn-secondary" style="padding: 5px 10px;" onclick="selectOnlyNotSent()">📋 Selecionar Não Enviados</button>
+                            <button class="btn btn-secondary" style="padding: 5px 10px;" onclick="selectAll()">✅ Selecionar Todos</button>
+                        </div>
                     </label>
                     <div id="empresasList" class="empresas-list">
                         <p style="text-align: center; color: #999;">Clique em "Buscar" para carregar empresas</p>
@@ -510,6 +544,26 @@
                     <label for="delay">Delay entre envios (segundos)</label>
                     <input type="number" id="delay" value="30" min="10" max="300">
                     <small>Tempo de espera entre cada envio (recomendado: 30-60 segundos)</small>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="blockResend" checked>
+                        <label for="blockResend">
+                            🚫 Bloquear reenvio (não enviar para quem já recebeu mensagens em campanhas anteriores)
+                        </label>
+                    </div>
+                    <small style="color: #666;">Quando marcado, empresas que já receberam mensagens em QUALQUER campanha anterior serão ignoradas.</small>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="checkHistory" checked>
+                        <label for="checkHistory">
+                            💬 Verificar histórico de conversa (não enviar se já existe alguma mensagem no chat)
+                        </label>
+                    </div>
+                    <small style="color: #666;">Quando marcado, o robô abrirá o chat e verificará se já existe histórico de conversa. Se houver, marcará como enviado e pulará.</small>
                 </div>
 
                 <div>
@@ -624,6 +678,23 @@
             <div id="tab-logs" class="tab-content">
                 <h2>Logs de Envio</h2>
 
+                <div class="form-group">
+                    <label>Filtros</label>
+                    <div class="filters">
+                        <select id="filterLogCampanha">
+                            <option value="">Todas as campanhas</option>
+                        </select>
+                        <select id="filterLogStatus">
+                            <option value="">Todos os status</option>
+                            <option value="sucesso">Sucesso</option>
+                            <option value="erro">Erro</option>
+                            <option value="nao_existe">Não Existe</option>
+                        </select>
+                        <input type="number" id="filterLogLimit" value="100" min="10" max="1000" placeholder="Limite">
+                    </div>
+                    <button class="btn btn-secondary" onclick="loadLogs()">🔍 Filtrar</button>
+                </div>
+
                 <div class="stats-grid">
                     <div class="stat-box">
                         <div class="label">Total de Envios</div>
@@ -640,7 +711,7 @@
                 </div>
 
                 <div class="log-container" id="logsContainer" style="max-height: 500px;">
-                    <p style="text-align: center; color: #999;">Nenhum log encontrado</p>
+                    <p style="text-align: center; color: #999;">Clique em "Filtrar" para carregar logs</p>
                 </div>
             </div>
         </div>
@@ -673,18 +744,31 @@
         // Carregar empresas
         async function loadEmpresas() {
             const search = document.getElementById('searchEmpresas').value;
+            const searchNumero = document.getElementById('searchNumero').value;
             const setor = document.getElementById('filterSetor').value;
             const cidade = document.getElementById('filterCidade').value;
             const whatsapp = document.getElementById('filterWhatsapp').checked;
+            const statusEnvio = document.getElementById('filterStatusEnvio').value;
 
             const params = new URLSearchParams();
             if (search) params.append('search', search);
+            if (searchNumero) params.append('search_numero', searchNumero);
             if (setor) params.append('setor', setor);
             if (cidade) params.append('cidade', cidade);
             if (whatsapp) params.append('has_whatsapp', 'true');
+            if (statusEnvio) params.append('status_envio', statusEnvio);
 
-            const response = await fetch(`/api/empresas?${params}`);
-            const empresas = await response.json();
+            const response = await fetch(`/api/empresas-com-status?${params}`);
+            const data = await response.json();
+            const empresas = data.empresas || [];
+            const stats = data.stats || {};
+
+            // Mostrar estatísticas
+            document.getElementById('empresasStats').style.display = 'block';
+            document.getElementById('statsTotal').textContent = stats.total || 0;
+            document.getElementById('statsNaoEnviados').textContent = stats.nao_enviados || 0;
+            document.getElementById('statsEnviados').textContent = stats.enviados || 0;
+            document.getElementById('statsBloqueados').textContent = stats.bloqueados || 0;
 
             const container = document.getElementById('empresasList');
 
@@ -693,23 +777,52 @@
                 return;
             }
 
-            container.innerHTML = empresas.map(empresa => `
-                <div class="empresa-item">
-                    <input type="checkbox" value="${empresa.id}" onchange="toggleEmpresa(${empresa.id})">
-                    <div class="empresa-info">
-                        <div class="empresa-name">${empresa.nome}</div>
-                        <div class="empresa-details">
-                            📍 ${empresa.cidade} | 📞 ${empresa.whatsapp || 'Sem WhatsApp'}
+            container.innerHTML = empresas.map(empresa => {
+                let statusBadge = '';
+                let statusColor = '';
+
+                if (empresa.status_envio === 'bloqueado') {
+                    statusBadge = '🚫 Bloqueado';
+                    statusColor = '#e74c3c';
+                } else if (empresa.status_envio === 'enviado') {
+                    statusBadge = '✅ Enviado';
+                    statusColor = '#25D366';
+                } else {
+                    statusBadge = '⏳ Não Enviado';
+                    statusColor = '#f39c12';
+                }
+
+                return `
+                    <div class="empresa-item">
+                        <input type="checkbox" value="${empresa.id}" onchange="toggleEmpresa(${empresa.id})"
+                               ${empresa.status_envio === 'bloqueado' ? 'disabled' : ''}>
+                        <div class="empresa-info">
+                            <div class="empresa-name">
+                                ${empresa.nome}
+                                <span style="background: ${statusColor}; color: white; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin-left: 8px;">
+                                    ${statusBadge}
+                                </span>
+                            </div>
+                            <div class="empresa-details">
+                                📍 ${empresa.cidade} | 📞 ${empresa.whatsapp || 'Sem WhatsApp'}
+                                ${empresa.data_envio ? `| 📅 ${new Date(empresa.data_envio).toLocaleDateString()}` : ''}
+                            </div>
                         </div>
+                        ${empresa.whatsapp && empresa.status_envio !== 'bloqueado' ? `
+                            ${empresa.status_envio === 'nao_enviado' ? `
+                                <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px; background: #17a2b8;"
+                                        onclick="markAsSent(${empresa.id}, '${empresa.whatsapp}', '${empresa.nome.replace(/'/g, "\\'")}')">
+                                    ✅ Marcar Enviado
+                                </button>
+                            ` : ''}
+                            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;"
+                                    onclick="blockEmpresaNumber(${empresa.id}, '${empresa.whatsapp}', '${empresa.nome.replace(/'/g, "\\'")}')">
+                                🚫 Bloquear
+                            </button>
+                        ` : ''}
                     </div>
-                    ${empresa.whatsapp ? `
-                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;"
-                                onclick="blockEmpresaNumber(${empresa.id}, '${empresa.whatsapp}', '${empresa.nome.replace(/'/g, "\\'")}')">
-                            🚫 Bloquear
-                        </button>
-                    ` : ''}
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function toggleEmpresa(id) {
@@ -722,7 +835,7 @@
         }
 
         function selectAll() {
-            const checkboxes = document.querySelectorAll('.empresa-item input[type="checkbox"]');
+            const checkboxes = document.querySelectorAll('.empresa-item input[type="checkbox"]:not([disabled])');
             const allChecked = Array.from(checkboxes).every(cb => cb.checked);
 
             checkboxes.forEach(cb => {
@@ -736,6 +849,34 @@
                     selectedEmpresas.splice(index, 1);
                 }
             });
+        }
+
+        function selectOnlyNotSent() {
+            // Desmarcar tudo primeiro
+            selectedEmpresas = [];
+            document.querySelectorAll('.empresa-item input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+
+            // Selecionar apenas não enviados e não bloqueados
+            const notSentCheckboxes = document.querySelectorAll('.empresa-item input[type="checkbox"]:not([disabled])');
+            notSentCheckboxes.forEach(cb => {
+                const empresaItem = cb.closest('.empresa-item');
+                const statusBadge = empresaItem.querySelector('.empresa-name span');
+
+                // Verificar se contém "Não Enviado" no badge
+                if (statusBadge && statusBadge.textContent.includes('Não Enviado')) {
+                    cb.checked = true;
+                    const id = parseInt(cb.value);
+                    selectedEmpresas.push(id);
+                }
+            });
+
+            if (selectedEmpresas.length === 0) {
+                alert('Nenhuma empresa não enviada encontrada.');
+            } else {
+                alert(`${selectedEmpresas.length} empresa(s) não enviada(s) selecionada(s).`);
+            }
         }
 
         // Templates
@@ -961,6 +1102,8 @@
 
             const delay = parseInt(document.getElementById('delay').value);
             const campanhaNome = document.getElementById('campanhaNome').value || `Campanha ${new Date().toLocaleString()}`;
+            const blockResend = document.getElementById('blockResend').checked;
+            const checkHistory = document.getElementById('checkHistory').checked;
 
             document.getElementById('btnEnviar').style.display = 'none';
             document.getElementById('btnParar').style.display = 'inline-block';
@@ -971,7 +1114,9 @@
                 empresas_ids: selectedEmpresas,
                 mensagem: mensagem,
                 delay: delay,
-                campanha_nome: campanhaNome
+                campanha_nome: campanhaNome,
+                block_resend: blockResend,
+                check_history: checkHistory
             });
         }
 
@@ -999,6 +1144,10 @@
                 status = '⚠️';
                 logType = 'nao-existe';
                 errorMsg = ' (Número não existe)';
+            } else if (data.status === 'ja_enviado') {
+                status = '💬';
+                logType = 'info';
+                errorMsg = ' (Histórico detectado - marcado como enviado)';
             } else if (data.success) {
                 status = '✅';
                 logType = 'success';
@@ -1043,20 +1192,34 @@
 
         // Logs
         async function loadLogs() {
-            const response = await fetch('/api/whatsapp/logs?limit=100');
+            const campanhaId = document.getElementById('filterLogCampanha').value;
+            const status = document.getElementById('filterLogStatus').value;
+            const limit = document.getElementById('filterLogLimit').value || 100;
+
+            // Construir parâmetros da query
+            const params = new URLSearchParams();
+            params.append('limit', limit);
+            if (campanhaId) params.append('campanha_id', campanhaId);
+            if (status) params.append('status', status);
+
+            const response = await fetch(`/api/whatsapp/logs?${params}`);
             const logs = await response.json();
 
-            const statsResponse = await fetch('/api/whatsapp/stats');
+            // Buscar estatísticas (globais ou por campanha)
+            const statsParams = new URLSearchParams();
+            if (campanhaId) statsParams.append('campanha_id', campanhaId);
+
+            const statsResponse = await fetch(`/api/whatsapp/stats?${statsParams}`);
             const stats = await statsResponse.json();
 
-            document.getElementById('logsTotal').textContent = stats.total;
-            document.getElementById('logsSuccess').textContent = stats.sucesso;
-            document.getElementById('logsFailed').textContent = stats.erro;
+            document.getElementById('logsTotal').textContent = stats.total || 0;
+            document.getElementById('logsSuccess').textContent = stats.sucesso || 0;
+            document.getElementById('logsFailed').textContent = stats.erro || 0;
 
             const container = document.getElementById('logsContainer');
 
             if (logs.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #999;">Nenhum log encontrado</p>';
+                container.innerHTML = '<p style="text-align: center; color: #999;">Nenhum log encontrado com os filtros selecionados</p>';
                 return;
             }
 
@@ -1076,11 +1239,32 @@
                 return `
                     <div class="log-entry log-${type}">
                         ${icon} ${log.empresa_nome} - ${log.telefone} - ${new Date(log.data_envio).toLocaleString()}
+                        ${log.campanha_nome ? `<br><strong>Campanha:</strong> ${log.campanha_nome}` : ''}
                         ${log.status === 'nao_existe' ? '<br><strong>Número não existe no WhatsApp (bloqueado automaticamente)</strong>' : ''}
                         ${log.erro && log.status !== 'nao_existe' ? `<br>Erro: ${log.erro}` : ''}
                     </div>
                 `;
             }).join('');
+        }
+
+        // Carregar campanhas no filtro de logs
+        async function loadLogCampaigns() {
+            try {
+                const response = await fetch('/api/whatsapp/campaigns');
+                const campaigns = await response.json();
+
+                const select = document.getElementById('filterLogCampanha');
+                select.innerHTML = '<option value="">Todas as campanhas</option>';
+
+                campaigns.forEach(camp => {
+                    const option = document.createElement('option');
+                    option.value = camp.id;
+                    option.textContent = `${camp.nome} (ID: ${camp.id})`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar campanhas:', error);
+            }
         }
 
         // Carregar setores e cidades
@@ -1323,6 +1507,36 @@
                 }
             } catch (error) {
                 alert('Erro ao desbloquear número: ' + error.message);
+            }
+        }
+
+        async function markAsSent(empresaId, telefone, empresaNome) {
+            if (!confirm(`Marcar "${empresaNome}" como já tendo recebido mensagem?\n\nIsso fará com que este número seja ignorado em futuros envios (se a opção "Bloquear reenvio" estiver ativa).`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/whatsapp/mark-as-sent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        empresa_id: empresaId,
+                        telefone: telefone,
+                        empresa_nome: empresaNome
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert(result.message);
+                    // Recarregar lista de empresas para atualizar o status
+                    loadEmpresas();
+                } else {
+                    alert('Erro: ' + result.message);
+                }
+            } catch (error) {
+                alert('Erro ao marcar como enviado: ' + error.message);
             }
         }
 
