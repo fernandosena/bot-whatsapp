@@ -1137,3 +1137,37 @@
 [2025-10-14 23:49:46,936] [INFO] Enviando mensagem para Bráz Quintal...
 [2025-10-14 23:49:50,598] [INFO] Nenhum histórico de conversa encontrado
 [2025-10-14 23:49:55,372] [INFO] ✅ Mensagem enviada para Bráz Quintal
+[2025-10-14 23:57:27,989] [INFO] ====== WebDriver manager ======
+[2025-10-14 23:57:28,077] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 08:06:49,832] [INFO] ====== WebDriver manager ======
+[2025-10-15 08:06:49,906] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 09:25:46,989] [INFO] ====== WebDriver manager ======
+[2025-10-15 09:25:47,077] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 09:30:20,699] [INFO] ====== WebDriver manager ======
+[2025-10-15 09:30:20,771] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 11:03:01,450] [INFO] Enviando mensagem para Mega Fritas...
+[2025-10-15 11:03:03,173] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:03:06,149] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:03:06,257] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:03:11,002] [INFO] ✅ Mensagem enviada para Mega Fritas
+[2025-10-15 11:03:41,013] [INFO] Enviando mensagem para Ô Pastel, do tamanho da sua fome !...
+[2025-10-15 11:03:44,762] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:03:44,772] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:03:49,521] [INFO] ✅ Mensagem enviada para Ô Pastel, do tamanho da sua fome !
+[2025-10-15 11:04:19,528] [INFO] Enviando mensagem para Rancho Nordestino...
+[2025-10-15 11:04:23,205] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:04:27,420] [INFO] ✅ Mensagem enviada para Rancho Nordestino
+[2025-10-15 11:04:57,429] [INFO] Enviando mensagem para X-Burgão lanches...
+[2025-10-15 11:05:01,420] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:05:05,657] [INFO] ✅ Mensagem enviada para X-Burgão lanches
+[2025-10-15 11:05:35,664] [INFO] Enviando mensagem para COXINHA É VIDA CONTAINER...
+[2025-10-15 11:05:39,300] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:05:43,569] [INFO] ✅ Mensagem enviada para COXINHA É VIDA CONTAINER
+[2025-10-15 11:06:13,593] [INFO] Enviando mensagem para Restaurante Mainha Malagueta...
+[2025-10-15 11:06:19,963] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 11:06:24,147] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:06:26,844] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:06:34,228] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 11:06:42,674] [INFO] ✅ Mensagem enviada para Restaurante Mainha Malagueta
+[2025-10-15 11:07:12,760] [INFO] Enviando mensagem para Lanchonete 7BURGUER...
+[2025-10-15 11:07:18,931] [INFO] Nenhum histórico de conversa encontrado

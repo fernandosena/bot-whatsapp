@@ -150,6 +150,78 @@ class Database:
             ON whatsapp_blocked(telefone)
         ''')
 
+        # Tabela de campanhas de áudio PTT
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS audio_campaigns (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome TEXT NOT NULL,
+                audio_path TEXT NOT NULL,
+                total_empresas INTEGER DEFAULT 0,
+                total_enviados INTEGER DEFAULT 0,
+                total_falhas INTEGER DEFAULT 0,
+                ultimo_indice INTEGER DEFAULT 0,
+                status TEXT DEFAULT 'em_andamento',
+                delay INTEGER DEFAULT 30,
+                filtros TEXT,
+                data_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                data_fim TIMESTAMP,
+                data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+
+        # Tabela de logs de envio de áudio
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS audio_logs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                campanha_id INTEGER,
+                empresa_id INTEGER,
+                empresa_nome TEXT,
+                telefone TEXT NOT NULL,
+                audio_path TEXT NOT NULL,
+                status TEXT NOT NULL,
+                erro TEXT,
+                data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (campanha_id) REFERENCES audio_campaigns(id),
+                FOREIGN KEY (empresa_id) REFERENCES empresas(id)
+            )
+        ''')
+
+        # Tabela de campanhas de sequência
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS sequence_campaigns (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome TEXT NOT NULL,
+                sequence_data TEXT NOT NULL,
+                total_empresas INTEGER DEFAULT 0,
+                total_enviados INTEGER DEFAULT 0,
+                total_falhas INTEGER DEFAULT 0,
+                ultimo_indice INTEGER DEFAULT 0,
+                status TEXT DEFAULT 'em_andamento',
+                delay INTEGER DEFAULT 30,
+                filtros TEXT,
+                data_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                data_fim TIMESTAMP,
+                data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+
+        # Tabela de logs de envio de sequência
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS sequence_logs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                campanha_id INTEGER,
+                empresa_id INTEGER,
+                empresa_nome TEXT,
+                telefone TEXT NOT NULL,
+                sequence_data TEXT NOT NULL,
+                status TEXT NOT NULL,
+                erro TEXT,
+                data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (campanha_id) REFERENCES sequence_campaigns(id),
+                FOREIGN KEY (empresa_id) REFERENCES empresas(id)
+            )
+        ''')
+
         # Criar índices para otimizar buscas
         self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_setor ON empresas(setor)')
         self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_cidade ON empresas(cidade)')

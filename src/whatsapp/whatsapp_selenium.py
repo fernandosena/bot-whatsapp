@@ -272,6 +272,233 @@ class WhatsAppSelenium:
             logger.warning(f'Erro ao verificar histórico: {e}')
             return False
 
+    def send_audio(self, phone, audio_path, empresa_nome=''):
+        """
+        Enviar áudio para um número (simula gravação PTT)
+
+        Args:
+            phone (str): Número de telefone (formato: +5511999999999)
+            audio_path (str): Caminho do arquivo de áudio (.ogg, .mp3, .wav)
+            empresa_nome (str): Nome da empresa (para log)
+
+        Returns:
+            dict: Resultado do envio
+        """
+        try:
+            if not self.is_logged_in:
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': 'Não está logado no WhatsApp Web',
+                    'timestamp': datetime.now().isoformat()
+                }
+
+            if not os.path.exists(audio_path):
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': f'Arquivo de áudio não encontrado: {audio_path}',
+                    'timestamp': datetime.now().isoformat()
+                }
+
+            logger.info(f'Enviando áudio para {empresa_nome or phone}...')
+
+            # Formatar telefone (remover caracteres especiais)
+            clean_phone = ''.join(filter(str.isdigit, phone))
+
+            # Abrir conversa via URL
+            url = f'https://web.whatsapp.com/send?phone={clean_phone}'
+            self.driver.get(url)
+            time.sleep(3)
+
+            # Verificar se o número existe
+            try:
+                error_element = self.driver.find_element(By.XPATH, '//*[contains(text(), "número de telefone") and contains(text(), "não") and contains(text(), "WhatsApp")]')
+                logger.error(f'Número {phone} não existe no WhatsApp')
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': 'Número não existe no WhatsApp',
+                    'status': 'nao_existe',
+                    'timestamp': datetime.now().isoformat()
+                }
+            except:
+                pass  # Número existe, continuar
+
+            # Aguardar caixa de mensagem aparecer
+            try:
+                WebDriverWait(self.driver, 20).until(
+                    EC.presence_of_element_located((By.XPATH, '//div[@contenteditable="true"][@data-tab="10"]'))
+                )
+            except TimeoutException:
+                logger.error(f'Timeout ao aguardar caixa de mensagem para {phone}.')
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': 'Número provavelmente não existe no WhatsApp',
+                    'status': 'nao_existe',
+                    'timestamp': datetime.now().isoformat()
+                }
+
+            # Localizar botão de anexo (clipe)
+            try:
+                attach_button = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, '//div[@title="Anexar" or @aria-label="Anexar"]'))
+                )
+                attach_button.click()
+                time.sleep(1)
+            except:
+                # Tentar XPath alternativo
+                try:
+                    attach_button = self.driver.find_element(By.XPATH, '//span[@data-icon="plus" or @data-icon="attach-menu-plus"]/..')
+                    attach_button.click()
+                    time.sleep(1)
+                except Exception as e:
+                    logger.error(f'Erro ao clicar no botão de anexo: {e}')
+                    return {
+                        'success': False,
+                        'phone': phone,
+                        'empresa': empresa_nome,
+                        'error': 'Não foi possível abrir menu de anexo',
+                        'timestamp': datetime.now().isoformat()
+                    }
+
+            # Localizar input de arquivo (invisível)
+            try:
+                # Tentar múltiplos seletores para o input de arquivo
+                file_input = None
+                input_selectors = [
+                    '//input[@type="file"]',
+                    '//input[@accept]',
+                    '//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]',
+                    '//input[contains(@accept, "image")]'
+                ]
+
+                for selector in input_selectors:
+                    try:
+                        file_input = self.driver.find_element(By.XPATH, selector)
+                        if file_input:
+                            break
+                    except:
+                        continue
+
+                if not file_input:
+                    logger.error('Não foi possível encontrar input de arquivo')
+                    return {
+                        'success': False,
+                        'phone': phone,
+                        'empresa': empresa_nome,
+                        'error': 'Não foi possível encontrar input de arquivo',
+                        'timestamp': datetime.now().isoformat()
+                    }
+
+                # Enviar o arquivo de áudio
+                absolute_path = os.path.abspath(audio_path)
+                file_input.send_keys(absolute_path)
+
+                logger.info(f'Arquivo de áudio carregado: {absolute_path}')
+
+                # Aguardar mais tempo para o arquivo processar
+                time.sleep(3)
+
+            except Exception as e:
+                logger.error(f'Erro ao enviar arquivo: {e}')
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': f'Erro ao carregar arquivo: {str(e)}',
+                    'timestamp': datetime.now().isoformat()
+                }
+
+            # Aguardar preview do arquivo e botão de enviar
+            try:
+                # Tentar múltiplos seletores para o botão de enviar
+                send_button = None
+                send_selectors = [
+                    # XPath específico fornecido pelo usuário
+                    '/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/div/span/div/div/div/div[2]/div/div[2]/div[2]/div/div',
+                    # Versão relativa do mesmo XPath
+                    '//div[@role="button"]//span[@data-icon="send"]',
+                    # Seletores alternativos
+                    '//span[@data-icon="send"]',
+                    '//button[@aria-label="Enviar"]',
+                    '//button[contains(@aria-label, "Send")]',
+                    '//div[@role="button" and @aria-label="Enviar"]',
+                    '//span[@data-testid="send"]',
+                    '//button[contains(@class, "send")]',
+                    # Buscar pelo parent do ícone
+                    '//span[@data-icon="send"]/parent::div[@role="button"]',
+                    '//span[@data-icon="send"]/..'
+                ]
+
+                for selector in send_selectors:
+                    try:
+                        send_button = WebDriverWait(self.driver, 5).until(
+                            EC.element_to_be_clickable((By.XPATH, selector))
+                        )
+                        if send_button:
+                            logger.info(f'Botão de enviar encontrado com: {selector}')
+                            break
+                    except:
+                        continue
+
+                if not send_button:
+                    logger.warning('Botão de enviar não encontrado com seletores conhecidos. Tentando alternativa...')
+
+                    # Última tentativa: procurar por qualquer botão/span clicável na área de preview
+                    try:
+                        send_button = WebDriverWait(self.driver, 5).until(
+                            EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "send")]//button'))
+                        )
+                    except:
+                        return {
+                            'success': False,
+                            'phone': phone,
+                            'empresa': empresa_nome,
+                            'error': 'Não foi possível encontrar botão de enviar. Verifique se o arquivo foi carregado manualmente.',
+                            'timestamp': datetime.now().isoformat()
+                        }
+
+                time.sleep(1)
+                send_button.click()
+                time.sleep(3)
+
+                logger.success(f'Áudio enviado para {empresa_nome or phone}')
+
+                return {
+                    'success': True,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'audio_path': audio_path,
+                    'timestamp': datetime.now().isoformat()
+                }
+
+            except TimeoutException:
+                logger.error('Timeout ao aguardar botão de enviar')
+                return {
+                    'success': False,
+                    'phone': phone,
+                    'empresa': empresa_nome,
+                    'error': 'Timeout ao tentar enviar o áudio. O arquivo pode ter sido carregado, verifique manualmente.',
+                    'timestamp': datetime.now().isoformat()
+                }
+
+        except Exception as e:
+            error_msg = str(e)
+            logger.error(f'Erro ao enviar áudio para {phone}: {error_msg}')
+            return {
+                'success': False,
+                'phone': phone,
+                'empresa': empresa_nome,
+                'error': error_msg,
+                'timestamp': datetime.now().isoformat()
+            }
+
     def send_message(self, phone, message, empresa_nome='', check_history=False):
         """
         Enviar mensagem para um número

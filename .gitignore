@@ -8,3 +8,4 @@ whatsapp_sessions/
 *.db-shm
 *.db-wal
 database/
+uploads/

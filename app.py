@@ -14,6 +14,7 @@ import pandas as pd
 from datetime import datetime
 from dotenv import load_dotenv
 import io
+from pathlib import Path
 
 # Adicionar src ao path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
@@ -23,6 +24,7 @@ from scraper.google_maps_scraper import GoogleMapsScraper
 from utils.logger import Logger
 from whatsapp.whatsapp_bot import WhatsAppBot
 from whatsapp.whatsapp_selenium import WhatsAppSelenium
+from whatsapp.whatsapp_ptt_client import WhatsAppPTTClient
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -46,6 +48,7 @@ scraper_instance = None
 whatsapp_bot_running = False
 whatsapp_bot_instance = None
 whatsapp_selenium_instance = None  # Instância global do Selenium WhatsApp
+whatsapp_ptt_client = WhatsAppPTTClient()  # Cliente PTT para Baileys
 
 
 @app.route('/')
@@ -70,6 +73,18 @@ def filtro_mensagens():
 def gerenciar_numeros():
     """Página de gerenciamento de números"""
     return render_template('gerenciar_numeros.html')
+
+
+@app.route('/enviar-audio')
+def enviar_audio():
+    """Página para enviar áudios"""
+    return render_template('enviar_audio.html')
+
+
+@app.route('/enviar-ptt')
+def enviar_ptt():
+    """Página para enviar áudios PTT"""
+    return render_template('enviar_ptt.html')
 
 
 @app.route('/api/empresas')
@@ -1246,6 +1261,492 @@ def close_whatsapp_session():
         }), 500
 
 
+@app.route('/api/whatsapp/send-audio', methods=['POST'])
+def send_audio():
+    """Enviar áudio para um contato"""
+    global whatsapp_selenium_instance
+
+    try:
+        if not whatsapp_selenium_instance or not whatsapp_selenium_instance.is_logged_in:
+            return jsonify({
+                'success': False,
+                'message': 'Você precisa estar conectado ao WhatsApp! Clique em "Conectar ao WhatsApp" primeiro.'
+            }), 400
+
+        # Obter dados do formulário
+        data = request.get_json()
+        phone = data.get('phone')
+        audio_path = data.get('audio_path')
+        empresa_nome = data.get('empresa_nome', '')
+
+        if not phone or not audio_path:
+            return jsonify({
+                'success': False,
+                'message': 'Telefone e caminho do áudio são obrigatórios'
+            }), 400
+
+        # Enviar áudio
+        result = whatsapp_selenium_instance.send_audio(phone, audio_path, empresa_nome)
+
+        return jsonify(result)
+
+    except Exception as e:
+        logger.error(f'Erro ao enviar áudio: {e}')
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+
+@app.route('/api/whatsapp/send-audio-file', methods=['POST'])
+def send_audio_file():
+    """Enviar áudio (upload de arquivo)"""
+    global whatsapp_selenium_instance
+
+    try:
+        if not whatsapp_selenium_instance or not whatsapp_selenium_instance.is_logged_in:
+            return jsonify({
+                'success': False,
+                'message': 'Você precisa estar conectado ao WhatsApp!'
+            }), 400
+
+        # Obter arquivo
+        if 'audio' not in request.files:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhum arquivo de áudio enviado'
+            }), 400
+
+        audio_file = request.files['audio']
+        phone = request.form.get('phone')
+        empresa_nome = request.form.get('empresa_nome', '')
+
+        if not phone:
+            return jsonify({
+                'success': False,
+                'message': 'Telefone é obrigatório'
+            }), 400
+
+        if audio_file.filename == '':
+            return jsonify({
+                'success': False,
+                'message': 'Arquivo sem nome'
+            }), 400
+
+        # Salvar arquivo temporariamente
+        upload_dir = Path('uploads/audio')
+        upload_dir.mkdir(parents=True, exist_ok=True)
+
+        # Gerar nome único
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"audio_{timestamp}_{audio_file.filename}"
+        audio_path = upload_dir / filename
+
+        audio_file.save(str(audio_path))
+
+        # Enviar áudio
+        result = whatsapp_selenium_instance.send_audio(phone, str(audio_path), empresa_nome)
+
+        # Remover arquivo temporário após envio (opcional)
+        # os.remove(str(audio_path))
+
+        return jsonify(result)
+
+    except Exception as e:
+        logger.error(f'Erro ao enviar áudio: {e}')
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+
+# ==================== ENDPOINTS PTT (BAILEYS) ====================
+
+@app.route('/api/whatsapp/ptt/status', methods=['GET'])
+def get_ptt_status():
+    """Verificar status do serviço PTT"""
+    global whatsapp_ptt_client
+
+    try:
+        status = whatsapp_ptt_client.check_status()
+        return jsonify(status)
+    except Exception as e:
+        return jsonify({
+            'connected': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/whatsapp/ptt/qr', methods=['GET'])
+def get_ptt_qr():
+    """Obter QR Code do serviço PTT"""
+    global whatsapp_ptt_client
+
+    try:
+        qr_code = whatsapp_ptt_client.get_qr_code()
+        if qr_code:
+            return jsonify({
+                'success': True,
+                'qrCode': qr_code
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhum QR Code disponível'
+            }), 404
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@app.route('/api/whatsapp/send-ptt', methods=['POST'])
+def send_audio_ptt():
+    """Enviar áudio como PTT (Push-to-Talk) via Baileys"""
+    global whatsapp_ptt_client
+
+    try:
+        # Obter arquivo
+        if 'audio' not in request.files:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhum arquivo de áudio enviado'
+            }), 400
+
+        audio_file = request.files['audio']
+        phone = request.form.get('phone')
+        empresa_nome = request.form.get('empresa_nome', '')
+
+        if not phone:
+            return jsonify({
+                'success': False,
+                'message': 'Telefone é obrigatório'
+            }), 400
+
+        if audio_file.filename == '':
+            return jsonify({
+                'success': False,
+                'message': 'Arquivo sem nome'
+            }), 400
+
+        # Salvar arquivo temporariamente
+        upload_dir = Path('uploads/audio')
+        upload_dir.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"ptt_{timestamp}_{audio_file.filename}"
+        audio_path = upload_dir / filename
+
+        audio_file.save(str(audio_path))
+
+        # Enviar via serviço PTT
+        result = whatsapp_ptt_client.send_audio_ptt(phone, str(audio_path), empresa_nome)
+
+        # Remover arquivo temporário
+        try:
+            os.remove(str(audio_path))
+        except:
+            pass
+
+        return jsonify(result)
+
+    except Exception as e:
+        logger.error(f'Erro ao enviar PTT: {e}')
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+
+# ==================== ENDPOINTS CAMPANHAS DE ÁUDIO PTT ====================
+
+@app.route('/enviar-ptt-massa')
+def enviar_ptt_massa():
+    """Página para enviar áudios PTT em massa"""
+    return render_template('enviar_ptt_massa.html')
+
+
+@app.route('/api/audio/empresas-disponiveis', methods=['GET'])
+def get_empresas_disponiveis_audio():
+    """Listar empresas disponíveis para envio de áudio (não bloqueadas e com WhatsApp)"""
+    try:
+        setor = request.args.get('setor', '')
+        cidade = request.args.get('cidade', '')
+        search = request.args.get('search', '')
+        audio_path = request.args.get('audio_path', '')  # Para verificar se já recebeu este áudio
+
+        # Query para empresas não bloqueadas com WhatsApp
+        query = '''
+            SELECT DISTINCT
+                e.*,
+                CASE
+                    WHEN al.id IS NOT NULL THEN 'enviado'
+                    ELSE 'nao_enviado'
+                END as status_audio
+            FROM empresas e
+            LEFT JOIN whatsapp_blocked wb ON wb.telefone = REPLACE(REPLACE(REPLACE(REPLACE(e.whatsapp, ' ', ''), '-', ''), '(', ''), ')', '')
+        '''
+
+        # Se audio_path foi fornecido, verificar se já recebeu este áudio específico
+        if audio_path:
+            query += '''
+                LEFT JOIN audio_logs al ON al.empresa_id = e.id
+                    AND al.audio_path = ?
+                    AND al.status = 'sucesso'
+            '''
+        else:
+            query += '''
+                LEFT JOIN (
+                    SELECT empresa_id, MAX(id) as max_id
+                    FROM audio_logs
+                    WHERE status = 'sucesso'
+                    GROUP BY empresa_id
+                ) latest_audio ON latest_audio.empresa_id = e.id
+                LEFT JOIN audio_logs al ON al.id = latest_audio.max_id
+            '''
+
+        query += '''
+            WHERE e.whatsapp IS NOT NULL
+                AND e.whatsapp != ''
+                AND wb.telefone IS NULL
+        '''
+
+        params = [audio_path] if audio_path else []
+
+        if setor:
+            query += ' AND e.setor LIKE ?'
+            params.append(f'%{setor}%')
+
+        if cidade:
+            query += ' AND e.cidade LIKE ?'
+            params.append(f'%{cidade}%')
+
+        if search:
+            query += ' AND (e.nome LIKE ? OR e.endereco LIKE ?)'
+            params.extend([f'%{search}%', f'%{search}%'])
+
+        query += ' ORDER BY e.nome ASC'
+
+        cursor = db.cursor
+        cursor.execute(query, params)
+        empresas = [dict(row) for row in cursor.fetchall()]
+
+        # Estatísticas
+        total = len(empresas)
+        ja_enviados = len([e for e in empresas if e['status_audio'] == 'enviado'])
+        disponiveis = total - ja_enviados
+
+        return jsonify({
+            'empresas': empresas,
+            'stats': {
+                'total': total,
+                'ja_enviados': ja_enviados,
+                'disponiveis': disponiveis
+            }
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao listar empresas disponíveis: {e}')
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/audio/send-bulk', methods=['POST'])
+def send_bulk_audio_ptt():
+    """Enviar áudio PTT em massa para múltiplas empresas"""
+    global whatsapp_ptt_client
+
+    try:
+        # Verificar se PTT está conectado
+        status = whatsapp_ptt_client.check_status()
+        if not status.get('connected'):
+            return jsonify({
+                'success': False,
+                'message': 'Serviço PTT não está conectado. Escaneie o QR Code primeiro.'
+            }), 400
+
+        # Obter dados
+        if 'audio' not in request.files:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhum arquivo de áudio enviado'
+            }), 400
+
+        audio_file = request.files['audio']
+        empresa_ids = request.form.get('empresa_ids', '')
+        campanha_nome = request.form.get('campanha_nome', f'Campanha Áudio {datetime.now().strftime("%Y-%m-%d %H:%M")}')
+        delay = int(request.form.get('delay', 30))
+
+        if not empresa_ids:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhuma empresa selecionada'
+            }), 400
+
+        # Converter IDs para lista
+        empresa_ids = [int(id.strip()) for id in empresa_ids.split(',') if id.strip()]
+
+        # Salvar arquivo de áudio
+        upload_dir = Path('uploads/audio')
+        upload_dir.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"bulk_{timestamp}_{audio_file.filename}"
+        audio_path = upload_dir / filename
+        audio_file.save(str(audio_path))
+
+        # Criar campanha de áudio
+        cursor = db.cursor
+        cursor.execute('''
+            INSERT INTO audio_campaigns (nome, audio_path, total_empresas, delay, filtros)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (campanha_nome, str(audio_path), len(empresa_ids), delay, str(empresa_ids)))
+        db.conn.commit()
+        campanha_id = cursor.lastrowid
+
+        # Retornar ID da campanha para iniciar envio via WebSocket
+        return jsonify({
+            'success': True,
+            'campanha_id': campanha_id,
+            'audio_path': str(audio_path),
+            'total_empresas': len(empresa_ids),
+            'message': 'Campanha criada. Iniciando envios...'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao criar campanha de áudio: {e}')
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+
+@socketio.on('send_bulk_audio_ptt')
+def handle_send_bulk_audio_ptt(data):
+    """Enviar áudio PTT em massa via WebSocket"""
+    global whatsapp_ptt_client
+
+    try:
+        campanha_id = data.get('campanha_id')
+        empresa_ids = data.get('empresa_ids', [])
+        audio_path = data.get('audio_path')
+        delay = data.get('delay', 30)
+
+        if not campanha_id or not empresa_ids or not audio_path:
+            socketio.emit('audio_bulk_error', {'message': 'Dados incompletos'})
+            return
+
+        socketio.emit('audio_bulk_status', {
+            'status': 'started',
+            'message': f'Iniciando envio para {len(empresa_ids)} contatos...'
+        })
+
+        total = len(empresa_ids)
+        success_count = 0
+        failed_count = 0
+
+        for i, empresa_id in enumerate(empresa_ids, 1):
+            try:
+                # Buscar empresa
+                empresa = db.get_empresa_by_id(empresa_id)
+                if not empresa or not empresa.get('whatsapp'):
+                    failed_count += 1
+                    continue
+
+                telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+
+                # Verificar se está bloqueado
+                if db.is_number_blocked(telefone_normalizado):
+                    failed_count += 1
+                    socketio.emit('audio_bulk_progress', {
+                        'current': i,
+                        'total': total,
+                        'success': success_count,
+                        'failed': failed_count,
+                        'empresa': empresa['nome'],
+                        'status': 'bloqueado'
+                    })
+                    continue
+
+                # Enviar PTT
+                result = whatsapp_ptt_client.send_audio_ptt(
+                    phone=telefone_normalizado,
+                    audio_path=audio_path,
+                    empresa_nome=empresa['nome']
+                )
+
+                # Registrar log
+                status = 'sucesso' if result.get('success') else 'erro'
+                erro = result.get('error') if not result.get('success') else None
+
+                cursor = db.cursor
+                cursor.execute('''
+                    INSERT INTO audio_logs (campanha_id, empresa_id, empresa_nome, telefone, audio_path, status, erro)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (campanha_id, empresa_id, empresa['nome'], telefone_normalizado, audio_path, status, erro))
+                db.conn.commit()
+
+                if result.get('success'):
+                    success_count += 1
+                else:
+                    failed_count += 1
+
+                # Atualizar progresso da campanha
+                cursor.execute('''
+                    UPDATE audio_campaigns
+                    SET total_enviados = ?, total_falhas = ?, ultimo_indice = ?, data_atualizacao = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                ''', (success_count, failed_count, i, campanha_id))
+                db.conn.commit()
+
+                # Emitir progresso
+                socketio.emit('audio_bulk_progress', {
+                    'current': i,
+                    'total': total,
+                    'success': success_count,
+                    'failed': failed_count,
+                    'empresa': empresa['nome'],
+                    'phone': empresa['whatsapp'],
+                    'status': status,
+                    'error': erro
+                })
+
+                # Delay entre envios
+                if i < total:
+                    socketio.sleep(delay)
+
+            except Exception as e:
+                failed_count += 1
+                logger.error(f'Erro ao enviar para {empresa_id}: {e}')
+
+        # Finalizar campanha
+        cursor = db.cursor
+        cursor.execute('''
+            UPDATE audio_campaigns
+            SET status = 'concluida', data_fim = CURRENT_TIMESTAMP
+            WHERE id = ?
+        ''', (campanha_id,))
+        db.conn.commit()
+
+        socketio.emit('audio_bulk_complete', {
+            'campanha_id': campanha_id,
+            'total': total,
+            'success': success_count,
+            'failed': failed_count,
+            'message': f'Envio concluído! {success_count}/{total} áudios enviados com sucesso.'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro no envio em massa de áudio: {e}')
+        import traceback
+        traceback.print_exc()
+        socketio.emit('audio_bulk_error', {'message': str(e)})
+
+
 # ==================== ENDPOINTS NÚMEROS BLOQUEADOS ====================
 
 @app.route('/api/whatsapp/blocked', methods=['GET'])
@@ -1834,6 +2335,337 @@ def export_mensagens_excel():
         import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
+
+
+# ==================== ENDPOINTS SEQUÊNCIA PERSONALIZADA ====================
+
+@app.route('/enviar-sequencia')
+def enviar_sequencia():
+    """Página de envio em sequência personalizada"""
+    return render_template('enviar_sequencia.html')
+
+
+@app.route('/api/whatsapp/send-sequence', methods=['POST'])
+def send_sequence():
+    """Criar campanha de sequência personalizada"""
+    try:
+        # Verificar se há arquivo de áudio/imagem/vídeo
+        data = request.form
+        empresa_ids = data.get('empresa_ids', '')
+        campanha_nome = data.get('campanha_nome', f'Sequência {datetime.now().strftime("%Y-%m-%d %H:%M")}')
+        delay = int(data.get('delay', 30))
+        sequence_data = data.get('sequence', '[]')
+
+        if not empresa_ids:
+            return jsonify({
+                'success': False,
+                'message': 'Nenhuma empresa selecionada'
+            }), 400
+
+        # Converter IDs para lista
+        empresa_ids_list = [int(id.strip()) for id in empresa_ids.split(',') if id.strip()]
+
+        # Parse da sequência
+        import json
+        try:
+            sequence = json.loads(sequence_data)
+        except:
+            return jsonify({
+                'success': False,
+                'message': 'Erro ao processar sequência de mensagens'
+            }), 400
+
+        if not sequence:
+            return jsonify({
+                'success': False,
+                'message': 'Sequência vazia'
+            }), 400
+
+        # Processar arquivos da sequência
+        upload_dir = Path('uploads/sequence')
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+
+        # Salvar arquivos e atualizar sequência
+        for i, item in enumerate(sequence):
+            item_type = item.get('type')
+
+            # Verificar se há arquivo para este item
+            file_key = f'file_{i}'
+            if file_key in request.files:
+                file = request.files[file_key]
+                if file and file.filename:
+                    # Salvar arquivo
+                    filename = f"{timestamp}_{i}_{file.filename}"
+                    file_path = upload_dir / filename
+                    file.save(str(file_path))
+
+                    # Atualizar sequência com caminho do arquivo
+                    item['file'] = str(file_path)
+
+        # Criar campanha de sequência
+        cursor = db.cursor
+        cursor.execute('''
+            INSERT INTO sequence_campaigns (nome, sequence_data, total_empresas, delay, filtros)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (campanha_nome, json.dumps(sequence), len(empresa_ids_list), delay, json.dumps({'empresa_ids': empresa_ids_list})))
+        db.conn.commit()
+        campanha_id = cursor.lastrowid
+
+        return jsonify({
+            'success': True,
+            'campanha_id': campanha_id,
+            'total_empresas': len(empresa_ids_list),
+            'message': 'Campanha criada. Iniciando envios...'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro ao criar campanha de sequência: {e}')
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+
+@socketio.on('send_sequence')
+def handle_send_sequence(data):
+    """Enviar sequência de mensagens via WebSocket"""
+    global whatsapp_selenium_instance, whatsapp_ptt_client
+
+    try:
+        campanha_id = data.get('campanha_id')
+        empresa_ids = data.get('empresa_ids', [])
+        sequence = data.get('sequence', [])
+        delay = data.get('delay', 30)
+
+        if not campanha_id or not empresa_ids or not sequence:
+            socketio.emit('sequence_error', {'message': 'Dados incompletos'})
+            return
+
+        # Verificar conexão WhatsApp
+        if not whatsapp_selenium_instance or not whatsapp_selenium_instance.is_logged_in:
+            # Tentar usar PTT se Selenium não estiver disponível
+            ptt_status = whatsapp_ptt_client.check_status()
+            if not ptt_status.get('connected'):
+                socketio.emit('sequence_error', {
+                    'message': 'Nenhuma conexão WhatsApp ativa. Conecte via Selenium ou PTT primeiro.'
+                })
+                return
+            use_ptt = True
+        else:
+            use_ptt = False
+
+        socketio.emit('sequence_status', {
+            'status': 'started',
+            'message': f'Iniciando envio de sequência para {len(empresa_ids)} contatos...'
+        })
+
+        total = len(empresa_ids)
+        success_count = 0
+        failed_count = 0
+
+        import json
+
+        for i, empresa_id in enumerate(empresa_ids, 1):
+            try:
+                # Buscar empresa
+                empresa = db.get_empresa_by_id(empresa_id)
+                if not empresa or not empresa.get('whatsapp'):
+                    failed_count += 1
+                    continue
+
+                telefone_normalizado = ''.join(filter(str.isdigit, empresa['whatsapp']))
+
+                # Verificar se está bloqueado
+                if db.is_number_blocked(telefone_normalizado):
+                    failed_count += 1
+                    socketio.emit('sequence_progress', {
+                        'current': i,
+                        'total': total,
+                        'success': success_count,
+                        'failed': failed_count,
+                        'empresa': empresa['nome'],
+                        'status': 'bloqueado'
+                    })
+                    continue
+
+                # Processar cada item da sequência
+                sequence_success = True
+                for seq_idx, item in enumerate(sequence):
+                    item_type = item.get('type')
+
+                    try:
+                        # Delay configurado
+                        if item_type == 'delay':
+                            delay_seconds = item.get('delay', 5)
+                            socketio.emit('sequence_item_status', {
+                                'empresa': empresa['nome'],
+                                'item_type': 'delay',
+                                'status': f'Aguardando {delay_seconds}s...'
+                            })
+                            socketio.sleep(delay_seconds)
+                            continue
+
+                        # Personalizar conteúdo
+                        content = item.get('content', '')
+                        if content and whatsapp_selenium_instance:
+                            content = whatsapp_selenium_instance._personalize_message(content, empresa)
+
+                        # Enviar conforme o tipo
+                        if item_type == 'text':
+                            if use_ptt:
+                                # Não suportado via PTT ainda
+                                socketio.emit('sequence_item_status', {
+                                    'empresa': empresa['nome'],
+                                    'item_type': 'text',
+                                    'status': 'Texto não suportado via PTT'
+                                })
+                                continue
+                            else:
+                                result = whatsapp_selenium_instance.send_message(
+                                    empresa['whatsapp'],
+                                    content,
+                                    empresa['nome']
+                                )
+
+                        elif item_type in ['audio', 'ptt']:
+                            file_path = item.get('file')
+                            if not file_path:
+                                continue
+
+                            if use_ptt or item_type == 'ptt':
+                                result = whatsapp_ptt_client.send_audio_ptt(
+                                    telefone_normalizado,
+                                    file_path,
+                                    empresa['nome']
+                                )
+                            else:
+                                result = whatsapp_selenium_instance.send_audio(
+                                    empresa['whatsapp'],
+                                    file_path,
+                                    empresa['nome']
+                                )
+
+                        elif item_type in ['image', 'video', 'document']:
+                            file_path = item.get('file')
+                            caption = content if content else ''
+
+                            if use_ptt:
+                                socketio.emit('sequence_item_status', {
+                                    'empresa': empresa['nome'],
+                                    'item_type': item_type,
+                                    'status': f'{item_type} não suportado via PTT'
+                                })
+                                continue
+
+                            # Enviar mídia via Selenium (implementar método específico se necessário)
+                            result = {'success': False, 'error': f'{item_type} não implementado ainda'}
+
+                        elif item_type == 'contact':
+                            # Enviar contato (implementar se necessário)
+                            result = {'success': False, 'error': 'Envio de contato não implementado'}
+
+                        elif item_type == 'location':
+                            # Enviar localização (implementar se necessário)
+                            result = {'success': False, 'error': 'Envio de localização não implementado'}
+
+                        else:
+                            result = {'success': False, 'error': f'Tipo {item_type} não suportado'}
+
+                        if not result.get('success'):
+                            sequence_success = False
+                            socketio.emit('sequence_item_status', {
+                                'empresa': empresa['nome'],
+                                'item_type': item_type,
+                                'status': 'erro',
+                                'error': result.get('error')
+                            })
+                        else:
+                            socketio.emit('sequence_item_status', {
+                                'empresa': empresa['nome'],
+                                'item_type': item_type,
+                                'status': 'sucesso'
+                            })
+
+                        # Delay entre itens da sequência
+                        if seq_idx < len(sequence) - 1:
+                            socketio.sleep(2)
+
+                    except Exception as e:
+                        sequence_success = False
+                        logger.error(f'Erro ao enviar item {item_type}: {e}')
+                        socketio.emit('sequence_item_status', {
+                            'empresa': empresa['nome'],
+                            'item_type': item_type,
+                            'status': 'erro',
+                            'error': str(e)
+                        })
+
+                # Registrar log da sequência
+                status = 'sucesso' if sequence_success else 'erro'
+                cursor = db.cursor
+                cursor.execute('''
+                    INSERT INTO sequence_logs (campanha_id, empresa_id, empresa_nome, telefone, sequence_data, status)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                ''', (campanha_id, empresa_id, empresa['nome'], telefone_normalizado, json.dumps(sequence), status))
+                db.conn.commit()
+
+                if sequence_success:
+                    success_count += 1
+                else:
+                    failed_count += 1
+
+                # Atualizar progresso
+                cursor.execute('''
+                    UPDATE sequence_campaigns
+                    SET total_enviados = ?, total_falhas = ?, ultimo_indice = ?, data_atualizacao = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                ''', (success_count, failed_count, i, campanha_id))
+                db.conn.commit()
+
+                # Emitir progresso
+                socketio.emit('sequence_progress', {
+                    'current': i,
+                    'total': total,
+                    'success': success_count,
+                    'failed': failed_count,
+                    'empresa': empresa['nome'],
+                    'phone': empresa['whatsapp'],
+                    'status': status
+                })
+
+                # Delay entre empresas
+                if i < total:
+                    socketio.sleep(delay)
+
+            except Exception as e:
+                failed_count += 1
+                logger.error(f'Erro ao enviar sequência para {empresa_id}: {e}')
+
+        # Finalizar campanha
+        cursor = db.cursor
+        cursor.execute('''
+            UPDATE sequence_campaigns
+            SET status = 'concluida', data_fim = CURRENT_TIMESTAMP
+            WHERE id = ?
+        ''', (campanha_id,))
+        db.conn.commit()
+
+        socketio.emit('sequence_complete', {
+            'campanha_id': campanha_id,
+            'total': total,
+            'success': success_count,
+            'failed': failed_count,
+            'message': f'Sequência concluída! {success_count}/{total} enviados com sucesso.'
+        })
+
+    except Exception as e:
+        logger.error(f'Erro no envio de sequência: {e}')
+        import traceback
+        traceback.print_exc()
+        socketio.emit('sequence_error', {'message': str(e)})
 
 
 if __name__ == '__main__':

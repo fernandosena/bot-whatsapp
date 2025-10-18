@@ -4,19 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18dfa60b-5494-45a1-a890-1af2b63ac08e" name="Changes" comment="fix: adicionado banco de dados">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="18dfa60b-5494-45a1-a890-1af2b63ac08e" name="Changes" comment="feat: melhorias">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATUALIZACAO_CAMPANHAS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAMPANHAS_WHATSAPP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG_SELENIUM.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHECKPOINT_GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIA_BUSCA_EXPANDIDA.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIA_CRIACAO_CAMPANHA_FILTRO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIA_FILTRO_MENSAGENS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PERFORMANCE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QUICK_START.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QUICK_START_WHATSAPP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOLUCAO_DISPLAY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYSTEM_REQUIREMENTS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/USO_RAPIDO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHATSAPP_BOT_GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHATSAPP_SELENIUM_GUIDE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/empresas.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/empresas.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/empresas.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/database/empresas.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/empresas.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/database/empresas.db-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/empresas.db-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/empresas.db-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/bot-2025-10-14.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/bot-2025-10-14.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/whatsapp/whatsapp_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/whatsapp/whatsapp_selenium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/whatsapp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/whatsapp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +91,12 @@
       <workItem from="1760009613007" duration="391000" />
       <workItem from="1760042768684" duration="3418000" />
       <workItem from="1760201776912" duration="3151000" />
-      <workItem from="1760470217397" duration="8111000" />
+      <workItem from="1760470217397" duration="10357000" />
+      <workItem from="1760548245941" duration="611000" />
+      <workItem from="1760648253102" duration="3437000" />
+      <workItem from="1760700688631" duration="1827000" />
+      <workItem from="1760711963476" duration="4355000" />
+      <workItem from="1760806263403" duration="2698000" />
     </task>
     <task id="LOCAL-00001" summary="feat: sistema funcional">
       <option name="closed" value="true" />
@@ -128,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760204811825</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: melhorias">
+      <option name="closed" value="true" />
+      <created>1760496759842</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760496759842</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +165,7 @@
     <MESSAGE value="feat: adicionado filtros e Checkpoints" />
     <MESSAGE value="fix: resolvido alguns bugs de evio" />
     <MESSAGE value="fix: adicionado banco de dados" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: adicionado banco de dados" />
+    <MESSAGE value="feat: melhorias" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: melhorias" />
   </component>
 </project>

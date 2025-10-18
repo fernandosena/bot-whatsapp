@@ -1,0 +1,17 @@
+/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/node_modules/pino/lib/transport.js:146
+      throw new Error(`unable to determine transport target for "${origin}"`)
+      ^
+
+Error: unable to determine transport target for "pino-pretty"
+    at fixTarget (/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/node_modules/pino/lib/transport.js:146:13)
+    at transport (/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/node_modules/pino/lib/transport.js:116:22)
+    at normalizeArgs (/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/node_modules/pino/lib/tools.js:316:16)
+    at pino (/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/node_modules/pino/pino.js:90:28)
+    at Object.<anonymous> (/home/fernando-sena/Documentos/bot/whatsapp-ptt-service/server.js:48:16)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+
+Node.js v22.20.0

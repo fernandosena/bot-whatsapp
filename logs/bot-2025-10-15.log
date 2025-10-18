@@ -1,0 +1,1387 @@
+[2025-10-15 13:04:59,476] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-15 13:04:59,526] [INFO]  * Restarting with stat
+[2025-10-15 13:05:10,625] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-15 13:05:10,670] [WARNING]  * Debugger is active!
+[2025-10-15 13:05:10,684] [INFO]  * Debugger PIN: 115-556-063
+[2025-10-15 13:05:28,041] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-15 13:05:28,042] [INFO] Iniciando navegador...
+[2025-10-15 13:05:28,042] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-15 13:05:28,042] [INFO] ====== WebDriver manager ======
+[2025-10-15 13:05:28,368] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 13:05:38,606] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-15 13:05:38,606] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-15 13:05:43,538] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-15 13:05:43,767] [INFO] Abrindo WhatsApp Web...
+[2025-10-15 13:05:46,534] [INFO] Aguardando carregamento...
+[2025-10-15 13:05:47,390] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:05:49,987] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:05:51,887] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:05:55,329] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-15 13:07:18,477] [INFO] Enviando mensagem para Lanchonete 7BURGUER...
+[2025-10-15 13:07:22,781] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:07:23,030] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:07:24,230] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:07:27,011] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:07:29,799] [INFO] ✅ Mensagem enviada para Lanchonete 7BURGUER
+[2025-10-15 13:07:59,810] [INFO] Enviando mensagem para The B-Burgers Petrolina...
+[2025-10-15 13:08:05,870] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:08:08,922] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:08:08,922] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:08:13,168] [INFO] ✅ Mensagem enviada para The B-Burgers Petrolina
+[2025-10-15 13:08:43,174] [INFO] Enviando mensagem para Dogão Do Paulista...
+[2025-10-15 13:08:46,761] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:08:51,005] [INFO] ✅ Mensagem enviada para Dogão Do Paulista
+[2025-10-15 13:09:21,011] [INFO] Enviando mensagem para Churrasco Grego do Thiago...
+[2025-10-15 13:09:24,706] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:09:44,792] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988474878. Número pode não existir.
+[2025-10-15 13:09:44,795] [INFO] Número 5587988474878 bloqueado automaticamente (não existe)
+[2025-10-15 13:10:14,803] [INFO] Enviando mensagem para Coxinhas do Vale...
+[2025-10-15 13:10:18,295] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:10:23,021] [INFO] ✅ Mensagem enviada para Coxinhas do Vale
+[2025-10-15 13:10:53,027] [INFO] Enviando mensagem para Lanchonete Caminho do Lanche...
+[2025-10-15 13:10:56,642] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:10:56,651] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:11:00,905] [INFO] ✅ Mensagem enviada para Lanchonete Caminho do Lanche
+[2025-10-15 13:11:30,911] [INFO] Enviando mensagem para Pnz Burguer...
+[2025-10-15 13:11:34,760] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:11:39,544] [INFO] ✅ Mensagem enviada para Pnz Burguer
+[2025-10-15 13:12:09,553] [INFO] Enviando mensagem para Açaí Club = Petrolina...
+[2025-10-15 13:12:15,415] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:12:19,131] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:12:19,131] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:12:24,477] [INFO] ✅ Mensagem enviada para Açaí Club = Petrolina
+[2025-10-15 13:12:54,510] [INFO] Enviando mensagem para Salgados Estrela...
+[2025-10-15 13:12:58,519] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:12:58,591] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:13:00,171] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:13:05,239] [INFO] ✅ Mensagem enviada para Salgados Estrela
+[2025-10-15 13:13:35,247] [INFO] Enviando mensagem para Bistrô Sabor do Pará...
+[2025-10-15 13:13:36,145] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:13:39,361] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:13:39,362] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:13:40,676] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:13:41,961] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:13:45,956] [INFO] ✅ Mensagem enviada para Bistrô Sabor do Pará
+[2025-10-15 13:14:15,966] [INFO] Enviando mensagem para REI BURGUER...
+[2025-10-15 13:14:19,941] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:14:19,998] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:14:21,701] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:14:26,624] [INFO] ✅ Mensagem enviada para REI BURGUER
+[2025-10-15 13:14:56,639] [INFO] Enviando mensagem para LAN $ NET...
+[2025-10-15 13:14:57,576] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:00,894] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:00,894] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:15:02,509] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:08,008] [INFO] ✅ Mensagem enviada para LAN $ NET
+[2025-10-15 13:15:38,022] [INFO] Enviando mensagem para Cuscuzeria Raizes Do Sertao...
+[2025-10-15 13:15:39,258] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:42,390] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:42,572] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:15:44,277] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:15:44,877] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:16:02,704] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:16:03,192] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988153809. Número pode não existir.
+[2025-10-15 13:16:03,202] [INFO] Número 5587988153809 bloqueado automaticamente (não existe)
+[2025-10-15 13:16:33,216] [INFO] Enviando mensagem para Hamburgueriatopdovalepnz...
+[2025-10-15 13:16:37,302] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:16:37,500] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:16:42,305] [INFO] ✅ Mensagem enviada para Hamburgueriatopdovalepnz
+[2025-10-15 13:17:12,320] [INFO] Enviando mensagem para Ramus Dogão e Hamburgueria...
+[2025-10-15 13:17:16,407] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:17:16,408] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:17:18,108] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:17:23,053] [INFO] ✅ Mensagem enviada para Ramus Dogão e Hamburgueria
+[2025-10-15 13:17:53,067] [INFO] Enviando mensagem para Lanchonete mariozinho...
+[2025-10-15 13:17:54,029] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:17:57,435] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:17:57,435] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:17:59,041] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:18:04,533] [INFO] ✅ Mensagem enviada para Lanchonete mariozinho
+[2025-10-15 13:18:34,542] [INFO] Enviando mensagem para Acarajé da Malagueta...
+[2025-10-15 13:18:38,673] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:18:38,673] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:18:40,226] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:18:40,841] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:18:45,431] [INFO] ✅ Mensagem enviada para Acarajé da Malagueta
+[2025-10-15 13:19:15,439] [INFO] Enviando mensagem para Mestre das Coxinhas...
+[2025-10-15 13:19:18,907] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:19:18,923] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:19:23,196] [INFO] ✅ Mensagem enviada para Mestre das Coxinhas
+[2025-10-15 13:19:53,204] [INFO] Enviando mensagem para Ciene lanches...
+[2025-10-15 13:19:53,811] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:19:56,891] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:20:01,217] [INFO] ✅ Mensagem enviada para Ciene lanches
+[2025-10-15 13:20:31,225] [INFO] Enviando mensagem para Pirata lanches - hamburgueria delivery...
+[2025-10-15 13:20:34,137] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:20:37,159] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:20:37,159] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:20:57,389] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988736975. Número pode não existir.
+[2025-10-15 13:20:57,394] [INFO] Número 5587988736975 bloqueado automaticamente (não existe)
+[2025-10-15 13:21:27,403] [INFO] Enviando mensagem para Bar Da Jandira...
+[2025-10-15 13:21:31,145] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:21:35,570] [INFO] ✅ Mensagem enviada para Bar Da Jandira
+[2025-10-15 13:22:05,578] [INFO] Enviando mensagem para Hamburgueria “RAFARICLES...
+[2025-10-15 13:22:06,451] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:22:09,440] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:22:09,454] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:22:13,668] [INFO] ✅ Mensagem enviada para Hamburgueria “RAFARICLES
+[2025-10-15 13:22:43,677] [INFO] Enviando mensagem para Coxinha é Vida...
+[2025-10-15 13:22:47,959] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:22:47,959] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:22:52,228] [INFO] ✅ Mensagem enviada para Coxinha é Vida
+[2025-10-15 13:23:22,236] [INFO] Enviando mensagem para Dona Graça Lanches...
+[2025-10-15 13:23:25,940] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:23:25,979] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:23:32,700] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:23:46,096] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988063807. Número pode não existir.
+[2025-10-15 13:23:46,101] [INFO] Número 5587988063807 bloqueado automaticamente (não existe)
+[2025-10-15 13:24:16,110] [INFO] Enviando mensagem para BRAVUS BURGUER - Hamburgueria...
+[2025-10-15 13:24:19,654] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:24:19,677] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:24:20,743] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:24:24,417] [INFO] ✅ Mensagem enviada para BRAVUS BURGUER - Hamburgueria
+[2025-10-15 13:24:54,426] [INFO] Enviando mensagem para Panificadora Bom Pão...
+[2025-10-15 13:24:57,937] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:24:57,974] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:24:59,735] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:25:02,318] [INFO] ✅ Mensagem enviada para Panificadora Bom Pão
+[2025-10-15 13:25:32,525] [INFO] Enviando mensagem para Naide Delícias a Gosto...
+[2025-10-15 13:25:33,094] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:25:36,157] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:25:36,157] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:25:40,384] [INFO] ✅ Mensagem enviada para Naide Delícias a Gosto
+[2025-10-15 13:26:10,393] [INFO] Enviando mensagem para Kbeca Burguer...
+[2025-10-15 13:26:16,044] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:26:19,222] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:26:19,222] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:26:23,595] [INFO] ✅ Mensagem enviada para Kbeca Burguer
+[2025-10-15 13:26:53,603] [INFO] Enviando mensagem para Lanchonete Caminho De Casa...
+[2025-10-15 13:26:54,404] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:26:57,508] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:26:57,509] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:26:59,745] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:27:01,750] [INFO] ✅ Mensagem enviada para Lanchonete Caminho De Casa
+[2025-10-15 13:27:31,759] [INFO] Enviando mensagem para Benditta Coxinharia...
+[2025-10-15 13:27:35,317] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:27:35,326] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:27:39,546] [INFO] ✅ Mensagem enviada para Benditta Coxinharia
+[2025-10-15 13:28:09,555] [INFO] Enviando mensagem para Lanchonete do Nego Pnz...
+[2025-10-15 13:28:13,077] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:28:14,700] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:28:17,292] [INFO] ✅ Mensagem enviada para Lanchonete do Nego Pnz
+[2025-10-15 13:28:47,301] [INFO] Enviando mensagem para A cozinha da Milke -Cozinha Natural...
+[2025-10-15 13:28:47,866] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:28:51,038] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:28:51,039] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:28:55,270] [INFO] ✅ Mensagem enviada para A cozinha da Milke -Cozinha Natural
+[2025-10-15 13:29:25,278] [INFO] Enviando mensagem para Giga Burguer...
+[2025-10-15 13:29:28,779] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:29:28,827] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:29:33,049] [INFO] ✅ Mensagem enviada para Giga Burguer
+[2025-10-15 13:30:03,057] [INFO] Enviando mensagem para X Salgados...
+[2025-10-15 13:30:06,717] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:30:11,025] [INFO] ✅ Mensagem enviada para X Salgados
+[2025-10-15 13:30:41,034] [INFO] Enviando mensagem para Lancheira mix...
+[2025-10-15 13:30:44,560] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:30:44,575] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:30:47,702] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:31:04,690] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988221960. Número pode não existir.
+[2025-10-15 13:31:04,694] [INFO] Número 5587988221960 bloqueado automaticamente (não existe)
+[2025-10-15 13:31:34,702] [INFO] Enviando mensagem para Flor do Sertão - Cuscuzeria e Lanchonete...
+[2025-10-15 13:31:38,454] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:31:38,511] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:31:42,764] [INFO] ✅ Mensagem enviada para Flor do Sertão - Cuscuzeria e Lanchonete
+[2025-10-15 13:32:12,772] [INFO] Enviando mensagem para Salete Ateliê...
+[2025-10-15 13:32:16,379] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:32:16,414] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:32:20,687] [INFO] ✅ Mensagem enviada para Salete Ateliê
+[2025-10-15 13:32:50,695] [INFO] Enviando mensagem para Fatiado MF & Lanchonete...
+[2025-10-15 13:32:51,186] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:32:54,479] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:32:54,479] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:33:14,685] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988369330. Número pode não existir.
+[2025-10-15 13:33:14,689] [INFO] Número 5587988369330 bloqueado automaticamente (não existe)
+[2025-10-15 13:33:44,697] [INFO] Enviando mensagem para Top Lanches Hamburgueria e Açaiteria...
+[2025-10-15 13:33:48,431] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:33:48,530] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:33:53,207] [INFO] ✅ Mensagem enviada para Top Lanches Hamburgueria e Açaiteria
+[2025-10-15 13:34:23,222] [INFO] Enviando mensagem para BABÚ BURGER HAMBÚRGUERIA E LANCHONETE...
+[2025-10-15 13:34:24,934] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:34:29,578] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:34:32,194] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:34:34,771] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:34:36,310] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:34:38,982] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:34:41,759] [INFO] ✅ Mensagem enviada para BABÚ BURGER HAMBÚRGUERIA E LANCHONETE
+[2025-10-15 13:35:11,773] [INFO] Enviando mensagem para Mix Dom Açai...
+[2025-10-15 13:35:15,860] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:35:15,860] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:35:17,623] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:35:22,583] [INFO] ✅ Mensagem enviada para Mix Dom Açai
+[2025-10-15 13:35:52,591] [INFO] Enviando mensagem para Rei do Caldo Petrolina...
+[2025-10-15 13:35:56,852] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:35:56,852] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:35:58,690] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:35:59,912] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:04,246] [INFO] ✅ Mensagem enviada para Rei do Caldo Petrolina
+[2025-10-15 13:36:34,370] [INFO] Enviando mensagem para Empório do Bolo...
+[2025-10-15 13:36:39,451] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:42,214] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:42,215] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:36:42,793] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:54,645] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:55,474] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:36:57,450] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:01,525] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:02,872] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:04,858] [INFO] ✅ Mensagem enviada para Empório do Bolo
+[2025-10-15 13:37:34,884] [INFO] Enviando mensagem para Salgateria lima loja2...
+[2025-10-15 13:37:37,568] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:43,020] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:37:48,432] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:56,636] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:57,738] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:37:58,351] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:00,051] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:05,648] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988451987. Número pode não existir.
+[2025-10-15 13:38:05,668] [INFO] Número 5587988451987 bloqueado automaticamente (não existe)
+[2025-10-15 13:38:35,685] [INFO] Enviando mensagem para Casa do Lanche...
+[2025-10-15 13:38:36,501] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:39,942] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:41,349] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:38:41,849] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:45,097] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:45,744] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:48,208] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:38:53,372] [INFO] ✅ Mensagem enviada para Casa do Lanche
+[2025-10-15 13:39:23,387] [INFO] Enviando mensagem para Petisco - Caldo De Vaca Atolada...
+[2025-10-15 13:39:24,361] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:39:27,827] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:39:27,828] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:39:29,543] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:39:32,726] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:39:35,398] [INFO] ✅ Mensagem enviada para Petisco - Caldo De Vaca Atolada
+[2025-10-15 13:40:05,418] [INFO] Enviando mensagem para Dogueria Hot 60...
+[2025-10-15 13:40:08,074] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:10,856] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:11,320] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:40:11,624] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:15,703] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:22,094] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:22,865] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:24,467] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:27,275] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:40:30,410] [INFO] ✅ Mensagem enviada para Dogueria Hot 60
+[2025-10-15 13:41:00,439] [INFO] Enviando mensagem para NAKOMBURG | Hamburgueria Artesanal em Petrolina...
+[2025-10-15 13:41:04,321] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:06,896] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:06,896] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:41:07,580] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:18,685] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:24,721] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:25,703] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:27,760] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:31,112] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:41:33,866] [INFO] ✅ Mensagem enviada para NAKOMBURG | Hamburgueria Artesanal em Petrolina
+[2025-10-15 13:42:03,875] [INFO] Enviando mensagem para Lanchonete e Distribuidora Pastel da Hora...
+[2025-10-15 13:42:08,409] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:08,531] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:42:15,019] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:18,338] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:20,053] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:23,250] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:24,374] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:26,994] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:42:32,149] [INFO] ✅ Mensagem enviada para Lanchonete e Distribuidora Pastel da Hora
+[2025-10-15 13:43:02,169] [INFO] Enviando mensagem para Atlanta Burger - Petrolina...
+[2025-10-15 13:43:04,020] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:06,714] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:06,754] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:43:12,201] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:13,215] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:16,041] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:16,769] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:21,247] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:43:24,100] [INFO] ✅ Mensagem enviada para Atlanta Burger - Petrolina
+[2025-10-15 13:43:54,123] [INFO] Enviando mensagem para Bambuzinho Bar...
+[2025-10-15 13:44:01,544] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:44:05,459] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:08,780] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:10,090] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:12,255] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:14,890] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:25,135] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988376626. Número pode não existir.
+[2025-10-15 13:44:25,139] [INFO] Número 5587988376626 bloqueado automaticamente (não existe)
+[2025-10-15 13:44:55,149] [INFO] Enviando mensagem para Panificadora Montsinai...
+[2025-10-15 13:44:59,932] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:44:59,933] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:45:04,120] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:45:07,319] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:45:08,286] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:45:08,997] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:45:20,428] [ERROR] Timeout ao aguardar caixa de mensagem para 558738637257. Número pode não existir.
+[2025-10-15 13:45:20,432] [INFO] Número 558738637257 bloqueado automaticamente (não existe)
+[2025-10-15 13:45:50,443] [INFO] Enviando mensagem para O Poin't...
+[2025-10-15 13:45:51,778] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:45:58,740] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:45:59,331] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:02,392] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:03,077] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:06,875] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:09,615] [INFO] ✅ Mensagem enviada para O Poin't
+[2025-10-15 13:46:39,628] [INFO] Enviando mensagem para Lanchonete ENCONTRO DE AMIGOS...
+[2025-10-15 13:46:46,004] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:46:46,295] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:48,724] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:49,483] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:50,924] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:46:55,545] [INFO] ✅ Mensagem enviada para Lanchonete ENCONTRO DE AMIGOS
+[2025-10-15 13:47:25,555] [INFO] Enviando mensagem para Falmar Shop | Conveniência, Padaria e Bebidas...
+[2025-10-15 13:47:27,379] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:31,086] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:31,086] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:47:32,056] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:34,747] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:36,180] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:39,317] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:47:42,123] [INFO] ✅ Mensagem enviada para Falmar Shop | Conveniência, Padaria e Bebidas
+[2025-10-15 13:48:12,131] [INFO] Enviando mensagem para Delícia Integral pães caseiros...
+[2025-10-15 13:48:16,746] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:48:16,931] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:48:21,753] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:48:22,416] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:48:24,204] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:48:26,834] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:48:29,629] [INFO] ✅ Mensagem enviada para Delícia Integral pães caseiros
+[2025-10-15 13:48:59,638] [INFO] Enviando mensagem para Lanchonete Hi-To...
+[2025-10-15 13:49:01,163] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:49:06,225] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:49:06,515] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:49:10,068] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:49:10,652] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:49:27,356] [ERROR] Timeout ao aguardar caixa de mensagem para 558738625346. Número pode não existir.
+[2025-10-15 13:49:27,365] [INFO] Número 558738625346 bloqueado automaticamente (não existe)
+[2025-10-15 13:49:57,378] [INFO] Enviando mensagem para JW HAMBURGUERIA...
+[2025-10-15 13:50:02,151] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:50:03,723] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:50:07,762] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:50:08,828] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:50:14,742] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:50:17,863] [INFO] ✅ Mensagem enviada para JW HAMBURGUERIA
+[2025-10-15 13:50:47,909] [INFO] Enviando mensagem para Padaria Cantinho do Pão...
+[2025-10-15 13:50:53,893] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:50:58,232] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:01,758] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:02,554] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:03,411] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:07,906] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:09,607] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:11,355] [INFO] ✅ Mensagem enviada para Padaria Cantinho do Pão
+[2025-10-15 13:51:41,370] [INFO] Enviando mensagem para Marias Burguer...
+[2025-10-15 13:51:44,046] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:48,673] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:51:52,518] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:51:57,085] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:01,374] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:04,249] [INFO] ✅ Mensagem enviada para Marias Burguer
+[2025-10-15 13:52:34,269] [INFO] Enviando mensagem para Lanchonete Puro Sabor - Doces e Salgados...
+[2025-10-15 13:52:36,156] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:41,189] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:52:44,668] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:45,390] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:48,587] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:52:51,425] [INFO] ✅ Mensagem enviada para Lanchonete Puro Sabor - Doces e Salgados
+[2025-10-15 13:53:21,436] [INFO] Enviando mensagem para BORA LÁ BURGUER´S...
+[2025-10-15 13:53:25,252] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:53:25,252] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:53:29,706] [INFO] ✅ Mensagem enviada para BORA LÁ BURGUER´S
+[2025-10-15 13:53:29,723] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:53:59,715] [INFO] Enviando mensagem para Manafuê Lanches...
+[2025-10-15 13:54:03,797] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:54:03,797] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:54:05,682] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:54:12,169] [INFO] ✅ Mensagem enviada para Manafuê Lanches
+[2025-10-15 13:54:42,207] [INFO] Enviando mensagem para Panificadora Progresso...
+[2025-10-15 13:54:46,239] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:54:46,346] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:54:51,607] [INFO] ✅ Mensagem enviada para Panificadora Progresso
+[2025-10-15 13:55:21,620] [INFO] Enviando mensagem para LANCHONETE QUI SABOR...
+[2025-10-15 13:55:25,273] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:55:25,320] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:55:45,553] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988698906. Número pode não existir.
+[2025-10-15 13:55:45,558] [INFO] Número 5587988698906 bloqueado automaticamente (não existe)
+[2025-10-15 13:56:15,567] [INFO] Enviando mensagem para Panificadora Ideal...
+[2025-10-15 13:56:19,190] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:56:19,249] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:56:23,616] [INFO] ✅ Mensagem enviada para Panificadora Ideal
+[2025-10-15 13:56:53,624] [INFO] Enviando mensagem para Bolo Mania...
+[2025-10-15 13:56:54,284] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:56:57,529] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:56:57,529] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:57:02,089] [INFO] ✅ Mensagem enviada para Bolo Mania
+[2025-10-15 13:57:32,099] [INFO] Enviando mensagem para Lumberjack Smash Burguer...
+[2025-10-15 13:57:32,751] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:57:36,052] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:57:36,052] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:57:44,743] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:57:53,705] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:57:56,269] [ERROR] Timeout ao aguardar caixa de mensagem para 5587991912327. Número pode não existir.
+[2025-10-15 13:57:56,274] [INFO] Número 5587991912327 bloqueado automaticamente (não existe)
+[2025-10-15 13:58:26,282] [INFO] Enviando mensagem para Baita Burgão Trailer...
+[2025-10-15 13:58:30,013] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:58:30,013] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:58:34,257] [INFO] ✅ Mensagem enviada para Baita Burgão Trailer
+[2025-10-15 13:59:04,265] [INFO] Enviando mensagem para CoxinhasPnz (Fábrica)...
+[2025-10-15 13:59:07,918] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:59:07,989] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:59:12,415] [INFO] ✅ Mensagem enviada para CoxinhasPnz (Fábrica)
+[2025-10-15 13:59:42,424] [INFO] Enviando mensagem para Pão Nosso...
+[2025-10-15 13:59:46,432] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 13:59:46,432] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 13:59:50,869] [INFO] ✅ Mensagem enviada para Pão Nosso
+[2025-10-15 14:00:20,908] [INFO] Enviando mensagem para Lanchonete e cuscuzeria Sabor Da Terra...
+[2025-10-15 14:00:32,203] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:00:36,475] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:37,207] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:40,073] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:41,104] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:42,132] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:48,803] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:00:51,740] [INFO] ✅ Mensagem enviada para Lanchonete e cuscuzeria Sabor Da Terra
+[2025-10-15 14:01:21,748] [INFO] Enviando mensagem para Lanchonete Deus é fiel...
+[2025-10-15 14:01:26,207] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:26,245] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:01:27,087] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:28,655] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:32,331] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:36,395] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:37,410] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:39,235] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:43,670] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:01:46,655] [INFO] ✅ Mensagem enviada para Lanchonete Deus é fiel
+[2025-10-15 14:02:16,678] [INFO] Enviando mensagem para Restaurante Alameda dos anjos...
+[2025-10-15 14:02:19,113] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:02:21,600] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:02:22,200] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:02:28,813] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:02:34,519] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:02:41,533] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:02:44,557] [INFO] ✅ Mensagem enviada para Restaurante Alameda dos anjos
+[2025-10-15 14:03:14,574] [INFO] Enviando mensagem para RR LANCHES...
+[2025-10-15 14:03:16,403] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:19,258] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:19,259] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:03:24,731] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:25,478] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:28,038] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:29,996] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:33,962] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:03:36,803] [INFO] ✅ Mensagem enviada para RR LANCHES
+[2025-10-15 14:04:06,822] [INFO] Enviando mensagem para Mundo Animal Lanchonete Temática - Comidas e Bebidas em Petrolina...
+[2025-10-15 14:04:11,381] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:11,429] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:04:12,090] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:18,434] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:22,470] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:23,283] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:24,355] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:29,429] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:04:32,363] [INFO] ✅ Mensagem enviada para Mundo Animal Lanchonete Temática - Comidas e Bebidas em Petrolina
+[2025-10-15 14:05:02,415] [INFO] Enviando mensagem para Lanchonete Sabor Da Sopa...
+[2025-10-15 14:05:03,504] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:07,815] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:05:08,300] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:12,760] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:13,557] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:18,427] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:21,196] [INFO] ✅ Mensagem enviada para Lanchonete Sabor Da Sopa
+[2025-10-15 14:05:51,214] [INFO] Enviando mensagem para Makarios Lanchonete E Restaurante...
+[2025-10-15 14:05:56,948] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:05:58,492] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:06:03,020] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:04,125] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:06,216] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:11,347] [INFO] ✅ Mensagem enviada para Makarios Lanchonete E Restaurante
+[2025-10-15 14:06:41,366] [INFO] Enviando mensagem para Country Burguer...
+[2025-10-15 14:06:43,425] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:46,304] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:46,452] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:06:46,930] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:48,421] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:06:54,349] [INFO] ✅ Mensagem enviada para Country Burguer
+[2025-10-15 14:07:24,372] [INFO] Enviando mensagem para Mestre Das Coxinhas...
+[2025-10-15 14:07:28,322] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:07:30,015] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:07:35,778] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:07:49,200] [ERROR] Timeout ao aguardar caixa de mensagem para 5538661342. Número pode não existir.
+[2025-10-15 14:07:49,210] [INFO] Número 5538661342 bloqueado automaticamente (não existe)
+[2025-10-15 14:08:19,224] [INFO] Enviando mensagem para Casa do Açaí & Lanchonete....
+[2025-10-15 14:08:22,393] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:08:25,273] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:08:26,287] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 14:08:26,999] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:08:30,301] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 14:08:33,278] [INFO] ✅ Mensagem enviada para Casa do Açaí & Lanchonete.
+[2025-10-15 14:09:03,299] [INFO] Enviando mensagem para A Vontade Lanches...
+[2025-10-15 15:07:45,407] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-15 15:07:45,506] [INFO]  * Restarting with stat
+[2025-10-15 15:07:56,664] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-15 15:07:56,735] [WARNING]  * Debugger is active!
+[2025-10-15 15:07:56,757] [INFO]  * Debugger PIN: 415-060-743
+[2025-10-15 15:09:10,014] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-15 15:09:10,014] [INFO] Iniciando navegador...
+[2025-10-15 15:09:10,014] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-15 15:09:10,014] [INFO] ====== WebDriver manager ======
+[2025-10-15 15:09:10,134] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-15 15:09:20,360] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-15 15:09:20,360] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-15 15:09:23,016] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-15 15:09:23,098] [INFO] Abrindo WhatsApp Web...
+[2025-10-15 15:09:24,252] [INFO] Aguardando carregamento...
+[2025-10-15 15:09:28,532] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:09:29,319] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:09:30,822] [INFO] ✅ Sessão ativa! Já está logado.
+[2025-10-15 15:09:30,899] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:10:19,028] [INFO] Enviando mensagem para A Vontade Lanches...
+[2025-10-15 15:10:23,373] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:10:23,373] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:10:25,017] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:10:26,399] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:10:30,270] [INFO] ✅ Mensagem enviada para A Vontade Lanches
+[2025-10-15 15:11:00,289] [INFO] Enviando mensagem para Lanchonete Craque dos Sucos...
+[2025-10-15 15:11:04,612] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:11:04,612] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:11:06,353] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:11:25,315] [ERROR] Timeout ao aguardar caixa de mensagem para 5587981795365. Número pode não existir.
+[2025-10-15 15:11:25,319] [INFO] Número 5587981795365 bloqueado automaticamente (não existe)
+[2025-10-15 15:11:55,327] [INFO] Enviando mensagem para Ney lanches...
+[2025-10-15 15:11:58,997] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:11:58,998] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:12:03,959] [INFO] ✅ Mensagem enviada para Ney lanches
+[2025-10-15 15:12:33,967] [INFO] Enviando mensagem para Dona Fran Lanches...
+[2025-10-15 15:12:37,745] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:12:37,878] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:12:42,249] [INFO] ✅ Mensagem enviada para Dona Fran Lanches
+[2025-10-15 15:13:12,268] [INFO] Enviando mensagem para Gorduroso Burguer...
+[2025-10-15 15:13:15,968] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:13:16,013] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:13:20,483] [INFO] ✅ Mensagem enviada para Gorduroso Burguer
+[2025-10-15 15:13:50,491] [INFO] Enviando mensagem para Lanchonete O Mix dos Sucos...
+[2025-10-15 15:13:54,193] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:13:54,291] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:13:58,763] [INFO] ✅ Mensagem enviada para Lanchonete O Mix dos Sucos
+[2025-10-15 15:14:28,772] [INFO] Enviando mensagem para Papa's Lanches...
+[2025-10-15 15:14:29,423] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:14:32,690] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:14:32,691] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:14:47,153] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:14:53,015] [ERROR] Timeout ao aguardar caixa de mensagem para 5592984386011. Número pode não existir.
+[2025-10-15 15:14:53,019] [INFO] Número 5592984386011 bloqueado automaticamente (não existe)
+[2025-10-15 15:15:23,027] [INFO] Enviando mensagem para Diney grill...
+[2025-10-15 15:15:23,607] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:15:26,681] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:15:26,798] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:15:31,388] [INFO] ✅ Mensagem enviada para Diney grill
+[2025-10-15 15:16:01,397] [INFO] Enviando mensagem para Areca Couro Fashion...
+[2025-10-15 15:16:05,003] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:16:05,118] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:16:05,301] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:16:11,182] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:16:25,601] [ERROR] Timeout ao aguardar caixa de mensagem para 558738741197. Número pode não existir.
+[2025-10-15 15:16:25,605] [INFO] Número 558738741197 bloqueado automaticamente (não existe)
+[2025-10-15 15:16:55,613] [INFO] Enviando mensagem para Novo Atacarejo Ouricuri...
+[2025-10-15 15:16:56,169] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:16:59,342] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:16:59,423] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:17:04,099] [INFO] ✅ Mensagem enviada para Novo Atacarejo Ouricuri
+[2025-10-15 15:17:34,108] [INFO] Enviando mensagem para Panificadora Mineira | Pães, Bolos, Salgados e Bebidas Ouricuri PE...
+[2025-10-15 15:17:37,989] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:17:37,990] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:17:42,538] [INFO] ✅ Mensagem enviada para Panificadora Mineira | Pães, Bolos, Salgados e Bebidas Ouricuri PE
+[2025-10-15 15:18:12,546] [INFO] Enviando mensagem para Hamburgueria 241 BURGUER Ouricuri PE | Hamburguer, Milkshake e Bebidas...
+[2025-10-15 15:18:16,326] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:18:16,386] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:18:20,902] [INFO] ✅ Mensagem enviada para Hamburgueria 241 BURGUER Ouricuri PE | Hamburguer, Milkshake e Bebidas
+[2025-10-15 15:18:50,912] [INFO] Enviando mensagem para Restaurante Chico Guilherme...
+[2025-10-15 15:18:54,687] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:18:54,791] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:18:59,161] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:19:15,099] [ERROR] Timeout ao aguardar caixa de mensagem para 5587999396213. Número pode não existir.
+[2025-10-15 15:19:15,104] [INFO] Número 5587999396213 bloqueado automaticamente (não existe)
+[2025-10-15 15:19:45,114] [INFO] Enviando mensagem para Pizzaria Feitoza...
+[2025-10-15 15:19:48,809] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:19:48,879] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:19:53,293] [INFO] ✅ Mensagem enviada para Pizzaria Feitoza
+[2025-10-15 15:20:23,302] [INFO] Enviando mensagem para Restaurante Casa D'gua...
+[2025-10-15 15:20:27,144] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:20:27,226] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:20:32,642] [INFO] ✅ Mensagem enviada para Restaurante Casa D'gua
+[2025-10-15 15:21:02,652] [INFO] Enviando mensagem para Açaíteria e Cia...
+[2025-10-15 15:21:06,330] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:21:06,385] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:21:08,153] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:21:26,871] [ERROR] Timeout ao aguardar caixa de mensagem para 5587999267964. Número pode não existir.
+[2025-10-15 15:21:26,876] [INFO] Número 5587999267964 bloqueado automaticamente (não existe)
+[2025-10-15 15:21:56,891] [INFO] Enviando mensagem para Palmira Delicatessen...
+[2025-10-15 15:22:00,643] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:22:00,728] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:22:05,341] [INFO] ✅ Mensagem enviada para Palmira Delicatessen
+[2025-10-15 15:22:35,580] [INFO] Enviando mensagem para Hiper Festas Ouricuri...
+[2025-10-15 15:22:43,713] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:22:44,397] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:22:48,246] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:22:57,942] [INFO] ✅ Mensagem enviada para Hiper Festas Ouricuri
+[2025-10-15 15:23:27,958] [INFO] Enviando mensagem para CASA DA ESFIHA...
+[2025-10-15 15:23:32,278] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:23:39,267] [INFO] ✅ Mensagem enviada para CASA DA ESFIHA
+[2025-10-15 15:24:09,281] [INFO] Enviando mensagem para Amazônia Mix...
+[2025-10-15 15:24:13,714] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:24:34,805] [ERROR] Timeout ao aguardar caixa de mensagem para 5538742937. Número pode não existir.
+[2025-10-15 15:24:34,809] [INFO] Número 5538742937 bloqueado automaticamente (não existe)
+[2025-10-15 15:25:04,830] [INFO] Enviando mensagem para Budega 87 petiscaria e pizzaria...
+[2025-10-15 15:25:09,042] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:25:16,305] [INFO] ✅ Mensagem enviada para Budega 87 petiscaria e pizzaria
+[2025-10-15 15:25:46,322] [INFO] Enviando mensagem para Churrascaria Paraná...
+[2025-10-15 15:25:50,258] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:25:57,907] [INFO] ✅ Mensagem enviada para Churrascaria Paraná
+[2025-10-15 15:26:27,915] [INFO] Enviando mensagem para Pizzaria Borda de Fogo Ouricuri PE | Pizza, Pastel e Bebidas...
+[2025-10-15 15:26:32,081] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:26:39,511] [INFO] ✅ Mensagem enviada para Pizzaria Borda de Fogo Ouricuri PE | Pizza, Pastel e Bebidas
+[2025-10-15 15:27:09,525] [INFO] Enviando mensagem para MIX PIZZARIA...
+[2025-10-15 15:27:13,769] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:27:21,057] [INFO] ✅ Mensagem enviada para MIX PIZZARIA
+[2025-10-15 15:27:51,066] [INFO] Enviando mensagem para Nossa Pizza...
+[2025-10-15 15:27:55,449] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:28:01,829] [INFO] ✅ Mensagem enviada para Nossa Pizza
+[2025-10-15 15:28:32,048] [INFO] Enviando mensagem para Wilson Pizzas...
+[2025-10-15 15:28:35,819] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:28:56,115] [ERROR] Timeout ao aguardar caixa de mensagem para 558738743010. Número pode não existir.
+[2025-10-15 15:28:56,120] [INFO] Número 558738743010 bloqueado automaticamente (não existe)
+[2025-10-15 15:29:26,130] [INFO] Enviando mensagem para Super pizza...
+[2025-10-15 15:29:29,806] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:29:34,367] [INFO] ✅ Mensagem enviada para Super pizza
+[2025-10-15 15:30:04,381] [INFO] Enviando mensagem para Encanto da pizza...
+[2025-10-15 15:30:08,268] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:30:12,685] [INFO] ✅ Mensagem enviada para Encanto da pizza
+[2025-10-15 15:30:42,695] [INFO] Enviando mensagem para Pizzaria 10 do Valle...
+[2025-10-15 15:30:48,604] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:31:16,239] [INFO] ✅ Mensagem enviada para Pizzaria 10 do Valle
+[2025-10-15 15:31:46,257] [INFO] Enviando mensagem para Pizzaria, Pastelaria e Restaurante Ariela...
+[2025-10-15 15:31:52,553] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:32:13,708] [ERROR] Timeout ao aguardar caixa de mensagem para 557436110587. Número pode não existir.
+[2025-10-15 15:32:13,712] [INFO] Número 557436110587 bloqueado automaticamente (não existe)
+[2025-10-15 15:32:43,721] [INFO] Enviando mensagem para Senhor Pizza...
+[2025-10-15 15:32:50,898] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:33:14,676] [INFO] ✅ Mensagem enviada para Senhor Pizza
+[2025-10-15 15:33:44,696] [INFO] Enviando mensagem para Pizzaria Peperone...
+[2025-10-15 15:33:51,173] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:33:51,184] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:33:52,336] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:33:53,832] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:01,088] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:04,435] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:07,127] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:09,132] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:11,852] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:34:12,872] [ERROR] Timeout ao aguardar caixa de mensagem para 5574988593175. Número pode não existir.
+[2025-10-15 15:34:12,883] [INFO] Número 5574988593175 bloqueado automaticamente (não existe)
+[2025-10-15 15:34:42,910] [INFO] Enviando mensagem para Pizzaria do Goiano...
+[2025-10-15 15:34:47,641] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:35:09,473] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988785073. Número pode não existir.
+[2025-10-15 15:35:09,482] [INFO] Número 5587988785073 bloqueado automaticamente (não existe)
+[2025-10-15 15:35:39,501] [INFO] Enviando mensagem para Bonno Duvalle Delivery...
+[2025-10-15 15:35:43,758] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:35:47,635] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:36:01,284] [INFO] ✅ Mensagem enviada para Bonno Duvalle Delivery
+[2025-10-15 15:37:01,310] [INFO] Enviando mensagem para Pizza Ruth petrolina...
+[2025-10-15 15:37:05,999] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:37:24,341] [INFO] ✅ Mensagem enviada para Pizza Ruth petrolina
+[2025-10-15 15:37:54,355] [INFO] Enviando mensagem para zé pizzaria e hamburgueria...
+[2025-10-15 15:38:00,155] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:38:21,422] [ERROR] Timeout ao aguardar caixa de mensagem para 5587974007902. Número pode não existir.
+[2025-10-15 15:38:21,535] [INFO] Número 5587974007902 bloqueado automaticamente (não existe)
+[2025-10-15 15:38:51,666] [INFO] Enviando mensagem para Divina Pizzeria Villarejo...
+[2025-10-15 15:38:57,882] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:39:18,136] [ERROR] Timeout ao aguardar caixa de mensagem para 558738627070. Número pode não existir.
+[2025-10-15 15:39:18,146] [INFO] Número 558738627070 bloqueado automaticamente (não existe)
+[2025-10-15 15:39:48,160] [INFO] Enviando mensagem para Manah pizzaria delivery...
+[2025-10-15 15:39:53,411] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:40:15,782] [INFO] ✅ Mensagem enviada para Manah pizzaria delivery
+[2025-10-15 15:40:45,801] [INFO] Enviando mensagem para Chico Pizzaria e Shushi...
+[2025-10-15 15:40:51,435] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:41:12,703] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988352949. Número pode não existir.
+[2025-10-15 15:41:12,706] [INFO] Número 5587988352949 bloqueado automaticamente (não existe)
+[2025-10-15 15:41:42,726] [INFO] Enviando mensagem para Dom farinha delivery pizzaria...
+[2025-10-15 15:41:46,901] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:42:07,958] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988244992. Número pode não existir.
+[2025-10-15 15:42:07,962] [INFO] Número 5587988244992 bloqueado automaticamente (não existe)
+[2025-10-15 15:42:37,980] [INFO] Enviando mensagem para Pizzaria três alianças...
+[2025-10-15 15:42:42,366] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:42:42,980] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:42:44,472] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:42:52,134] [INFO] ✅ Mensagem enviada para Pizzaria três alianças
+[2025-10-15 15:43:22,147] [INFO] Enviando mensagem para Pizzaria nordestina...
+[2025-10-15 15:43:27,292] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:43:32,945] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-15 15:43:42,384] [INFO] ✅ Mensagem enviada para Pizzaria nordestina
+[2025-10-15 15:44:12,399] [INFO] Enviando mensagem para Massa e Sabor Pizzaria...
+[2025-10-15 15:44:16,387] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:44:37,225] [ERROR] Timeout ao aguardar caixa de mensagem para 5587999047672. Número pode não existir.
+[2025-10-15 15:44:37,229] [INFO] Número 5587999047672 bloqueado automaticamente (não existe)
+[2025-10-15 15:45:07,247] [INFO] Enviando mensagem para Point da Panqueca e Pizzaria...
+[2025-10-15 15:45:13,776] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:45:33,904] [ERROR] Timeout ao aguardar caixa de mensagem para 5587999699130. Número pode não existir.
+[2025-10-15 15:45:33,914] [INFO] Número 5587999699130 bloqueado automaticamente (não existe)
+[2025-10-15 15:46:03,927] [INFO] Enviando mensagem para O Tal Do Pastel...
+[2025-10-15 15:46:07,758] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:46:25,771] [INFO] ✅ Mensagem enviada para O Tal Do Pastel
+[2025-10-15 15:46:55,784] [INFO] Enviando mensagem para Pizzaria Boa Massa...
+[2025-10-15 15:46:59,497] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:47:17,364] [INFO] ✅ Mensagem enviada para Pizzaria Boa Massa
+[2025-10-15 15:47:47,400] [INFO] Enviando mensagem para Wilson Pizzas Petrolina...
+[2025-10-15 15:47:51,634] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:48:12,770] [ERROR] Timeout ao aguardar caixa de mensagem para 5587996260101. Número pode não existir.
+[2025-10-15 15:48:12,782] [INFO] Número 5587996260101 bloqueado automaticamente (não existe)
+[2025-10-15 15:48:42,809] [INFO] Enviando mensagem para Remanso Churrascaria, Pizzaria e Esfiharia...
+[2025-10-15 15:48:48,668] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:49:09,347] [ERROR] Timeout ao aguardar caixa de mensagem para 5587981553910. Número pode não existir.
+[2025-10-15 15:49:09,357] [INFO] Número 5587981553910 bloqueado automaticamente (não existe)
+[2025-10-15 15:49:39,371] [INFO] Enviando mensagem para Pizza Pizza PNZ Delivery...
+[2025-10-15 15:49:44,522] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:50:00,983] [INFO] ✅ Mensagem enviada para Pizza Pizza PNZ Delivery
+[2025-10-15 15:50:31,113] [INFO] Enviando mensagem para JP Pizzaria & Açaí...
+[2025-10-15 15:50:34,838] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:50:46,400] [INFO] ✅ Mensagem enviada para JP Pizzaria & Açaí
+[2025-10-15 15:51:16,438] [INFO] Enviando mensagem para Pizzaria Andrade...
+[2025-10-15 15:51:20,359] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:51:31,978] [INFO] ✅ Mensagem enviada para Pizzaria Andrade
+[2025-10-15 15:52:01,993] [INFO] Enviando mensagem para Pizzaria Sabor da Hora...
+[2025-10-15 15:52:05,625] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:52:17,476] [INFO] ✅ Mensagem enviada para Pizzaria Sabor da Hora
+[2025-10-15 15:52:47,486] [INFO] Enviando mensagem para Nova Veneza Pizzas...
+[2025-10-15 15:52:51,105] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:53:11,196] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988623731. Número pode não existir.
+[2025-10-15 15:53:11,207] [INFO] Número 5587988623731 bloqueado automaticamente (não existe)
+[2025-10-15 15:53:41,216] [INFO] Enviando mensagem para Villaggio Pizzeria...
+[2025-10-15 15:53:44,909] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:53:55,900] [INFO] ✅ Mensagem enviada para Villaggio Pizzeria
+[2025-10-15 15:54:25,909] [INFO] Enviando mensagem para Premium Pizzaria & hamburgueria...
+[2025-10-15 15:54:29,817] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:54:41,461] [INFO] ✅ Mensagem enviada para Premium Pizzaria & hamburgueria
+[2025-10-15 15:55:11,471] [INFO] Enviando mensagem para Vó Gracinha Pizzaria Delivery...
+[2025-10-15 15:55:15,076] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:55:35,501] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988461080. Número pode não existir.
+[2025-10-15 15:55:35,506] [INFO] Número 5587988461080 bloqueado automaticamente (não existe)
+[2025-10-15 15:56:05,521] [INFO] Enviando mensagem para Ana rosa pizzaria Delivery...
+[2025-10-15 15:56:09,341] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:56:29,888] [ERROR] Timeout ao aguardar caixa de mensagem para 558738675969. Número pode não existir.
+[2025-10-15 15:56:29,894] [INFO] Número 558738675969 bloqueado automaticamente (não existe)
+[2025-10-15 15:56:59,904] [INFO] Enviando mensagem para Mr. Pizzaria...
+[2025-10-15 15:57:03,567] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:57:15,508] [INFO] ✅ Mensagem enviada para Mr. Pizzaria
+[2025-10-15 15:57:45,542] [INFO] Enviando mensagem para Gran Pizzaria PNZ...
+[2025-10-15 15:57:49,094] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:58:01,035] [INFO] ✅ Mensagem enviada para Gran Pizzaria PNZ
+[2025-10-15 15:58:31,043] [INFO] Enviando mensagem para Pizzaria williana...
+[2025-10-15 15:58:34,714] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:58:55,101] [ERROR] Timeout ao aguardar caixa de mensagem para 558739830198. Número pode não existir.
+[2025-10-15 15:58:55,105] [INFO] Número 558739830198 bloqueado automaticamente (não existe)
+[2025-10-15 15:59:25,132] [INFO] Enviando mensagem para Pizza in casa...
+[2025-10-15 15:59:29,053] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 15:59:40,487] [INFO] ✅ Mensagem enviada para Pizza in casa
+[2025-10-15 16:00:10,496] [INFO] Enviando mensagem para Oxente Pizzaria Pnz...
+[2025-10-15 16:00:14,138] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:00:34,669] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988436292. Número pode não existir.
+[2025-10-15 16:00:34,673] [INFO] Número 5587988436292 bloqueado automaticamente (não existe)
+[2025-10-15 16:01:04,682] [INFO] Enviando mensagem para Pizzaria Melhor Opção...
+[2025-10-15 16:01:08,635] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:01:20,488] [INFO] ✅ Mensagem enviada para Pizzaria Melhor Opção
+[2025-10-15 16:01:50,505] [INFO] Enviando mensagem para Forno e Pizza...
+[2025-10-15 16:01:54,073] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:02:06,422] [INFO] ✅ Mensagem enviada para Forno e Pizza
+[2025-10-15 16:02:36,430] [INFO] Enviando mensagem para Pizzaria bom sucesso pnz...
+[2025-10-15 16:02:40,294] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:02:51,074] [INFO] ✅ Mensagem enviada para Pizzaria bom sucesso pnz
+[2025-10-15 16:03:21,082] [INFO] Enviando mensagem para Pizza Club...
+[2025-10-15 16:03:24,856] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:03:35,845] [INFO] ✅ Mensagem enviada para Pizza Club
+[2025-10-15 16:04:05,854] [INFO] Enviando mensagem para Patroni...
+[2025-10-15 16:04:09,749] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:04:30,289] [ERROR] Timeout ao aguardar caixa de mensagem para 558738662315. Número pode não existir.
+[2025-10-15 16:04:30,294] [INFO] Número 558738662315 bloqueado automaticamente (não existe)
+[2025-10-15 16:05:00,301] [INFO] Enviando mensagem para Pizza Prime Petrolina...
+[2025-10-15 16:05:04,149] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:05:24,282] [ERROR] Timeout ao aguardar caixa de mensagem para 5587996414495. Número pode não existir.
+[2025-10-15 16:05:24,286] [INFO] Número 5587996414495 bloqueado automaticamente (não existe)
+[2025-10-15 16:05:54,295] [INFO] Enviando mensagem para Pizza e cia...
+[2025-10-15 16:05:57,797] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:06:09,169] [INFO] ✅ Mensagem enviada para Pizza e cia
+[2025-10-15 16:06:39,179] [INFO] Enviando mensagem para Caramella Pizzaria...
+[2025-10-15 16:06:42,812] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:06:54,396] [INFO] ✅ Mensagem enviada para Caramella Pizzaria
+[2025-10-15 16:07:24,404] [INFO] Enviando mensagem para Daddi Pizzaria Italiana...
+[2025-10-15 16:07:28,035] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:07:48,422] [ERROR] Timeout ao aguardar caixa de mensagem para 5587981693939. Número pode não existir.
+[2025-10-15 16:07:48,427] [INFO] Número 5587981693939 bloqueado automaticamente (não existe)
+[2025-10-15 16:08:18,448] [INFO] Enviando mensagem para Pit Stop Cantinho da Pizza (Batalhão)...
+[2025-10-15 16:08:27,325] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:08:40,674] [INFO] ✅ Mensagem enviada para Pit Stop Cantinho da Pizza (Batalhão)
+[2025-10-15 16:09:10,681] [INFO] Enviando mensagem para Lucas Pizzaria...
+[2025-10-15 16:09:14,192] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:09:27,077] [INFO] ✅ Mensagem enviada para Lucas Pizzaria
+[2025-10-15 16:09:57,085] [INFO] Enviando mensagem para Verdadeiro Espírito da Pizza®...
+[2025-10-15 16:10:00,776] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:10:12,215] [INFO] ✅ Mensagem enviada para Verdadeiro Espírito da Pizza®
+[2025-10-15 16:10:42,224] [INFO] Enviando mensagem para Runner Pizza Petrolina...
+[2025-10-15 16:10:45,739] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:11:06,188] [ERROR] Timeout ao aguardar caixa de mensagem para 5587992086886. Número pode não existir.
+[2025-10-15 16:11:06,192] [INFO] Número 5587992086886 bloqueado automaticamente (não existe)
+[2025-10-15 16:11:36,201] [INFO] Enviando mensagem para D'la Pasta Pizzaria PNZ...
+[2025-10-15 16:11:40,157] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:11:55,338] [INFO] ✅ Mensagem enviada para D'la Pasta Pizzaria PNZ
+[2025-10-15 16:12:25,569] [INFO] Enviando mensagem para Pizza Burguer Orla...
+[2025-10-15 16:12:29,449] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:12:55,031] [INFO] ✅ Mensagem enviada para Pizza Burguer Orla
+[2025-10-15 16:13:25,054] [INFO] Enviando mensagem para Ponto da Pizza 01...
+[2025-10-15 16:13:28,685] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:13:55,406] [INFO] ✅ Mensagem enviada para Ponto da Pizza 01
+[2025-10-15 16:14:25,433] [INFO] Enviando mensagem para Verbo Pizzas & Burguers...
+[2025-10-15 16:14:29,978] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:14:51,527] [ERROR] Timeout ao aguardar caixa de mensagem para 5587996325292. Número pode não existir.
+[2025-10-15 16:14:51,531] [INFO] Número 5587996325292 bloqueado automaticamente (não existe)
+[2025-10-15 16:15:21,549] [INFO] Enviando mensagem para pizzaria requinte pnz...
+[2025-10-15 16:15:26,085] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:15:47,029] [ERROR] Timeout ao aguardar caixa de mensagem para 5587981511050. Número pode não existir.
+[2025-10-15 16:15:47,041] [INFO] Número 5587981511050 bloqueado automaticamente (não existe)
+[2025-10-15 16:16:17,063] [INFO] Enviando mensagem para Senhor Pizza pnz...
+[2025-10-15 16:16:21,179] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:16:42,214] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988232680. Número pode não existir.
+[2025-10-15 16:16:42,218] [INFO] Número 5587988232680 bloqueado automaticamente (não existe)
+[2025-10-15 16:17:12,248] [INFO] Enviando mensagem para Levir Pizzaria...
+[2025-10-15 16:17:18,605] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:17:39,297] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988413032. Número pode não existir.
+[2025-10-15 16:17:39,307] [INFO] Número 5587988413032 bloqueado automaticamente (não existe)
+[2025-10-15 16:18:09,331] [INFO] Enviando mensagem para Pizzaburguer & Acaiteria...
+[2025-10-15 16:18:14,460] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:18:41,053] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988384081. Número pode não existir.
+[2025-10-15 16:18:41,058] [INFO] Número 5587988384081 bloqueado automaticamente (não existe)
+[2025-10-15 16:19:11,080] [INFO] Enviando mensagem para Fabão Pizzaria...
+[2025-10-15 16:19:15,561] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:19:36,361] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988341528. Número pode não existir.
+[2025-10-15 16:19:36,389] [INFO] Número 5587988341528 bloqueado automaticamente (não existe)
+[2025-10-15 16:20:06,422] [INFO] Enviando mensagem para Bar e Restaurante Alforria...
+[2025-10-15 16:20:10,181] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:20:38,404] [INFO] ✅ Mensagem enviada para Bar e Restaurante Alforria
+[2025-10-15 16:21:08,425] [INFO] Enviando mensagem para Tio Chico Pizzaria e Burgueria...
+[2025-10-15 16:21:13,557] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:21:35,949] [ERROR] Timeout ao aguardar caixa de mensagem para 5587992069206. Número pode não existir.
+[2025-10-15 16:21:35,970] [INFO] Número 5587992069206 bloqueado automaticamente (não existe)
+[2025-10-15 16:22:05,985] [INFO] Enviando mensagem para Forneria 746...
+[2025-10-15 16:22:11,517] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:22:36,349] [ERROR] Timeout ao aguardar caixa de mensagem para 5587991751065. Número pode não existir.
+[2025-10-15 16:22:36,371] [INFO] Número 5587991751065 bloqueado automaticamente (não existe)
+[2025-10-15 16:23:06,392] [INFO] Enviando mensagem para Pizza do vale...
+[2025-10-15 16:23:13,325] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:23:33,845] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988489849. Número pode não existir.
+[2025-10-15 16:23:33,856] [INFO] Número 5587988489849 bloqueado automaticamente (não existe)
+[2025-10-15 16:24:03,871] [INFO] Enviando mensagem para Pizzaria Constantino...
+[2025-10-15 16:24:08,045] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:24:31,932] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988648899. Número pode não existir.
+[2025-10-15 16:24:31,945] [INFO] Número 5587988648899 bloqueado automaticamente (não existe)
+[2025-10-15 16:25:01,977] [INFO] Enviando mensagem para Pizzaria e esfirraria tropical...
+[2025-10-15 16:25:12,045] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:25:33,248] [ERROR] Timeout ao aguardar caixa de mensagem para 5587996797357. Número pode não existir.
+[2025-10-15 16:25:33,253] [INFO] Número 5587996797357 bloqueado automaticamente (não existe)
+[2025-10-15 16:26:03,273] [INFO] Enviando mensagem para Bona Pizza PNZ...
+[2025-10-15 16:26:10,224] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:26:30,721] [ERROR] Timeout ao aguardar caixa de mensagem para 5587999327369. Número pode não existir.
+[2025-10-15 16:26:30,733] [INFO] Número 5587999327369 bloqueado automaticamente (não existe)
+[2025-10-15 16:27:00,843] [INFO] Enviando mensagem para Marinho’s Pizzaria...
+[2025-10-15 16:27:08,951] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:27:29,852] [ERROR] Timeout ao aguardar caixa de mensagem para 5587981175128. Número pode não existir.
+[2025-10-15 16:27:29,863] [INFO] Número 5587981175128 bloqueado automaticamente (não existe)
+[2025-10-15 16:27:59,894] [INFO] Enviando mensagem para Pizzaria Nossa Casa | Cohab Massangano Petrolina...
+[2025-10-15 16:28:05,122] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:28:28,227] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988554668. Número pode não existir.
+[2025-10-15 16:28:28,231] [INFO] Número 5587988554668 bloqueado automaticamente (não existe)
+[2025-10-15 16:28:58,249] [INFO] Enviando mensagem para Carlo's Pizzaria...
+[2025-10-15 16:29:03,464] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:29:25,508] [INFO] ✅ Mensagem enviada para Carlo's Pizzaria
+[2025-10-15 16:29:55,696] [INFO] Enviando mensagem para River Pizza...
+[2025-10-15 16:29:59,949] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:30:18,867] [INFO] ✅ Mensagem enviada para River Pizza
+[2025-10-15 16:30:48,901] [INFO] Enviando mensagem para Bismarck's Pizzaria...
+[2025-10-15 16:30:54,117] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:31:09,176] [INFO] ✅ Mensagem enviada para Bismarck's Pizzaria
+[2025-10-15 16:31:39,191] [INFO] Enviando mensagem para Pizzaria Paraíso...
+[2025-10-15 16:31:43,532] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:31:51,004] [INFO] ✅ Mensagem enviada para Pizzaria Paraíso
+[2025-10-15 16:32:21,017] [INFO] Enviando mensagem para Ponto da Pizza 2...
+[2025-10-15 16:32:24,896] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:32:33,160] [INFO] ✅ Mensagem enviada para Ponto da Pizza 2
+[2025-10-15 16:33:03,180] [INFO] Enviando mensagem para Petropizza...
+[2025-10-15 16:33:07,403] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:33:18,485] [INFO] ✅ Mensagem enviada para Petropizza
+[2025-10-15 16:33:48,499] [INFO] Enviando mensagem para Sophia Pizzaria...
+[2025-10-15 16:33:52,815] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:34:07,583] [INFO] ✅ Mensagem enviada para Sophia Pizzaria
+[2025-10-15 16:34:37,599] [INFO] Enviando mensagem para Domino's Pizza - Petrolina Centro...
+[2025-10-15 16:34:41,543] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:35:01,897] [ERROR] Timeout ao aguardar caixa de mensagem para 5508006064701. Número pode não existir.
+[2025-10-15 16:35:01,904] [INFO] Número 5508006064701 bloqueado automaticamente (não existe)
+[2025-10-15 16:35:31,917] [INFO] Enviando mensagem para Pizzaria da Elii...
+[2025-10-15 16:35:35,599] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:35:40,734] [INFO] ✅ Mensagem enviada para Pizzaria da Elii
+[2025-10-15 16:36:10,926] [INFO] Enviando mensagem para Adiva Pizzaria Italiana...
+[2025-10-15 16:36:14,690] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:36:19,651] [INFO] ✅ Mensagem enviada para Adiva Pizzaria Italiana
+[2025-10-15 16:36:49,661] [INFO] Enviando mensagem para FORNERIA 351...
+[2025-10-15 16:36:53,365] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:36:57,946] [INFO] ✅ Mensagem enviada para FORNERIA 351
+[2025-10-15 16:37:27,954] [INFO] Enviando mensagem para Pizzaria Sousa...
+[2025-10-15 16:37:31,632] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:37:36,625] [INFO] ✅ Mensagem enviada para Pizzaria Sousa
+[2025-10-15 16:38:06,647] [INFO] Enviando mensagem para Donna's Pizzas & Massas...
+[2025-10-15 16:38:10,310] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:38:15,320] [INFO] ✅ Mensagem enviada para Donna's Pizzas & Massas
+[2025-10-15 16:38:45,329] [INFO] Enviando mensagem para Francisco Pizzaria...
+[2025-10-15 16:38:48,994] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:38:54,020] [INFO] ✅ Mensagem enviada para Francisco Pizzaria
+[2025-10-15 16:39:24,029] [INFO] Enviando mensagem para Dom Caio Pizzaria...
+[2025-10-15 16:39:27,873] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:39:32,840] [INFO] ✅ Mensagem enviada para Dom Caio Pizzaria
+[2025-10-15 16:40:02,850] [INFO] Enviando mensagem para Dinapolli Pizzaria...
+[2025-10-15 16:40:06,646] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:40:11,767] [INFO] ✅ Mensagem enviada para Dinapolli Pizzaria
+[2025-10-15 16:40:41,777] [INFO] Enviando mensagem para Pizzaria Buona Massa...
+[2025-10-15 16:40:45,529] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:40:50,075] [INFO] ✅ Mensagem enviada para Pizzaria Buona Massa
+[2025-10-15 16:41:20,083] [INFO] Enviando mensagem para Gonzaga Pizzaria & Restaurante...
+[2025-10-15 16:41:23,706] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:41:28,850] [INFO] ✅ Mensagem enviada para Gonzaga Pizzaria & Restaurante
+[2025-10-15 16:41:58,859] [INFO] Enviando mensagem para Beer Side Burguer & Pizza...
+[2025-10-15 16:42:02,510] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:42:07,548] [INFO] ✅ Mensagem enviada para Beer Side Burguer & Pizza
+[2025-10-15 16:42:37,564] [INFO] Enviando mensagem para Pizzaria Jecana...
+[2025-10-15 16:42:41,353] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:42:46,388] [INFO] ✅ Mensagem enviada para Pizzaria Jecana
+[2025-10-15 16:43:16,397] [INFO] Enviando mensagem para Pit Stop Cantinho da Pizza (Distrito)...
+[2025-10-15 16:43:20,289] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:43:24,904] [INFO] ✅ Mensagem enviada para Pit Stop Cantinho da Pizza (Distrito)
+[2025-10-15 16:43:54,913] [INFO] Enviando mensagem para Senhor Pizza...
+[2025-10-15 16:43:58,810] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:44:03,923] [INFO] ✅ Mensagem enviada para Senhor Pizza
+[2025-10-15 16:44:33,932] [INFO] Enviando mensagem para Sr.Pizza...
+[2025-10-15 16:44:37,631] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:44:41,634] [INFO] ✅ Mensagem enviada para Sr.Pizza
+[2025-10-15 16:45:11,646] [INFO] Enviando mensagem para Pizzaburger...
+[2025-10-15 16:45:15,384] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:45:19,956] [INFO] ✅ Mensagem enviada para Pizzaburger
+[2025-10-15 16:45:49,974] [INFO] Enviando mensagem para Bella pizza forno a lenha...
+[2025-10-15 16:46:03,562] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:46:31,490] [INFO] ✅ Mensagem enviada para Bella pizza forno a lenha
+[2025-10-15 16:47:01,512] [INFO] Enviando mensagem para Igo's Pizzaria...
+[2025-10-15 16:47:06,032] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:47:27,791] [INFO] ✅ Mensagem enviada para Igo's Pizzaria
+[2025-10-15 16:47:57,815] [INFO] Enviando mensagem para Pizzaria sabor do valle...
+[2025-10-15 16:48:02,406] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:48:22,874] [ERROR] Timeout ao aguardar caixa de mensagem para 5587988745102. Número pode não existir.
+[2025-10-15 16:48:22,900] [INFO] Número 5587988745102 bloqueado automaticamente (não existe)
+[2025-10-15 16:48:52,916] [INFO] Enviando mensagem para Ciço 'Burguers'...
+[2025-10-15 16:48:57,660] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:49:15,074] [INFO] ✅ Mensagem enviada para Ciço 'Burguers'
+[2025-10-15 16:49:45,094] [INFO] Enviando mensagem para Pizzaria Roma...
+[2025-10-15 16:49:50,250] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:50:11,049] [INFO] ✅ Mensagem enviada para Pizzaria Roma
+[2025-10-15 16:50:41,071] [INFO] Enviando mensagem para Suprema Pizza PNZ...
+[2025-10-15 16:50:52,131] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:51:14,487] [INFO] ✅ Mensagem enviada para Suprema Pizza PNZ
+[2025-10-15 16:51:44,514] [INFO] Enviando mensagem para Toy Kids Pizzaria E Pastelaria...
+[2025-10-15 16:51:48,513] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:52:08,868] [ERROR] Timeout ao aguardar caixa de mensagem para 558730244683. Número pode não existir.
+[2025-10-15 16:52:08,873] [INFO] Número 558730244683 bloqueado automaticamente (não existe)
+[2025-10-15 16:52:38,883] [INFO] Enviando mensagem para Divina Pizzeria...
+[2025-10-15 16:52:42,724] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:53:03,115] [ERROR] Timeout ao aguardar caixa de mensagem para 558738627070. Número pode não existir.
+[2025-10-15 16:53:03,123] [INFO] Número 558738627070 bloqueado automaticamente (não existe)
+[2025-10-15 16:53:33,130] [INFO] Enviando mensagem para Pizzaria Tradição Gercino Coelho...
+[2025-10-15 16:53:36,845] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:53:57,283] [ERROR] Timeout ao aguardar caixa de mensagem para 558738614524. Número pode não existir.
+[2025-10-15 16:53:57,288] [INFO] Número 558738614524 bloqueado automaticamente (não existe)
+[2025-10-15 16:54:27,297] [INFO] Enviando mensagem para Marciliano Pizzaria...
+[2025-10-15 16:54:31,088] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:54:36,230] [INFO] ✅ Mensagem enviada para Marciliano Pizzaria
+[2025-10-15 16:55:06,238] [INFO] Enviando mensagem para Recanto Pizzaria e Pastelaria...
+[2025-10-15 16:55:10,066] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:55:30,543] [ERROR] Timeout ao aguardar caixa de mensagem para 558739832103. Número pode não existir.
+[2025-10-15 16:55:30,547] [INFO] Número 558739832103 bloqueado automaticamente (não existe)
+[2025-10-15 16:56:00,561] [INFO] Enviando mensagem para Maria Pizza...
+[2025-10-15 16:56:04,225] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:56:09,315] [INFO] ✅ Mensagem enviada para Maria Pizza
+[2025-10-15 16:56:39,324] [INFO] Enviando mensagem para Mamma Lucia Pizzaria...
+[2025-10-15 16:56:42,986] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:56:47,931] [INFO] ✅ Mensagem enviada para Mamma Lucia Pizzaria
+[2025-10-15 16:57:17,940] [INFO] Enviando mensagem para Villa Romana Pizzaria e hamburgueria...
+[2025-10-15 16:57:21,728] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:57:42,000] [ERROR] Timeout ao aguardar caixa de mensagem para 558738643402. Número pode não existir.
+[2025-10-15 16:57:42,011] [INFO] Número 558738643402 bloqueado automaticamente (não existe)
+[2025-10-15 16:58:12,031] [INFO] Enviando mensagem para Pizzaria Porto Bello...
+[2025-10-15 16:58:17,836] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:58:47,073] [INFO] ✅ Mensagem enviada para Pizzaria Porto Bello
+[2025-10-15 16:59:17,231] [INFO] Enviando mensagem para Alforria Pizzaria...
+[2025-10-15 16:59:23,243] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 16:59:44,229] [INFO] ✅ Mensagem enviada para Alforria Pizzaria
+[2025-10-15 17:00:14,255] [INFO] Enviando mensagem para La Margherita Pizzaria...
+[2025-10-15 17:00:18,949] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:00:39,118] [ERROR] Timeout ao aguardar caixa de mensagem para 558738641287. Número pode não existir.
+[2025-10-15 17:00:39,128] [INFO] Número 558738641287 bloqueado automaticamente (não existe)
+[2025-10-15 17:01:09,144] [INFO] Enviando mensagem para HB BURGUES...
+[2025-10-15 17:01:14,247] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:01:26,291] [INFO] ✅ Mensagem enviada para HB BURGUES
+[2025-10-15 17:01:56,304] [INFO] Enviando mensagem para King pizzaria...
+[2025-10-15 17:02:00,057] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:02:46,250] [INFO] ✅ Mensagem enviada para King pizzaria
+[2025-10-15 17:03:16,273] [INFO] Enviando mensagem para Dedê Pizza delivery...
+[2025-10-15 17:03:20,236] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:03:42,879] [ERROR] Timeout ao aguardar caixa de mensagem para 5588997449006. Número pode não existir.
+[2025-10-15 17:03:42,883] [INFO] Número 5588997449006 bloqueado automaticamente (não existe)
+[2025-10-15 17:04:12,893] [INFO] Enviando mensagem para Pizzaria hamburgueria e pastelaria Canaã...
+[2025-10-15 17:04:17,062] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:04:21,789] [INFO] ✅ Mensagem enviada para Pizzaria hamburgueria e pastelaria Canaã
+[2025-10-15 17:04:51,798] [INFO] Enviando mensagem para Pizzaria e Marmitária Oásis...
+[2025-10-15 17:04:55,706] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:05:16,618] [ERROR] Timeout ao aguardar caixa de mensagem para 558835722112. Número pode não existir.
+[2025-10-15 17:05:16,623] [INFO] Número 558835722112 bloqueado automaticamente (não existe)
+[2025-10-15 17:05:46,637] [INFO] Enviando mensagem para Originale Pizzas...
+[2025-10-15 17:05:50,439] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:05:55,610] [INFO] ✅ Mensagem enviada para Originale Pizzas
+[2025-10-15 17:06:25,618] [INFO] Enviando mensagem para Pizzaria Prime...
+[2025-10-15 17:06:30,672] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:06:35,123] [INFO] ✅ Mensagem enviada para Pizzaria Prime
+[2025-10-15 17:07:05,132] [INFO] Enviando mensagem para You Pizza Cariri...
+[2025-10-15 17:07:09,529] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:07:29,942] [ERROR] Timeout ao aguardar caixa de mensagem para 5588998234885. Número pode não existir.
+[2025-10-15 17:07:29,946] [INFO] Número 5588998234885 bloqueado automaticamente (não existe)
+[2025-10-15 17:07:59,958] [INFO] Enviando mensagem para Pizzaria Doce Família...
+[2025-10-15 17:08:03,768] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:08:08,316] [INFO] ✅ Mensagem enviada para Pizzaria Doce Família
+[2025-10-15 17:08:38,335] [INFO] Enviando mensagem para Pizzaria acruviana...
+[2025-10-15 17:08:42,120] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:08:47,163] [INFO] ✅ Mensagem enviada para Pizzaria acruviana
+[2025-10-15 17:09:17,172] [INFO] Enviando mensagem para Lanchonete e Pizzaria Street...
+[2025-10-15 17:09:21,236] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:09:41,610] [ERROR] Timeout ao aguardar caixa de mensagem para 558821413805. Número pode não existir.
+[2025-10-15 17:09:41,615] [INFO] Número 558821413805 bloqueado automaticamente (não existe)
+[2025-10-15 17:10:11,623] [INFO] Enviando mensagem para Oxenteburguer.e.pizzas...
+[2025-10-15 17:10:15,403] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:10:35,934] [ERROR] Timeout ao aguardar caixa de mensagem para 5588992695417. Número pode não existir.
+[2025-10-15 17:10:35,939] [INFO] Número 5588992695417 bloqueado automaticamente (não existe)
+[2025-10-15 17:11:05,948] [INFO] Enviando mensagem para GC PIZZARIA...
+[2025-10-15 17:11:09,632] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:11:14,658] [INFO] ✅ Mensagem enviada para GC PIZZARIA
+[2025-10-15 17:11:44,674] [INFO] Enviando mensagem para Cantina Cariri | Pizzaria...
+[2025-10-15 17:11:48,479] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:11:53,470] [INFO] ✅ Mensagem enviada para Cantina Cariri | Pizzaria
+[2025-10-15 17:12:23,480] [INFO] Enviando mensagem para Pit stop da pizza...
+[2025-10-15 17:12:27,262] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:12:31,841] [INFO] ✅ Mensagem enviada para Pit stop da pizza
+[2025-10-15 17:13:01,852] [INFO] Enviando mensagem para Dona Bela Pizza e Burger | Delivery de pizza | Pizzaria perto de mim |...
+[2025-10-15 17:13:05,574] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:13:10,741] [INFO] ✅ Mensagem enviada para Dona Bela Pizza e Burger | Delivery de pizza | Pizzaria perto de mim |
+[2025-10-15 17:13:40,749] [INFO] Enviando mensagem para Alice pizzaria e delivery...
+[2025-10-15 17:13:44,688] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:13:49,975] [INFO] ✅ Mensagem enviada para Alice pizzaria e delivery
+[2025-10-15 17:14:19,985] [INFO] Enviando mensagem para Leriado AC-Lanches...
+[2025-10-15 17:14:24,183] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:14:29,171] [INFO] ✅ Mensagem enviada para Leriado AC-Lanches
+[2025-10-15 17:14:59,180] [INFO] Enviando mensagem para Hille's Pizza Gourmet...
+[2025-10-15 17:15:02,823] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:15:23,219] [ERROR] Timeout ao aguardar caixa de mensagem para 5588988654959. Número pode não existir.
+[2025-10-15 17:15:23,224] [INFO] Número 5588988654959 bloqueado automaticamente (não existe)
+[2025-10-15 17:15:53,233] [INFO] Enviando mensagem para Sátiro Pizzas & Burgues...
+[2025-10-15 17:15:57,211] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:16:01,809] [INFO] ✅ Mensagem enviada para Sátiro Pizzas & Burgues
+[2025-10-15 17:16:31,817] [INFO] Enviando mensagem para Pizzaria Lo-mila...
+[2025-10-15 17:16:35,687] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:16:40,788] [INFO] ✅ Mensagem enviada para Pizzaria Lo-mila
+[2025-10-15 17:17:10,796] [INFO] Enviando mensagem para Patroni Pizza...
+[2025-10-15 17:17:14,465] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:17:19,404] [INFO] ✅ Mensagem enviada para Patroni Pizza
+[2025-10-15 17:17:49,413] [INFO] Enviando mensagem para Koisas do Forno Lanchonete e Pizzaria...
+[2025-10-15 17:17:53,111] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:18:13,659] [ERROR] Timeout ao aguardar caixa de mensagem para 558835121052. Número pode não existir.
+[2025-10-15 17:18:13,663] [INFO] Número 558835121052 bloqueado automaticamente (não existe)
+[2025-10-15 17:18:43,673] [INFO] Enviando mensagem para Pizzaria MC (Marcelo costa)...
+[2025-10-15 17:18:47,406] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:18:52,667] [INFO] ✅ Mensagem enviada para Pizzaria MC (Marcelo costa)
+[2025-10-15 17:19:22,679] [INFO] Enviando mensagem para D-ka pizzaria...
+[2025-10-15 17:19:26,398] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:19:46,828] [ERROR] Timeout ao aguardar caixa de mensagem para 5588988339826. Número pode não existir.
+[2025-10-15 17:19:46,855] [INFO] Número 5588988339826 bloqueado automaticamente (não existe)
+[2025-10-15 17:20:16,864] [INFO] Enviando mensagem para Oxente Itália...
+[2025-10-15 17:20:20,748] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:20:25,833] [INFO] ✅ Mensagem enviada para Oxente Itália
+[2025-10-15 17:20:55,842] [INFO] Enviando mensagem para Central da pizza...
+[2025-10-15 17:20:59,647] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:21:20,042] [ERROR] Timeout ao aguardar caixa de mensagem para 5588997346457. Número pode não existir.
+[2025-10-15 17:21:20,047] [INFO] Número 5588997346457 bloqueado automaticamente (não existe)
+[2025-10-15 17:21:50,057] [INFO] Enviando mensagem para Pizzaria Mardonio...
+[2025-10-15 17:21:54,005] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:21:58,484] [INFO] ✅ Mensagem enviada para Pizzaria Mardonio
+[2025-10-15 17:22:28,697] [INFO] Enviando mensagem para Pizza Hut...
+[2025-10-15 17:22:32,416] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:22:52,879] [ERROR] Timeout ao aguardar caixa de mensagem para 558821579420. Número pode não existir.
+[2025-10-15 17:22:52,884] [INFO] Número 558821579420 bloqueado automaticamente (não existe)
+[2025-10-15 17:23:22,893] [INFO] Enviando mensagem para Dom Pizzaria Cariri...
+[2025-10-15 17:23:26,946] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:23:31,475] [INFO] ✅ Mensagem enviada para Dom Pizzaria Cariri
+[2025-10-15 17:24:01,484] [INFO] Enviando mensagem para Jhow Jhow Pizzaria...
+[2025-10-15 17:24:05,368] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:24:10,516] [INFO] ✅ Mensagem enviada para Jhow Jhow Pizzaria
+[2025-10-15 17:24:40,531] [INFO] Enviando mensagem para Pizzaria vamos de pizza...
+[2025-10-15 17:24:44,664] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:25:05,175] [ERROR] Timeout ao aguardar caixa de mensagem para 5588993142981. Número pode não existir.
+[2025-10-15 17:25:05,179] [INFO] Número 5588993142981 bloqueado automaticamente (não existe)
+[2025-10-15 17:25:35,188] [INFO] Enviando mensagem para Atraente Lanchonete e Pizzaria...
+[2025-10-15 17:25:39,001] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:25:59,392] [ERROR] Timeout ao aguardar caixa de mensagem para 558835121257. Número pode não existir.
+[2025-10-15 17:25:59,396] [INFO] Número 558835121257 bloqueado automaticamente (não existe)
+[2025-10-15 17:26:29,405] [INFO] Enviando mensagem para Deli Pizzas...
+[2025-10-15 17:26:33,090] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:26:38,210] [INFO] ✅ Mensagem enviada para Deli Pizzas
+[2025-10-15 17:27:08,233] [INFO] Enviando mensagem para Lig Esfiha Caririo-ca...
+[2025-10-15 17:27:11,882] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:27:32,244] [ERROR] Timeout ao aguardar caixa de mensagem para 5588988032168. Número pode não existir.
+[2025-10-15 17:27:32,248] [INFO] Número 5588988032168 bloqueado automaticamente (não existe)
+[2025-10-15 17:28:02,258] [INFO] Enviando mensagem para O Ponto Da Pizza...
+[2025-10-15 17:28:06,065] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:28:11,918] [INFO] ✅ Mensagem enviada para O Ponto Da Pizza
+[2025-10-15 17:28:41,927] [INFO] Enviando mensagem para Donzilia Pizzaria...
+[2025-10-15 17:28:45,605] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:29:05,893] [ERROR] Timeout ao aguardar caixa de mensagem para 5588999576103. Número pode não existir.
+[2025-10-15 17:29:05,898] [INFO] Número 5588999576103 bloqueado automaticamente (não existe)
+[2025-10-15 17:29:35,913] [INFO] Enviando mensagem para Pizzaria Nordestina...
+[2025-10-15 17:29:39,518] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:29:59,949] [ERROR] Timeout ao aguardar caixa de mensagem para 5588999002004. Número pode não existir.
+[2025-10-15 17:29:59,955] [INFO] Número 5588999002004 bloqueado automaticamente (não existe)
+[2025-10-15 17:30:29,982] [INFO] Enviando mensagem para top pizza...
+[2025-10-15 17:30:34,631] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:30:55,126] [ERROR] Timeout ao aguardar caixa de mensagem para 558835120243. Número pode não existir.
+[2025-10-15 17:30:55,134] [INFO] Número 558835120243 bloqueado automaticamente (não existe)
+[2025-10-15 17:31:25,143] [INFO] Enviando mensagem para Pizzas Lima...
+[2025-10-15 17:31:28,926] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:31:33,685] [INFO] ✅ Mensagem enviada para Pizzas Lima
+[2025-10-15 17:32:03,695] [INFO] Enviando mensagem para Flambeé Cariri...
+[2025-10-15 17:32:07,431] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:32:27,717] [ERROR] Timeout ao aguardar caixa de mensagem para 558835714476. Número pode não existir.
+[2025-10-15 17:32:27,722] [INFO] Número 558835714476 bloqueado automaticamente (não existe)
+[2025-10-15 17:32:57,731] [INFO] Enviando mensagem para Pizzaria & Lanchonete Canarinho...
+[2025-10-15 17:33:01,608] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:33:06,055] [INFO] ✅ Mensagem enviada para Pizzaria & Lanchonete Canarinho
+[2025-10-15 17:33:36,065] [INFO] Enviando mensagem para Pizzaria e Esfiharia Point Da Gaby...
+[2025-10-15 17:33:39,865] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:33:44,796] [INFO] ✅ Mensagem enviada para Pizzaria e Esfiharia Point Da Gaby
+[2025-10-15 17:34:14,812] [INFO] Enviando mensagem para Pizzaria Hilda...
+[2025-10-15 17:34:18,665] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:34:39,204] [ERROR] Timeout ao aguardar caixa de mensagem para 5588988278084. Número pode não existir.
+[2025-10-15 17:34:39,209] [INFO] Número 5588988278084 bloqueado automaticamente (não existe)
+[2025-10-15 17:35:09,220] [INFO] Enviando mensagem para Dudé Hamburgueria E Pizzaria...
+[2025-10-15 17:35:12,986] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:35:17,915] [INFO] ✅ Mensagem enviada para Dudé Hamburgueria E Pizzaria
+[2025-10-15 17:35:47,927] [INFO] Enviando mensagem para Pizzaria& Hambúrgueria do chefonho!...
+[2025-10-15 17:35:51,673] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:35:57,408] [INFO] ✅ Mensagem enviada para Pizzaria& Hambúrgueria do chefonho!
+[2025-10-15 17:36:27,418] [INFO] Enviando mensagem para Pizzaria Arthur...
+[2025-10-15 17:36:30,989] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:36:36,640] [INFO] ✅ Mensagem enviada para Pizzaria Arthur
+[2025-10-15 17:37:06,647] [INFO] Enviando mensagem para Tasty Pizza...
+[2025-10-15 17:37:10,502] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:37:16,132] [INFO] ✅ Mensagem enviada para Tasty Pizza
+[2025-10-15 17:37:46,142] [INFO] Enviando mensagem para Pizzaria Juá Vip...
+[2025-10-15 17:37:49,884] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:38:10,437] [ERROR] Timeout ao aguardar caixa de mensagem para 558821315061. Número pode não existir.
+[2025-10-15 17:38:10,447] [INFO] Número 558821315061 bloqueado automaticamente (não existe)
+[2025-10-15 17:38:40,521] [INFO] Enviando mensagem para Pizzaria Grande Familia...
+[2025-10-15 17:38:44,400] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:39:04,939] [ERROR] Timeout ao aguardar caixa de mensagem para 55997482898. Número pode não existir.
+[2025-10-15 17:39:04,952] [INFO] Número 55997482898 bloqueado automaticamente (não existe)
+[2025-10-15 17:39:34,961] [INFO] Enviando mensagem para Cuca Pizza & Lanche...
+[2025-10-15 17:39:38,718] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:39:44,532] [INFO] ✅ Mensagem enviada para Cuca Pizza & Lanche
+[2025-10-15 17:40:14,541] [INFO] Enviando mensagem para La Bella Paulista...
+[2025-10-15 17:40:18,214] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:40:23,902] [INFO] ✅ Mensagem enviada para La Bella Paulista
+[2025-10-15 17:40:53,911] [INFO] Enviando mensagem para Auropizza...
+[2025-10-15 17:40:57,677] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:41:03,310] [INFO] ✅ Mensagem enviada para Auropizza
+[2025-10-15 17:41:33,320] [INFO] Enviando mensagem para Delivery Pizzaria Bom Sabor...
+[2025-10-15 17:41:37,074] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:41:42,806] [INFO] ✅ Mensagem enviada para Delivery Pizzaria Bom Sabor
+[2025-10-15 17:42:12,821] [INFO] Enviando mensagem para Primos Pizzaria...
+[2025-10-15 17:42:16,625] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:42:22,244] [INFO] ✅ Mensagem enviada para Primos Pizzaria
+[2025-10-15 17:42:52,256] [INFO] Enviando mensagem para Pizzaria DOM ALCÂNTARA...
+[2025-10-15 17:42:56,207] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:43:16,628] [ERROR] Timeout ao aguardar caixa de mensagem para 5588996559368. Número pode não existir.
+[2025-10-15 17:43:16,634] [INFO] Número 5588996559368 bloqueado automaticamente (não existe)
+[2025-10-15 17:43:46,642] [INFO] Enviando mensagem para Restaurante e Pizzaria Aluísio...
+[2025-10-15 17:43:50,438] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:44:10,965] [ERROR] Timeout ao aguardar caixa de mensagem para 558835115879. Número pode não existir.
+[2025-10-15 17:44:10,975] [INFO] Número 558835115879 bloqueado automaticamente (não existe)
+[2025-10-15 17:44:40,985] [INFO] Enviando mensagem para Donna melyssa restaurante & pizzaria...
+[2025-10-15 17:44:44,711] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:44:50,358] [INFO] ✅ Mensagem enviada para Donna melyssa restaurante & pizzaria
+[2025-10-15 17:45:20,367] [INFO] Enviando mensagem para Pizzaria Diferenciado...
+[2025-10-15 17:45:24,303] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:45:30,006] [INFO] ✅ Mensagem enviada para Pizzaria Diferenciado
+[2025-10-15 17:46:00,016] [INFO] Enviando mensagem para Aldenir Disk-Pizzas...
+[2025-10-15 17:46:03,653] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:46:09,359] [INFO] ✅ Mensagem enviada para Aldenir Disk-Pizzas
+[2025-10-15 17:46:39,369] [INFO] Enviando mensagem para Pizzaria A Grande Família...
+[2025-10-15 17:46:43,073] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:47:03,489] [ERROR] Timeout ao aguardar caixa de mensagem para 5588991111234. Número pode não existir.
+[2025-10-15 17:47:03,495] [INFO] Número 5588991111234 bloqueado automaticamente (não existe)
+[2025-10-15 17:47:33,503] [INFO] Enviando mensagem para Pizza Delivery Come bem...
+[2025-10-15 17:47:37,327] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:47:43,639] [INFO] ✅ Mensagem enviada para Pizza Delivery Come bem
+[2025-10-15 17:48:13,647] [INFO] Enviando mensagem para Pizzaria O Val...
+[2025-10-15 17:48:17,435] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:48:23,782] [INFO] ✅ Mensagem enviada para Pizzaria O Val
+[2025-10-15 17:48:53,791] [INFO] Enviando mensagem para Pizzaria Pazziolla...
+[2025-10-15 17:48:57,532] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:49:18,033] [ERROR] Timeout ao aguardar caixa de mensagem para 5588996680068. Número pode não existir.
+[2025-10-15 17:49:18,038] [INFO] Número 5588996680068 bloqueado automaticamente (não existe)
+[2025-10-15 17:49:48,049] [INFO] Enviando mensagem para Emelly Pizzaria...
+[2025-10-15 17:49:51,703] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:49:57,368] [INFO] ✅ Mensagem enviada para Emelly Pizzaria
+[2025-10-15 17:50:27,378] [INFO] Enviando mensagem para Pizzaria Venezza...
+[2025-10-15 17:50:31,215] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:50:36,929] [INFO] ✅ Mensagem enviada para Pizzaria Venezza
+[2025-10-15 17:51:06,938] [INFO] Enviando mensagem para Galileu Pizzaria...
+[2025-10-15 17:51:10,949] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:51:31,545] [ERROR] Timeout ao aguardar caixa de mensagem para 5588994483158. Número pode não existir.
+[2025-10-15 17:51:31,550] [INFO] Número 5588994483158 bloqueado automaticamente (não existe)
+[2025-10-15 17:52:01,559] [INFO] Enviando mensagem para HANGS FOOD - DELIVERY...
+[2025-10-15 17:52:05,332] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:52:11,140] [INFO] ✅ Mensagem enviada para HANGS FOOD - DELIVERY
+[2025-10-15 17:52:41,156] [INFO] Enviando mensagem para Esfiha Prime:...
+[2025-10-15 17:52:44,962] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:52:50,552] [INFO] ✅ Mensagem enviada para Esfiha Prime:
+[2025-10-15 17:53:20,564] [INFO] Enviando mensagem para Casa da Esfiha...
+[2025-10-15 17:53:24,354] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:53:30,153] [INFO] ✅ Mensagem enviada para Casa da Esfiha
+[2025-10-15 17:54:00,168] [INFO] Enviando mensagem para Caktus Restaurante Hamburgueria e Pizzaria...
+[2025-10-15 17:54:03,922] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:54:24,415] [ERROR] Timeout ao aguardar caixa de mensagem para 558833128879. Número pode não existir.
+[2025-10-15 17:54:24,421] [INFO] Número 558833128879 bloqueado automaticamente (não existe)
+[2025-10-15 17:54:54,431] [INFO] Enviando mensagem para Tonhão Pizzaria...
+[2025-10-15 17:54:58,204] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:55:03,954] [INFO] ✅ Mensagem enviada para Tonhão Pizzaria
+[2025-10-15 17:55:33,963] [INFO] Enviando mensagem para Restaurante e Pizzaria Central Mix...
+[2025-10-15 17:55:37,697] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:55:43,336] [INFO] ✅ Mensagem enviada para Restaurante e Pizzaria Central Mix
+[2025-10-15 17:56:13,346] [INFO] Enviando mensagem para Esfiha Paulista...
+[2025-10-15 17:56:16,961] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:56:22,736] [INFO] ✅ Mensagem enviada para Esfiha Paulista
+[2025-10-15 17:56:52,745] [INFO] Enviando mensagem para A Predileta...
+[2025-10-15 17:56:56,564] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:57:02,195] [INFO] ✅ Mensagem enviada para A Predileta
+[2025-10-15 17:57:32,204] [INFO] Enviando mensagem para Adorata Pizzaria...
+[2025-10-15 17:57:35,940] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:57:56,501] [ERROR] Timeout ao aguardar caixa de mensagem para 558821317583. Número pode não existir.
+[2025-10-15 17:57:56,507] [INFO] Número 558821317583 bloqueado automaticamente (não existe)
+[2025-10-15 17:58:26,533] [INFO] Enviando mensagem para Bokermanni Pizzaria & Massas...
+[2025-10-15 17:58:31,359] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:58:37,688] [INFO] ✅ Mensagem enviada para Bokermanni Pizzaria & Massas
+[2025-10-15 17:59:07,748] [INFO] Enviando mensagem para Templo do Forno Pizzaria...
+[2025-10-15 17:59:11,888] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:59:16,374] [INFO] ✅ Mensagem enviada para Templo do Forno Pizzaria
+[2025-10-15 17:59:46,383] [INFO] Enviando mensagem para Pizzaria Ferrari Premium...
+[2025-10-15 17:59:50,072] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 17:59:55,720] [INFO] ✅ Mensagem enviada para Pizzaria Ferrari Premium
+[2025-10-15 18:00:25,731] [INFO] Enviando mensagem para Cariri Pizzas...
+[2025-10-15 18:00:29,569] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:00:49,991] [ERROR] Timeout ao aguardar caixa de mensagem para 558835121865. Número pode não existir.
+[2025-10-15 18:00:49,996] [INFO] Número 558835121865 bloqueado automaticamente (não existe)
+[2025-10-15 18:01:20,006] [INFO] Enviando mensagem para Pizzaria Esquina das Massas...
+[2025-10-15 18:01:23,673] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:01:44,106] [ERROR] Timeout ao aguardar caixa de mensagem para 558835121114. Número pode não existir.
+[2025-10-15 18:01:44,111] [INFO] Número 558835121114 bloqueado automaticamente (não existe)
+[2025-10-15 18:02:14,121] [INFO] Enviando mensagem para Padaria do Pasto & Pizzas...
+[2025-10-15 18:02:17,759] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:02:23,553] [INFO] ✅ Mensagem enviada para Padaria do Pasto & Pizzas
+[2025-10-15 18:02:53,579] [INFO] Enviando mensagem para Harold´s Pizza Cariri...
+[2025-10-15 18:02:57,327] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:03:17,375] [ERROR] Timeout ao aguardar caixa de mensagem para 558821569797. Número pode não existir.
+[2025-10-15 18:03:17,385] [INFO] Número 558821569797 bloqueado automaticamente (não existe)
+[2025-10-15 18:03:47,394] [INFO] Enviando mensagem para Josafá lanches...
+[2025-10-15 18:03:51,020] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:03:56,777] [INFO] ✅ Mensagem enviada para Josafá lanches
+[2025-10-15 18:04:27,087] [INFO] Enviando mensagem para Pizzaria Capri...
+[2025-10-15 18:04:30,907] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:04:37,229] [INFO] ✅ Mensagem enviada para Pizzaria Capri
+[2025-10-15 18:05:07,255] [INFO] Enviando mensagem para Pizzaiolo...
+[2025-10-15 18:05:11,093] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:05:16,792] [INFO] ✅ Mensagem enviada para Pizzaiolo
+[2025-10-15 18:05:46,803] [INFO] Enviando mensagem para Pizzaria predileta...
+[2025-10-15 18:05:50,545] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:05:56,277] [INFO] ✅ Mensagem enviada para Pizzaria predileta
+[2025-10-15 18:06:26,288] [INFO] Enviando mensagem para Pizzaria Império...
+[2025-10-15 18:06:30,135] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:06:50,653] [ERROR] Timeout ao aguardar caixa de mensagem para 558821419338. Número pode não existir.
+[2025-10-15 18:06:50,659] [INFO] Número 558821419338 bloqueado automaticamente (não existe)
+[2025-10-15 18:07:20,669] [INFO] Enviando mensagem para Kalifas Pizza...
+[2025-10-15 18:07:24,446] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:07:45,045] [ERROR] Timeout ao aguardar caixa de mensagem para 558835124418. Número pode não existir.
+[2025-10-15 18:07:45,050] [INFO] Número 558835124418 bloqueado automaticamente (não existe)
+[2025-10-15 18:08:15,060] [INFO] Enviando mensagem para Tropical Pizzas e Lanches...
+[2025-10-15 18:08:18,889] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:08:24,476] [INFO] ✅ Mensagem enviada para Tropical Pizzas e Lanches
+[2025-10-15 18:08:54,531] [INFO] Enviando mensagem para Xandoca pizzaria...
+[2025-10-15 18:08:58,832] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:09:19,418] [ERROR] Timeout ao aguardar caixa de mensagem para 5588988566194. Número pode não existir.
+[2025-10-15 18:09:19,426] [INFO] Número 5588988566194 bloqueado automaticamente (não existe)
+[2025-10-15 18:09:49,435] [INFO] Enviando mensagem para Pizzaria K Delícia...
+[2025-10-15 18:09:53,127] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:09:58,759] [INFO] ✅ Mensagem enviada para Pizzaria K Delícia
+[2025-10-15 18:10:28,769] [INFO] Enviando mensagem para Lord Pizzaria...
+[2025-10-15 18:10:32,526] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:10:53,047] [ERROR] Timeout ao aguardar caixa de mensagem para 558835122962. Número pode não existir.
+[2025-10-15 18:10:53,058] [INFO] Número 558835122962 bloqueado automaticamente (não existe)
+[2025-10-15 18:11:23,078] [INFO] Enviando mensagem para Asporto Pizzaria Napoletana...
+[2025-10-15 18:11:26,815] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:11:32,632] [INFO] ✅ Mensagem enviada para Asporto Pizzaria Napoletana
+[2025-10-15 18:12:02,645] [INFO] Enviando mensagem para Acalanto Pizzaria e Lanchonete...
+[2025-10-15 18:12:06,316] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:12:26,856] [ERROR] Timeout ao aguardar caixa de mensagem para 558835115618. Número pode não existir.
+[2025-10-15 18:12:26,861] [INFO] Número 558835115618 bloqueado automaticamente (não existe)
+[2025-10-15 18:12:56,876] [INFO] Enviando mensagem para Nillu's Pizzas e Massas...
+[2025-10-15 18:13:00,732] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:13:21,307] [ERROR] Timeout ao aguardar caixa de mensagem para 558835125959. Número pode não existir.
+[2025-10-15 18:13:21,311] [INFO] Número 558835125959 bloqueado automaticamente (não existe)
+[2025-10-15 18:13:51,321] [INFO] Enviando mensagem para Pizzaria Exclusive...
+[2025-10-15 18:13:55,080] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:14:01,002] [INFO] ✅ Mensagem enviada para Pizzaria Exclusive
+[2025-10-15 18:14:31,023] [INFO] Enviando mensagem para Restaurante e Pizzaria Nossa Casa...
+[2025-10-15 18:14:34,680] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:14:55,219] [ERROR] Timeout ao aguardar caixa de mensagem para 558835722964. Número pode não existir.
+[2025-10-15 18:14:55,224] [INFO] Número 558835722964 bloqueado automaticamente (não existe)
+[2025-10-15 18:15:25,235] [INFO] Enviando mensagem para Pizzaria Tutto Bene...
+[2025-10-15 18:15:28,943] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:15:34,779] [INFO] ✅ Mensagem enviada para Pizzaria Tutto Bene
+[2025-10-15 18:16:04,795] [INFO] Enviando mensagem para Matuto's Pizzaria...
+[2025-10-15 18:16:08,565] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:16:14,774] [INFO] ✅ Mensagem enviada para Matuto's Pizzaria
+[2025-10-15 18:16:44,784] [INFO] Enviando mensagem para Pizzaria Q-Delícia...
+[2025-10-15 18:16:48,634] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:17:09,221] [ERROR] Timeout ao aguardar caixa de mensagem para 558835871790. Número pode não existir.
+[2025-10-15 18:17:09,226] [INFO] Número 558835871790 bloqueado automaticamente (não existe)
+[2025-10-15 18:17:39,235] [INFO] Enviando mensagem para Estação da pizza...
+[2025-10-15 18:17:42,950] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:17:48,693] [INFO] ✅ Mensagem enviada para Estação da pizza
+[2025-10-15 18:18:18,703] [INFO] Enviando mensagem para Oba! Pizzaria...
+[2025-10-15 18:18:22,459] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:18:28,803] [INFO] ✅ Mensagem enviada para Oba! Pizzaria
+[2025-10-15 18:18:58,813] [INFO] Enviando mensagem para Pasto & Pizzas...
+[2025-10-15 18:19:02,616] [INFO] Nenhum histórico de conversa encontrado
+[2025-10-15 18:19:08,519] [INFO] ✅ Mensagem enviada para Pasto & Pizzas

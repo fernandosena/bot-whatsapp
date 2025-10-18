@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio em Sequência - WhatsApp Bot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+
+        /* Área de Construção de Sequência */
+        .sequence-builder {
+            min-height: 400px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px dashed #dee2e6;
+        }
+
+        .sequence-builder.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #6c757d;
+        }
+
+        /* Item da Sequência */
+        .sequence-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: move;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .sequence-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .sequence-item.dragging {
+            opacity: 0.5;
+        }
+
+        .sequence-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .sequence-item-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .sequence-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sequence-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Tipos de Mensagem */
+        .message-type-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+
+        .message-type-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .message-type-card i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .message-type-card h6 {
+            margin: 0;
+            color: #333;
+        }
+
+        /* Badge de Tipo */
+        .type-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .type-text { background: #e3f2fd; color: #1976d2; }
+        .type-image { background: #f3e5f5; color: #7b1fa2; }
+        .type-audio { background: #fff3e0; color: #f57c00; }
+        .type-video { background: #e8f5e9; color: #388e3c; }
+        .type-document { background: #fce4ec; color: #c2185b; }
+        .type-ptt { background: #fff9c4; color: #f57f17; }
+        .type-contact { background: #e0f2f1; color: #00796b; }
+        .type-location { background: #ffebee; color: #d32f2f; }
+        .type-delay { background: #f5f5f5; color: #616161; }
+
+        /* Preview do Conteúdo */
+        .content-preview {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            max-height: 100px;
+            overflow: hidden;
+        }
+
+        .content-preview img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+        }
+
+        .content-preview audio {
+            width: 100%;
+            height: 40px;
+        }
+
+        /* Modal de Edição */
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        .variable-chip {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .variable-chip:hover {
+            background: #1976d2;
+            color: white;
+        }
+
+        /* Estatísticas */
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stats-number {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Delay Slider */
+        .delay-input {
+            width: 100%;
+        }
+
+        .delay-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Botão Enviar */
+        .btn-send {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .btn-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            color: white;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sequence-item {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-disconnected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Progress */
+        .progress-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .progress-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .progress-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center text-white mb-4">
+            <h1 class="mb-2">
+                <i class="fas fa-stream"></i> Envio em Sequência Personalizada
+            </h1>
+            <p>Crie sequências de mensagens com texto, imagens, áudios, vídeos e muito mais!</p>
+        </div>
+
+        <!-- Status PTT -->
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-signal"></i> Status da Conexão</h5>
+                    <span class="status-badge" id="statusBadge">
+                        <i class="fas fa-circle-notch fa-spin"></i> Verificando...
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Coluna Esquerda: Tipos de Mensagem -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-plus-circle"></i> Adicionar Item</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Clique para adicionar à sequência:</p>
+
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('text')">
+                                    <i class="fas fa-comment"></i>
+                                    <h6>Texto</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('image')">
+                                    <i class="fas fa-image"></i>
+                                    <h6>Imagem</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('audio')">
+                                    <i class="fas fa-file-audio"></i>
+                                    <h6>Áudio</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('ptt')">
+                                    <i class="fas fa-microphone"></i>
+                                    <h6>PTT</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('video')">
+                                    <i class="fas fa-video"></i>
+                                    <h6>Vídeo</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('document')">
+                                    <i class="fas fa-file"></i>
+                                    <h6>Arquivo</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('contact')">
+                                    <i class="fas fa-address-card"></i>
+                                    <h6>Contato</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="message-type-card" onclick="addMessageItem('location')">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h6>Local</h6>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="message-type-card" onclick="addMessageItem('delay')">
+                                    <i class="fas fa-clock"></i>
+                                    <h6>Delay</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Variáveis Disponíveis -->
+                        <h6><i class="fas fa-tags"></i> Variáveis Disponíveis</h6>
+                        <p class="text-muted small">Clique para copiar:</p>
+                        <div>
+                            <span class="variable-chip" onclick="copyVariable('{{nome}}')" title="Nome da empresa">
+                                {{nome}}
+                            </span>
+                            <span class="variable-chip" onclick="copyVariable('{{cidade}}')" title="Cidade">
+                                {{cidade}}
+                            </span>
+                            <span class="variable-chip" onclick="copyVariable('{{setor}}')" title="Setor">
+                                {{setor}}
+                            </span>
+                            <span class="variable-chip" onclick="copyVariable('{{telefone}}')" title="Telefone">
+                                {{telefone}}
+                            </span>
+                            <span class="variable-chip" onclick="copyVariable('{{email}}')" title="Email">
+                                {{email}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="stats-card mb-3">
+                            <div class="stats-number" id="sequenceCount">0</div>
+                            <div class="stats-label">Itens na Sequência</div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-number" id="totalTime">0s</div>
+                            <div class="stats-label">Tempo Estimado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna Central: Construtor de Sequência -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-list-ol"></i> Sequência de Mensagens</h5>
+                        <div>
+                            <button class="btn btn-sm btn-light" onclick="clearSequence()">
+                                <i class="fas fa-trash"></i> Limpar
+                            </button>
+                            <button class="btn btn-sm btn-light" onclick="previewSequence()">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="sequenceBuilder" class="sequence-builder empty">
+                            <i class="fas fa-magic fa-3x mb-3 text-muted"></i>
+                            <h5 class="text-muted">Comece adicionando itens à sequência</h5>
+                            <p class="text-muted">Clique nos tipos de mensagem à esquerda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna Direita: Configurações e Envio -->
+            <div class="col-md-3">
+                <!-- Seleção de Contatos -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-users"></i> Destinatários</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Setor</label>
+                            <select class="form-select form-select-sm" id="filterSetor">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cidade</label>
+                            <select class="form-select form-select-sm" id="filterCidade">
+                                <option value="">Todas</option>
+                            </select>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-number" id="contactCount">0</div>
+                            <div class="stats-label">Contatos Selecionados</div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary w-100 mt-3" onclick="selectContacts()">
+                            <i class="fas fa-check-square"></i> Selecionar Contatos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Configurações -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-cog"></i> Configurações</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nome da Campanha</label>
+                            <input type="text" class="form-control" id="campaignName"
+                                   placeholder="Minha Campanha">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Delay entre contatos: <span class="delay-value" id="contactDelayValue">5s</span>
+                            </label>
+                            <input type="range" class="form-range delay-input" id="contactDelay"
+                                   min="3" max="60" value="5" oninput="updateDelayValue(this.value)">
+                            <small class="text-muted">Tempo de espera entre cada contato</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão de Envio -->
+                <button class="btn btn-send w-100 mt-3" id="sendBtn" onclick="sendSequence()" disabled>
+                    <i class="fas fa-paper-plane"></i> Enviar Sequência
+                </button>
+
+                <!-- Progresso -->
+                <div class="card mt-3" id="progressCard" style="display: none;">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-chart-line"></i> Progresso</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-success" id="progressBar" style="width: 0%">
+                                <span id="progressText">0/0</span>
+                            </div>
+                        </div>
+                        <div id="progressLog" style="max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link Voltar -->
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-light">
+                <i class="fas fa-home"></i> Voltar ao Início
+            </a>
+            <a href="/enviar-ptt-massa" class="btn btn-light">
+                <i class="fas fa-microphone"></i> Envio PTT Simples
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalTitle">Editar Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="editModalBody">
+                    <!-- Conteúdo dinâmico -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveItem()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Seleção de Contatos -->
+    <div class="modal fade" id="contactsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Selecionar Contatos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="contactsModalBody">
+                    <!-- Lista de contatos será carregada aqui -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/js/sequence_builder.js"></script>
+</body>
+</html>

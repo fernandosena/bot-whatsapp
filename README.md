@@ -1,414 +1,456 @@
-# 🤖 Bot de Pesquisa de Empresas
+# 🚀 WhatsApp Business Tool - Sistema Completo
 
-Bot automatizado para pesquisar empresas de um setor específico em determinada cidade usando Google Maps com Selenium, extraindo dados de contato e salvando em banco de dados SQLite.
+Sistema profissional SaaS de automação WhatsApp com raspagem do Google Maps, envio em massa, gestão de contatos e sincronização multi-plataforma.
 
-## 📋 Funcionalidades
+**Versões Disponíveis:**
+- ✅ **Web** - Acesso online via navegador (Flask + PostgreSQL)
+- ✅ **Desktop** - Aplicação standalone para Linux/Windows (Electron + SQLite)
+- ✅ **Sincronização** - Dados sincronizados automaticamente entre web e desktop
+- ✅ **Assinatura** - Sistema de monetização com 4 planos via Stripe
 
-### 🔍 Scraping de Empresas
-- ✅ Busca automatizada de empresas no Google Maps
-- 📞 Extração de dados de contato:
-  - Nome da empresa
-  - Endereço
-  - Telefone
-  - WhatsApp (formato internacional)
-  - Email (extraído do website)
-  - Website
-  - **Redes Sociais** (Instagram, Facebook, LinkedIn, Twitter/X)
-  - Avaliação e número de reviews
-  - Horário de funcionamento
-  - URL do Google Maps
-- 💾 Armazenamento em banco de dados SQLite
-- 🔄 **Processamento em tempo real**: Extrai e salva dados empresa por empresa
-- ✨ **Validação inteligente**: Só salva empresas com pelo menos um dado de contato (telefone, email ou WhatsApp)
-- 🔄 **Atualização automática**: Se a empresa já existe, atualiza apenas campos vazios com novos dados
-- 📊 Estatísticas de coleta
-- 📤 Exportação para CSV/Excel
-- 📝 Sistema de logs
+---
 
-### 💬 WhatsApp Bot (NOVO!)
-- 🚀 **Envio automático de mensagens** via WhatsApp Web
-- 📝 **Templates personalizáveis** com variáveis dinâmicas
-- 🎯 **Filtros avançados** para selecionar destinatários
-- 📊 **Monitoramento em tempo real** do envio
-- 📈 **Logs completos** de todas as mensagens enviadas
-- ⏱️ **Controle de taxa** com delay configurável
-- 🔒 **Seguro e confiável** - usa WhatsApp Web oficial
+## 📋 Funcionalidades Principais
 
-## 🚀 Instalação Rápida
+### 🔍 Raspagem Google Maps
+- Busca automatizada de empresas por setor e cidade
+- Extração completa de contatos (WhatsApp, telefone, email, website, redes sociais)
+- Sistema de checkpoint para continuar buscas interrompidas
+- Progresso em tempo real com WebSocket
+- Validação inteligente (salva apenas com contato válido)
 
-### Script Automático (Linux/Mac)
+### 📱 WhatsApp via Baileys (PTT)
+- Conexão via QR Code (sem Selenium)
+- Envio de mensagens personalizadas com variáveis {{nome}}, {{cidade}}, etc
+- Envio de áudio PTT (Push-to-Talk) nativo
+- Envio em massa com delay configurável
+- Sistema de bloqueio/desbloqueio de números
+- Histórico completo e logs detalhados
+- Campanhas com checkpoint e retomada
 
-```bash
-./run.sh
+### 👥 Gestão de Contatos
+- CRUD completo com interface moderna
+- Filtros avançados (setor, cidade, status, busca)
+- Importar/Exportar Excel/CSV
+- Marcar como enviado/bloqueado em massa
+- Estatísticas e relatórios
+
+### 🔄 Sincronização Bidirecional
+- Sincronização automática web ↔ desktop
+- Resolução inteligente de conflitos
+- Funciona offline (desktop armazena localmente)
+- Histórico de sincronizações
+- API REST segura
+
+### 💰 Sistema de Assinatura (Stripe)
+- 4 planos (Free, Basic, Pro, Enterprise)
+- Pagamento recorrente via Stripe
+- Licenciamento por chave (desktop)
+- Webhooks para renovação automática
+- Painel administrativo
+
+---
+
+## 🏗️ Arquitetura do Sistema
+
+```
+whatsapp-business-saas/
+│
+├── web-app/              # Versão Web (Flask + PostgreSQL)
+│   ├── app/
+│   │   ├── routes/       # Auth, Scraper, WhatsApp, Sync, Subscription
+│   │   ├── services/     # Lógica de negócio
+│   │   ├── models.py     # SQLAlchemy models
+│   │   └── templates/    # Interface HTML
+│   └── requirements.txt
+│
+├── desktop-app/          # Versão Desktop (Electron + SQLite)
+│   ├── src/
+│   │   ├── main/         # Main process (Node.js + Baileys)
+│   │   ├── renderer/     # Frontend (React + Material-UI)
+│   │   └── preload.js    # Bridge seguro
+│   └── package.json
+│
+├── license-server/       # Servidor de Licenças (Node.js + Stripe)
+│   ├── src/
+│   │   ├── routes/       # License, Validation, Payment
+│   │   ├── models/       # User, License, Subscription
+│   │   └── services/     # Stripe, Key Generator
+│   └── server.js
+│
+└── docs/                 # Documentação
+    ├── API.md
+    ├── SYNC.md
+    ├── DEPLOY.md
+    └── USER_GUIDE.md
 ```
 
-O script irá:
-- Criar ambiente virtual automaticamente
-- Instalar todas as dependências
-- Perguntar qual modo executar (Web ou CLI)
+---
 
-### Instalação Manual
+## 💰 Planos e Preços
 
-#### Pré-requisitos
+| Plano | Preço/Mês | Contatos | Mensagens | Recursos Principais |
+|-------|-----------|----------|-----------|---------------------|
+| **Free** | R$ 0 | 100 | 500/mês | Raspagem + Envio básico |
+| **Basic** | R$ 49 | 1.000 | 5.000/mês | + Variáveis personalizadas |
+| **Pro** | R$ 99 | 5.000 | Ilimitado | + Sequências + Áudio PTT |
+| **Enterprise** | R$ 199 | Ilimitado | Ilimitado | + Multi-usuário + API |
 
-- Python 3.8+ instalado
-- pip (gerenciador de pacotes Python)
-- Google Chrome ou Chromium instalado
+### Funcionalidades por Plano
 
-#### Passos
+| Recurso | Free | Basic | Pro | Enterprise |
+|---------|------|-------|-----|------------|
+| Raspagem Google Maps | ✅ | ✅ | ✅ | ✅ |
+| Envio WhatsApp | ✅ | ✅ | ✅ | ✅ |
+| Variáveis {{nome}} | ❌ | ✅ | ✅ | ✅ |
+| Envio Áudio PTT | ❌ | ✅ | ✅ | ✅ |
+| Sequência de msgs | ❌ | ❌ | ✅ | ✅ |
+| Relatórios avançados | ❌ | ❌ | ✅ | ✅ |
+| Multi-usuário | ❌ | ❌ | ❌ | ✅ |
+| API REST | ❌ | ❌ | ❌ | ✅ |
+| Suporte prioritário | ❌ | ❌ | ❌ | ✅ |
 
-1. Clone ou baixe o projeto
+---
 
-2. Crie e ative um ambiente virtual (recomendado):
+## 🚀 Quick Start
+
+### Versão Web (Atual - Flask)
+
 ```bash
-python -m venv .venv
-
-# Linux/Mac
-source .venv/bin/activate
-
-# Windows
-.venv\Scripts\activate
-```
-
-3. Instale as dependências:
-```bash
+# Instalar dependências
+cd web-app
 pip install -r requirements.txt
-```
 
-4. Configure o arquivo `.env` (opcional):
-```bash
-cp .env.example .env
-```
+# Configurar banco PostgreSQL
+# Editar config.py com credenciais
 
-Edite o `.env` se desejar alterar configurações padrão.
-
-## 🔄 Migração do Banco de Dados
-
-Se você já tem um banco de dados existente e quer adicionar suporte para redes sociais, execute:
-
-```bash
-python migrate_db.py
-```
-
-Isso adicionará as colunas `instagram`, `facebook`, `linkedin` e `twitter` ao banco de dados sem perder nenhum dado existente.
-
-## 💻 Como Usar
-
-### Opção 1: Interface Web (Recomendado)
-
-A interface web oferece controle completo do bot com uma interface moderna e intuitiva:
-
-```bash
-# Instalar dependências web
-pip install flask flask-socketio flask-cors openpyxl pandas eventlet
-
-# Iniciar servidor web
-python app.py
-```
-
-Acesse em seu navegador: **http://localhost:5000**
-
-#### Funcionalidades da Interface Web:
-
-**Dashboard Principal (http://localhost:5000):**
-- 📊 **Dashboard em tempo real** com estatísticas
-- 🚀 **Controle do bot** direto pelo navegador
-- 📈 **Barra de progresso** ao vivo durante a busca
-- 🔍 **Filtros avançados** (setor, cidade, com email, telefone, WhatsApp)
-- 📥 **Exportação** para Excel e CSV com filtros aplicados
-- ✅ **Seleção múltipla** de empresas com checkboxes
-- 🗑️ **Exclusão em massa** - Deletar várias empresas selecionadas de uma vez
-- 🧹 **Limpar base de dados** - Remover todos os registros com confirmação dupla
-- 🗂️ **Gerenciamento individual** - Deletar empresas uma por uma
-- ⏸️ **Parar/Iniciar** busca em tempo real
-- 🔄 **Atualização automática** das estatísticas
-
-**WhatsApp Bot (http://localhost:5000/whatsapp):**
-- 💬 **Envio automático** de mensagens para as empresas
-- 📝 **Gerenciamento de templates** personalizáveis
-- 🎯 **Seleção de destinatários** com filtros inteligentes
-- 📊 **Monitoramento em tempo real** do envio
-- 📈 **Logs e estatísticas** de todas as mensagens
-- ⏱️ **Controle de delay** entre envios
-
-### Opção 2: Terminal (CLI)
-
-```bash
-python main.py
-```
-
-#### Menu Principal
-
-1. **🔍 Buscar empresas** - Inicia uma nova busca
-2. **📊 Ver estatísticas** - Mostra estatísticas das empresas coletadas
-3. **📋 Listar empresas salvas** - Lista e exporta empresas do banco de dados
-4. **🚪 Sair** - Encerra o bot
-
-## 📁 Estrutura do Projeto
-
-```
-bot/
-├── src/
-│   ├── database/
-│   │   └── db.py                    # Módulo do banco de dados
-│   ├── scraper/
-│   │   └── google_maps_scraper.py   # Scraper com Selenium
-│   ├── whatsapp/
-│   │   └── whatsapp_bot.py          # Bot de WhatsApp
-│   ├── utils/
-│   │   └── logger.py                # Sistema de logs
-├── templates/
-│   ├── index.html                   # Interface web principal
-│   └── whatsapp.html                # Interface do WhatsApp Bot
-├── database/
-│   └── empresas.db                  # Banco SQLite (gerado automaticamente)
-├── logs/
-│   └── bot-YYYY-MM-DD.log           # Logs diários (gerado automaticamente)
-├── exports/
-│   └── empresas_*.csv               # Arquivos CSV exportados
-├── .env.example                     # Exemplo de configuração
-├── .gitignore
-├── requirements.txt                 # Dependências Python
-├── app.py                           # Aplicação web (Flask)
-├── main.py                          # Aplicação CLI (terminal)
-├── setup_whatsapp.py                # Script de setup do WhatsApp Bot
-├── README.md                        # Este arquivo
-└── WHATSAPP_BOT_GUIDE.md            # Guia completo do WhatsApp Bot
-```
-
-## 💬 Usando o WhatsApp Bot
-
-### Setup Rápido
-
-```bash
-# Instalar dependências adicionais
-pip install pywhatkit pyautogui
-
-# Configurar templates padrão
-python setup_whatsapp.py
-
-# Corrigir acesso ao display (se necessário)
-./fix_display.sh
+# Executar migrações
+flask db upgrade
 
 # Iniciar servidor
-python app.py
-
-# Acessar interface
-# http://localhost:5000/whatsapp
+python run.py
 ```
 
-### ⚠️ Requisitos Importantes
+Acesse: **http://localhost:5000**
 
-O WhatsApp Bot **requer interface gráfica** para funcionar:
+### Versão Desktop (Em Desenvolvimento)
 
-✅ **Linux Desktop** (Ubuntu, Fedora, etc. com GUI)
-✅ **Windows** (desktop normal)
-✅ **macOS** (desktop normal)
-❌ **Servidores sem GUI** (use VNC ou execute em máquina com desktop)
+**Download:** (em breve)
+- Linux: `WhatsAppBusinessTool-1.0.0.AppImage`
+- Windows: `WhatsAppBusinessTool-Setup-1.0.0.exe`
 
-**Se tiver erro de display:** Execute `./fix_display.sh` ou veja `SOLUCAO_DISPLAY.md`
-
-### Funcionalidades
-
-1. **Envio de Mensagens em Massa**
-   - Selecione empresas por filtros
-   - Use templates ou crie mensagens personalizadas
-   - Controle delay entre envios
-   - Monitore progresso em tempo real
-
-2. **Templates Personalizáveis**
-   - Crie templates com variáveis dinâmicas: `{nome}`, `{cidade}`, `{setor}`
-   - Salve e reutilize mensagens
-   - Gerencie biblioteca de templates
-
-3. **Logs e Estatísticas**
-   - Visualize histórico de envios
-   - Acompanhe taxa de sucesso/falha
-   - Identifique problemas rapidamente
-
-**📖 Guia Completo:** Consulte [WHATSAPP_BOT_GUIDE.md](WHATSAPP_BOT_GUIDE.md) para instruções detalhadas
+**Ativação:**
+1. Execute o aplicativo
+2. Insira sua chave de licença `WBDT-XXXX-XXXX-XXXX-XXXX`
+3. Conecte WhatsApp via QR Code
+4. Pronto para usar offline!
 
 ---
 
-## 🗄️ Estrutura do Banco de Dados
+## 🛠️ Stack Tecnológico
 
-### Tabela: `empresas`
+### Web
+- **Backend:** Python 3.8+ (Flask + SQLAlchemy)
+- **Database:** PostgreSQL 13+
+- **Cache:** Redis
+- **Auth:** JWT com refresh tokens
+- **WhatsApp:** @whiskeysockets/baileys (Node.js service)
+- **WebSocket:** Flask-SocketIO + eventlet
+- **Frontend:** HTML5 + Bootstrap 5 + JavaScript
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | INTEGER | ID único (auto incremento) |
-| nome | TEXT | Nome da empresa |
-| setor | TEXT | Setor/categoria da empresa |
-| cidade | TEXT | Cidade |
-| endereco | TEXT | Endereço completo |
-| telefone | TEXT | Telefone |
-| whatsapp | TEXT | WhatsApp (formato internacional) |
-| email | TEXT | Email |
-| website | TEXT | Website |
-| instagram | TEXT | Link do Instagram |
-| facebook | TEXT | Link do Facebook |
-| linkedin | TEXT | Link do LinkedIn |
-| twitter | TEXT | Link do Twitter/X |
-| google_maps_url | TEXT | URL do Google Maps |
-| rating | REAL | Avaliação (0-5) |
-| total_reviews | INTEGER | Número total de avaliações |
-| horario_funcionamento | TEXT | Horário de funcionamento |
-| latitude | REAL | Latitude |
-| longitude | REAL | Longitude |
-| data_criacao | TIMESTAMP | Data de criação do registro |
-| data_atualizacao | TIMESTAMP | Data da última atualização |
+### Desktop
+- **Framework:** Electron 28+
+- **Frontend:** React 18 + Material-UI
+- **Database:** SQLite3
+- **WhatsApp:** @whiskeysockets/baileys
+- **Scraper:** Puppeteer
+- **Build:** electron-builder
 
-## 📊 Exportação de Dados
+### License Server
+- **Runtime:** Node.js 18+ + Express
+- **Payment:** Stripe API v3
+- **Database:** PostgreSQL 13+
+- **Auth:** JWT
 
-O bot permite exportar os dados coletados para CSV com todos os campos disponíveis. Os arquivos são salvos na pasta `exports/`.
+---
 
-### Formato do CSV
+## 🔐 Segurança e Privacidade
 
-```csv
-Nome,Setor,Cidade,Endereço,Telefone,WhatsApp,Email,Website,Rating,Reviews,URL Google Maps
-"Empresa XYZ","lanchonetes","São Paulo","Rua ABC, 123","(11) 1234-5678","5511123456789","contato@empresa.com","https://empresa.com","4.5","120","https://maps.google.com/..."
+- ✅ Autenticação JWT com refresh tokens (15 min / 7 dias)
+- ✅ Senhas hasheadas com bcrypt
+- ✅ Rate limiting por plano
+- ✅ HTTPS/SSL obrigatório em produção
+- ✅ Licenças criptografadas (AES-256)
+- ✅ Logs de auditoria completos
+- ✅ Dados locais criptografados (desktop)
+- ✅ Validação de licença a cada 24h
+- ✅ 2FA disponível (Enterprise)
+
+---
+
+## 🔄 Sistema de Sincronização
+
+### Como Funciona
+
+```
+Desktop                      Web API                    PostgreSQL
+  │                            │                            │
+  ├─ 1. Check updates ────────►│                            │
+  │  (last_sync + hash)        │                            │
+  │                            ├─ 2. Compare hashes ───────►│
+  │                            │                            │
+  │◄─── 3. Return diff ────────┤◄─── 3. Query changes ─────┤
+  │                            │                            │
+  ├─ 4. Apply changes         │                            │
+  │  (update local SQLite)     │                            │
+  │                            │                            │
+  ├─ 5. Push new data ────────►│                            │
+  │                            ├─ 6. Validate & save ──────►│
+  │                            │                            │
+  │◄─── 7. Confirm sync ───────┤                            │
 ```
 
-## ⚙️ Tecnologias Utilizadas
+### Resolução de Conflitos
 
-- **Python 3.8+** - Linguagem de programação
-- **Selenium** - Automação de navegador (web scraping)
-- **WebDriver Manager** - Gerenciamento automático do ChromeDriver
-- **SQLite3** - Banco de dados
-- **BeautifulSoup4** - Parsing de HTML
-- **Requests** - Requisições HTTP
-- **python-dotenv** - Gerenciamento de variáveis de ambiente
+1. **Servidor ganha (padrão)** - Para campos críticos
+2. **Mais recente ganha** - Para campos não críticos
+3. **Merge inteligente** - Para listas/arrays
+4. **Manual** - Usuário escolhe em casos complexos
 
-## 🔧 Configurações
+---
 
-### Variáveis de Ambiente (.env)
+## 📊 Status do Projeto
 
-```env
-# Executar em modo headless (sem abrir janela do navegador)
-HEADLESS=True
+**Versão Atual:** 1.0.0-beta
 
-# Configurações padrão
-DEFAULT_SECTOR=lanchonetes
-DEFAULT_CITY=São Paulo
+### Progresso de Desenvolvimento
 
-# Caminho do banco de dados
-DB_PATH=./database/empresas.db
+#### ✅ Concluído (Versão Web Atual)
+- [x] Raspagem Google Maps com Puppeteer
+- [x] Envio WhatsApp via Baileys/PTT
+- [x] Banco de dados SQLite (migrar para PostgreSQL)
+- [x] Interface web Flask
+- [x] Sistema de campanhas
+- [x] Gerenciamento de contatos
+- [x] Logs e histórico
+- [x] Exportar Excel/CSV
 
-# Tempo de espera (segundos)
-WAIT_TIME=2
-PAGE_LOAD_TIMEOUT=30
+#### 🔄 Em Desenvolvimento
+- [ ] Migração para PostgreSQL
+- [ ] Sistema de autenticação JWT
+- [ ] API de sincronização
+- [ ] Servidor de licenças
+- [ ] Integração Stripe
+- [ ] Versão desktop Electron
+- [ ] Sistema de planos e limites
+
+#### 📅 Planejado
+- [ ] Multi-usuário (Enterprise)
+- [ ] API REST pública
+- [ ] Webhooks
+- [ ] Mobile app (React Native)
+- [ ] Relatórios avançados com gráficos
+
+**Previsão de Lançamento Completo:** 10 semanas (Maio 2025)
+
+---
+
+## 📚 Documentação
+
+- **[Plano Completo](PLANO_COMPLETO_WEB_DESKTOP.md)** - Arquitetura detalhada, cronograma, estimativas
+- **[API Reference](docs/API.md)** - Endpoints, autenticação, exemplos (em breve)
+- **[Sync Protocol](docs/SYNC.md)** - Como funciona a sincronização (em breve)
+- **[Deploy Guide](docs/DEPLOY.md)** - VPS setup, PostgreSQL, Nginx (em breve)
+- **[User Guide](docs/USER_GUIDE.md)** - Manual completo do usuário (em breve)
+
+---
+
+## 💳 Integração Stripe
+
+### Webhooks Implementados
+- `payment_intent.succeeded` → Ativar assinatura
+- `payment_intent.failed` → Notificar falha
+- `customer.subscription.updated` → Atualizar status
+- `customer.subscription.deleted` → Cancelar assinatura
+
+### Fluxo de Pagamento
+
+```
+1. Usuário escolhe plano
+2. Redirect para Stripe Checkout
+3. Pagamento processado
+4. Webhook notifica servidor
+5. Sistema ativa assinatura
+6. Email de confirmação enviado
+7. Usuário recebe chave de licença (desktop)
+8. Acesso liberado
 ```
 
-### Ajustar quantidade de resultados
+---
 
-Ao buscar empresas, você pode especificar quantos resultados deseja coletar (padrão: 50).
+## 🚀 Deploy em VPS
 
-### Modo Headless
+### Requisitos Mínimos
+- **CPU:** 2 cores
+- **RAM:** 4 GB
+- **Storage:** 20 GB SSD
+- **OS:** Ubuntu 20.04/22.04 LTS
+- **Custo:** ~$10-20/mês (DigitalOcean, Linode, Vultr)
 
-Por padrão, o bot roda em modo headless (sem abrir janela do navegador). Para ver o navegador em ação, altere no `.env`:
-
-```env
-HEADLESS=False
+### Stack de Produção
+```
+[Nginx] → [Gunicorn] → [Flask App]
+                ↓
+        [PostgreSQL]
+                ↓
+           [Redis]
 ```
 
-## ⚠️ Considerações Importantes
-
-### Uso Responsável
-
-- Este bot é para fins educacionais e de pesquisa
-- Respeite os Termos de Serviço do Google Maps
-- Use com moderação para evitar bloqueios de IP
-- Não sobrecarregue os servidores com requisições excessivas
-
-### Limitações
-
-- A extração de emails depende da disponibilidade no website da empresa
-- Alguns dados podem não estar disponíveis para todas as empresas
-- O Google pode bloquear requisições automatizadas em excesso
-- A estrutura do HTML do Google Maps pode mudar, exigindo atualizações no código
-
-## 🐛 Resolução de Problemas
-
-### Erro ao iniciar o Selenium
-
-O bot usa `webdriver-manager` que baixa automaticamente o ChromeDriver. Certifique-se de ter o Google Chrome instalado.
-
-### Erro: "ChromeDriver incompatível"
+### Quick Deploy
 
 ```bash
-pip install --upgrade webdriver-manager selenium
+# Atualizar sistema
+sudo apt update && sudo apt upgrade -y
+
+# Instalar dependências
+sudo apt install -y python3-pip postgresql nginx redis-server
+
+# Configurar PostgreSQL
+sudo -u postgres createdb whatsapp_business
+sudo -u postgres createuser -P whatsapp_user
+
+# Clonar repositório
+git clone <repo-url>
+cd whatsapp-business-saas/web-app
+
+# Instalar dependências Python
+pip3 install -r requirements.txt
+
+# Configurar environment
+cp .env.example .env
+nano .env  # Editar credenciais
+
+# Executar migrações
+flask db upgrade
+
+# Configurar Gunicorn
+sudo nano /etc/systemd/system/whatsapp-web.service
+
+# Configurar Nginx
+sudo nano /etc/nginx/sites-available/whatsapp-business
+
+# SSL com Let's Encrypt
+sudo certbot --nginx -d seu-dominio.com
+
+# Iniciar serviços
+sudo systemctl start whatsapp-web
+sudo systemctl enable whatsapp-web
+sudo systemctl restart nginx
 ```
 
-### Banco de dados travado
-
-Se o banco de dados estiver travado, feche todas as conexões e reinicie o bot.
-
-### Nenhum resultado encontrado
-
-- Verifique a ortografia do setor e cidade
-- Tente termos mais genéricos
-- Verifique sua conexão com a internet
-- Aumente o tempo de espera no código
-
-### Erro de timeout
-
-Aumente o `PAGE_LOAD_TIMEOUT` no arquivo `.env` ou diretamente no código.
-
-### Erro "Stale Element Reference"
-
-Esse erro acontece quando o DOM do Google Maps é atualizado enquanto o bot está processando. O bot já possui:
-- ✅ **Sistema de retry automático** (3 tentativas)
-- ✅ **Re-obtenção de elementos** a cada iteração
-- ✅ **Delays estratégicos** para estabilização do DOM
-
-Se ainda ocorrer, tente:
-- Reduzir a velocidade aumentando os delays no código
-- Processar menos empresas por vez (ex: 20 ao invés de 50)
-
-## 📝 Logs
-
-Os logs são salvos automaticamente na pasta `logs/` com o formato:
-
-```
-logs/bot-2025-10-07.log
-```
-
-Cada log contém timestamp, nível e mensagem:
-
-```
-[2025-10-07 20:00:00,000] [INFO] Bot iniciado
-[2025-10-07 20:05:30,000] [INFO] ✅ Busca concluída: 25 empresas salvas
-```
-
-## 🔒 Privacidade e Segurança
-
-- Os dados coletados são armazenados localmente em seu computador
-- Nenhuma informação é enviada para servidores externos
-- Use os dados coletados de forma ética e responsável
-- Respeite as leis de proteção de dados (LGPD, GDPR, etc.)
-
-## 🤝 Contribuindo
-
-Sinta-se à vontade para fazer fork do projeto e enviar pull requests com melhorias!
-
-### Possíveis melhorias futuras:
-
-- [ ] Suporte para outras plataformas (Bing Maps, Yellow Pages, etc.)
-- [ ] Validação de emails em tempo real
-- [ ] Extração de redes sociais (Instagram, Facebook)
-- [ ] Notificações por email/WhatsApp
-- [ ] Agendamento de buscas automáticas
-- [ ] API REST pública
-- [ ] Integração com CRM
-
-## 📄 Licença
-
-ISC License
-
-## ✨ Autor
-
-Bot desenvolvido com Python e Selenium para automação de pesquisa de empresas e coleta de dados de contato.
+**Guia completo:** `docs/DEPLOY.md` (em breve)
 
 ---
 
-**Nota:** Use este bot de forma ética e responsável, respeitando a privacidade e os termos de serviço das plataformas utilizadas.
+## 🤝 Suporte
+
+### Canais de Atendimento
+- **Email:** suporte@whatsappbusinesstool.com (planos pagos)
+- **Chat:** Disponível no painel (Pro e Enterprise)
+- **Documentação:** docs/ (todos os planos)
+- **Community:** GitHub Discussions (Free)
+
+### SLA por Plano
+- **Free:** Best effort (docs apenas)
+- **Basic:** Email em 48h
+- **Pro:** Email em 24h + Chat
+- **Enterprise:** Prioritário em 4h + Chat + Telefone
+
+---
+
+## 📊 Estimativa de Receita
+
+### Cenário Conservador (6 meses)
+- 50 Free + 30 Basic + 15 Pro + 5 Enterprise
+- **MRR:** R$ 3.950/mês
+- **ARR:** R$ 47.400/ano
+- **Lucro:** ~R$ 2.500-3.000/mês
+
+### Cenário Otimista (12 meses)
+- 200 Free + 100 Basic + 50 Pro + 20 Enterprise
+- **MRR:** R$ 13.830/mês
+- **ARR:** R$ 165.960/ano
+- **Lucro:** ~R$ 12.000-13.000/mês
+
+**ROI:** 3-6 meses (investimento inicial ~R$ 5.000)
+
+---
+
+## 📝 Licença
+
+**Proprietary Software** - Todos os direitos reservados.
+
+- ✅ Uso comercial permitido com assinatura ativa
+- ❌ Redistribuição proibida
+- ❌ Modificação do código fonte proibida
+- ❌ Engenharia reversa proibida
+
+**EULA completo:** Disponível no painel de usuário
+
+---
+
+## 🙏 Tecnologias e Agradecimentos
+
+Construído com tecnologias open-source:
+
+- [Baileys](https://github.com/WhiskeySockets/Baileys) - WhatsApp Web API
+- [Electron](https://www.electronjs.org/) - Desktop framework
+- [Flask](https://flask.palletsprojects.com/) - Web framework
+- [React](https://react.dev/) - UI library
+- [PostgreSQL](https://www.postgresql.org/) - Database
+- [Stripe](https://stripe.com/) - Payment processing
+- [Puppeteer](https://pptr.dev/) - Web scraping
+- [Material-UI](https://mui.com/) - UI components
+
+---
+
+## 🔮 Roadmap Futuro
+
+### Q1 2025
+- [x] Planejar arquitetura completa
+- [ ] Migrar para PostgreSQL
+- [ ] Implementar auth JWT
+- [ ] Criar API de sync
+
+### Q2 2025
+- [ ] Lançar versão desktop (beta)
+- [ ] Integração Stripe completa
+- [ ] Sistema de licenças
+- [ ] Deploy em produção (VPS)
+
+### Q3 2025
+- [ ] Multi-usuário (Enterprise)
+- [ ] API REST pública
+- [ ] Mobile app (beta)
+- [ ] Webhooks para integrações
+
+### Q4 2025
+- [ ] Relatórios avançados com BI
+- [ ] Integrações (Zapier, Make)
+- [ ] White-label (parceiros)
+- [ ] Expansão internacional
+
+---
+
+## 📞 Contato
+
+**Website:** https://whatsappbusinesstool.com (em breve)
+**Email:** contato@whatsappbusinesstool.com
+**Suporte:** suporte@whatsappbusinesstool.com
+**GitHub:** https://github.com/seu-usuario/whatsapp-business-saas
+
+---
+
+**© 2025 WhatsApp Business Tool - Sistema profissional de automação WhatsApp**
+
+*Desenvolvido com ❤️ para pequenas e médias empresas*

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Áudio - WhatsApp Bot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            color: white;
+        }
+
+        .status-badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-disconnected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .audio-preview {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .audio-preview.active {
+            border-color: #25D366;
+            background: #f0fff4;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .file-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        #logContainer {
+            max-height: 400px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .log-entry {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .log-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .log-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .log-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .phone-input-group {
+            position: relative;
+        }
+
+        .phone-input-group .form-control {
+            padding-left: 45px;
+        }
+
+        .phone-prefix {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-weight: 600;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="text-center text-white mb-4">
+            <h1 class="mb-2"><i class="fab fa-whatsapp"></i> Enviar Áudio WhatsApp</h1>
+            <p>Envie áudios gravados como se fossem gravação PTT</p>
+        </div>
+
+        <!-- Card Principal -->
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"><i class="fas fa-microphone"></i> Enviar Áudio</h4>
+                    <span class="status-badge" id="statusBadge">
+                        <i class="fas fa-circle-notch fa-spin"></i> Verificando...
+                    </span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <!-- Controle de Conexão -->
+                <div class="mb-4" id="connectionControls">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Primeiro passo:</strong> Conecte-se ao WhatsApp Web para começar a enviar áudios.
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-whatsapp btn-lg" id="connectBtn">
+                            <i class="fab fa-whatsapp"></i> Conectar ao WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Formulário de Envio -->
+                <div id="sendForm" style="display: none;">
+                    <h5 class="mb-3"><i class="fas fa-phone"></i> Dados do Destinatário</h5>
+
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Número do WhatsApp</label>
+                        <div class="phone-input-group">
+                            <span class="phone-prefix">+55</span>
+                            <input type="tel" class="form-control" id="phoneNumber"
+                                   placeholder="11999999999" required>
+                        </div>
+                        <small class="text-muted">Digite apenas números (DDD + número)</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="empresaNome" class="form-label">Nome do Contato (opcional)</label>
+                        <input type="text" class="form-control" id="empresaNome"
+                               placeholder="Ex: João Silva">
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h5 class="mb-3"><i class="fas fa-file-audio"></i> Arquivo de Áudio</h5>
+
+                    <!-- Área de Upload -->
+                    <div class="audio-preview" id="audioPreview">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-audio"></i>
+                        </div>
+                        <h6>Arraste um arquivo de áudio ou clique para selecionar</h6>
+                        <p class="text-muted mb-0">Formatos aceitos: MP3, OGG, WAV, M4A</p>
+                        <input type="file" id="audioFile" accept="audio/*" style="display: none;">
+                        <button class="btn btn-secondary mt-3" id="selectFileBtn">
+                            <i class="fas fa-folder-open"></i> Selecionar Arquivo
+                        </button>
+                    </div>
+
+                    <!-- Informações do Arquivo -->
+                    <div id="fileInfo" class="file-info" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-file-audio text-success"></i>
+                                <strong id="fileName"></strong>
+                                <small class="text-muted d-block" id="fileSize"></small>
+                            </div>
+                            <button class="btn btn-sm btn-danger" id="removeFileBtn">
+                                <i class="fas fa-times"></i> Remover
+                            </button>
+                        </div>
+                        <audio controls class="w-100 mt-3" id="audioPlayer"></audio>
+                    </div>
+
+                    <!-- Botão de Envio -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-whatsapp btn-lg" id="sendAudioBtn" disabled>
+                            <i class="fas fa-paper-plane"></i> Enviar Áudio
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Log de Atividades -->
+                <div id="logContainer" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Links de Navegação -->
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-light me-2">
+                <i class="fas fa-home"></i> Voltar ao Início
+            </a>
+            <a href="/whatsapp" class="btn btn-light">
+                <i class="fas fa-comments"></i> Enviar Mensagens
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let selectedFile = null;
+
+        // Verificar status da conexão ao carregar
+        window.addEventListener('DOMContentLoaded', checkConnectionStatus);
+
+        // Verificar status periodicamente
+        setInterval(checkConnectionStatus, 5000);
+
+        async function checkConnectionStatus() {
+            try {
+                const response = await fetch('/api/whatsapp/session/status');
+                const data = await response.json();
+
+                const statusBadge = document.getElementById('statusBadge');
+                const connectionControls = document.getElementById('connectionControls');
+                const sendForm = document.getElementById('sendForm');
+
+                if (data.logged_in) {
+                    statusBadge.className = 'status-badge status-connected';
+                    statusBadge.innerHTML = '<i class="fas fa-check-circle"></i> Conectado';
+                    connectionControls.style.display = 'none';
+                    sendForm.style.display = 'block';
+                } else if (data.active) {
+                    statusBadge.className = 'status-badge status-disconnected';
+                    statusBadge.innerHTML = '<i class="fas fa-qrcode"></i> Aguardando Login';
+                } else {
+                    statusBadge.className = 'status-badge status-disconnected';
+                    statusBadge.innerHTML = '<i class="fas fa-times-circle"></i> Desconectado';
+                    connectionControls.style.display = 'block';
+                    sendForm.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Erro ao verificar status:', error);
+            }
+        }
+
+        // Conectar ao WhatsApp
+        document.getElementById('connectBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('connectBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando...';
+
+            try {
+                const response = await fetch('/api/whatsapp/session/start', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    addLog('Navegador iniciado. Escaneie o QR Code na janela do navegador.', 'info');
+
+                    // Aguardar login
+                    await fetch('/api/whatsapp/session/wait-login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ timeout: 120 })
+                    });
+
+                    setTimeout(checkConnectionStatus, 2000);
+                } else {
+                    addLog('Erro ao conectar: ' + data.message, 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fab fa-whatsapp"></i> Conectar ao WhatsApp';
+                }
+            } catch (error) {
+                addLog('Erro: ' + error.message, 'error');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fab fa-whatsapp"></i> Conectar ao WhatsApp';
+            }
+        });
+
+        // Selecionar arquivo
+        document.getElementById('selectFileBtn').addEventListener('click', () => {
+            document.getElementById('audioFile').click();
+        });
+
+        document.getElementById('audioFile').addEventListener('change', handleFileSelect);
+
+        // Drag and Drop
+        const audioPreview = document.getElementById('audioPreview');
+
+        audioPreview.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            audioPreview.classList.add('active');
+        });
+
+        audioPreview.addEventListener('dragleave', () => {
+            audioPreview.classList.remove('active');
+        });
+
+        audioPreview.addEventListener('drop', (e) => {
+            e.preventDefault();
+            audioPreview.classList.remove('active');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            if (!file.type.startsWith('audio/')) {
+                addLog('Por favor, selecione um arquivo de áudio válido.', 'error');
+                return;
+            }
+
+            selectedFile = file;
+
+            // Mostrar informações do arquivo
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileSize').textContent = formatFileSize(file.size);
+
+            // Preview do áudio
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = URL.createObjectURL(file);
+
+            document.getElementById('audioPreview').style.display = 'none';
+            document.getElementById('fileInfo').style.display = 'block';
+            document.getElementById('sendAudioBtn').disabled = false;
+
+            addLog('Arquivo selecionado: ' + file.name, 'success');
+        }
+
+        // Remover arquivo
+        document.getElementById('removeFileBtn').addEventListener('click', () => {
+            selectedFile = null;
+            document.getElementById('audioFile').value = '';
+            document.getElementById('audioPreview').style.display = 'block';
+            document.getElementById('fileInfo').style.display = 'none';
+            document.getElementById('sendAudioBtn').disabled = true;
+            addLog('Arquivo removido.', 'info');
+        });
+
+        // Enviar áudio
+        document.getElementById('sendAudioBtn').addEventListener('click', async () => {
+            if (!selectedFile) {
+                addLog('Selecione um arquivo de áudio primeiro.', 'error');
+                return;
+            }
+
+            const phone = document.getElementById('phoneNumber').value.trim();
+            if (!phone) {
+                addLog('Digite o número do WhatsApp.', 'error');
+                return;
+            }
+
+            const empresaNome = document.getElementById('empresaNome').value.trim();
+
+            const btn = document.getElementById('sendAudioBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+            try {
+                const formData = new FormData();
+                formData.append('audio', selectedFile);
+                formData.append('phone', '+55' + phone);
+                formData.append('empresa_nome', empresaNome);
+
+                addLog(`Enviando áudio para +55${phone}...`, 'info');
+
+                const response = await fetch('/api/whatsapp/send-audio-file', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    addLog(`✅ Áudio enviado com sucesso para ${empresaNome || phone}!`, 'success');
+
+                    // Limpar formulário
+                    document.getElementById('phoneNumber').value = '';
+                    document.getElementById('empresaNome').value = '';
+                    document.getElementById('removeFileBtn').click();
+                } else {
+                    addLog('❌ Erro ao enviar: ' + data.error, 'error');
+                }
+            } catch (error) {
+                addLog('❌ Erro: ' + error.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Áudio';
+            }
+        });
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function addLog(message, type = 'info') {
+            const logContainer = document.getElementById('logContainer');
+            logContainer.style.display = 'block';
+
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry log-${type}`;
+
+            const timestamp = new Date().toLocaleTimeString('pt-BR');
+            logEntry.innerHTML = `<strong>${timestamp}</strong> - ${message}`;
+
+            logContainer.insertBefore(logEntry, logContainer.firstChild);
+
+            // Limitar a 50 entradas
+            while (logContainer.children.length > 50) {
+                logContainer.removeChild(logContainer.lastChild);
+            }
+        }
+    </script>
+</body>
+</html>

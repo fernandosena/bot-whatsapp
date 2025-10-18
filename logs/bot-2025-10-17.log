@@ -1,0 +1,66 @@
+[2025-10-17 11:40:28,494] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-17 11:40:28,629] [INFO] WhatsApp PTT Client inicializado: http://localhost:3001
+[2025-10-17 11:40:28,857] [INFO]  * Restarting with stat
+[2025-10-17 11:40:45,141] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-17 11:40:45,305] [INFO] WhatsApp PTT Client inicializado: http://localhost:3001
+[2025-10-17 11:40:45,733] [WARNING]  * Debugger is active!
+[2025-10-17 11:40:45,815] [INFO]  * Debugger PIN: 111-458-557
+[2025-10-17 11:41:03,836] [INFO] WhatsApp Bot inicializado (sessão: default)
+[2025-10-17 11:41:03,837] [INFO] Iniciando navegador...
+[2025-10-17 11:41:03,837] [INFO] Tentando usar ChromeDriverManager...
+[2025-10-17 11:41:03,837] [INFO] ====== WebDriver manager ======
+[2025-10-17 11:41:04,327] [INFO] Get LATEST chromedriver version for google-chrome
+[2025-10-17 11:41:14,649] [WARNING] ChromeDriverManager falhou: Could not reach host. Are you offline?
+[2025-10-17 11:41:14,649] [INFO] Tentando usar chromedriver do sistema...
+[2025-10-17 11:41:19,967] [INFO] ChromeDriver do sistema: Sucesso!
+[2025-10-17 11:41:20,726] [INFO] Abrindo WhatsApp Web...
+[2025-10-17 11:41:24,838] [INFO] Aguardando carregamento...
+[2025-10-17 11:41:25,378] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:29,465] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:33,286] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:33,933] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:34,502] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:35,329] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:37,755] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:38,257] [INFO] Aguardando login via QR Code...
+[2025-10-17 11:41:38,329] [INFO] Aguardando login (timeout: 120s)...
+[2025-10-17 11:41:38,330] [INFO] Escaneie o QR Code no navegador
+[2025-10-17 11:41:39,005] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:41,640] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:43,362] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:45,814] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:47,157] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:47,822] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:48,948] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:50,781] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:51,483] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:41:55,068] [WARNING] Connection pool is full, discarding connection: localhost. Connection pool size: 1
+[2025-10-17 11:42:48,364] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449287d0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:42:48,575] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b448b5fd0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:42:53,316] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449ac6b0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:42:53,375] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449281d0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:42:58,312] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b47409b50>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:42:58,407] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b448fc9e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:43:03,308] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b4492b110>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:43:03,380] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b44928fe0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:43:08,449] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b448fd490>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:43:08,509] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b456e3a40>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:46:18,452] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449af9e0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:46:18,680] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449290a0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:46:18,718] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449aed50>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:46:23,692] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449aff50>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:46:23,738] [ERROR] Erro ao obter QR Code: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /qr (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b449adfd0>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:51:18,702] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b448fdd30>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 11:51:28,707] [ERROR] Erro ao verificar status: HTTPConnectionPool(host='localhost', port=3001): Max retries exceeded with url: /status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7b5b4492a030>: Failed to establish a new connection: [Errno 111] ECONNREFUSED'))
+[2025-10-17 12:19:50,421] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/app.py', reloading
+[2025-10-17 12:19:51,062] [INFO]  * Restarting with stat
+[2025-10-17 12:20:04,470] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-17 12:20:04,506] [INFO] WhatsApp PTT Client inicializado: http://localhost:3001
+[2025-10-17 12:20:04,600] [WARNING]  * Debugger is active!
+[2025-10-17 12:20:04,615] [INFO]  * Debugger PIN: 111-458-557
+[2025-10-17 12:20:41,198] [INFO]  * Detected change in '/home/fernando-sena/Documentos/bot/src/database/db.py', reloading
+[2025-10-17 12:20:42,030] [INFO]  * Restarting with stat
+[2025-10-17 12:21:04,645] [WARNING] WhatsApp Bot não disponível: Error while connecting to the Internet. Make sure you are connected to the Internet!
+[2025-10-17 12:21:04,708] [INFO] WhatsApp PTT Client inicializado: http://localhost:3001
+[2025-10-17 12:21:04,804] [WARNING]  * Debugger is active!
+[2025-10-17 12:21:04,817] [INFO]  * Debugger PIN: 111-458-557

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Áudio PTT em Massa - WhatsApp Bot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+
+        .empresa-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .empresa-card:hover {
+            border-color: #25D366;
+            background: #f0fff4;
+        }
+
+        .empresa-card.selected {
+            border-color: #25D366;
+            background: #d4edda;
+        }
+
+        .empresa-card.enviado {
+            opacity: 0.6;
+            background: #f8f9fa;
+        }
+
+        .badge-ptt {
+            background: #FF9500;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-disconnected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .btn-ptt {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .btn-ptt:hover {
+            background: #128C7E;
+            color: white;
+        }
+
+        .progress-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .progress-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .progress-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .progress-bloqueado {
+            background: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+
+        .audio-upload-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .audio-upload-area:hover {
+            border-color: #25D366;
+            background: #f0fff4;
+        }
+
+        .audio-upload-area.has-file {
+            border-color: #25D366;
+            background: #d4edda;
+        }
+
+        #empresasList {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center text-white mb-4">
+            <h1 class="mb-2">
+                <i class="fas fa-microphone"></i> Enviar Áudio PTT em Massa
+                <span class="badge-ptt">BULK SENDER</span>
+            </h1>
+            <p>Selecione contatos e envie áudios PTT automaticamente</p>
+        </div>
+
+        <!-- Status PTT -->
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-signal"></i> Status do Serviço PTT</h5>
+                    <span class="status-badge" id="statusBadge">
+                        <i class="fas fa-circle-notch fa-spin"></i> Verificando...
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="qrCodeSection" style="display: none;">
+                    <div class="alert alert-info">
+                        <i class="fas fa-qrcode"></i>
+                        <strong>Conectar WhatsApp:</strong> Escaneie o QR Code abaixo para começar a enviar áudios PTT.
+                    </div>
+                    <div id="qrCodeContainer" style="background: white; padding: 20px; border-radius: 10px; text-align: center; margin: 15px 0;"></div>
+                    <div class="text-center">
+                        <button class="btn btn-sm btn-secondary" id="refreshQRBtn">
+                            <i class="fas fa-sync"></i> Atualizar QR Code
+                        </button>
+                    </div>
+                </div>
+                <div id="connectionInfo" style="display: none;">
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Conectado!</strong> Número: <span id="connectedNumber">Carregando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Coluna de Seleção -->
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-users"></i> Selecionar Contatos</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filtros -->
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Setor</label>
+                                <select class="form-select" id="filterSetor">
+                                    <option value="">Todos os setores</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Cidade</label>
+                                <select class="form-select" id="filterCidade">
+                                    <option value="">Todas as cidades</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Buscar</label>
+                                <input type="text" class="form-control" id="filterSearch" placeholder="Nome da empresa...">
+                            </div>
+                        </div>
+
+                        <!-- Estatísticas -->
+                        <div class="stats-card">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <h4 id="statTotal" class="mb-0 text-primary">0</h4>
+                                    <small class="text-muted">Total</small>
+                                </div>
+                                <div class="col-4">
+                                    <h4 id="statSelecionados" class="mb-0 text-success">0</h4>
+                                    <small class="text-muted">Selecionados</small>
+                                </div>
+                                <div class="col-4">
+                                    <h4 id="statDisponiveis" class="mb-0 text-info">0</h4>
+                                    <small class="text-muted">Disponíveis</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ações em Massa -->
+                        <div class="btn-group mb-3 w-100">
+                            <button class="btn btn-sm btn-outline-primary" id="selectAllBtn">
+                                <i class="fas fa-check-double"></i> Selecionar Todos
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" id="selectNoneBtn">
+                                <i class="fas fa-times"></i> Desmarcar Todos
+                            </button>
+                            <button class="btn btn-sm btn-outline-info" id="selectOnlyAvailableBtn">
+                                <i class="fas fa-filter"></i> Apenas Disponíveis
+                            </button>
+                        </div>
+
+                        <!-- Lista de Empresas -->
+                        <div id="empresasList">
+                            <div class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Carregando...</span>
+                                </div>
+                                <p class="mt-2">Carregando contatos...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna de Envio -->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-paper-plane"></i> Configurar Envio</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Upload de Áudio -->
+                        <div class="mb-3">
+                            <label class="form-label">Arquivo de Áudio PTT</label>
+                            <div class="audio-upload-area" id="audioUploadArea">
+                                <i class="fas fa-file-audio fa-3x text-secondary mb-3"></i>
+                                <h6>Clique ou arraste o áudio aqui</h6>
+                                <p class="text-muted mb-0">MP3, WAV, OGG, M4A (máx 16MB)</p>
+                                <input type="file" id="audioFile" accept="audio/*" style="display: none;">
+                            </div>
+                            <div id="audioInfo" style="display: none;" class="mt-3 p-3 bg-light rounded">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-file-audio text-success"></i>
+                                        <strong id="audioFileName"></strong>
+                                        <small class="text-muted d-block" id="audioFileSize"></small>
+                                    </div>
+                                    <button class="btn btn-sm btn-danger" id="removeAudioBtn">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <audio controls class="w-100 mt-3" id="audioPlayer"></audio>
+                            </div>
+                        </div>
+
+                        <!-- Configurações -->
+                        <div class="mb-3">
+                            <label class="form-label">Nome da Campanha</label>
+                            <input type="text" class="form-control" id="campanhaNome"
+                                   placeholder="Campanha Áudio PTT...">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Delay entre envios (segundos)</label>
+                            <input type="number" class="form-control" id="delayInput" value="30" min="10" max="300">
+                            <small class="text-muted">Recomendado: 30-60 segundos</small>
+                        </div>
+
+                        <!-- Botão de Envio -->
+                        <button class="btn btn-ptt btn-lg w-100 mb-3" id="sendBulkBtn" disabled>
+                            <i class="fas fa-microphone-alt"></i> Enviar PTT em Massa
+                        </button>
+
+                        <!-- Progresso -->
+                        <div id="progressContainer" style="display: none;">
+                            <h6><i class="fas fa-chart-line"></i> Progresso do Envio</h6>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" id="progressBar" role="progressbar" style="width: 0%">
+                                    <span id="progressText">0/0</span>
+                                </div>
+                            </div>
+                            <div id="progressStats" class="small text-muted mb-3">
+                                <i class="fas fa-check-circle text-success"></i> <span id="progressSuccess">0</span> enviados
+                                | <i class="fas fa-times-circle text-danger"></i> <span id="progressFailed">0</span> falhas
+                            </div>
+                            <div id="progressLog" style="max-height: 300px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão Voltar -->
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-light">
+                <i class="fas fa-home"></i> Voltar ao Início
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        const socket = io();
+        let empresas = [];
+        let selectedIds = new Set();
+        let audioFile = null;
+
+        // Verificar status PTT ao carregar
+        window.addEventListener('DOMContentLoaded', () => {
+            checkPTTStatus();
+            loadFilters();
+            loadEmpresas();
+            setInterval(checkPTTStatus, 10000); // Atualizar a cada 10s
+        });
+
+        async function checkPTTStatus() {
+            try {
+                const response = await fetch('/api/whatsapp/ptt/status');
+                const data = await response.json();
+                const statusBadge = document.getElementById('statusBadge');
+                const qrCodeSection = document.getElementById('qrCodeSection');
+                const connectionInfo = document.getElementById('connectionInfo');
+
+                if (data.connected) {
+                    statusBadge.className = 'status-badge status-connected';
+                    statusBadge.innerHTML = '<i class="fas fa-check-circle"></i> Conectado';
+                    qrCodeSection.style.display = 'none';
+                    connectionInfo.style.display = 'block';
+
+                    // Mostrar número conectado
+                    if (data.phoneNumber) {
+                        document.getElementById('connectedNumber').textContent = data.phoneNumber;
+                    }
+                } else {
+                    statusBadge.className = 'status-badge status-disconnected';
+                    statusBadge.innerHTML = '<i class="fas fa-times-circle"></i> Desconectado';
+                    connectionInfo.style.display = 'none';
+
+                    // Tentar carregar QR Code
+                    await loadQRCode();
+                }
+            } catch (error) {
+                console.error('Erro ao verificar status:', error);
+                const statusBadge = document.getElementById('statusBadge');
+                statusBadge.className = 'status-badge status-disconnected';
+                statusBadge.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erro';
+            }
+        }
+
+        async function loadQRCode() {
+            try {
+                const response = await fetch('/api/whatsapp/ptt/qr');
+                const data = await response.json();
+
+                if (data.success && data.qrCode) {
+                    const qrCodeSection = document.getElementById('qrCodeSection');
+                    const qrCodeContainer = document.getElementById('qrCodeContainer');
+
+                    qrCodeSection.style.display = 'block';
+                    qrCodeContainer.innerHTML = ''; // Limpar QR Code anterior
+
+                    // Gerar novo QR Code
+                    new QRCode(qrCodeContainer, {
+                        text: data.qrCode,
+                        width: 256,
+                        height: 256,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+
+                    console.log('✅ QR Code carregado');
+                } else {
+                    console.log('ℹ️ Nenhum QR Code disponível');
+                }
+            } catch (error) {
+                console.error('Erro ao carregar QR Code:', error);
+            }
+        }
+
+        // Botão para atualizar QR Code
+        document.getElementById('refreshQRBtn')?.addEventListener('click', async () => {
+            const btn = document.getElementById('refreshQRBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Atualizando...';
+
+            await loadQRCode();
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }, 1000);
+        });
+
+        async function loadFilters() {
+            try {
+                // Carregar setores
+                const responseSetores = await fetch('/api/setores');
+                const setores = await responseSetores.json();
+                const filterSetor = document.getElementById('filterSetor');
+                setores.forEach(setor => {
+                    const option = document.createElement('option');
+                    option.value = setor;
+                    option.textContent = setor;
+                    filterSetor.appendChild(option);
+                });
+
+                // Carregar cidades
+                const responseCidades = await fetch('/api/cidades');
+                const cidades = await responseCidades.json();
+                const filterCidade = document.getElementById('filterCidade');
+                cidades.forEach(cidade => {
+                    const option = document.createElement('option');
+                    option.value = cidade;
+                    option.textContent = cidade;
+                    filterCidade.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar filtros:', error);
+            }
+        }
+
+        async function loadEmpresas() {
+            try {
+                const setor = document.getElementById('filterSetor').value;
+                const cidade = document.getElementById('filterCidade').value;
+                const search = document.getElementById('filterSearch').value;
+
+                const params = new URLSearchParams({setor, cidade, search});
+                const response = await fetch(`/api/audio/empresas-disponiveis?${params}`);
+                const data = await response.json();
+
+                empresas = data.empresas || [];
+                updateStats(data.stats);
+                renderEmpresas();
+            } catch (error) {
+                console.error('Erro ao carregar empresas:', error);
+                document.getElementById('empresasList').innerHTML =
+                    '<div class="alert alert-danger">Erro ao carregar contatos</div>';
+            }
+        }
+
+        function renderEmpresas() {
+            const container = document.getElementById('empresasList');
+
+            if (empresas.length === 0) {
+                container.innerHTML = '<div class="alert alert-info">Nenhum contato encontrado</div>';
+                return;
+            }
+
+            container.innerHTML = empresas.map(emp => {
+                const selected = selectedIds.has(emp.id);
+                const enviado = emp.status_audio === 'enviado';
+                return `
+                    <div class="empresa-card ${selected ? 'selected' : ''} ${enviado ? 'enviado' : ''}"
+                         data-id="${emp.id}" onclick="toggleSelect(${emp.id})">
+                        <div class="d-flex align-items-center">
+                            <input type="checkbox" ${selected ? 'checked' : ''} ${enviado ? 'disabled' : ''}
+                                   onclick="event.stopPropagation(); toggleSelect(${emp.id})"
+                                   style="margin-right: 10px;">
+                            <div class="flex-grow-1">
+                                <strong>${emp.nome}</strong>
+                                <div class="small text-muted">
+                                    <i class="fas fa-map-marker-alt"></i> ${emp.cidade} |
+                                    <i class="fas fa-phone"></i> ${emp.whatsapp}
+                                </div>
+                            </div>
+                            ${enviado ? '<span class="badge bg-success">Já Enviado</span>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleSelect(id) {
+            const empresa = empresas.find(e => e.id === id);
+            if (empresa && empresa.status_audio !== 'enviado') {
+                if (selectedIds.has(id)) {
+                    selectedIds.delete(id);
+                } else {
+                    selectedIds.add(id);
+                }
+                renderEmpresas();
+                updateSelectedCount();
+            }
+        }
+
+        function updateStats(stats) {
+            document.getElementById('statTotal').textContent = stats.total || 0;
+            document.getElementById('statDisponiveis').textContent = stats.disponiveis || 0;
+        }
+
+        function updateSelectedCount() {
+            document.getElementById('statSelecionados').textContent = selectedIds.size;
+            document.getElementById('sendBulkBtn').disabled = selectedIds.size === 0 || !audioFile;
+        }
+
+        // Seleção em massa
+        document.getElementById('selectAllBtn').addEventListener('click', () => {
+            empresas.filter(e => e.status_audio !== 'enviado').forEach(e => selectedIds.add(e.id));
+            renderEmpresas();
+            updateSelectedCount();
+        });
+
+        document.getElementById('selectNoneBtn').addEventListener('click', () => {
+            selectedIds.clear();
+            renderEmpresas();
+            updateSelectedCount();
+        });
+
+        document.getElementById('selectOnlyAvailableBtn').addEventListener('click', () => {
+            selectedIds.clear();
+            empresas.filter(e => e.status_audio !== 'enviado').forEach(e => selectedIds.add(e.id));
+            renderEmpresas();
+            updateSelectedCount();
+        });
+
+        // Filtros
+        ['filterSetor', 'filterCidade', 'filterSearch'].forEach(id => {
+            document.getElementById(id).addEventListener('change', loadEmpresas);
+        });
+
+        document.getElementById('filterSearch').addEventListener('input', debounce(loadEmpresas, 500));
+
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Upload de áudio
+        const audioUploadArea = document.getElementById('audioUploadArea');
+        const audioFileInput = document.getElementById('audioFile');
+
+        audioUploadArea.addEventListener('click', () => audioFileInput.click());
+
+        audioFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleAudioFile(file);
+        });
+
+        // Drag and drop
+        audioUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            audioUploadArea.style.borderColor = '#25D366';
+        });
+
+        audioUploadArea.addEventListener('dragleave', () => {
+            audioUploadArea.style.borderColor = '#dee2e6';
+        });
+
+        audioUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            if (files.length > 0) handleAudioFile(files[0]);
+            audioUploadArea.style.borderColor = '#dee2e6';
+        });
+
+        function handleAudioFile(file) {
+            if (!file.type.startsWith('audio/')) {
+                alert('Por favor, selecione um arquivo de áudio');
+                return;
+            }
+
+            if (file.size > 16 * 1024 * 1024) {
+                alert('Arquivo muito grande. Máximo: 16MB');
+                return;
+            }
+
+            audioFile = file;
+            document.getElementById('audioFileName').textContent = file.name;
+            document.getElementById('audioFileSize').textContent = formatFileSize(file.size);
+            document.getElementById('audioPlayer').src = URL.createObjectURL(file);
+
+            audioUploadArea.classList.add('has-file');
+            audioUploadArea.style.display = 'none';
+            document.getElementById('audioInfo').style.display = 'block';
+
+            updateSelectedCount();
+        }
+
+        document.getElementById('removeAudioBtn').addEventListener('click', () => {
+            audioFile = null;
+            audioFileInput.value = '';
+            audioUploadArea.classList.remove('has-file');
+            audioUploadArea.style.display = 'block';
+            document.getElementById('audioInfo').style.display = 'none';
+            updateSelectedCount();
+        });
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // Envio em massa
+        document.getElementById('sendBulkBtn').addEventListener('click', async () => {
+            // Verificar se PTT está conectado
+            try {
+                const statusResponse = await fetch('/api/whatsapp/ptt/status');
+                const statusData = await statusResponse.json();
+
+                if (!statusData.connected) {
+                    alert('❌ WhatsApp não está conectado!\n\nPor favor, escaneie o QR Code acima antes de enviar.');
+                    return;
+                }
+            } catch (error) {
+                alert('❌ Erro ao verificar conexão PTT.\n\nCertifique-se de que o serviço está rodando:\nnode whatsapp-ptt-service/server.js');
+                return;
+            }
+
+            if (selectedIds.size === 0 || !audioFile) {
+                alert('Selecione contatos e um arquivo de áudio');
+                return;
+            }
+
+            if (!confirm(`Enviar áudio PTT para ${selectedIds.size} contato(s)?`)) {
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('audio', audioFile);
+            formData.append('empresa_ids', Array.from(selectedIds).join(','));
+            formData.append('campanha_nome', document.getElementById('campanhaNome').value ||
+                           `Campanha ${new Date().toLocaleString('pt-BR')}`);
+            formData.append('delay', document.getElementById('delayInput').value);
+
+            try {
+                document.getElementById('sendBulkBtn').disabled = true;
+                document.getElementById('sendBulkBtn').innerHTML =
+                    '<i class="fas fa-spinner fa-spin"></i> Criando campanha...';
+
+                const response = await fetch('/api/audio/send-bulk', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Iniciar envio via WebSocket
+                    socket.emit('send_bulk_audio_ptt', {
+                        campanha_id: data.campanha_id,
+                        empresa_ids: Array.from(selectedIds),
+                        audio_path: data.audio_path,
+                        delay: parseInt(document.getElementById('delayInput').value)
+                    });
+
+                    document.getElementById('progressContainer').style.display = 'block';
+                } else {
+                    alert('Erro: ' + data.message);
+                    document.getElementById('sendBulkBtn').disabled = false;
+                    document.getElementById('sendBulkBtn').innerHTML =
+                        '<i class="fas fa-microphone-alt"></i> Enviar PTT em Massa';
+                }
+            } catch (error) {
+                alert('Erro ao criar campanha: ' + error.message);
+                document.getElementById('sendBulkBtn').disabled = false;
+                document.getElementById('sendBulkBtn').innerHTML =
+                    '<i class="fas fa-microphone-alt"></i> Enviar PTT em Massa';
+            }
+        });
+
+        // WebSocket events
+        socket.on('audio_bulk_status', (data) => {
+            console.log('Status:', data);
+        });
+
+        socket.on('audio_bulk_progress', (data) => {
+            const percent = (data.current / data.total) * 100;
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = `${data.current}/${data.total}`;
+            document.getElementById('progressSuccess').textContent = data.success;
+            document.getElementById('progressFailed').textContent = data.failed;
+
+            // Adicionar log
+            const logEntry = document.createElement('div');
+            logEntry.className = `progress-item progress-${data.status}`;
+            const icon = data.status === 'sucesso' ? 'check-circle' :
+                        data.status === 'bloqueado' ? 'ban' : 'times-circle';
+            logEntry.innerHTML = `
+                <i class="fas fa-${icon}"></i>
+                <strong>${data.empresa}</strong> (${data.phone})
+                ${data.error ? `<br><small>${data.error}</small>` : ''}
+            `;
+            document.getElementById('progressLog').prepend(logEntry);
+        });
+
+        socket.on('audio_bulk_complete', (data) => {
+            document.getElementById('sendBulkBtn').disabled = false;
+            document.getElementById('sendBulkBtn').innerHTML =
+                '<i class="fas fa-microphone-alt"></i> Enviar PTT em Massa';
+
+            alert(data.message);
+
+            // Recarregar lista
+            selectedIds.clear();
+            loadEmpresas();
+        });
+
+        socket.on('audio_bulk_error', (data) => {
+            alert('Erro: ' + data.message);
+            document.getElementById('sendBulkBtn').disabled = false;
+            document.getElementById('sendBulkBtn').innerHTML =
+                '<i class="fas fa-microphone-alt"></i> Enviar PTT em Massa';
+        });
+    </script>
+</body>
+</html>
