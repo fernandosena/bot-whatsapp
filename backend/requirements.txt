@@ -1,0 +1,70 @@
+# FastAPI e dependências
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# MongoDB
+motor==3.3.2
+pymongo==4.6.1
+
+# Autenticação e Segurança
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+bcrypt==4.1.2
+
+# Pagamentos
+mercadopago==2.2.1
+stripe==7.10.0
+paypal-checkout-serversdk==1.0.2
+
+# Utilitários
+python-slugify==8.0.1
+python-dateutil==2.8.2
+
+# Monitoramento e Logs
+sentry-sdk[fastapi]==1.39.2
+
+# Testes
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.26.0
+
+# Email
+aiosmtplib==3.0.1
+jinja2==3.1.3
+
+# Redis (Cache)
+redis==5.0.1
+aioredis==2.0.1
+
+# Validação
+email-validator==2.1.0
+phonenumbers==8.13.27
+
+# HTTP Requests
+aiohttp==3.9.1
+requests==2.31.0
+
+# Scraping (para integração com código existente)
+selenium==4.16.0
+beautifulsoup4==4.12.2
+lxml==4.9.4
+
+# WhatsApp (para integração com código existente)
+playwright==1.40.0
+webdriver-manager==4.0.1
+
+# Cron Jobs
+apscheduler==3.10.4
+
+# Prometheus (métricas)
+prometheus-client==0.19.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# CORS
+python-cors==1.0.0
