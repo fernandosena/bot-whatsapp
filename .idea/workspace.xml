@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18dfa60b-5494-45a1-a890-1af2b63ac08e" name="Changes" comment="feat: melhorias">
+    <list default="true" id="18dfa60b-5494-45a1-a890-1af2b63ac08e" name="Changes" comment="feat: iniciando novo projeto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check_setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check_whatsapp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clear_ptt_session.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exemplo_busca_expandida.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exemplo_envio_audio.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fix_display.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/install_chromedriver.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/install_ptt.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restart_ptt.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_ptt_service.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_server.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stop_ptt_service.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_chrome.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROGRESSO_IMPLEMENTACAO.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROGRESSO_IMPLEMENTACAO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROXIMOS_PASSOS.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROXIMOS_PASSOS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QUICK_SUMMARY.md" beforeDir="false" afterPath="$PROJECT_DIR$/QUICK_SUMMARY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routes/payments/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes/payments/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/frontend/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/frontend/src/lib/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +79,7 @@
       <workItem from="1760648253102" duration="3437000" />
       <workItem from="1760700688631" duration="1827000" />
       <workItem from="1760711963476" duration="4355000" />
-      <workItem from="1760806263403" duration="10966000" />
+      <workItem from="1760806263403" duration="15812000" />
     </task>
     <task id="LOCAL-00001" summary="feat: sistema funcional">
       <option name="closed" value="true" />
@@ -161,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760814350239</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: iniciando novo projeto">
+      <option name="closed" value="true" />
+      <created>1760831109089</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760831109089</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +173,7 @@
     <MESSAGE value="fix: resolvido alguns bugs de evio" />
     <MESSAGE value="fix: adicionado banco de dados" />
     <MESSAGE value="feat: melhorias" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: melhorias" />
+    <MESSAGE value="feat: iniciando novo projeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: iniciando novo projeto" />
   </component>
 </project>

@@ -125,6 +125,29 @@ export const plansApi = {
     api.get('/api/admin/plans/stats/summary'),
 }
 
+// Profile endpoints
+export const profileApi = {
+  getMyProfile: () =>
+    api.get('/api/profile/me'),
+
+  updateProfile: (data: { full_name?: string; phone?: string; company?: string; bio?: string }) =>
+    api.put('/api/profile/me', data),
+
+  changePassword: (data: { current_password: string; new_password: string }) =>
+    api.post('/api/profile/me/change-password', data),
+
+  changeEmail: (data: { new_email: string; password: string }) =>
+    api.post('/api/profile/me/change-email', data),
+
+  deleteAccount: (password: string) =>
+    api.delete('/api/profile/me', {
+      params: { password },
+    }),
+
+  getMyStats: () =>
+    api.get('/api/profile/me/stats'),
+}
+
 // Dashboard Admin endpoints
 export const dashboardApi = {
   getOverviewStats: () =>

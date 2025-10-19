@@ -9,8 +9,8 @@
 
 | Categoria | Progresso | Status |
 |-----------|-----------|--------|
-| **Backend (FastAPI)** | 45% | ✅ Dashboard Admin com Métricas |
-| **Frontend Web (Next.js)** | 70% | ✅ Dashboard Admin com Gráficos |
+| **Backend (FastAPI)** | 50% | ✅ Perfil de Usuário Implementado |
+| **Frontend Web (Next.js)** | 75% | ✅ Perfil com Edição e Segurança |
 | **Desktop (Electron)** | 0% | ⏳ Não Iniciado |
 | **Banco de Dados (MongoDB)** | 50% | ✅ Schemas Criados |
 | **Autenticação (JWT)** | 100% | ✅ Completo |

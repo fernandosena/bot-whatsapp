@@ -16,6 +16,10 @@ from app.core.database import connect_to_mongo, close_mongo_connection
 from app.routes.admin import plans as admin_plans_routes
 from app.routes.admin import dashboard as admin_dashboard_routes
 from app.routes.auth import auth as auth_routes
+from app.routes.users import profile as profile_routes
+from app.routes.payments import mercadopago as mercadopago_routes
+from app.routes.payments import stripe as stripe_routes
+from app.routes.payments import paypal as paypal_routes
 
 load_dotenv()
 
@@ -104,6 +108,12 @@ async def global_exception_handler(request: Request, exc: Exception):
 app.include_router(admin_plans_routes.router, prefix="/api/admin/plans", tags=["Admin - Plans"])
 app.include_router(admin_dashboard_routes.router, prefix="/api/admin/dashboard", tags=["Admin - Dashboard"])
 app.include_router(auth_routes.router, prefix="/api/auth", tags=["Authentication"])
+app.include_router(profile_routes.router, prefix="/api/profile", tags=["User Profile"])
+
+# Rotas de pagamento
+app.include_router(mercadopago_routes.router, prefix="/api/payments/mercadopago", tags=["Payments - Mercado Pago"])
+app.include_router(stripe_routes.router, prefix="/api/payments/stripe", tags=["Payments - Stripe"])
+app.include_router(paypal_routes.router, prefix="/api/payments/paypal", tags=["Payments - PayPal"])
 
 
 if __name__ == "__main__":

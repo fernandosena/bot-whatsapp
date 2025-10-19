@@ -55,6 +55,9 @@ def get_audit_logs_collection():
 def get_payment_logs_collection():
     return mongodb.database.payment_logs
 
+def get_payments_collection():
+    return mongodb.database.payments
+
 def get_contacts_collection():
     return mongodb.database.contacts
 
