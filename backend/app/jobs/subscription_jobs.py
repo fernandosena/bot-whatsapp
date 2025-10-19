@@ -21,6 +21,11 @@ from app.core.database import (
     get_plans_collection
 )
 from app.utils.audit import log_audit
+from app.core.email import (
+    send_expiring_notification,
+    send_expired_notification,
+    send_renewed_notification
+)
 
 logger = logging.getLogger(__name__)
 
@@ -72,12 +77,27 @@ async def check_expiring_subscriptions():
                     logger.warning(f"⚠️ Usuário não encontrado: {subscription['user_id']}")
                     continue
 
-                # TODO: Enviar email de notificação
-                # Por enquanto, apenas logar
-                logger.info(
-                    f"📧 Notificação de expiração para {user.get('email')}: "
-                    f"Assinatura expira em {subscription['current_period_end']}"
-                )
+                # Buscar plano
+                plan = await plans_collection.find_one({
+                    "_id": ObjectId(subscription["plan_id"]),
+                    "flag_del": False
+                })
+
+                # Enviar email de notificação
+                if plan:
+                    await send_expiring_notification(
+                        user_email=user.get("email"),
+                        user_name=user.get("name", "Usuário"),
+                        plan_name=plan.get("name", "Plano"),
+                        expires_at=subscription["current_period_end"],
+                        days=3
+                    )
+                    logger.info(
+                        f"📧 Email de expiração enviado para {user.get('email')}: "
+                        f"Assinatura expira em {subscription['current_period_end']}"
+                    )
+                else:
+                    logger.warning(f"⚠️ Plano não encontrado: {subscription['plan_id']}")
 
                 # Marcar como notificado
                 await subscriptions_collection.update_one(
@@ -180,11 +200,31 @@ async def process_expired_subscriptions():
                     }
                 )
 
-                # TODO: Enviar email de expiração
-                logger.info(
-                    f"📧 Assinatura expirada: user_id={subscription['user_id']}, "
-                    f"plan_id={subscription['plan_id']}"
-                )
+                # Buscar usuário e plano para enviar email
+                user = await users_collection.find_one({
+                    "_id": ObjectId(subscription["user_id"]),
+                    "flag_del": False
+                })
+
+                plan = await plans_collection.find_one({
+                    "_id": ObjectId(subscription["plan_id"]),
+                    "flag_del": False
+                })
+
+                # Enviar email de expiração
+                if user and plan:
+                    await send_expired_notification(
+                        user_email=user.get("email"),
+                        user_name=user.get("name", "Usuário"),
+                        plan_name=plan.get("name", "Plano"),
+                        expired_at=now
+                    )
+                    logger.info(
+                        f"📧 Email de expiração enviado: user_id={subscription['user_id']}, "
+                        f"plan_id={subscription['plan_id']}"
+                    )
+                else:
+                    logger.warning(f"⚠️ Usuário ou plano não encontrado para envio de email")
 
                 # Log de auditoria
                 await log_audit(
@@ -309,6 +349,15 @@ async def renew_subscriptions():
                                         "last_renewed_at": datetime.utcnow()
                                     }
                                 }
+                            )
+
+                            # Enviar email de renovação
+                            await send_renewed_notification(
+                                user_email=user.get("email"),
+                                user_name=user.get("name", "Usuário"),
+                                plan_name=plan.get("name", "Plano"),
+                                new_period_end=new_period_end,
+                                amount=plan.get("price_monthly", 0)
                             )
 
                             logger.info(
