@@ -180,6 +180,58 @@ export const dashboardApi = {
     }),
 }
 
+// ==================== Payments API ====================
+export const paymentsApi = {
+  // Mercado Pago
+  createMercadoPagoPreference: (data: { plan_id: string; payment_method: string; gateway: string }) =>
+    api.post('/api/payments/mercadopago/create-preference', data),
+
+  getMercadoPagoStatus: (paymentId: string) =>
+    api.get(`/api/payments/mercadopago/status/${paymentId}`),
+
+  // Stripe
+  createStripeCheckout: (data: { plan_id: string; payment_method: string; gateway: string }) =>
+    api.post('/api/payments/stripe/create-checkout-session', data),
+
+  createStripeSubscription: (data: {
+    plan_id: string;
+    payment_method: string;
+    gateway: string;
+    interval: string;
+    card_token: string;
+  }) =>
+    api.post('/api/payments/stripe/create-subscription', data),
+
+  cancelStripeSubscription: (data: { reason?: string; cancel_at_period_end: boolean }) =>
+    api.post('/api/payments/stripe/cancel-subscription', data),
+
+  getStripeStatus: (paymentId: string) =>
+    api.get(`/api/payments/stripe/status/${paymentId}`),
+
+  // PayPal
+  createPayPalOrder: (data: { plan_id: string; payment_method: string; gateway: string }) =>
+    api.post('/api/payments/paypal/create-order', data),
+
+  capturePayPalOrder: (orderId: string) =>
+    api.post(`/api/payments/paypal/capture-order/${orderId}`),
+
+  getPayPalStatus: (paymentId: string) =>
+    api.get(`/api/payments/paypal/status/${paymentId}`),
+
+  // History and Subscription
+  getMyPayments: (params?: { limit?: number; status?: string; gateway?: string }) =>
+    api.get('/api/payments/my-payments', { params }),
+
+  getMySubscription: () =>
+    api.get('/api/payments/my-subscription'),
+
+  getPaymentDetails: (paymentId: string) =>
+    api.get(`/api/payments/payment/${paymentId}`),
+
+  getPaymentStats: () =>
+    api.get('/api/payments/stats'),
+}
+
 // Helper functions
 export const setAuthTokens = (accessToken: string, refreshToken: string, user: any) => {
   if (typeof window !== 'undefined') {

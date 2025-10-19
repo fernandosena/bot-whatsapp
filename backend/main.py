@@ -20,6 +20,7 @@ from app.routes.users import profile as profile_routes
 from app.routes.payments import mercadopago as mercadopago_routes
 from app.routes.payments import stripe as stripe_routes
 from app.routes.payments import paypal as paypal_routes
+from app.routes.payments import history as payment_history_routes
 
 load_dotenv()
 
@@ -114,6 +115,7 @@ app.include_router(profile_routes.router, prefix="/api/profile", tags=["User Pro
 app.include_router(mercadopago_routes.router, prefix="/api/payments/mercadopago", tags=["Payments - Mercado Pago"])
 app.include_router(stripe_routes.router, prefix="/api/payments/stripe", tags=["Payments - Stripe"])
 app.include_router(paypal_routes.router, prefix="/api/payments/paypal", tags=["Payments - PayPal"])
+app.include_router(payment_history_routes.router, prefix="/api/payments", tags=["Payments - History"])
 
 
 if __name__ == "__main__":
