@@ -15,12 +15,12 @@ from app.core.scheduler import (
     resume_job,
     trigger_job_now
 )
-from app.middleware.auth import get_current_user, require_admin
+from app.middleware.auth import get_current_user, get_current_admin_user
 
 router = APIRouter()
 
 
-@router.get("/jobs", dependencies=[Depends(require_admin)])
+@router.get("/jobs", dependencies=[Depends(get_current_admin_user)])
 async def get_all_jobs():
     """
     Lista todos os jobs agendados
@@ -45,7 +45,7 @@ async def get_all_jobs():
         )
 
 
-@router.get("/jobs/{job_id}", dependencies=[Depends(require_admin)])
+@router.get("/jobs/{job_id}", dependencies=[Depends(get_current_admin_user)])
 async def get_job(job_id: str):
     """
     Obtém informações detalhadas de um job
@@ -78,7 +78,7 @@ async def get_job(job_id: str):
         )
 
 
-@router.post("/jobs/{job_id}/pause", dependencies=[Depends(require_admin)])
+@router.post("/jobs/{job_id}/pause", dependencies=[Depends(get_current_admin_user)])
 async def pause_job_endpoint(
     job_id: str,
     current_user: dict = Depends(get_current_user)
@@ -119,7 +119,7 @@ async def pause_job_endpoint(
         )
 
 
-@router.post("/jobs/{job_id}/resume", dependencies=[Depends(require_admin)])
+@router.post("/jobs/{job_id}/resume", dependencies=[Depends(get_current_admin_user)])
 async def resume_job_endpoint(
     job_id: str,
     current_user: dict = Depends(get_current_user)
@@ -160,7 +160,7 @@ async def resume_job_endpoint(
         )
 
 
-@router.post("/jobs/{job_id}/trigger", dependencies=[Depends(require_admin)])
+@router.post("/jobs/{job_id}/trigger", dependencies=[Depends(get_current_admin_user)])
 async def trigger_job_endpoint(
     job_id: str,
     current_user: dict = Depends(get_current_user)
@@ -201,7 +201,7 @@ async def trigger_job_endpoint(
         )
 
 
-@router.get("/jobs/stats/summary", dependencies=[Depends(require_admin)])
+@router.get("/jobs/stats/summary", dependencies=[Depends(get_current_admin_user)])
 async def get_jobs_summary():
     """
     Resumo dos jobs agendados

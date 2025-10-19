@@ -7,10 +7,10 @@ from typing import List
 from bson import ObjectId
 from datetime import datetime
 
-from backend.app.models.plan import PlanCreate, PlanUpdate, PlanResponse, PlanInDB
-from backend.app.models.subscription import SubscriptionInDB
-from backend.app.core.database import get_plans_collection, get_subscriptions_collection
-from backend.app.utils.soft_delete import (
+from app.models.plan import PlanCreate, PlanUpdate, PlanResponse, PlanInDB
+from app.models.subscription import SubscriptionInDB
+from app.core.database import get_plans_collection, get_subscriptions_collection
+from app.utils.soft_delete import (
     find_active,
     find_one_active,
     soft_delete,
@@ -18,7 +18,7 @@ from backend.app.utils.soft_delete import (
     find_deleted,
     count_active
 )
-from backend.app.utils.audit import (
+from app.utils.audit import (
     log_plan_created,
     log_plan_updated,
     log_plan_deleted,

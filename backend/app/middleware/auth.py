@@ -6,9 +6,9 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from typing import Optional
 from bson import ObjectId
 
-from backend.app.core.security import verify_token
-from backend.app.core.database import get_users_collection, get_sessions_collection
-from backend.app.utils.soft_delete import find_one_active
+from app.core.security import verify_token
+from app.core.database import get_users_collection, get_sessions_collection
+from app.utils.soft_delete import find_one_active
 
 
 security = HTTPBearer()
@@ -170,7 +170,7 @@ def check_plan_feature(feature: str):
         Dependency function
     """
     async def verify_feature(current_user: dict = Depends(get_current_user)):
-        from backend.app.core.database import get_subscriptions_collection, get_plans_collection
+        from app.core.database import get_subscriptions_collection, get_plans_collection
 
         # Busca assinatura ativa do usuário
         subscriptions_collection = get_subscriptions_collection()
@@ -223,7 +223,7 @@ async def verify_device_limit(current_user: dict = Depends(get_current_user)):
     Raises:
         HTTPException: Se limite de dispositivos foi atingido
     """
-    from backend.app.core.database import get_subscriptions_collection, get_plans_collection
+    from app.core.database import get_subscriptions_collection, get_plans_collection
 
     # Busca assinatura ativa
     subscriptions_collection = get_subscriptions_collection()
@@ -261,7 +261,3 @@ async def verify_device_limit(current_user: dict = Depends(get_current_user)):
         )
 
     return current_user
-
-
-# Alias para compatibilidade com rotas admin
-require_admin = Depends(get_current_admin_user)

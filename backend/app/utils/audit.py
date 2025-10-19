@@ -4,7 +4,7 @@ Sistema de Auditoria - Registra TODAS as ações críticas do sistema
 from datetime import datetime
 from typing import Dict, Optional, Any
 from bson import ObjectId
-from backend.app.core.database import get_audit_logs_collection
+from app.core.database import get_audit_logs_collection
 
 
 async def log_audit(

@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any
 from bson import ObjectId
 
-from app.middleware.auth import require_admin
+from app.middleware.auth import get_current_admin_user
 from app.core.database import (
     get_users_collection,
     get_plans_collection,
@@ -21,7 +21,7 @@ from app.utils.soft_delete import find_active, count_active
 router = APIRouter(tags=["Admin Dashboard"])
 
 
-@router.get("/stats/overview", dependencies=[Depends(require_admin)])
+@router.get("/stats/overview", dependencies=[Depends(get_current_admin_user)])
 async def get_overview_stats():
     """
     Retorna estatísticas gerais do sistema
@@ -91,7 +91,7 @@ async def get_overview_stats():
     }
 
 
-@router.get("/stats/users-growth", dependencies=[Depends(require_admin)])
+@router.get("/stats/users-growth", dependencies=[Depends(get_current_admin_user)])
 async def get_users_growth(days: int = 30):
     """
     Retorna o crescimento de usuários nos últimos N dias
@@ -136,7 +136,7 @@ async def get_users_growth(days: int = 30):
     }
 
 
-@router.get("/stats/subscriptions-by-plan", dependencies=[Depends(require_admin)])
+@router.get("/stats/subscriptions-by-plan", dependencies=[Depends(get_current_admin_user)])
 async def get_subscriptions_by_plan():
     """
     Retorna distribuição de assinaturas por plano
@@ -177,7 +177,7 @@ async def get_subscriptions_by_plan():
     return {"data": formatted_results}
 
 
-@router.get("/stats/revenue-trend", dependencies=[Depends(require_admin)])
+@router.get("/stats/revenue-trend", dependencies=[Depends(get_current_admin_user)])
 async def get_revenue_trend(days: int = 30):
     """
     Retorna tendência de receita nos últimos N dias
@@ -234,7 +234,7 @@ async def get_revenue_trend(days: int = 30):
     }
 
 
-@router.get("/stats/recent-activities", dependencies=[Depends(require_admin)])
+@router.get("/stats/recent-activities", dependencies=[Depends(get_current_admin_user)])
 async def get_recent_activities(limit: int = 10):
     """
     Retorna atividades recentes do sistema
@@ -290,7 +290,7 @@ async def get_recent_activities(limit: int = 10):
     }
 
 
-@router.get("/stats/subscription-status", dependencies=[Depends(require_admin)])
+@router.get("/stats/subscription-status", dependencies=[Depends(get_current_admin_user)])
 async def get_subscription_status():
     """
     Retorna distribuição de assinaturas por status
@@ -320,7 +320,7 @@ async def get_subscription_status():
     }
 
 
-@router.get("/stats/top-users", dependencies=[Depends(require_admin)])
+@router.get("/stats/top-users", dependencies=[Depends(get_current_admin_user)])
 async def get_top_users(limit: int = 10):
     """
     Retorna top usuários (por valor de assinatura ou atividade)

@@ -12,7 +12,7 @@ import secrets
 import hashlib
 
 from app.core.database import get_users_collection
-from app.core.security import hash_password
+from app.core.security import get_password_hash
 from app.core.email import email_service
 from app.utils.audit import log_audit
 
@@ -189,7 +189,7 @@ async def confirm_password_reset(data: PasswordResetConfirmSchema):
             )
 
         # Hash da nova senha
-        password_hash = hash_password(data.new_password)
+        password_hash = get_password_hash(data.new_password)
 
         # Atualizar senha e limpar token
         await users_collection.update_one(

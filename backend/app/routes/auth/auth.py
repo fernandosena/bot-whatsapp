@@ -8,10 +8,10 @@ from typing import Optional
 from datetime import datetime
 from bson import ObjectId
 
-from backend.app.models.user import UserCreate, UserResponse
-from backend.app.models.session import SessionCreate
-from backend.app.core.database import get_users_collection, get_sessions_collection
-from backend.app.core.security import (
+from app.models.user import UserCreate, UserResponse
+from app.models.session import SessionCreate
+from app.core.database import get_users_collection, get_sessions_collection
+from app.core.security import (
     verify_password,
     get_password_hash,
     create_access_token,
@@ -19,9 +19,9 @@ from backend.app.core.security import (
     verify_token,
     generate_device_fingerprint
 )
-from backend.app.utils.soft_delete import find_one_active, soft_delete
-from backend.app.utils.audit import log_login, log_logout
-from backend.app.middleware.auth import get_current_user
+from app.utils.soft_delete import find_one_active, soft_delete
+from app.utils.audit import log_login, log_logout
+from app.middleware.auth import get_current_user
 
 router = APIRouter()
 
