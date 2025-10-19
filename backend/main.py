@@ -12,9 +12,13 @@ from dotenv import load_dotenv
 # Importar conexão MongoDB
 from app.core.database import connect_to_mongo, close_mongo_connection
 
+# Importar scheduler
+from app.core.scheduler import start_scheduler, stop_scheduler
+
 # Importar rotas
 from app.routes.admin import plans as admin_plans_routes
 from app.routes.admin import dashboard as admin_dashboard_routes
+from app.routes.admin import jobs as admin_jobs_routes
 from app.routes.auth import auth as auth_routes
 from app.routes.users import profile as profile_routes
 from app.routes.payments import mercadopago as mercadopago_routes
@@ -31,12 +35,25 @@ async def lifespan(app: FastAPI):
     # Startup
     print("🚀 Iniciando aplicação...")
     await connect_to_mongo()
+
+    # Iniciar scheduler (cron jobs)
+    enable_scheduler = os.getenv("ENABLE_SCHEDULER", "true").lower() == "true"
+    if enable_scheduler:
+        start_scheduler()
+    else:
+        print("⏸ Scheduler desabilitado (ENABLE_SCHEDULER=false)")
+
     print("✅ Aplicação pronta!")
 
     yield
 
     # Shutdown
     print("🛑 Encerrando aplicação...")
+
+    # Parar scheduler
+    if enable_scheduler:
+        stop_scheduler()
+
     await close_mongo_connection()
     print("👋 Aplicação encerrada!")
 
@@ -108,6 +125,7 @@ async def global_exception_handler(request: Request, exc: Exception):
 # Incluir rotas
 app.include_router(admin_plans_routes.router, prefix="/api/admin/plans", tags=["Admin - Plans"])
 app.include_router(admin_dashboard_routes.router, prefix="/api/admin/dashboard", tags=["Admin - Dashboard"])
+app.include_router(admin_jobs_routes.router, prefix="/api/admin/jobs", tags=["Admin - Jobs"])
 app.include_router(auth_routes.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(profile_routes.router, prefix="/api/profile", tags=["User Profile"])
 

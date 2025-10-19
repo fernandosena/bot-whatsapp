@@ -151,21 +151,64 @@ whatsapp-business-saas/
 
 ## 🚀 Instalação
 
-### Pré-requisitos
+### Opção 1: Setup Automático (Recomendado) ⭐
+
+```bash
+# Executar script de setup
+./setup.sh
+
+# Configurar variáveis de ambiente
+nano backend/.env
+nano web/frontend/.env.local
+
+# Iniciar MongoDB
+sudo systemctl start mongod
+
+# Iniciar sistema (backend + frontend)
+./start.sh
+```
+
+**Pronto!** Acesse http://localhost:3000
+
+Ver guia completo: [SCRIPTS_GUIA.md](./SCRIPTS_GUIA.md)
+
+### Opção 2: Docker (Produção) 🐳
+
+```bash
+# Configurar ambiente
+cp .env.docker.example .env.docker
+nano .env.docker
+
+# Iniciar tudo
+docker-compose --env-file .env.docker up -d
+
+# Ver logs
+docker-compose logs -f
+
+# Acessar
+# Frontend: http://localhost:3000
+# Backend:  http://localhost:8000
+# Mongo Express: http://localhost:8081
+```
+
+Ver guia completo: [DOCKER_GUIA.md](./DOCKER_GUIA.md)
+
+### Opção 3: Manual (Desenvolvimento)
+
+#### Pré-requisitos
 
 - Python 3.11+
 - Node.js 18+
 - MongoDB 7.0+
-- Redis 7.0+
 
-### 1. Clone o repositório
+#### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/seu-usuario/whatsapp-business-saas.git
 cd whatsapp-business-saas
 ```
 
-### 2. Backend (FastAPI)
+#### 2. Backend (FastAPI)
 
 ```bash
 cd backend
@@ -185,8 +228,6 @@ cp .env.example .env
 
 # Iniciar servidor
 python main.py
-# ou
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 Backend rodando em: http://localhost:8000
