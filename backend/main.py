@@ -15,6 +15,9 @@ from app.core.database import connect_to_mongo, close_mongo_connection
 # Importar scheduler
 from app.core.scheduler import start_scheduler, stop_scheduler
 
+# Importar rate limiter
+from app.middleware.rate_limit import RateLimitMiddleware, start_rate_limiter, stop_rate_limiter
+
 # Importar rotas
 from app.routes.admin import plans as admin_plans_routes
 from app.routes.admin import dashboard as admin_dashboard_routes
@@ -36,6 +39,9 @@ async def lifespan(app: FastAPI):
     print("🚀 Iniciando aplicação...")
     await connect_to_mongo()
 
+    # Iniciar rate limiter
+    start_rate_limiter()
+
     # Iniciar scheduler (cron jobs)
     enable_scheduler = os.getenv("ENABLE_SCHEDULER", "true").lower() == "true"
     if enable_scheduler:
@@ -49,6 +55,9 @@ async def lifespan(app: FastAPI):
 
     # Shutdown
     print("🛑 Encerrando aplicação...")
+
+    # Parar rate limiter
+    stop_rate_limiter()
 
     # Parar scheduler
     if enable_scheduler:
@@ -74,6 +83,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Configurar Rate Limiting
+app.add_middleware(RateLimitMiddleware)
 
 
 # Middleware para logging de requisições

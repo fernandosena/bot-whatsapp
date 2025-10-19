@@ -261,3 +261,7 @@ async def verify_device_limit(current_user: dict = Depends(get_current_user)):
         )
 
     return current_user
+
+
+# Alias para compatibilidade com rotas admin
+require_admin = Depends(get_current_admin_user)

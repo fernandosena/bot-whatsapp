@@ -630,6 +630,234 @@ class EmailService:
 
         return await self.send_email(user_email, subject, html_content, text_content)
 
+    async def send_password_reset_email(
+        self,
+        user_email: str,
+        user_name: str,
+        reset_link: str,
+        expires_minutes: int
+    ) -> bool:
+        """
+        Envia email de reset de senha
+        """
+        subject = "🔐 Redefinir sua senha"
+
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                }}
+                .container {{
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }}
+                .header {{
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 30px;
+                    text-align: center;
+                    border-radius: 10px 10px 0 0;
+                }}
+                .content {{
+                    background: #f9f9f9;
+                    padding: 30px;
+                    border-radius: 0 0 10px 10px;
+                }}
+                .warning-box {{
+                    background: #fff3cd;
+                    border-left: 4px solid #ffc107;
+                    padding: 15px;
+                    margin: 20px 0;
+                }}
+                .button {{
+                    display: inline-block;
+                    background: #667eea;
+                    color: white;
+                    padding: 12px 30px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    margin: 20px 0;
+                }}
+                .footer {{
+                    text-align: center;
+                    margin-top: 30px;
+                    color: #666;
+                    font-size: 12px;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>🔐 Redefinir Senha</h1>
+                </div>
+                <div class="content">
+                    <p>Olá <strong>{user_name}</strong>,</p>
+
+                    <p>Recebemos uma solicitação para redefinir a senha da sua conta.</p>
+
+                    <div class="warning-box">
+                        <p><strong>Este link expira em {expires_minutes} minutos.</strong></p>
+                    </div>
+
+                    <p>Clique no botão abaixo para criar uma nova senha:</p>
+
+                    <center>
+                        <a href="{reset_link}" class="button">
+                            Redefinir Senha
+                        </a>
+                    </center>
+
+                    <p>Se você não solicitou esta alteração, ignore este email. Sua senha permanecerá a mesma.</p>
+
+                    <p><strong>Por segurança:</strong></p>
+                    <ul>
+                        <li>Nunca compartilhe este link</li>
+                        <li>Use uma senha forte (mínimo 8 caracteres)</li>
+                        <li>Não use a mesma senha de outros sites</li>
+                    </ul>
+
+                    <p>Atenciosamente,<br>
+                    <strong>Equipe WhatsApp Business SaaS</strong></p>
+                </div>
+                <div class="footer">
+                    <p>Este é um email automático, por favor não responda.</p>
+                    <p>&copy; 2025 WhatsApp Business SaaS - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+
+        text_content = f"""
+        Olá {user_name},
+
+        Recebemos uma solicitação para redefinir a senha da sua conta.
+
+        Clique no link abaixo para criar uma nova senha:
+        {reset_link}
+
+        Este link expira em {expires_minutes} minutos.
+
+        Se você não solicitou esta alteração, ignore este email.
+
+        Atenciosamente,
+        Equipe WhatsApp Business SaaS
+        """
+
+        return await self.send_email(user_email, subject, html_content, text_content)
+
+    async def send_password_changed_email(
+        self,
+        user_email: str,
+        user_name: str
+    ) -> bool:
+        """
+        Envia email de confirmação de alteração de senha
+        """
+        subject = "✅ Senha alterada com sucesso"
+
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                }}
+                .container {{
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }}
+                .header {{
+                    background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%);
+                    color: white;
+                    padding: 30px;
+                    text-align: center;
+                    border-radius: 10px 10px 0 0;
+                }}
+                .content {{
+                    background: #f9f9f9;
+                    padding: 30px;
+                    border-radius: 0 0 10px 10px;
+                }}
+                .success-box {{
+                    background: #d4edda;
+                    border-left: 4px solid #48bb78;
+                    padding: 15px;
+                    margin: 20px 0;
+                }}
+                .warning-box {{
+                    background: #fff3cd;
+                    border-left: 4px solid #ffc107;
+                    padding: 15px;
+                    margin: 20px 0;
+                }}
+                .footer {{
+                    text-align: center;
+                    margin-top: 30px;
+                    color: #666;
+                    font-size: 12px;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>✅ Senha Alterada</h1>
+                </div>
+                <div class="content">
+                    <p>Olá <strong>{user_name}</strong>,</p>
+
+                    <div class="success-box">
+                        <p><strong>Sua senha foi alterada com sucesso!</strong></p>
+                    </div>
+
+                    <p>Todas as suas sessões ativas foram encerradas por segurança. Você precisará fazer login novamente com sua nova senha.</p>
+
+                    <div class="warning-box">
+                        <p><strong>Se você não fez esta alteração:</strong></p>
+                        <p>Entre em contato com nosso suporte imediatamente. Sua conta pode estar comprometida.</p>
+                    </div>
+
+                    <p>Atenciosamente,<br>
+                    <strong>Equipe WhatsApp Business SaaS</strong></p>
+                </div>
+                <div class="footer">
+                    <p>Este é um email automático, por favor não responda.</p>
+                    <p>&copy; 2025 WhatsApp Business SaaS - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+
+        text_content = f"""
+        Olá {user_name},
+
+        Sua senha foi alterada com sucesso!
+
+        Todas as suas sessões ativas foram encerradas por segurança.
+
+        Se você não fez esta alteração, entre em contato com nosso suporte imediatamente.
+
+        Atenciosamente,
+        Equipe WhatsApp Business SaaS
+        """
+
+        return await self.send_email(user_email, subject, html_content, text_content)
+
     async def send_welcome_email(
         self,
         user_email: str,
@@ -786,3 +1014,13 @@ async def send_payment_notification(user_email: str, user_name: str, plan_name: 
 async def send_welcome(user_email: str, user_name: str):
     """Envia email de boas-vindas"""
     return await email_service.send_welcome_email(user_email, user_name)
+
+
+async def send_password_reset(user_email: str, user_name: str, reset_link: str, expires_minutes: int):
+    """Envia email de reset de senha"""
+    return await email_service.send_password_reset_email(user_email, user_name, reset_link, expires_minutes)
+
+
+async def send_password_changed(user_email: str, user_name: str):
+    """Envia email de confirmação de alteração de senha"""
+    return await email_service.send_password_changed_email(user_email, user_name)
